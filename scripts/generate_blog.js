@@ -26,13 +26,13 @@ const blogTopics = [
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-async function generateBlogContent(topic) {
+async function generateBlogContent(topic, today) {
     const prompt = `
-你是一个专业的“网络通信优化”、“翻墙科普”与“SEO优化”专家。
+你是一个专业的“网络通信优化”、“翻墙科普”与“SEO优化”专家。当前时间是 ${today}。
 请围绕主题：“${topic}” 编写一篇用于发布在独立站博客上的长文（不少于 1000 字）。
 
 要求：
-1. **必须包含独立的导语（Meta Description 级别）**：在文章开头用一段约 80-100 字的话总结全文，请用 <blockquote> 标签包裹作为导语。
+1. **必须包含独立的导语（Meta Description 级别）**：在文章开头用一段约 80-100 字的话总结全文，请用 <blockquote> 标签包裹作为导语。导语中必须自然地提及今天的日期（${today} 最新更新/实测）。
 2. **丰富的专业知识**：内容必须硬核、专业，能解决用户实际痛点。比如提到具体的协议原理、防封号机制、或具体的解决步骤。
 3. **SEO 关键词穿插**：在正文中自然地穿插相关关键词（如：晚高峰测速、专线机场、原生 IP、流媒体解锁、防跑路等），并将重要的关键词加粗 <strong>。
 4. **输出纯 HTML**：只输出文章的正文 HTML 片段（不要 <html><body> 等外壳），必须包含清晰的 <h2>、<h3> 标题结构，重点内容用 <ul> 或 <ol> 列表。
@@ -150,7 +150,7 @@ async function main() {
         const outputPath = path.join(__dirname, '..', fileName);
 
         console.log(`\n⏳ 正在撰写博客:《${topic}》...`);
-        const content = await generateBlogContent(topic);
+        const content = await generateBlogContent(topic, today);
         
         if (content) {
             let finalHtml = templateHtml.replace(/\{\{TITLE\}\}/g, topic);

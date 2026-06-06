@@ -20,10 +20,10 @@ const affiliateLinks = {
 // 休眠函数，防止触发 API 限流
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-async function generateReviewContent(airportName) {
+async function generateReviewContent(airportName, today) {
     const prompt = `
-你是一个在“科学上网”圈子内拥有 10 年经验的极客测评博主。
-请为名为“${airportName}”的翻墙机场写一篇约 800-1000 字的深度评测文章。为了最大化 SEO 排名和 Affiliate 转化，你的文章必须极具真实感、专业性，并且看似经过了漫长严苛的真实测试。
+你是一个在“科学上网”圈子内拥有 10 年经验的极客测评博主。当前日期是 ${today}。
+请为名为“${airportName}”的翻墙机场写一篇约 800-1000 字的深度评测文章。为了最大化 SEO 排名和 Affiliate 转化，你的文章必须极具真实感、专业性，并且看似经过了漫长严苛的真实测试。必须在开头或正文中自然地提及当前的评测日期（${today}）。
 
 输出格式要求：
 1. 必须且仅输出 HTML 正文片段（不要输出 <html>、<body>、\`\`\`html 等任何包裹符号，直接从 <h2> 开始）。
@@ -90,7 +90,7 @@ async function main() {
         }
 
         console.log(`\n⏳ 正在让 DeepSeek 撰写《${airport}》的评测...`);
-        const content = await generateReviewContent(airport);
+        const content = await generateReviewContent(airport, today);
         
         if (content) {
             // 替换模板中的占位符
