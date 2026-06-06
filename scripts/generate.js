@@ -5,10 +5,18 @@ const axios = require('axios');
 // 从环境变量读取 GitHub Secrets 传进来的 Key
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 
-// 待生成的机场列表 (这里只放了一小部分作为演示，您可以随时把 81 个全部加进去)
+// 待生成的机场列表（已扩充至全部 81 家）
 const airports = [
+    // TOP 5 阵营
     "光速云", "唯兔云", "全球云", "二猫云", "极连云", 
-    "光年梯", "山水云", "星岛梦", "u1s1", "飞猫云"
+    // 顶级专线阵营
+    "WgetCloud", "Nexitally", "AmyTelecom", "MESL", "BitzNet", "SkyLinX", "SpeedCAT", "Fastlink", "SSRDOG", "BoostNet", "Kuromis", "CyberGuard", "GLaDOS", "FlyingBird",
+    // 极致性价比阵营
+    "山水云", "星岛梦", "u1s1", "飞猫云", "秒秒云", "大象网络", "悠兔机场", "鹿语云机场", "VikingLinks", "CoffeeCloud", "YepFast", "EIX", "SSID", "龙猫云机场", "游乐园", "次元链接", "青云梯", "Flashfox", "夜煞云", "贝贝云", "守候网络", "一云梯",
+    // 老牌求稳阵营
+    "光年梯", "FATCAT", "扬帆云", "Web3", "TNTCloud", "蓝帆云", "速云梯", "五树云机场", "飞天猪", "酷酷云机场", "YkkCloud", "尔湾云", "XFLTD", "小鸡快跑机场", "COCODUCK", "疾风云", "Riolu", "BigME", "小旋风机场", "飞机云", "NieRCloud", "奈云", "最萌的云", "蛋挞云",
+    // 新晋潜力阵营
+    "CATNET", "八戒机场", "Anyland", "老猫云机场", "Bridge", "魔戒机场", "Infiniport", "一枝红杏", "iNetS", "Naiu", "泡泡狗机场", "狗狗加速", "XXAI", "ASH", "OKANC", "银河云"
 ];
 
 // 返利链接映射字典
