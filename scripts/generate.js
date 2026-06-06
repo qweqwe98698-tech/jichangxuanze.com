@@ -20,6 +20,21 @@ const affiliateLinks = {
 // 休眠函数，防止触发 API 限流
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
+// IndexNow 强制秒收录推送
+async function pushToIndexNow(urls) {
+    try {
+        await axios.post('https://api.indexnow.org/indexnow', {
+            host: "jichangxuanze.com",
+            key: "f8a4b2c1d9e7f5g6h3i0j1k2l4m5n6p7",
+            keyLocation: "https://jichangxuanze.com/f8a4b2c1d9e7f5g6h3i0j1k2l4m5n6p7.txt",
+            urlList: urls
+        });
+        console.log(`🚀 IndexNow 秒收录推送成功: ${urls.length} 个页面`);
+    } catch (error) {
+        console.error("❌ IndexNow 推送失败:", error.message);
+    }
+}
+
 async function generateReviewContent(airportName, today) {
     const prompt = `
 你是一个在“科学上网”圈子内拥有 10 年经验的极客测评博主。当前日期是 ${today}。
@@ -107,13 +122,14 @@ async function main() {
 
             // 动态注入 sitemap.xml
             const sitemapPath = path.join(__dirname, '..', 'sitemap.xml');
+            let newlyAddedUrl = `https://jichangxuanze.com/${encodeURI(fileName)}`;
             if (fs.existsSync(sitemapPath)) {
                 let sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
-                const urlTag = `<loc>https://jichangxuanze.com/${encodeURI(fileName)}</loc>`;
+                const urlTag = `<loc>${newlyAddedUrl}</loc>`;
                 if (!sitemapContent.includes(urlTag)) {
                     const newUrlEntry = `
     <url>
-        <loc>https://jichangxuanze.com/${encodeURI(fileName)}</loc>
+        <loc>${newlyAddedUrl}</loc>
         <lastmod>${today}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
@@ -124,6 +140,9 @@ async function main() {
                     console.log(`🗺️ 已将 ${fileName} 自动编入站点地图 Sitemap`);
                 }
             }
+            
+            // 立刻推送给搜索引擎
+            await pushToIndexNow([newlyAddedUrl]);
         }
         
         // 暂停 3 秒，避免请求过快被 DeepSeek API 封锁

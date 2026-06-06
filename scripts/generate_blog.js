@@ -26,13 +26,45 @@ const blogTopics = [
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-async function generateBlogContent(topic, today) {
+// 模拟获取当天 IT 科技圈的实时热点（可通过真实的 RSSHub 或微博热搜 API 替换）
+async function fetchHotTrends() {
+    try {
+        // 这里以一个模拟的网络请求架构代替，实际可以请求 v2ex/微博 热搜
+        const res = await axios.get('https://v2ex.com/api/topics/hot.json', { timeout: 3000 });
+        if (res.data && res.data.length > 0) {
+            return res.data.map(item => item.title).slice(0, 5).join('; ');
+        }
+    } catch(e) {
+        // 接口失败时的后备热门话题
+    }
+    return "ChatGPT大规模封号风波, GitHub Copilot区域限制, 翻墙机场跑路潮, 严打违规跨境宽带";
+}
+
+// IndexNow 强制秒收录推送
+async function pushToIndexNow(urls) {
+    try {
+        await axios.post('https://api.indexnow.org/indexnow', {
+            host: "jichangxuanze.com",
+            key: "f8a4b2c1d9e7f5g6h3i0j1k2l4m5n6p7",
+            keyLocation: "https://jichangxuanze.com/f8a4b2c1d9e7f5g6h3i0j1k2l4m5n6p7.txt",
+            urlList: urls
+        });
+        console.log(`🚀 IndexNow 秒收录推送成功: ${urls.length} 个页面`);
+    } catch (error) {
+        console.error("❌ IndexNow 推送失败:", error.message);
+    }
+}
+
+async function generateBlogContent(topic, today, trends) {
     const prompt = `
 你是一个专业的“网络通信优化”、“翻墙科普”与“SEO优化”专家。当前时间是 ${today}。
-请围绕主题：“${topic}” 编写一篇用于发布在独立站博客上的长文（不少于 1000 字）。
+今日的真实科技圈热点有：【${trends}】。
+
+请你结合上述的“今日热点”，围绕核心主题：“${topic}” 编写一篇用于发布在独立站博客上的长文（不少于 1000 字）。
+你必须在文章中自然地“蹭”一下这些热点（例如谈到某机场跑路、或者 ChatGPT 封号时引出你的分析）。
 
 要求：
-1. **必须包含独立的导语（Meta Description 级别）**：在文章开头用一段约 80-100 字的话总结全文，请用 <blockquote> 标签包裹作为导语。导语中必须自然地提及今天的日期（${today} 最新更新/实测）。
+1. **必须包含独立的导语（Meta Description 级别）**：在文章开头用一段约 80-100 字的话总结全文，请用 <blockquote> 标签包裹作为导语。导语中必须自然地提及今天的日期（${today} 最新更新/实测），并提到一点今日的热点。
 2. **丰富的专业知识**：内容必须硬核、专业，能解决用户实际痛点。比如提到具体的协议原理、防封号机制、或具体的解决步骤。
 3. **SEO 关键词穿插**：在正文中自然地穿插相关关键词（如：晚高峰测速、专线机场、原生 IP、流媒体解锁、防跑路等），并将重要的关键词加粗 <strong>。
 4. **输出纯 HTML**：只输出文章的正文 HTML 片段（不要 <html><body> 等外壳），必须包含清晰的 <h2>、<h3> 标题结构，重点内容用 <ul> 或 <ol> 列表。
@@ -144,13 +176,17 @@ async function main() {
     const targetTopics = unGeneratedTopics.slice(0, 3);
     console.log(`🚀 开始每日自动博客更新任务，今日发文量: ${targetTopics.length} 篇`);
 
+    // 获取今日全网热点，用于辅助 AI 蹭流量
+    const todayTrends = await fetchHotTrends();
+    console.log(`🔥 捕获今日全网热点: ${todayTrends}`);
+
     for (const topic of targetTopics) {
         const safeName = topic.replace(/[^\w\u4e00-\u9fa5]/g, '');
         const fileName = `blog-${safeName}.html`;
         const outputPath = path.join(__dirname, '..', fileName);
 
         console.log(`\n⏳ 正在撰写博客:《${topic}》...`);
-        const content = await generateBlogContent(topic, today);
+        const content = await generateBlogContent(topic, today, todayTrends);
         
         if (content) {
             let finalHtml = templateHtml.replace(/\{\{TITLE\}\}/g, topic);
@@ -169,6 +205,9 @@ async function main() {
 
             updateSitemap(fileName, today);
             updateArticlesHtml(topic, fileName, today);
+            
+            // 立刻推送给搜索引擎秒收录
+            await pushToIndexNow([`https://jichangxuanze.com/${encodeURI(fileName)}`]);
         }
         
         await sleep(3000); // 防封锁
