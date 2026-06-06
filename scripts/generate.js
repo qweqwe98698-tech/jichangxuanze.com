@@ -72,10 +72,9 @@ async function main() {
     console.log(`🚀 开始批量生成机场评测文章，总计: ${airports.length} 个...`);
 
     for (const airport of airports) {
-        // 生成纯小写的英文或拼音文件名（为了简单，这里直接转码）
-        // 实际上可以用 pinyin 库转成纯拼音，比如 review-guangsu.html
-        const safeName = airport.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '');
-        const fileName = `review-${encodeURIComponent(safeName)}.html`;
+        // 生成纯净的中文文件名，去掉特殊符号
+        const safeName = airport.replace(/[^\w\u4e00-\u9fa5]/g, '');
+        const fileName = `review-${safeName}.html`;
         const outputPath = path.join(__dirname, '..', fileName);
         
         // 增量生成：如果文件已经存在，就不重新消耗 Token 生成了
@@ -95,6 +94,26 @@ async function main() {
             
             fs.writeFileSync(outputPath, finalHtml);
             console.log(`✅ 成功生成: ${fileName}`);
+
+            // 动态注入 sitemap.xml
+            const sitemapPath = path.join(__dirname, '..', 'sitemap.xml');
+            if (fs.existsSync(sitemapPath)) {
+                let sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
+                const urlTag = `<loc>https://jichangxuanze.com/${encodeURI(fileName)}</loc>`;
+                if (!sitemapContent.includes(urlTag)) {
+                    const newUrlEntry = `
+    <url>
+        <loc>https://jichangxuanze.com/${encodeURI(fileName)}</loc>
+        <lastmod>${today}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+</urlset>`;
+                    sitemapContent = sitemapContent.replace('</urlset>', newUrlEntry);
+                    fs.writeFileSync(sitemapPath, sitemapContent);
+                    console.log(`🗺️ 已将 ${fileName} 自动编入站点地图 Sitemap`);
+                }
+            }
         }
         
         // 暂停 3 秒，避免请求过快被 DeepSeek API 封锁

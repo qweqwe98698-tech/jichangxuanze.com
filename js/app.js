@@ -92,7 +92,16 @@ function displayFinalResult() {
     }
 
     // 动态更新返利链接
-    document.getElementById('result-aff-link').href = airportLinks[resultName.innerText] || '#';
+    const finalAirport = resultName.innerText;
+    document.getElementById('result-aff-link').href = airportLinks[finalAirport] || '#';
+
+    // 动态更新深度评测页面链接
+    const safeReviewName = finalAirport.replace(/[^\w\u4e00-\u9fa5]/g, '');
+    const reviewBtn = document.getElementById('result-review-link');
+    if(reviewBtn) {
+        reviewBtn.href = 'review-' + safeReviewName + '.html';
+        reviewBtn.innerText = '📄 查看 ' + finalAirport + ' 深度评测';
+    }
 }
 
 function resetMatcher() {
@@ -231,6 +240,12 @@ function displayDynamicResult() {
     
     // 动态更新返利链接
     document.getElementById('dynamic-aff-link').href = airportLinks[currentDynamicTarget] || '#';
+
+    // 动态更新评测内链
+    const safeReviewName = currentDynamicTarget.replace(/[^\w\u4e00-\u9fa5]/g, '');
+    const reviewBtn = document.getElementById('dynamic-review-link');
+    reviewBtn.href = 'review-' + safeReviewName + '.html';
+    reviewBtn.innerText = '📄 查看 ' + currentDynamicTarget + ' 深度评测';
 }
 
 // ====== 教程选项卡切换逻辑 ======
