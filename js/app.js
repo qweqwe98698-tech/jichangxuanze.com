@@ -2,10 +2,10 @@
 
 // 机场推广链接配置库 (请替换为您的真实返利链接)
 const airportLinks = {
-    '光速云': 'https://example.com/aff=guangsu',
+    '光速云': 'https://qwerty.gsyaff.com/#/?code=keqgvT5Y',
     '唯兔云': 'https://example.com/aff=weitu',
     '全球云': 'https://example.com/aff=quanqiu',
-    '二猫云': 'https://example.com/aff=ermao',
+    '二猫云': 'https://01.2maoyunaff.cc/#/register?code=ap0f4ZNt',
     '极连云': 'https://example.com/aff=jilian'
 };
 

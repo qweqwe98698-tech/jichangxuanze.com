@@ -11,6 +11,12 @@ const airports = [
     "光年梯", "山水云", "星岛梦", "u1s1", "飞猫云"
 ];
 
+// 返利链接映射字典
+const affiliateLinks = {
+    '光速云': 'https://qwerty.gsyaff.com/#/?code=keqgvT5Y',
+    '二猫云': 'https://01.2maoyunaff.cc/#/register?code=ap0f4ZNt'
+};
+
 // 休眠函数，防止触发 API 限流
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -91,6 +97,10 @@ async function main() {
             let finalHtml = templateHtml.replace(/\{\{AIRPORT_NAME\}\}/g, airport);
             finalHtml = finalHtml.replace(/\{\{DATE\}\}/g, today);
             finalHtml = finalHtml.replace(/\{\{CONTENT\}\}/g, content);
+            
+            // 植入返利链接
+            const affLink = affiliateLinks[airport] || '#';
+            finalHtml = finalHtml.replace(/\{\{AFF_LINK\}\}/g, affLink);
             
             fs.writeFileSync(outputPath, finalHtml);
             console.log(`✅ 成功生成: ${fileName}`);
