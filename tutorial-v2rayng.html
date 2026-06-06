@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v2rayNG 安卓手机配置教程 | 云端甄选</title>
+    <meta name="description" content="安卓手机如何配置翻墙节点？2026 最新版 v2rayNG 保姆级小白图文教程，两分钟快速上网。">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .article-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid var(--color-border);
+        }
+        .article-title {
+            font-size: 36px;
+            color: var(--color-secondary);
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+        .article-meta {
+            display: flex;
+            gap: 16px;
+            color: var(--color-text-light);
+            font-size: 14px;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .ad-box {
+            background: rgba(182, 141, 64, 0.05);
+            border: 2px dashed rgba(182, 141, 64, 0.4);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .ad-box p {
+            color: var(--color-secondary);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        .article-content h2 {
+            font-size: 24px;
+            color: var(--color-secondary);
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .article-content h2::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background: var(--color-primary);
+            border-radius: 4px;
+        }
+        .article-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--color-text);
+            margin-bottom: 20px;
+        }
+        .article-content strong {
+            color: var(--color-secondary);
+        }
+        .step-box {
+            background: var(--color-bg);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            margin-bottom: 24px;
+            border-left: 4px solid var(--color-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 8px;">
+                    <span class="logo-icon">✨</span>
+                    <span class="logo-text">云端甄选 <span style="font-weight: 400; font-size: 16px; opacity: 0.8;">| 智能机场匹配</span></span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">工具矩阵</a>
+                <a href="ranking.html">权威榜单</a>
+                <a href="index.html#tutorials" class="active">配置教程</a>
+                <a href="about.html">关于我</a>
+            </div>
+            <div class="nav-action">
+                <a href="ranking.html" class="btn btn-primary btn-small">本周限时特惠</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="article-container">
+            <h1 class="article-title">🤖 Android 安卓手机翻墙：v2rayNG 保姆级傻瓜图文教程</h1>
+            <div class="article-meta">
+                <span>更新时间：2026-06-06</span>
+                <span>阅读时间：约 2 分钟</span>
+                <span>适用设备：所有 Android 手机及平板</span>
+            </div>
+
+            <div class="ad-box">
+                <p>⚠️ 注意：再好用的软件也需要稳定的机场节点做支撑。本教程为了保证操作百分百成功，全程使用性价比王者 <strong>【唯兔云】</strong> 作为演示。请先准备好节点再开始操作。</p>
+                <a href="javascript:alert('请替换为唯兔云的真实返利链接')" class="btn btn-primary">👉 获取唯兔云高性价比节点套餐</a>
+            </div>
+
+            <div class="article-content">
+                <h2>前言：安卓最强客户端</h2>
+                <p>在安卓生态中，有许多翻墙软件，例如 Clash for Android（已停更）、Surfboard 等。但对于小白来说，最老牌、最稳定、最不容易出错的软件一定是 <strong>v2rayNG</strong>。它占用内存小，省电，且支持几乎所有的主流节点协议。</p>
+
+                <h2>第一步：下载并安装 v2rayNG</h2>
+                <div class="step-box">
+                    <p>1. 如果您有 Google Play 商店，直接搜索“v2rayNG”进行下载即可。</p>
+                    <p>2. 如果没有，您可以前往官方仓库直接下载最新版 APK 安装包：<a href="#" style="color: var(--color-primary); text-decoration: underline;">v2rayNG APK 官方下载页</a>。</p>
+                    <p>3. 下载后在手机里直接点击安装，遇到“未知来源”提示请选择“允许安装”。</p>
+                </div>
+
+                <h2>第二步：复制并导入机场订阅</h2>
+                <p>不同于苹果手机的自动跳转，安卓有时候用复制链接的方式更稳妥：</p>
+                <div class="step-box">
+                    <p>1. 打开您购买的 <strong><a href="#" style="color: var(--color-primary);">唯兔云官网</a></strong>，登录并进入首页面板。</p>
+                    <p>2. 在用户中心找到 <strong>【一键订阅】</strong>，点击 <strong>【复制订阅链接】</strong> 或 <strong>【复制 V2ray 订阅】</strong>，此时链接已复制到您的手机剪贴板。</p>
+                    <p>3. 打开刚才安装好的 <strong>v2rayNG</strong> 软件。</p>
+                    <p>4. 点击软件左上角的 <strong>【三条横线 (菜单)】</strong>，选择 <strong>【订阅分组设置】</strong>。</p>
+                    <p>5. 点击右上角的 <strong>【+】号</strong> 添加新订阅：备注随便填（比如“唯兔云”），将刚才复制的链接粘贴到 <strong>【可选地址 (url)】</strong> 那一栏，点击右上角保存（✔️）。</p>
+                </div>
+
+                <h2>第三步：更新订阅与连接节点</h2>
+                <p>链接存进去后，我们需要把节点拉取下来：</p>
+                <div class="step-box">
+                    <p>1. 回到 v2rayNG 的主界面，点击右上角的 <strong>【三个点 (更多菜单)】</strong>。</p>
+                    <p>2. 选择 <strong>【更新订阅】</strong>。稍等两秒，屏幕上就会刷拉拉出现几十个国家地区的节点列表。</p>
+                    <p>3. 在列表中随便点击一个节点（比如“香港 01”），该节点左侧会亮起绿色的竖条，表示被选中。</p>
+                    <p>4. 点击屏幕右下角的 <strong>大圆圈“V”字图标</strong>。第一次连接会提示建立 VPN 代理请求，点击 <strong>“确定”</strong>。</p>
+                </div>
+
+                <h2>大功告成！🎉</h2>
+                <p>此时，右下角的 V 字圆圈变成了实心或者绿色，手机顶部状态栏也出现了 <strong>VPN</strong> 或钥匙图标，这说明您已经彻底冲出局域网了！您可以打开谷歌浏览器搜索一下，体验唯兔云的极速网络。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer-content" style="padding: 40px 0;">
+            <p>&copy; 2026 jichangxuanze.com 云端甄选. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

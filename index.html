@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云端甄选 | 智能机场匹配 - 科学上网节点推荐与检测工具</title>
+    <meta name="description" content="2026最新机场节点推荐。提供机场智能匹配器、性价比计算器、跑路风险检测、ChatGPT/流媒体解锁专线选择器等实用工具，助您精准挑选最适合的科学上网节点。">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 引入字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- SEO 权重优化标签 -->
+    <link rel="canonical" href="https://jichangxuanze.com/" />
+    
+    <!-- JSON-LD 结构化数据 (有助于获取谷歌富文本搜索结果) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "云端甄选 - 智能机场匹配平台",
+      "url": "https://jichangxuanze.com/",
+      "description": "专业的科学上网节点推荐与硬核测速评测平台，提供全平台翻墙客户端配置教程。",
+      "publisher": {
+        "@type": "Organization",
+        "name": "云端甄选测速团队"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">云端甄选 <span style="font-weight: 400; font-size: 16px; opacity: 0.8;">| 智能机场匹配</span></span>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="active">工具矩阵</a>
+                <a href="ranking.html">权威榜单</a>
+                <a href="reviews.html">深度评测</a>
+                <a href="articles.html">最新资讯</a>
+                <a href="index.html#tutorials">配置教程</a>
+                <a href="about.html">关于我</a>
+            </nav>
+            <div class="nav-action">
+                <button class="btn btn-primary btn-small">本周限时特惠</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-badge">2026 全新升级 · 专注高端专线评估</div>
+            <h1 class="hero-title">不再盲目看评测<br>用<span class="text-gold">工具</span>找到您的专属节点</h1>
+            <p class="hero-desc">我们摒弃了长篇大论的软文，打造了 6 款智能评估工具。无论是追求 4K 秒开、原生 AI 解锁，还是看重极致性价比，只需几次点击，即刻为您匹配最完美的科学上网方案。</p>
+            <div class="hero-actions">
+                <a href="#tool-matcher" class="btn btn-primary btn-large">开始智能匹配</a>
+                <a href="#tools" class="btn btn-outline btn-large">浏览所有工具</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工具矩阵区域 -->
+    <section id="tools" class="tools-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">专业甄选工具矩阵</h2>
+                <p class="section-subtitle">基于海量测速数据与独家算法，为您解决选择难题。</p>
+            </div>
+
+            <div class="tools-grid">
+                <!-- 1. 智能匹配器 -->
+                <div class="tool-card" id="tool-matcher">
+                    <div class="tool-icon">🎯</div>
+                    <h3 class="tool-title">机场节点智能匹配器</h3>
+                    <p class="tool-desc">基于用途、预算、设备与地区偏好，运用智能算法为您一键筛选 Top 1 尊享线路。</p>
+                    <div class="tool-meta">
+                        <span class="tag">核心工具</span>
+                        <span class="tag">极速推荐</span>
+                    </div>
+                    <button class="btn btn-primary tool-btn" onclick="openMatcherModal()">获取专属配置</button>
+                </div>
+
+                <!-- 2. 性价比计算器 -->
+                <div class="tool-card">
+                    <div class="tool-icon">💰</div>
+                    <h3 class="tool-title">机场套餐性价比计算器</h3>
+                    <p class="tool-desc">告别隐形消费。动态计算单 GB 真实价格与月结余，为您找出同价位更优解。</p>
+                    <div class="tool-meta">
+                        <span class="tag">避坑指南</span>
+                        <span class="tag">数据可视化</span>
+                    </div>
+                    <button class="btn btn-outline tool-btn" onclick="openDynamicModal('calc')">查看高性价比排行</button>
+                </div>
+
+                <!-- 3. 跑路风险检测器 -->
+                <div class="tool-card">
+                    <div class="tool-icon">🛡️</div>
+                    <h3 class="tool-title">机场跑路风险检测器</h3>
+                    <p class="tool-desc">全网首创！根据年付折扣率、域名寿命、节点稳定性等因子，一键检测灵车风险。</p>
+                    <div class="tool-meta">
+                        <span class="tag">权威评估</span>
+                        <span class="tag">本周更新</span>
+                    </div>
+                    <button class="btn btn-dark tool-btn" onclick="openDynamicModal('risk')">前往安全认证机场库</button>
+                </div>
+
+                <!-- 4. ChatGPT 选择器 -->
+                <div class="tool-card">
+                    <div class="tool-icon">🤖</div>
+                    <h3 class="tool-title">ChatGPT 节点选择器</h3>
+                    <p class="tool-desc">针对 OpenAI / Claude 等 AI 工具专属优化。精准筛选 100% 家宽原生 IP 节点。</p>
+                    <div class="tool-meta">
+                        <span class="tag">防封号</span>
+                        <span class="tag">原生IP</span>
+                    </div>
+                    <button class="btn btn-primary tool-btn" onclick="openDynamicModal('chatgpt')">一键解锁 AI 自由</button>
+                </div>
+
+                <!-- 5. 流媒体解锁器 -->
+                <div class="tool-card">
+                    <div class="tool-icon">🎬</div>
+                    <h3 class="tool-title">流媒体解锁选择器</h3>
+                    <p class="tool-desc">想看 Netflix 日本区？根据流媒体平台和画质需求，为您锁定晚高峰 4K 秒开专线。</p>
+                    <div class="tool-meta">
+                        <span class="tag">Netflix认证</span>
+                        <span class="tag">4K极速</span>
+                    </div>
+                    <button class="btn btn-dark tool-btn" onclick="openDynamicModal('stream')">开启 4K 极速体验</button>
+                </div>
+
+                <!-- 6. 客户端选择助手 -->
+                <div class="tool-card">
+                    <div class="tool-icon">⚙️</div>
+                    <h3 class="tool-title">客户端选择助手</h3>
+                    <p class="tool-desc">Clash 不能用了？根据您的设备系统和熟悉程度，为您匹配最佳科学上网客户端与教程。</p>
+                    <div class="tool-meta">
+                        <span class="tag">小白福音</span>
+                        <span class="tag">最新教程</span>
+                    </div>
+                    <button class="btn btn-outline tool-btn" onclick="openDynamicModal('client')">获取教程 & 免费下载</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户端配置教程 -->
+    <section id="tutorials" class="tutorials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">全平台客户端配置教程</h2>
+                <p class="section-subtitle">告别繁琐代码，3 分钟实现全平台设备一键无脑托管。</p>
+            </div>
+            
+            <div class="tutorials-tabs">
+                <button class="tab-btn active" onclick="switchTutorial('ios')">📱 iOS 苹果手机</button>
+                <button class="tab-btn" onclick="switchTutorial('win')">🖥️ Windows 电脑</button>
+                <button class="tab-btn" onclick="switchTutorial('mac')">🍏 macOS 苹果</button>
+                <button class="tab-btn" onclick="switchTutorial('android')">🤖 Android 安卓</button>
+            </div>
+
+            <div class="tutorials-content">
+                <!-- iOS 教程卡片 -->
+                <div class="tutorial-panel active" id="tut-ios">
+                    <div class="tut-card-inner">
+                        <div class="tut-icon">🚀</div>
+                        <div class="tut-info">
+                            <h3>Shadowrocket (小火箭) 终极配置指南</h3>
+                            <p>国区 App Store 无法下载？一文教你如何获取美区 ID 并完成一键节点导入，解锁丝滑外网体验。</p>
+                            <div class="tut-meta">
+                                <span>难度：⭐</span>
+                                <span>耗时：3 分钟</span>
+                            </div>
+                        </div>
+                        <a href="tutorial-shadowrocket.html" class="btn btn-primary tut-action" style="white-space: nowrap;">阅读完整教程</a>
+                    </div>
+                </div>
+
+                <!-- Windows 教程卡片 -->
+                <div class="tutorial-panel" id="tut-win">
+                    <div class="tut-card-inner">
+                        <div class="tut-icon">⚡</div>
+                        <div class="tut-info">
+                            <h3>Clash Verge Rev 零基础入门</h3>
+                            <p>全面替代老版 Clash for Windows，采用更高效的 Meta 内核，自带中文，支持一键无脑导入。</p>
+                            <div class="tut-meta">
+                                <span>难度：⭐</span>
+                                <span>耗时：2 分钟</span>
+                            </div>
+                        </div>
+                        <a href="tutorial-clash-verge.html" class="btn btn-primary tut-action" style="white-space: nowrap;">阅读完整教程</a>
+                    </div>
+                </div>
+
+                <!-- Mac 教程卡片 -->
+                <div class="tutorial-panel" id="tut-mac">
+                    <div class="tut-card-inner">
+                        <div class="tut-icon">🌊</div>
+                        <div class="tut-info">
+                            <h3>ClashX Pro / Surge 高级玩家配置</h3>
+                            <p>榨干 Mac 的网络性能，实现家庭网络全接管，搭配光速云体验物理级直连快感。</p>
+                            <div class="tut-meta">
+                                <span>难度：⭐⭐</span>
+                                <span>耗时：5 分钟</span>
+                            </div>
+                        </div>
+                        <a href="tutorial-clashx-pro.html" class="btn btn-primary tut-action" style="white-space: nowrap;">阅读完整教程</a>
+                    </div>
+                </div>
+
+                <!-- Android 教程卡片 -->
+                <div class="tutorial-panel" id="tut-android">
+                    <div class="tut-card-inner">
+                        <div class="tut-icon">🛸</div>
+                        <div class="tut-info">
+                            <h3>v2rayNG 安卓保姆级傻瓜教程</h3>
+                            <p>抛弃繁琐的手动配置，扫码/复制链接一键添加所有节点，智能路由国内直连国外代理。</p>
+                            <div class="tut-meta">
+                                <span>难度：⭐</span>
+                                <span>耗时：2 分钟</span>
+                            </div>
+                        </div>
+                        <a href="tutorial-v2rayng.html" class="btn btn-primary tut-action" style="white-space: nowrap;">阅读完整教程</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 底部版权 -->
+    <footer class="footer">
+        <div class="container friend-links">
+            <span class="friend-links-title">推荐阅读：</span>
+            <a href="https://clashwiki.cc/" target="_blank" title="机场推荐科学上网教程">机场推荐科学上网教程</a>
+            <a href="https://vpnsgocn.com/" target="_blank" title="高性价比机场推荐指南">高性价比机场推荐指南</a>
+        </div>
+        
+        <div class="container" style="padding: 32px 0 16px; border-bottom: 1px solid rgba(182,141,64,0.1); margin-bottom: 16px;">
+            <p style="font-size: 13px; color: var(--color-text-light); line-height: 1.8; text-align: justify;">
+                <strong>合规免责声明：</strong>本站（jichangxuanze.com）为非盈利性质的技术测速与网络优化交流平台。本站不提供、不售卖、不架设任何涉及越过国家网络审查的 VPN 或代理服务。站内出现的所有跑速图表与网络分析仅供外贸电商、学术研究及跨境开发者参考。请访客严格遵守所在国家或地区的法律法规，切勿将网络优化工具用于任何非法用途，违者一切后果由访客自行承担。
+            </p>
+        </div>
+
+        <div class="container footer-content">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <p>&copy; 2026 jichangxuanze.com 云端甄选. All rights reserved.</p>
+                <p style="font-size: 12px; color: #a1a1aa;">专注轻奢体验 · 全网最客观的专线评测数据引擎</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://t.me/your_telegram_channel" target="_blank" style="color: var(--color-primary); font-weight: 600;">✈️ 加入 TG 交流群</a>
+                <a href="#">免责声明</a>
+                <a href="#">隐私政策</a>
+                <a href="mailto:contact@jichangxuanze.com">商业合作</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 智能匹配器弹窗 (第一个工具专属) -->
+    <div class="modal-overlay" id="matcher-modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeMatcherModal()">✕</div>
+            
+            <div class="step-pane active" id="step-1">
+                <h3 class="step-title">您的主要用途是什么？</h3>
+                <p class="step-desc">算法将根据不同用途过滤出拥有特定优势的节点。</p>
+                <div class="options-grid">
+                    <div class="option-btn" onclick="selectOption('usage', 'video', this)">🎬 流媒体看剧</div>
+                    <div class="option-btn" onclick="selectOption('usage', 'ai', this)">🤖 AI 与跨境</div>
+                    <div class="option-btn" onclick="selectOption('usage', 'gaming', this)">🎮 外服游戏</div>
+                    <div class="option-btn" onclick="selectOption('usage', 'normal', this)">🌐 轻度浏览</div>
+                </div>
+            </div>
+
+            <div class="step-pane" id="step-2">
+                <h3 class="step-title">您的心理预算区间？</h3>
+                <p class="step-desc">只推荐在您预算范围内性价比最高的专线。</p>
+                <div class="options-grid full">
+                    <div class="option-btn" onclick="selectOption('budget', 'low', this)">极致性价比 (￥15以内/月)</div>
+                    <div class="option-btn" onclick="selectOption('budget', 'medium', this)">均衡主力 (￥15 - ￥30/月)</div>
+                    <div class="option-btn" onclick="selectOption('budget', 'high', this)">高端尊享 (￥30以上/月)</div>
+                </div>
+            </div>
+
+            <div class="step-pane loading-box" id="step-loading">
+                <div class="spinner">✨</div>
+                <h3 class="step-title">正在匹配全网测速库...</h3>
+                <p class="step-desc">运用独家算法为您筛选最佳节点</p>
+                <div class="progress-bar"><div class="progress-fill" id="matcher-progress"></div></div>
+            </div>
+
+            <div class="step-pane" id="step-result">
+                <div class="result-badge">匹配度 98%</div>
+                <h3 class="result-name" id="result-name">光速云</h3>
+                <p class="result-desc" id="result-desc">99.9% SLA 顶级专线，8K 秒开，无可挑剔的王者体验。</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px;">
+                    <a href="#" id="result-aff-link" target="_blank" class="btn btn-primary" style="width: 100%; font-weight: 600;">👉 直达官网获取特惠</a>
+                    <a href="ranking.html" class="btn btn-outline" style="width: 100%;">📄 查看详细测速报告</a>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <a href="javascript:void(0)" onclick="resetMatcher()" style="font-size: 13px; color: var(--color-text-light); text-decoration: underline;">重新匹配</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 通用动态弹窗 (用于其余 5 个工具) -->
+    <div class="modal-overlay" id="dynamic-modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeDynamicModal()">✕</div>
+            
+            <div class="step-pane active" id="dynamic-step">
+                <h3 class="step-title" id="dynamic-title">加载中...</h3>
+                <p class="step-desc" id="dynamic-desc">请稍候</p>
+                <div class="options-grid full" id="dynamic-options">
+                    <!-- 动态注入按钮 -->
+                </div>
+            </div>
+
+            <div class="step-pane loading-box" id="dynamic-loading">
+                <div class="spinner">⚙️</div>
+                <h3 class="step-title">正在计算结果...</h3>
+                <p class="step-desc">即将出具专业建议</p>
+                <div class="progress-bar"><div class="progress-fill" id="dynamic-progress"></div></div>
+            </div>
+
+            <div class="step-pane" id="dynamic-result">
+                <div class="result-badge" style="background: var(--color-secondary);">专业推荐</div>
+                <h3 class="result-name" id="dynamic-result-name">获取中...</h3>
+                <p class="result-desc" id="dynamic-result-desc">匹配最适合您的专线。</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px;">
+                    <a href="#" id="dynamic-aff-link" target="_blank" class="btn btn-primary" style="width: 100%; font-weight: 600;">👉 直达官网获取特惠</a>
+                    <a href="ranking.html" class="btn btn-outline" style="width: 100%;">📄 查看详细测速报告</a>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <a href="javascript:void(0)" onclick="resetDynamicModal()" style="font-size: 13px; color: var(--color-text-light); text-decoration: underline;">重新测算</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>

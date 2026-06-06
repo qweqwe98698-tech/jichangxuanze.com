@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全网机场深度评测报告 | 云端甄选</title>
+    <meta name="description" content="云端甄选独家硬核机场评测库。为您提供 81 家主流机场的晚高峰测速、流媒体解锁测试与真实性价比分析报告。">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .page-header {
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+        .page-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--color-secondary);
+            margin-bottom: 16px;
+        }
+        .page-desc {
+            font-size: 18px;
+            color: var(--color-text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .filter-tag {
+            padding: 8px 20px;
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--color-text);
+            transition: var(--transition);
+        }
+        .filter-tag:hover, .filter-tag.active {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            background: rgba(182, 141, 64, 0.05);
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .review-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            border-color: rgba(182, 141, 64, 0.3);
+        }
+
+        .review-cover {
+            height: 160px;
+            background: linear-gradient(135deg, #1F2937, #374151);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .review-cover.gold { background: linear-gradient(135deg, #B68D40, #D4AF37); }
+        .review-cover.silver { background: linear-gradient(135deg, #9CA3AF, #D1D5DB); }
+
+        .airport-name-lg {
+            font-size: 32px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        .score-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .review-body {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-title {
+            font-size: 20px;
+            color: var(--color-secondary);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .review-excerpt {
+            color: var(--color-text-light);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .review-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .review-meta span {
+            background: var(--color-bg);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+        }
+
+        .review-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--color-border);
+            padding-top: 16px;
+        }
+
+        .read-more {
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.3s ease;
+        }
+
+        .review-card:hover .read-more {
+            gap: 8px;
+        }
+        
+        .update-time {
+            font-size: 12px;
+            color: var(--color-text-light);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 100px;
+        }
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-border);
+            background: var(--color-white);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .page-btn.active, .page-btn:hover {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 8px;">
+                    <span class="logo-icon">✨</span>
+                    <span class="logo-text">云端甄选 <span style="font-weight: 400; font-size: 16px; opacity: 0.8;">| 智能机场匹配</span></span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">工具矩阵</a>
+                <a href="ranking.html">权威榜单</a>
+                <a href="reviews.html" class="active">深度评测</a>
+                <a href="articles.html">最新资讯</a>
+                <a href="index.html#tutorials">配置教程</a>
+            </div>
+            <div class="nav-action">
+                <a href="ranking.html" class="btn btn-primary btn-small">本周限时特惠</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">全网机场深度评测库</h1>
+            <p class="page-desc">我们为您拆解 81 家主流机场的底层架构。不看广告，只看晚高峰测速、流媒体解锁与底层协议的硬核分析。</p>
+        </div>
+
+        <div class="filter-bar">
+            <div class="filter-tag active">全部评测</div>
+            <div class="filter-tag">顶级专线</div>
+            <div class="filter-tag">高性价比</div>
+            <div class="filter-tag">全能解锁</div>
+            <div class="filter-tag">新晋黑马</div>
+        </div>
+
+        <div class="review-grid">
+            <!-- 评测卡片 1 -->
+            <div class="review-card">
+                <div class="review-cover gold">
+                    <div class="score-badge">评分: 9.9</div>
+                    <span class="airport-name-lg">光速云</span>
+                </div>
+                <div class="review-body">
+                    <h2 class="review-title">光速云深度评测：为何它能稳居 2026 测速榜首？</h2>
+                    <div class="review-meta">
+                        <span>IEPL专线</span>
+                        <span>原生IP</span>
+                        <span>晚高峰不限速</span>
+                    </div>
+                    <p class="review-excerpt">在长达 30 天的晚高峰丢包测试中，光速云交出了 0.01% 的恐怖答卷。本文将详细为您拆解其背后的跨境 BGP 架构逻辑...</p>
+                    <div class="review-action">
+                        <a href="#" class="read-more">阅读完整报告 →</a>
+                        <span class="update-time">昨天更新</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 评测卡片 2 -->
+            <div class="review-card">
+                <div class="review-cover silver">
+                    <div class="score-badge">评分: 9.7</div>
+                    <span class="airport-name-lg">唯兔云</span>
+                </div>
+                <div class="review-body">
+                    <h2 class="review-title">唯兔云 30 天实测：15 元价位段最强“守门员”？</h2>
+                    <div class="review-meta">
+                        <span>公网隧道</span>
+                        <span>高性价比</span>
+                        <span>流媒体专精</span>
+                    </div>
+                    <p class="review-excerpt">市面上便宜的机场很多，但能在 15 元价位做到 4K 秒开且不轻易失联的屈指可数。唯兔云到底动了什么技术手脚？</p>
+                    <div class="review-action">
+                        <a href="#" class="read-more">阅读完整报告 →</a>
+                        <span class="update-time">3 天前更新</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 评测卡片 3 -->
+            <div class="review-card">
+                <div class="review-cover">
+                    <div class="score-badge">评分: 9.6</div>
+                    <span class="airport-name-lg">全球云</span>
+                </div>
+                <div class="review-body">
+                    <h2 class="review-title">全球云评测：AI 与跨境电商运营的终极网络武器</h2>
+                    <div class="review-meta">
+                        <span>极低欺诈分</span>
+                        <span>家宽/原生IP</span>
+                        <span>TikTok防封</span>
+                    </div>
+                    <p class="review-excerpt">还在因为 IP 不纯净导致 ChatGPT 封号？我们测试了全球云的 50+ 个节点，其 IP 纯净度远超行业平均水平...</p>
+                    <div class="review-action">
+                        <a href="#" class="read-more">阅读完整报告 →</a>
+                        <span class="update-time">上周更新</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 评测卡片 4 -->
+            <div class="review-card">
+                <div class="review-cover">
+                    <div class="score-badge">评分: 9.5</div>
+                    <span class="airport-name-lg">二猫云</span>
+                </div>
+                <div class="review-body">
+                    <h2 class="review-title">二猫云评测：电竞级 28ms 延迟是如何做到的？</h2>
+                    <div class="review-meta">
+                        <span>超低延迟</span>
+                        <span>游戏加速</span>
+                        <span>亚太精品网</span>
+                    </div>
+                    <p class="review-excerpt">打外服游戏最怕的就是跳 ping。我们使用二猫云的香港节点直连亚服，实测延迟稳定在惊人的 28ms，它是怎么优化的？</p>
+                    <div class="review-action">
+                        <a href="#" class="read-more">阅读完整报告 →</a>
+                        <span class="update-time">上周更新</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 评测卡片 5 -->
+            <div class="review-card">
+                <div class="review-cover">
+                    <div class="score-badge">评分: 9.4</div>
+                    <span class="airport-name-lg">极连云</span>
+                </div>
+                <div class="review-body">
+                    <h2 class="review-title">极连云评测：月均 10 元享受 10Gbps 超大带宽跑量</h2>
+                    <div class="review-meta">
+                        <span>大流量跑量</span>
+                        <span>10G带宽</span>
+                        <span>性价比神盘</span>
+                    </div>
+                    <p class="review-excerpt">对于重度下载用户，按流量计费总是不够用。极连云提供了令人发指的超大流量套餐，而我们测试了它的实际达标率...</p>
+                    <div class="review-action">
+                        <a href="#" class="read-more">阅读完整报告 →</a>
+                        <span class="update-time">2 周前更新</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 评测卡片 6 -->
+            <div class="review-card">
+                <div class="review-cover">
+                    <div class="score-badge">评分: 8.8</div>
+                    <span class="airport-name-lg">光年梯</span>
+                </div>
+                <div class="review-body">
+                    <h2 class="review-title">光年梯网络质量分析：老牌机场是否廉颇老矣？</h2>
+                    <div class="review-meta">
+                        <span>老牌机场</span>
+                        <span>冷门节点多</span>
+                        <span>V2ray</span>
+                    </div>
+                    <p class="review-excerpt">作为运营了超过 3 年的老牌场子，光年梯在最近的表现略显疲软。通过我们的测速追踪，发现了它目前存在的一些短板...</p>
+                    <div class="review-action">
+                        <a href="#" class="read-more">阅读完整报告 →</a>
+                        <span class="update-time">2 周前更新</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 占位分页 -->
+        <div class="pagination">
+            <div class="page-btn active">1</div>
+            <div class="page-btn">2</div>
+            <div class="page-btn">3</div>
+            <div class="page-btn">...</div>
+            <div class="page-btn">14</div>
+        </div>
+    </div>
+
+    <!-- 底部版权 -->
+    <footer class="footer">
+        <div class="container footer-content" style="padding: 40px 0;">
+            <p>&copy; 2026 jichangxuanze.com 云端甄选. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
