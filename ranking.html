@@ -41,9 +41,12 @@
                 <p class="section-subtitle">从 81 家机场中经过严格晚高峰测速、跑路风险排查脱颖而出的顶级专线。</p>
             </div>
 
-            <!-- Top 5 主推 -->
-            <div class="top5-grid">
-                <!-- Top 1 -->
+        <div class="ranking-layout">
+            <!-- 左侧主内容区 -->
+            <div class="ranking-main">
+                <!-- Top 5 主推 -->
+                <div class="top5-grid" id="cat-top5">
+                    <!-- Top 1 -->
                 <div class="top-card rank-1">
                     <div class="rank-badge gold">NO.1</div>
                     <div class="top-card-content">
@@ -145,7 +148,7 @@
                 <p class="other-desc">以下机场均经过本站机器扫描与历史测速追踪。您可以在我们的“智能匹配器”工具中检索到它们的数据。</p>
                 <div class="directory-grid">
                     <!-- 顶级专线分类 -->
-                    <div class="directory-group">
+                    <div class="directory-group" id="cat-premium">
                         <h4 class="dir-title">⚡ 顶级专线阵营</h4>
                         <div class="dir-links">
                             <a href="review-WgetCloud.html" class="dir-link">WgetCloud 全球加速</a>
@@ -166,7 +169,7 @@
                     </div>
                     
                     <!-- 高性价比分类 -->
-                    <div class="directory-group">
+                    <div class="directory-group" id="cat-budget">
                         <h4 class="dir-title">💰 极致性价比阵营</h4>
                         <div class="dir-links">
                             <a href="review-%E5%B1%B1%E6%B0%B4%E4%BA%91.html" class="dir-link">山水云</a>
@@ -195,7 +198,7 @@
                     </div>
                     
                     <!-- 老牌稳健分类 -->
-                    <div class="directory-group">
+                    <div class="directory-group" id="cat-stable">
                         <h4 class="dir-title">🏆 老牌求稳阵营</h4>
                         <div class="dir-links">
                             <a href="review-%E5%85%89%E5%B9%B4%E6%A2%AF.html" class="dir-link">光年梯</a>
@@ -226,7 +229,7 @@
                     </div>
                     
                     <!-- 新晋黑马分类 -->
-                    <div class="directory-group">
+                    <div class="directory-group" id="cat-new">
                         <h4 class="dir-title">🆕 新晋潜力阵营</h4>
                         <div class="dir-links">
                             <a href="review-CATNET.html" class="dir-link">CATNET</a>
@@ -249,8 +252,23 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- 右侧边栏目录 -->
+            <aside class="ranking-sidebar">
+                <div class="toc-box">
+                    <div class="toc-title">📑 机场快速导航</div>
+                    <ul class="toc-list">
+                        <li><a href="#cat-top5" class="toc-link">🏆 TOP 5 权威榜单</a></li>
+                        <li><a href="#cat-premium" class="toc-link">⚡ 顶级专线阵营 (14家)</a></li>
+                        <li><a href="#cat-budget" class="toc-link">💰 极致性价比阵营 (22家)</a></li>
+                        <li><a href="#cat-stable" class="toc-link">🛡️ 老牌求稳阵营 (24家)</a></li>
+                        <li><a href="#cat-new" class="toc-link">🆕 新晋潜力阵营 (16家)</a></li>
+                    </ul>
+                </div>
+            </aside>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- 底部版权 -->
     <footer class="footer">
