@@ -24,10 +24,12 @@ jobs:
     - name: 3. 安装依赖包
       run: npm install
 
-    - name: 4. 运行 DeepSeek AI 自动生成评测文章
+    - name: 4. 运行 DeepSeek AI 自动生成评测文章与资讯博客
       env:
         DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-      run: node scripts/generate.js
+      run: |
+        node scripts/generate.js
+        node scripts/generate_blog.js
 
     - name: 5. 部署到老薛主机 (FTP Deploy)
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
