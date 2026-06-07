@@ -299,3 +299,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     sections.forEach(section => observer.observe(section));
 });
+
+
+// ====== 侧边栏搜索过滤 ======
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('toc-search');
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase().trim();
+            const links = document.querySelectorAll('.toc-list li');
+            links.forEach(li => {
+                const text = li.textContent.toLowerCase();
+                if (text.includes(term)) {
+                    li.style.display = '';
+                } else {
+                    li.style.display = 'none';
+                }
+            });
+        });
+    }
+});
