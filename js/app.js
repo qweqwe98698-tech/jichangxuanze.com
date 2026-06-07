@@ -319,3 +319,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// ====== 一键复制优惠码 ======
+window.copyCoupon = function(code, element, url) {
+    navigator.clipboard.writeText(code).then(() => {
+        const originalText = element.innerText;
+        element.innerText = "✅ 复制成功！正在跳转...";
+        element.style.background = "rgba(46, 204, 113, 0.1)";
+        element.style.borderColor = "#2ecc71";
+        element.style.color = "#2ecc71";
+        setTimeout(() => {
+            window.open(url, '_blank');
+            setTimeout(() => {
+                element.innerText = originalText;
+                element.style.background = "rgba(231,76,60,0.05)";
+                element.style.borderColor = "#e74c3c";
+                element.style.color = "#e74c3c";
+            }, 1000);
+        }, 800);
+    });
+};
