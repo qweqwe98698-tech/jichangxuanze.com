@@ -339,3 +339,18 @@ window.copyCoupon = function(code, element, url) {
         }, 800);
     });
 };
+
+// ====== 防逃逸挽留弹窗 (Exit Intent) ======
+document.addEventListener('DOMContentLoaded', function() {
+    let exitIntentTriggered = false;
+    document.addEventListener('mouseleave', function(e) {
+        // 当鼠标从浏览器顶部离开时触发
+        if (e.clientY < 10 && !exitIntentTriggered) {
+            const exitModal = document.getElementById('exit-modal');
+            if (exitModal) {
+                exitModal.style.display = 'flex';
+                exitIntentTriggered = true;
+            }
+        }
+    });
+});
