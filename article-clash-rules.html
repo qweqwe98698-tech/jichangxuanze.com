@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clash Verge Rev 进阶玩法：如何自己编写分流规则？ | 云端甄选</title>
+    <meta name="description" content="不想所有的流量都走代理？通过编写简单的 Meta 规则集，让您的国内流量直连、国外流量代理，大幅降低节点流量消耗与延迟...">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="canonical" href="https://jichangxuanze.com/article-clash-rules.html" />
+    <style>
+        .article-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid var(--color-border);
+        }
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .article-title {
+            font-size: 32px;
+            color: var(--color-secondary);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            color: var(--color-text-light);
+            font-size: 14px;
+        }
+        .ai-content h2 {
+            font-size: 24px;
+            color: var(--color-secondary);
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .ai-content h2::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background: var(--color-primary);
+            border-radius: 4px;
+        }
+        .ai-content h3 {
+            font-size: 20px;
+            color: var(--color-secondary);
+            margin: 30px 0 15px;
+        }
+        .ai-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--color-text);
+            margin-bottom: 20px;
+        }
+        .ai-content strong {
+            color: var(--color-secondary);
+            font-weight: 600;
+            background: rgba(182, 141, 64, 0.1);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .ai-content ul, .ai-content ol {
+            padding-left: 20px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+        .cta-banner {
+            background: linear-gradient(135deg, #1F2937, #374151);
+            color: white;
+            padding: 30px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta-banner h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+        .cta-banner p {
+            color: #D1D5DB;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 8px;">
+                    <span class="logo-icon">✨</span>
+                    <span class="logo-text">云端甄选 <span style="font-weight: 400; font-size: 16px; opacity: 0.8;">| 智能机场匹配</span></span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">工具矩阵</a>
+                <a href="ranking.html">权威榜单</a>
+                <a href="reviews.html">深度评测</a>
+                <a href="articles.html" class="active">最新资讯</a>
+                <a href="index.html#tutorials">配置教程</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="article-container">
+            <div class="article-header">
+                <h1 class="article-title">Clash Verge Rev 进阶玩法：如何自己编写分流规则？</h1>
+                <div class="article-meta">
+                    <span>作者：云端极客客座</span>
+                    <span>发布日期：2026-06-07</span>
+                    <span>阅读时长：约 8 分钟</span>
+                </div>
+            </div>
+
+            <div class="ai-content">
+                
+            <blockquote><strong>导语：</strong>用久了全局代理或者机场自带的规则，总觉得不够顺手？比如想让 GitHub 走日本节点，ChatGPT 走美国节点，国内淘宝走直连。今天我们以最新的 Clash Verge Rev（基于 Meta 内核）为例，教你玩转自定义分流规则。</blockquote>
+
+            <h2>一、什么是分流规则 (Rule Providers)？</h2>
+            <p>分流的核心逻辑就是“如果访问的域名/IP 匹配 A，就走 B 节点”。在 Clash Meta 内核中，我们通常不再把所有域名写死在配置文件里，而是通过引用的方式使用 <code>rule-providers</code>（规则提供者），这些规则集由开源社区实时维护（比如大名鼎鼎的 Loyalsoldier 或 ACL4SSR）。</p>
+
+            <h2>二、在 Clash Verge Rev 中添加自定义规则</h2>
+            <p>Clash Verge Rev 提供了一个非常强大的功能：<strong>Merge（合并规则）</strong>，也叫 Script / Profile 预处理。你不需要去修改机场下发的原始订阅文件（因为一更新就会被覆盖）。</p>
+            
+            <h3>步骤演示：让 OpenAI 强制走指定策略组</h3>
+            <ol>
+                <li>打开 Clash Verge Rev，进入左侧的“配置” (Profiles)。</li>
+                <li>右键点击空白处，选择“新建” -> “Script” (预处理脚本)。</li>
+                <li>输入以下 JavaScript 代码：</li>
+            </ol>
+<pre style="background:#1F2937; color:#E5E7EB; padding:15px; border-radius:8px; overflow-x:auto;"><code>function main(config) {
+    // 在规则最前面插入自定义规则
+    config.rules.unshift(
+        "DOMAIN-SUFFIX,openai.com,美国节点策略组",
+        "DOMAIN-SUFFIX,ai.com,美国节点策略组",
+        "DOMAIN-KEYWORD,chatgpt,美国节点策略组"
+    );
+    return config;
+}
+</code></pre>
+            <ol start="4">
+                <li>保存并启用该预处理脚本。之后每次更新订阅，Clash 都会自动把这些规则添加到最前面！</li>
+            </ol>
+
+            <h2>三、高级玩法：GEOSITE 与 GEOIP</h2>
+            <p>得益于 Meta 内核的强大，你现在可以直接使用基于数据库的匹配，一行代码搞定一类应用：</p>
+            <ul>
+                <li><code>GEOSITE,bilibili,DIRECT</code> （所有 B 站流量直连）</li>
+                <li><code>GEOSITE,youtube,🚀 节点选择</code> （所有 YouTube 流量走代理）</li>
+                <li><code>GEOIP,CN,DIRECT</code> （所有中国大陆 IP 直连，极为高效的最终防漏网规则）</li>
+            </ul>
+
+            <h2>结语</h2>
+            <p>掌握了自定义规则，你的 Clash 才真正变成了一个强大的网络流量调度中心。赶快动手配置你的专属网络环境吧！</p>
+        
+            </div>
+            
+            <!-- 底部强力引流转化块 -->
+            <div class="cta-banner">
+                <h3>💡 还在为网络卡顿和封号烦恼？</h3>
+                <p>我们为您整理了 2026 年最新一期的高性价比、高稳定性专线列表。支持全平台一键托管，原生 IP 解锁所有限制。</p>
+                <a href="ranking.html" class="btn btn-primary" style="font-weight: 600;">👉 立即查看本周权威榜单与特惠</a>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="articles.html" class="btn btn-outline">← 返回资讯列表页</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer-content" style="padding: 40px 0;">
+            <p>&copy; 2026 jichangxuanze.com 云端甄选. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
