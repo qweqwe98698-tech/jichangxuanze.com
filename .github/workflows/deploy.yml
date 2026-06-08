@@ -30,6 +30,7 @@ jobs:
       run: |
         node scripts/generate.js
         node scripts/generate_blog.js
+        node scripts/execute_advanced_suggestions.js
 
     - name: 5. 部署到老薛主机 (FTP Deploy)
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
