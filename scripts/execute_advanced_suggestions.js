@@ -62,42 +62,10 @@ window.copyCoupon = function(code, element, url) {
     fs.writeFileSync(appJsPath, appJs + copyJs);
 }
 
-// 4. Generate 81 Review Pages
-let template = fs.readFileSync(templatePath, 'utf8');
-// Extract all airports from ranking.html
-const nameRegex = /<h3 class="airport-name">([^<]+)<\/h3>[\s\S]*?<a href="([^"]+)" class="btn btn-outline"/g;
-let match;
-let airportsCount = 0;
-
-const today = new Date().toISOString().split('T')[0];
-const contentPool = [
-    "<p>经过我们技术团队长达 30 天的全天候探针监控，该节点在晚高峰（20:00 - 24:00）的平均丢包率严格控制在 <strong>1% 以下</strong>。测速截图显示，单线程下载速度轻松突破 800Mbps，足以应对 8K 超清流媒体与大型文件的秒级加载。</p>",
-    "<p>在流媒体解锁方面，我们实测了其原生 IP 覆盖情况。结果令人十分满意：<strong>Netflix、Disney+、HBO Max 以及 TikTok</strong> 均显示完美解锁。且 IP 欺诈分 (Fraud Score) 极低，这意味着您在使用 ChatGPT 等严格风控的 AI 工具时，几乎不会遇到封号风险。</p>",
-    "<p>综合来看，它的性价比在同等价位的梯队中名列前茅。采用的最新加密隧道协议不但规避了特征识别，还大幅降低了加解密的性能损耗。如果您正在寻找一个<strong>低调、好用且极具安全感</strong>的主力备用网络，这绝对是一个不容错过的选择。</p>"
-];
-
-while ((match = nameRegex.exec(rankingHtml)) !== null) {
-    let name = match[1].trim();
-    let link = match[2].trim(); // This is the file name we should use!
-    
-    // Some links might be URL encoded, but file names on disk should be URL decoded so standard web servers serve them.
-    let fileName = decodeURIComponent(link);
-    
-    if (fileName.startsWith('review-') && fileName.endsWith('.html')) {
-        let pageContent = template.replace(/{{AIRPORT_NAME}}/g, name);
-        pageContent = pageContent.replace(/{{DATE}}/g, today);
-        pageContent = pageContent.replace(/{{AFF_LINK}}/g, 'https://qwerty.gsyaff.com/#/?code=keqgvT5Y');
-        pageContent = pageContent.replace(/{{CONTENT}}/g, contentPool.join('\n<h2>核心优势评测</h2>\n'));
-        
-        fs.writeFileSync(path.join(rootDir, fileName), pageContent);
-        airportsCount++;
-    }
-}
-console.log('Generated ' + airportsCount + ' review pages.');
-
-// 5. Generate Sitemap
+// 5. Generate Sitemap (Optimized)
 const files = fs.readdirSync(rootDir);
-const htmlFiles = files.filter(f => f.endsWith('.html'));
+// 过滤掉模板文件
+const htmlFiles = files.filter(f => f.endsWith('.html') && !f.includes('template'));
 
 let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -105,17 +73,30 @@ let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 
 htmlFiles.forEach(f => {
     let priority = 0.8;
-    if (f === 'index.html') priority = 1.0;
-    else if (f === 'ranking.html') priority = 0.9;
-    else if (f.startsWith('review-')) priority = 0.7;
+    let changefreq = 'weekly';
+    
+    if (f === 'index.html') {
+        priority = 1.0;
+        changefreq = 'daily';
+    } else if (f === 'ranking.html' || f === 'reviews.html' || f === 'articles.html') {
+        priority = 0.9;
+        changefreq = 'daily';
+    } else if (f.startsWith('review-')) {
+        priority = 0.7;
+        changefreq = 'monthly';
+    } else if (f.startsWith('article-') || f.startsWith('blog-')) {
+        priority = 0.8;
+        changefreq = 'monthly';
+    }
     
     // We URL encode the file name for the sitemap URL
     let encodedUrl = encodeURI(f);
     
-    sitemapXml += `  <url>\n    <loc>https://jichangxuanze.com/${encodedUrl}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
+    sitemapXml += `  <url>\n    <loc>https://jichangxuanze.com/${encodedUrl}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
 });
 
 sitemapXml += `</urlset>`;
 fs.writeFileSync(sitemapPath, sitemapXml);
-console.log('Generated sitemap.xml with ' + htmlFiles.length + ' URLs.');
+console.log('Optimized sitemap.xml generated with ' + htmlFiles.length + ' URLs.');
+
 
