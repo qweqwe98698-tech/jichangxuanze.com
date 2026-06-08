@@ -67,6 +67,8 @@ const files = fs.readdirSync(rootDir);
 // 过滤掉模板文件
 const htmlFiles = files.filter(f => f.endsWith('.html') && !f.includes('template'));
 
+const today = new Date().toISOString().split('T')[0];
+
 let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 `;
