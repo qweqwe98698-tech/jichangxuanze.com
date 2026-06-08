@@ -101,4 +101,77 @@ sitemapXml += `</urlset>`;
 fs.writeFileSync(sitemapPath, sitemapXml);
 console.log('Optimized sitemap.xml generated with ' + htmlFiles.length + ' URLs.');
 
+// 6. Inject PWA Manifest, Exit Intent Modal, and FAQ Schema
+const exitModalHtml = `
+    <!-- Exit Intent Modal -->
+    <div id="exit-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center; backdrop-filter: blur(5px);">
+        <div style="background: var(--color-white); padding: 40px; border-radius: 12px; max-width: 400px; text-align: center; position: relative; border: 1px solid var(--color-border); box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+            <div style="font-size: 48px; margin-bottom: 20px;">🎁</div>
+            <h2 style="color: var(--color-secondary); margin-bottom: 16px;">等等！送您一份专属隐藏福利</h2>
+            <p style="color: var(--color-text); margin-bottom: 24px; line-height: 1.6;">您可能还在犹豫，我们为您准备了全网最低的独家特惠通道。别错过！</p>
+            <div style="background: rgba(182, 141, 64, 0.1); border: 2px dashed var(--color-primary); padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+                <div style="color: var(--color-primary); font-weight: bold; font-size: 18px; margin-bottom: 8px;">🔥 专属特惠直达</div>
+                <div onclick="copyCoupon('VIP888', this, 'https://qwerty.gsyaff.com/#/?code=keqgvT5Y')" style="cursor: pointer; background: var(--color-primary); color: #fff; padding: 10px; border-radius: 4px; font-weight: bold; transition: all 0.3s;">VIP888 (点击复制并前往)</div>
+            </div>
+            <button onclick="document.getElementById('exit-modal').style.display='none'" style="background: transparent; border: none; color: var(--color-text-light); text-decoration: underline; cursor: pointer;">不了，谢谢</button>
+        </div>
+    </div>
+`;
+
+htmlFiles.forEach(f => {
+    const filePath = path.join(rootDir, f);
+    let htmlContent = fs.readFileSync(filePath, 'utf8');
+    let changed = false;
+
+    // Inject Manifest
+    if (!htmlContent.includes('<link rel="manifest" href="manifest.json">') && !htmlContent.includes('<link rel="manifest" href="/manifest.json">')) {
+        htmlContent = htmlContent.replace('</head>', '    <link rel="manifest" href="/manifest.json">\n</head>');
+        changed = true;
+    }
+
+    // Inject Exit Modal to index and ranking
+    if ((f === 'index.html' || f === 'ranking.html') && !htmlContent.includes('id="exit-modal"')) {
+        htmlContent = htmlContent.replace('</body>', exitModalHtml + '\n</body>');
+        changed = true;
+    }
+
+    // Inject FAQ Schema to reviews
+    if (f.startsWith('review-')) {
+        // Find the FAQ section block (from <h2> FAQ to the next </div> or EOF)
+        const faqSectionRegex = /<h2>.*?常见问题.*?(FAQ)?<\/h2>([\s\S]*?)(?:<div|<\/div>|<\/body>)/i;
+        const faqMatch = htmlContent.match(faqSectionRegex);
+        if (faqMatch && !htmlContent.includes('"@type": "FAQPage"')) {
+            const faqContent = faqMatch[2];
+            // Try matching <h3>Q</h3><p>A</p> or <p><strong>Q</strong></p><p>A</p>
+            const qRegex = /<h3[^>]*>(.*?)<\/h3>\s*<p[^>]*>([\s\S]*?)<\/p>/gi;
+            let qMatch;
+            const mainEntity = [];
+            while ((qMatch = qRegex.exec(faqContent)) !== null) {
+                mainEntity.push({
+                    "@type": "Question",
+                    "name": qMatch[1].replace(/<[^>]+>/g, '').trim(),
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": qMatch[2].replace(/<[^>]+>/g, '').trim()
+                    }
+                });
+            }
+            if (mainEntity.length > 0) {
+                const schema = {
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": mainEntity
+                };
+                const schemaScript = `\n    <script type="application/ld+json">\n    ${JSON.stringify(schema, null, 2)}\n    </script>\n</head>`;
+                htmlContent = htmlContent.replace('</head>', schemaScript);
+                changed = true;
+            }
+        }
+    }
+
+    if (changed) {
+        fs.writeFileSync(filePath, htmlContent);
+        console.log(\`✅ Applied optimizations to \${f}\`);
+    }
+});
 
