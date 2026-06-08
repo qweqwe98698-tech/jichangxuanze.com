@@ -28,6 +28,7 @@
       }
     }
     </script>
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body>
 
@@ -350,5 +351,20 @@
     </div>
 
     <script src="./js/app.js?v=20260607"></script>
+
+    <!-- Exit Intent Modal -->
+    <div id="exit-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center; backdrop-filter: blur(5px);">
+        <div style="background: var(--color-white); padding: 40px; border-radius: 12px; max-width: 400px; text-align: center; position: relative; border: 1px solid var(--color-border); box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+            <div style="font-size: 48px; margin-bottom: 20px;">🎁</div>
+            <h2 style="color: var(--color-secondary); margin-bottom: 16px;">等等！送您一份专属隐藏福利</h2>
+            <p style="color: var(--color-text); margin-bottom: 24px; line-height: 1.6;">您可能还在犹豫，我们为您准备了全网最低的独家特惠通道。别错过！</p>
+            <div style="background: rgba(182, 141, 64, 0.1); border: 2px dashed var(--color-primary); padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+                <div style="color: var(--color-primary); font-weight: bold; font-size: 18px; margin-bottom: 8px;">🔥 专属特惠直达</div>
+                <div onclick="copyCoupon('VIP888', this, 'https://qwerty.gsyaff.com/#/?code=keqgvT5Y')" style="cursor: pointer; background: var(--color-primary); color: #fff; padding: 10px; border-radius: 4px; font-weight: bold; transition: all 0.3s;">VIP888 (点击复制并前往)</div>
+            </div>
+            <button onclick="document.getElementById('exit-modal').style.display='none'" style="background: transparent; border: none; color: var(--color-text-light); text-decoration: underline; cursor: pointer;">不了，谢谢</button>
+        </div>
+    </div>
+
 </body>
 </html>

@@ -171,7 +171,7 @@ htmlFiles.forEach(f => {
 
     if (changed) {
         fs.writeFileSync(filePath, htmlContent);
-        console.log(\`✅ Applied optimizations to \${f}\`);
+        console.log(`✅ Applied optimizations to ${f}`);
     }
 });
 
