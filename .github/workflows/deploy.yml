@@ -39,3 +39,11 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         # 按照您的要求，强制部署到老薛主机的 public_html 目录下
         server-dir: public_html/jichangxuanze.com/
+
+    - name: 6. 提交并推送生成的静态文件回 GitHub 仓库
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "auto: update AI generated reviews and articles" || echo "No changes to commit"
+        git push origin main
