@@ -26,7 +26,7 @@ jobs:
         continue-on-error: true # In case there's no package.json
 
       - name: Run DeepSeek Article Generator
-        run: node scripts/generate_static_articles.js
+        run: node scripts/generate_blog.js
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
 
