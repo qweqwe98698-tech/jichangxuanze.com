@@ -1,13 +1,13 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1781101857227,
+    "generatedTime": 1781511585839,
     "data": [
         {
             "type": "file",
             "name": ".ftp-deploy-sync-state.json",
-            "size": 29002,
-            "hash": "ba32bfbc049c51ca7b9c00e73a3e4a734b042d081f4fe1037cc5a15260960553"
+            "size": 29772,
+            "hash": "7cfd76b8ee0fa6686e85bcd3c05377f038aa2fe2522d1fbc07def515543f7be1"
         },
         {
             "type": "file",
@@ -18,8 +18,8 @@
         {
             "type": "file",
             "name": "about.html",
-            "size": 8059,
-            "hash": "1fd4a9991f676862d849ca69259ef98ad215dac6bd5070fc8d9c478e79515576"
+            "size": 8169,
+            "hash": "91a611a3b2fea555cca2f3941835bc1f47d6bb9212cab24b01ff58368097d979"
         },
         {
             "type": "file",
@@ -125,15 +125,15 @@
         },
         {
             "type": "file",
-            "name": "blog-如何用iPhone小火箭Shadowrocket实现全局去广告.html",
-            "size": 15175,
-            "hash": "a0a542303ea6740a6db89431762d5c3df9d5b0d21a25a11d4b22911bd5c1eb17"
-        },
-        {
-            "type": "file",
             "name": "blog-安卓v2rayNG保姆级配置教程一键导入与分流设置.html",
             "size": 12913,
             "hash": "e60d83a6dc5098934a4d9a480fcb34e9cbc73f2bf40d1640720f6f2f2191adf7"
+        },
+        {
+            "type": "file",
+            "name": "blog-如何用iPhone小火箭Shadowrocket实现全局去广告.html",
+            "size": 15175,
+            "hash": "a0a542303ea6740a6db89431762d5c3df9d5b0d21a25a11d4b22911bd5c1eb17"
         },
         {
             "type": "file",
@@ -171,9 +171,15 @@
         },
         {
             "type": "file",
+            "name": "free-id.html",
+            "size": 23364,
+            "hash": "3f0bb3ef8f17451583db6680090529c48deb7417b96ee3c27248ecd15a4e3609"
+        },
+        {
+            "type": "file",
             "name": "index.html",
-            "size": 21917,
-            "hash": "43e812c82e6af258fa1b5a29a3d0898fcf23b1fec38135a56f25a50afb2835aa"
+            "size": 22027,
+            "hash": "d4c845a926dd48d94b0a320c60eb2e73c9dd1db3a46f5287a43435d088b999e9"
         },
         {
             "type": "folder",
@@ -187,21 +193,27 @@
         },
         {
             "type": "file",
+            "name": "nav.html",
+            "size": 14099,
+            "hash": "2f2d1c2e6a701a5f82f064797f1e594e95a082e14f2109e8cf94001f22658211"
+        },
+        {
+            "type": "file",
             "name": "package-lock.json",
-            "size": 11933,
-            "hash": "ec84226723ee3a19f8b10021548880a5364d13ec5a3e7442b2f8b64ab7e3c767"
+            "size": 73692,
+            "hash": "dbb21bdd8cc4b14204b0c14f104ac1ebd62c517ddeaf0ffdf1d92dad89fc4cd1"
         },
         {
             "type": "file",
             "name": "package.json",
-            "size": 279,
-            "hash": "f9bfad887eba585c395581c5805f219bbcf50e2c035f98317aa21ef822f07716"
+            "size": 389,
+            "hash": "fdfb721b6ef9a6a598bfc9881df4443094eb1ce13bb440fa646c685a7bc6622f"
         },
         {
             "type": "file",
             "name": "ranking.html",
-            "size": 123020,
-            "hash": "ec8da38df24127ef2b697c9d9ce947fe106898814856d9cea062955611abb521"
+            "size": 123130,
+            "hash": "7de7eb6b9b8f5de8fe898f966fc30a9794d1657e6d957c778bcfd53ad27eff94"
         },
         {
             "type": "file",
@@ -247,15 +259,15 @@
         },
         {
             "type": "file",
-            "name": "review-CATNET.html",
-            "size": 15776,
-            "hash": "98b0fca617c5f1039291870e4466fa685801a88ba12da3e2afc61a8affd8b15f"
-        },
-        {
-            "type": "file",
             "name": "review-COCODUCK.html",
             "size": 16183,
             "hash": "592acc0e2662ad67f4ec137af08f502135f34858446857bc4da722fba01435bd"
+        },
+        {
+            "type": "file",
+            "name": "review-CATNET.html",
+            "size": 15776,
+            "hash": "98b0fca617c5f1039291870e4466fa685801a88ba12da3e2afc61a8affd8b15f"
         },
         {
             "type": "file",
@@ -271,15 +283,15 @@
         },
         {
             "type": "file",
-            "name": "review-FATCAT.html",
-            "size": 17707,
-            "hash": "b404f2853d99239f65f308efa6de97216ec9ebd22f8e7870844464440169cd46"
-        },
-        {
-            "type": "file",
             "name": "review-EIX.html",
             "size": 15809,
             "hash": "fea6b1feb3fb4289de5cfde3bf39410e5e41b6979c22874146c29857f2d9ee5b"
+        },
+        {
+            "type": "file",
+            "name": "review-FATCAT.html",
+            "size": 17707,
+            "hash": "b404f2853d99239f65f308efa6de97216ec9ebd22f8e7870844464440169cd46"
         },
         {
             "type": "file",
@@ -367,27 +379,27 @@
         },
         {
             "type": "file",
-            "name": "review-SkyLinX.html",
-            "size": 17748,
-            "hash": "df77e1292fa0f19abab80714984096dae883e0f021ab071cfb9d9c4585b27050"
-        },
-        {
-            "type": "file",
             "name": "review-SpeedCAT.html",
             "size": 18196,
             "hash": "c411f04f7f0479cc93c7531573522c14abb6c719cd626d634b5fdb0f5095d40f"
         },
         {
             "type": "file",
-            "name": "review-VikingLinks.html",
-            "size": 16655,
-            "hash": "f579430634bbb0b965f30bd7956e970e15e880522382ce7f1ce3b04511eecfec"
-        },
-        {
-            "type": "file",
             "name": "review-TNTCloud.html",
             "size": 16326,
             "hash": "615fea03b284e586d3916626c46dca59096d6378a7a995946fb37e0b3b8565dc"
+        },
+        {
+            "type": "file",
+            "name": "review-SkyLinX.html",
+            "size": 17748,
+            "hash": "df77e1292fa0f19abab80714984096dae883e0f021ab071cfb9d9c4585b27050"
+        },
+        {
+            "type": "file",
+            "name": "review-VikingLinks.html",
+            "size": 16655,
+            "hash": "f579430634bbb0b965f30bd7956e970e15e880522382ce7f1ce3b04511eecfec"
         },
         {
             "type": "file",
@@ -451,15 +463,15 @@
         },
         {
             "type": "file",
-            "name": "review-一枝红杏.html",
-            "size": 20537,
-            "hash": "7c9aad061772e6d8906078d53f9d33ad5de43003bd20ff1e3e84fbaf59e84d2f"
-        },
-        {
-            "type": "file",
             "name": "review-二猫云.html",
             "size": 14098,
             "hash": "452ecba8737e4ac390e8ca7f4c98bc179370a5417941f87addc68de7cc3c1bf2"
+        },
+        {
+            "type": "file",
+            "name": "review-一枝红杏.html",
+            "size": 20537,
+            "hash": "7c9aad061772e6d8906078d53f9d33ad5de43003bd20ff1e3e84fbaf59e84d2f"
         },
         {
             "type": "file",
@@ -481,15 +493,15 @@
         },
         {
             "type": "file",
-            "name": "review-全球云.html",
-            "size": 19123,
-            "hash": "87fdb1200f33c9e767de048c70d1c479277b514f4c9da337fa48ae4d135ec339"
-        },
-        {
-            "type": "file",
             "name": "review-八戒机场.html",
             "size": 16943,
             "hash": "8edc5becf1b8f79da8536c544e53b7a20e5ab23a2492d16c589a44aa93adf6d1"
+        },
+        {
+            "type": "file",
+            "name": "review-全球云.html",
+            "size": 19123,
+            "hash": "87fdb1200f33c9e767de048c70d1c479277b514f4c9da337fa48ae4d135ec339"
         },
         {
             "type": "file",
@@ -601,15 +613,15 @@
         },
         {
             "type": "file",
-            "name": "review-秒秒云.html",
-            "size": 16928,
-            "hash": "55bb3341fda0112e2805a323d64d3aa87d76df2943064ccdcbcf7934cd201eb0"
-        },
-        {
-            "type": "file",
             "name": "review-疾风云.html",
             "size": 17212,
             "hash": "dc438cde5a96bd96e49984ed27dbbae0a92cf7d9e6c6a680d161837a61807672"
+        },
+        {
+            "type": "file",
+            "name": "review-秒秒云.html",
+            "size": 16928,
+            "hash": "55bb3341fda0112e2805a323d64d3aa87d76df2943064ccdcbcf7934cd201eb0"
         },
         {
             "type": "file",
@@ -649,15 +661,15 @@
         },
         {
             "type": "file",
-            "name": "review-银河云.html",
-            "size": 18260,
-            "hash": "795737296bbe166dd04b434e8944ee40ced1d2327597b79a31045b0d02a42212"
-        },
-        {
-            "type": "file",
             "name": "review-青云梯.html",
             "size": 17741,
             "hash": "85266059cdc72f607e4e5bef91a8858be4f0bb75c2f0a03e8e617ae631074fb3"
+        },
+        {
+            "type": "file",
+            "name": "review-银河云.html",
+            "size": 18260,
+            "hash": "795737296bbe166dd04b434e8944ee40ced1d2327597b79a31045b0d02a42212"
         },
         {
             "type": "file",
@@ -714,38 +726,38 @@
         {
             "type": "file",
             "name": "sitemap.xml",
-            "size": 23021,
-            "hash": "a8369e893f088583757c9087c836ec3164e9d073c82cfcda50d0b0bfd5e14738"
+            "size": 23357,
+            "hash": "a7a5510b0a7d0be77e93ee3313ea13ec949bda55e4598559c349e529fefcafe3"
         },
         {
             "type": "file",
             "name": "sw.js",
-            "size": 549,
-            "hash": "d0f607271d7826694cc606665106c681b0fdd5745a9197da48f14ffddb6156e5"
+            "size": 1783,
+            "hash": "e04eaed5227708ed031e0ec03021f83644698aa759283f30f6070d47f6359c18"
         },
         {
             "type": "file",
             "name": "tutorial-clash-verge.html",
-            "size": 7736,
-            "hash": "2122e10c6143c29a0f3fae75fef59502b99988174dfd02549ce0fc413e76fc82"
+            "size": 7846,
+            "hash": "f6bf7d8ebc5bbe95f1784fffbd6849de5ff0519bf5b87c998208ab6e18b1b90e"
         },
         {
             "type": "file",
             "name": "tutorial-clashx-pro.html",
-            "size": 8112,
-            "hash": "5c30d72e939f0c2c0f9e690f3b4bd8fe965cbed1416d7e8b4f948196ef47c268"
+            "size": 8222,
+            "hash": "d5b944dfdd052d42f304df487d63fff88f54a69d84a563805b67813abe07e0d9"
         },
         {
             "type": "file",
             "name": "tutorial-shadowrocket.html",
-            "size": 8119,
-            "hash": "a16578a7163640267c479868ef3f03cce4850fd0efac12565663b3612825746e"
+            "size": 8229,
+            "hash": "94ada6d84324bde7f3c46595f5f301d1dc234f5ff9b19fe27a07f7b0e7b80f28"
         },
         {
             "type": "file",
             "name": "tutorial-v2rayng.html",
-            "size": 8117,
-            "hash": "91b8b0527850125e4d024592d24f4ce302116bc1e16278546755c9098b8fbfac"
+            "size": 8227,
+            "hash": "e4f7f1cab4bc3edb58f906646e042efca2b9fbffa57a07fb066774e3b2ccba01"
         },
         {
             "type": "file",
@@ -785,15 +797,15 @@
         },
         {
             "type": "file",
-            "name": "scripts/convert_ranking_cards.js",
-            "size": 3096,
-            "hash": "5b194c0783c104542aa0d008fcc32359ab55b5fd0f5e9fa55c8f22fdd558f9a7"
-        },
-        {
-            "type": "file",
             "name": "scripts/enhance_ranking.js",
             "size": 4375,
             "hash": "05825d414bbdf8d77293471d5baea73962afbda2e72ba1bac9f668fcbf18282d"
+        },
+        {
+            "type": "file",
+            "name": "scripts/convert_ranking_cards.js",
+            "size": 3096,
+            "hash": "5b194c0783c104542aa0d008fcc32359ab55b5fd0f5e9fa55c8f22fdd558f9a7"
         },
         {
             "type": "file",
@@ -836,6 +848,12 @@
             "name": "scripts/rebuild_sidebar.js",
             "size": 1646,
             "hash": "69b2567af9657a7d2d0fe6ee4d6e19aada35987e4f991acf215b563bb5aa4b8b"
+        },
+        {
+            "type": "file",
+            "name": "scripts/update_apple_ids.js",
+            "size": 4670,
+            "hash": "762ad63e819cfd9d9dad22c1fcbb6b64d30a545befee534f1b27d68795879a44"
         }
     ]
 }
