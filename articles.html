@@ -24,12 +24,95 @@
             margin: 0 auto;
         }
 
-        .article-list {
-            max-width: 800px;
+        .articles-layout {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
             margin: 0 auto 80px;
+            align-items: flex-start;
+        }
+
+        .article-list {
+            flex: 1;
+            margin: 0;
             display: flex;
             flex-direction: column;
             gap: 24px;
+            min-width: 0;
+        }
+
+        .articles-sidebar {
+            width: 320px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-box {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .hot-article-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .hot-article-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .hot-article-number {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--color-primary);
+            background: rgba(182, 141, 64, 0.1);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .hot-article-link {
+            font-size: 14px;
+            color: var(--color-text);
+            text-decoration: none;
+            line-height: 1.5;
+            transition: color 0.3s ease;
+        }
+
+        .hot-article-link:hover {
+            color: var(--color-primary);
+        }
+
+        @media (max-width: 992px) {
+            .articles-layout {
+                flex-direction: column;
+            }
+            .articles-sidebar {
+                width: 100%;
+                position: static;
+            }
         }
 
         .article-list-item {
@@ -189,7 +272,8 @@
             <p class="page-desc">从底层网络协议分析到实用注册教程，帮助您成为真正的科学上网极客。</p>
         </div>
 
-        <div class="article-list">
+        <div class="articles-layout">
+            <div class="article-list">
 
             <!-- 新生成的文章 -->
             <a href="blog-安卓v2rayNG保姆级配置教程一键导入与分流设置.html" class="article-list-item">
@@ -526,6 +610,44 @@
                 </div>
             </a>
 
+            </div>
+            
+            <!-- 右侧侧边栏 -->
+            <aside class="articles-sidebar">
+                <div class="sidebar-box">
+                    <h3 class="sidebar-title">🔥 热门文章推荐</h3>
+                    <ul class="hot-article-list">
+                        <li class="hot-article-item">
+                            <span class="hot-article-number">1</span>
+                            <a href="article-shadowsocks-2026.html" class="hot-article-link">2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点</a>
+                        </li>
+                        <li class="hot-article-item">
+                            <span class="hot-article-number">2</span>
+                            <a href="article-native-ip.html" class="hot-article-link">一文读懂：如何判断你的机场节点是否是“原生 IP”？</a>
+                        </li>
+                        <li class="hot-article-item">
+                            <span class="hot-article-number">3</span>
+                            <a href="blog-为什么买了几十块的机场油管8K还是卡揭秘超售内幕.html" class="hot-article-link">为什么买了几十块的机场，油管 8K 还是卡？揭秘超售内幕</a>
+                        </li>
+                        <li class="hot-article-item">
+                            <span class="hot-article-number">4</span>
+                            <a href="blog-Netflix流媒体解锁原理解析为什么你的机场只能看自制剧.html" class="hot-article-link">Netflix 流媒体解锁原理解析：为什么你的机场只能看自制剧？</a>
+                        </li>
+                        <li class="hot-article-item">
+                            <span class="hot-article-number">5</span>
+                            <a href="blog-ChatGPT封号太严重如何判断节点是不是纯净原生IP.html" class="hot-article-link">ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP</a>
+                        </li>
+                        <li class="hot-article-item">
+                            <span class="hot-article-number">6</span>
+                            <a href="article-cheap-airports.html" class="hot-article-link">震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？</a>
+                        </li>
+                        <li class="hot-article-item">
+                            <span class="hot-article-number">7</span>
+                            <a href="blog-TikTok零播放量你的节点IP欺诈分可能太高了.html" class="hot-article-link">TikTok 零播放量？你的节点 IP 欺诈分可能太高了</a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
         </div>
 
         <!-- 占位分页 -->
