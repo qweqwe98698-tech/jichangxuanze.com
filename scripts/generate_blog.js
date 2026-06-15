@@ -172,8 +172,8 @@ async function main() {
         return;
     }
 
-    // 随机或者按顺序挑选 3 篇（这里直接取前 3 篇，因为每次都会过滤已生成的，所以相当于顺序发布）
-    const targetTopics = unGeneratedTopics.slice(0, 3);
+    // 随机或者按顺序挑选 5 篇
+    const targetTopics = unGeneratedTopics.slice(0, 5);
     console.log(`🚀 开始每日自动博客更新任务，今日发文量: ${targetTopics.length} 篇`);
 
     // 获取今日全网热点，用于辅助 AI 蹭流量
@@ -198,7 +198,16 @@ async function main() {
             
             finalHtml = finalHtml.replace(/\{\{DATE\}\}/g, today);
             finalHtml = finalHtml.replace(/\{\{FILE_NAME\}\}/g, fileName);
-            finalHtml = finalHtml.replace(/\{\{CONTENT\}\}/g, content);
+            
+            // 插入高级 AI 自动配图
+            const encodedTopic = encodeURIComponent(topic + " cyberpunk technology network style width 1920 height 1080");
+            const aiImageUrl = `https://image.pollinations.ai/prompt/${encodedTopic}`;
+            const imageHtml = `
+            <figure style="margin: 20px 0; text-align: center;">
+                <img src="${aiImageUrl}" alt="${topic}" style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); display: block; margin: 0 auto;">
+            </figure>\n`;
+            
+            finalHtml = finalHtml.replace(/\{\{CONTENT\}\}/g, imageHtml + content);
             
             fs.writeFileSync(outputPath, finalHtml);
             console.log(`✅ 成功保存: ${fileName}`);

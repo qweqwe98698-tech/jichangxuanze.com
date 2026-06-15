@@ -138,7 +138,16 @@ async function main() {
             // 替换模板中的占位符
             let finalHtml = templateHtml.replace(/\{\{AIRPORT_NAME\}\}/g, airport);
             finalHtml = finalHtml.replace(/\{\{DATE\}\}/g, today);
-            finalHtml = finalHtml.replace(/\{\{CONTENT\}\}/g, content);
+            
+            // 插入高级 AI 自动配图
+            const encodedTopic = encodeURIComponent(airport + " cyberpunk technology network VPN router neon style width 1920 height 1080");
+            const aiImageUrl = `https://image.pollinations.ai/prompt/${encodedTopic}`;
+            const imageHtml = `
+            <figure style="margin: 20px 0; text-align: center;">
+                <img src="${aiImageUrl}" alt="${airport}" style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); display: block; margin: 0 auto;">
+            </figure>\n`;
+            
+            finalHtml = finalHtml.replace(/\{\{CONTENT\}\}/g, imageHtml + content);
             
             // 植入返利链接
             const affLink = affiliateLinks[airport] || '#';
