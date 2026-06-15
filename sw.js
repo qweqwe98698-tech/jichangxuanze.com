@@ -1,4 +1,4 @@
-const CACHE_NAME = 'yunduan-v2'; // 更新版本号以强制浏览器更新缓存
+const CACHE_NAME = 'yunduan-v3'; // 更新版本号以强制浏览器更新缓存
 const urlsToCache = [
   '/',
   '/index.html',
