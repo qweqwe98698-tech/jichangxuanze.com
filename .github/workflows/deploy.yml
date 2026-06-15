@@ -40,8 +40,8 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        # 按照您的要求，强制部署到老薛主机的 public_html 目录下
-        server-dir: public_html/jichangxuanze.com/
+        # 您的 FTP 账号根目录已经是该网站目录，所以填 ./ 即可
+        server-dir: ./
 
     - name: 6. 提交并推送生成的静态文件回 GitHub 仓库
       run: |
