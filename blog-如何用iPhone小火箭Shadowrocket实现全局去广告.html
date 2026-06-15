@@ -129,17 +129,17 @@
 
             <div class="ai-content">
                 <blockquote>
-<p><strong>2026-06-08 最新实测：</strong> 今天在V2EX上看到有人用<strong>免费Codex API的Token</strong>测试新规则，让我坚定了分享这篇教程的决心。本文将手把手教你如何用iPhone上的<strong>Shadowrocket（小火箭）</strong>，通过模块化规则和协议优化，实现<strong>全局无感去广告</strong>，同时规避“机场跑路”和“ChatGPT封号”陷阱，让你的网络既干净又稳定。</p>
+<p><strong><a href="article-shadowsocks-2026.html" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>-06-08 最新实测：</strong> 今天在V2EX上看到有人用<strong>免费Codex API的Token</strong>测试新规则，让我坚定了分享这篇教程的决心。本文将手把手教你如何用iPhone上的<strong>Shadowrocket（小火箭）</strong>，通过模块化规则和协议优化，实现<strong>全局无感去广告</strong>，同时规避“机场跑路”和“<a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP.html" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a>封号”陷阱，让你的网络既干净又稳定。</p>
 </blockquote>
 
 <h2>一、为什么你的小火箭去不了广告？核心误区与2026年6月现状</h2>
 
 <p>很多用户误以为只要安装了小火箭，开启全局代理就能屏蔽广告。这是天大的误解。小火箭本身只是一个协议转发器，它不内置任何广告过滤逻辑。真正的去广告能力，来自于<strong>规则集（Rule Set）</strong>和<strong>域名解析策略</strong>的组合。</p>
 
-<p>今天的热点中也提到了<strong>"微信不理会一小撮用户的吐槽是对的"</strong>——这个逻辑在网络去广告领域同样成立：<strong>你不能指望一个通用规则覆盖所有场景</strong>。比如某些机场为了抢客户，在<strong>晚高峰测速</strong>时开足马力，平时却<strong>限制连接数</strong>导致广告过滤失效。2026年6月8日，随着大量<strong>低价AI API</strong>涌入市场（如今天V站送的0.05倍率20刀额度），很多广告商开始利用AI动态生成广告链接，传统的静态规则库已经难以招架。</p>
+<p>今天的热点中也提到了<strong>"微信不理会一小撮用户的吐槽是对的"</strong>——这个逻辑在网络去广告领域同样成立：<strong>你不能指望一个通用规则覆盖所有场景</strong>。比如某些机场为了抢客户，在<strong>晚高峰测速</strong>时开足马力，平时却<strong>限制连接数</strong>导致广告过滤失效。<a href="article-shadowsocks-2026.html" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月8日，随着大量<strong>低价AI API</strong>涌入市场（如今天V站送的0.05倍率20刀额度），很多广告商开始利用AI动态生成广告链接，传统的静态规则库已经难以招架。</p>
 
 <h3>1.1 失败案例：直接套用网上“一键规则”</h3>
-<p>大量新手直接下载他人分享的<strong>去广告.conf</strong>文件，结果发现抖音、小红书打不开，或者微信小程序报错。原因很简单：<strong>规则冲突</strong>。对方的规则可能针对的是<strong>专线机场</strong>的IP段，而你的机场走的是普通中转线路，导致CDN域名被错误拦截。</p>
+<p>大量新手直接下载他人分享的<strong>去广告.conf</strong>文件，结果发现抖音、小红书打不开，或者微信小程序报错。原因很简单：<strong>规则冲突</strong>。对方的规则可能针对的是<strong>专线机场</strong>的<a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP.html" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>段，而你的机场走的是普通中转线路，导致CDN域名被错误拦截。</p>
 
 <h3>1.2 正确思路：分层过滤 + 协议降级</h3>
 <p>全局去广告的实现依赖三层：</p>
@@ -151,10 +151,10 @@
 
 <h2>二、手把手配置：Shadowrocket 2026年最强去广告规则部署</h2>
 
-<p>以下操作基于小火箭2.4.8以上版本（2026年6月8日测试通过）。我们不会使用任何第三方付费规则，全部使用<strong>开源社区+自定义协议</strong>方案，避免“被割韭菜”。</p>
+<p>以下操作基于小火箭2.4.8以上版本（<a href="article-shadowsocks-2026.html" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月8日测试通过）。我们不会使用任何第三方付费规则，全部使用<strong>开源社区+自定义协议</strong>方案，避免“被割韭菜”。</p>
 
 <h3>步骤1：构建抗污染的DNS通道</h3>
-<p>去广告的第一道防线是DNS解析。如果你使用运营商默认DNS，广告会通过<strong>CNAME劫持</strong>强行重定向。务必配置<strong>原生IP</strong>支持的DoH（HTTPS DNS）：</p>
+<p>去广告的第一道防线是DNS解析。如果你使用运营商默认DNS，广告会通过<strong>CNAME劫持</strong>强行重定向。务必配置<strong>原生<a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP.html" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a></strong>支持的DoH（HTTPS DNS）：</p>
 <ol>
     <li>打开小火箭 → 配置 → DNS → 远程 DNS 设置为 <code>https://doh.opendns.com/dns-query</code>（抗污染且支持DNSSEC）。</li>
     <li><strong>重要：</strong> 勾选“回退到系统DNS”（当机场DNS被封时自动降级，防止断网）。</li>
@@ -162,7 +162,7 @@
 </ol>
 
 <h3>步骤2：构建广告规则集——对抗动态生成的毒瘤</h3>
-<p>传统规则基于固定域名，而2026年的广告商开始使用<strong>AI随机生成子域名</strong>（如 <code>ads-32k7a.example.com</code>）。我们需要使用<strong>正则表达式规则</strong>来拦截此类模式：</p>
+<p>传统规则基于固定域名，而<a href="article-shadowsocks-2026.html" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年的广告商开始使用<strong>AI随机生成子域名</strong>（如 <code>ads-32k7a.example.com</code>）。我们需要使用<strong>正则表达式规则</strong>来拦截此类模式：</p>
 <pre><code>[Rule]
 # 拦截动态广告域名（正则）
 DOMAIN-MATCH,^ads-[a-z0-9]{5}\.example\.com$,REJECT
@@ -173,7 +173,7 @@ URL-REGEX,^https?://.*\.(exe|dll|msi)$,DIRECT
 <p><strong>小技巧：</strong> 今天V站热帖提到“<strong>Codex免费送30刀</strong>”，如果你用这类AI接口测试规则，务必在规则中排除 <code>api.openai.com</code> 和 <code>ai.example.com</code>，否则会导致API调用被拦截，白白浪费额度。</p>
 
 <h3>步骤3：协议防封与流量伪装——应对“ChatGPT封号”风险</h3>
-<p>最近大量ChatGPT账号被封，往往不是因为内容违规，而是因为<strong>代理IP被标记</strong>。小火箭的去广告规则如果配置不当，可能导致你的请求头被修改，触发OpenAI的安全风控。</p>
+<p>最近大量<a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP.html" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a>账号被封，往往不是因为内容违规，而是因为<strong>代理<a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP.html" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>被标记</strong>。小火箭的去广告规则如果配置不当，可能导致你的请求头被修改，触发OpenAI的安全风控。</p>
 <p>解决方案如下：</p>
 <ul>
     <li><strong>开启UDP转发：</strong> 在配置文件中添加 <code>udp-relay = true</code>，确保DNS查询走代理隐藏真实IP。</li>
@@ -183,7 +183,7 @@ URL-REGEX,^https?://.*\.(exe|dll|msi)$,DIRECT
 
 <h2>三、实战案例：面对“机场跑路”和“VPN中断”的自动切换逻辑</h2>
 
-<p>今天的热点中有个有趣现象：“<strong>中转稳定运行一个多月了，继续拉新</strong>”。这反映出2026年的机场行业极度不稳定，三天两头跑路。如果你的去广告规则依赖特定机场IP段，一旦跑路，全局代理会变成“全局断网”。</p>
+<p>今天的热点中有个有趣现象：“<strong>中转稳定运行一个多月了，继续拉新</strong>”。这反映出<a href="article-shadowsocks-2026.html" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年的机场行业极度不稳定，三天两头跑路。如果你的去广告规则依赖特定机场<a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP.html" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>段，一旦跑路，全局代理会变成“全局断网”。</p>
 
 <h3>3.1 配置备用服务器与健康检查</h3>
 <p>在小火箭的“服务器”页面，添加至少两个订阅：一个<strong>专线机场</strong>（用于低延迟浏览），一个<strong>中转机场</strong>（用于去广告和高防封）。在“配置”的<strong>URL Schema</strong>中设置自动切换：</p>
@@ -197,12 +197,12 @@ URL-REGEX,^https?://.*\.(exe|dll|msi)$,DIRECT
 </code></pre>
 
 <h3>3.2 应对“流媒体解锁失效”</h3>
-<p>很多去广告规则会误杀视频流。例如，Disney+ 的广告域名和正式内容域名极其相似。解决方案：使用小火箭的<strong>进程管理</strong>功能，对特定App（如YouTube、Netflix）完全<strong>绕过去广告规则</strong>，让这些App的流量原封不动走代理，只对浏览器类应用启用广告过滤。</p>
-<p>具体操作：在“配置” → “其他” → “进程分流”中添加：<code>com.google.ios.youtube</code> → <code>Proxy</code>（强制走代理且不触发规则）。</p>
+<p>很多去广告规则会误杀视频流。例如，Disney+ 的广告域名和正式内容域名极其相似。解决方案：使用小火箭的<strong>进程管理</strong>功能，对特定App（如YouTube、<a href="article-netflix.html" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a>）完全<strong>绕过去广告规则</strong>，让这些App的流量原封不动走代理，只对浏览器类应用启用广告过滤。</p>
+<p>具体操作：在“配置” → “其他” → “进程分流”中添加：<code>com.google.ios.youtube</code> → <code><a href="blog-Mac%E7%94%A8%E6%88%B7%E5%BF%85%E5%A4%87%E4%BB%A3%E7%90%86%E5%B7%A5%E5%85%B7Surge%E4%B8%8EClashXPro%E6%80%A7%E8%83%BD%E5%AF%B9%E6%AF%94.html" title="Mac 用户必备代理工具：Surge 与 ClashX Pro 性能对比" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Pro</a>xy</code>（强制走代理且不触发规则）。</p>
 
 <h2>四、高阶优化：利用“Codex API”动态更新规则（2026年新物种）</h2>
 
-<p>今天最让我感兴趣的热点是“<strong>Codex免费用，还送十刀</strong>”。我一直认为AI与去广告的结合是趋势。2026年6月，你可以利用免费的AI API（如Codex或ChatGPT），每天自动生成最新的广告域名黑名单：</p>
+<p>今天最让我感兴趣的热点是“<strong>Codex免费用，还送十刀</strong>”。我一直认为AI与去广告的结合是趋势。<a href="article-shadowsocks-2026.html" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月，你可以利用免费的AI API（如Codex或<a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP.html" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a>），每天自动生成最新的广告域名黑名单：</p>
 <ol>
     <li>在 iPhone 快捷指令中设置定时任务，每天凌晨3点触发。</li>
     <li>调用 Codex API 请求：“<em>请根据2026年6月8日最新的全球广告网络列表，输出Shadowrocket可用的REJECT规则，格式为DOMAIN-SUFFIX,xxx.com,REJECT</em>”。</li>
@@ -213,7 +213,7 @@ URL-REGEX,^https?://.*\.(exe|dll|msi)$,DIRECT
 
 <h2>五、总结与避坑指南</h2>
 
-<p>全局去广告不是一劳永逸的。2026年6月8日，你需要：</p>
+<p>全局去广告不是一劳永逸的。<a href="article-shadowsocks-2026.html" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月8日，你需要：</p>
 <ul>
     <li><strong>不要迷信“一键导入”</strong>，特别是那些号称“防跑路”的规则包，往往隐藏了采集用户流量的后门。</li>
     <li><strong>对AI服务账号单独加白名单</strong>，避免因去广告导致“ChatGPT封号”误伤。</li>
@@ -227,7 +227,7 @@ URL-REGEX,^https?://.*\.(exe|dll|msi)$,DIRECT
             <!-- 底部强力引流转化块 -->
             <div class="cta-banner">
                 <h3>💡 还在为网络卡顿和封号烦恼？</h3>
-                <p>我们为您整理了 2026 年最新一期的高性价比、高稳定性专线列表。支持全平台一键托管，原生 IP 解锁所有限制。</p>
+                <p>我们为您整理了 <a href="article-shadowsocks-2026.html" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a> 年最新一期的高性价比、高稳定性专线列表。支持全平台一键托管，原生 <a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP.html" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a> 解锁所有限制。</p>
                 <a href="ranking.html" class="btn btn-primary" style="font-weight: 600;">👉 立即查看本周权威榜单与特惠</a>
             </div>
 
@@ -235,11 +235,42 @@ URL-REGEX,^https?://.*\.(exe|dll|msi)$,DIRECT
                 <a href="articles.html" class="btn btn-outline">← 返回资讯列表页</a>
             </div>
         </div>
-    </div>
+    
+        <!-- SEO Spider Web Related Posts -->
+        <div id="seo-spider-related" style="margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--color-border);">
+            <h3 style="font-size: 22px; color: var(--color-secondary); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--color-primary);">🕸️</span> 延伸阅读
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+        
+                <a href="article-cheap-airports.html" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？</h4>
+                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
+                </a>
+            
+                <a href="review-%E4%BA%8C%E7%8C%AB%E4%BA%91.html" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">二猫云 深度评测与测速报告</h4>
+                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
+                </a>
+            
+                <a href="review-Fastlink.html" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">Fastlink 深度评测与测速报告</h4>
+                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
+                </a>
+            
+                <a href="review-%E5%B0%8F%E6%97%8B%E9%A3%8E%E6%9C%BA%E5%9C%BA.html" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">小旋风机场 深度评测与测速报告</h4>
+                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
+                </a>
+            
+            </div>
+        </div>
+        
+</div>
 
     <footer class="footer">
         <div class="container footer-content" style="padding: 40px 0;">
-            <p>&copy; 2026 jichangxuanze.com 云端甄选. All rights reserved.</p>
+            <p>&copy; <a href="article-shadowsocks-2026.html" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a> jichangxuanze.com 云端甄选. All rights reserved.</p>
         </div>
     </footer>
 

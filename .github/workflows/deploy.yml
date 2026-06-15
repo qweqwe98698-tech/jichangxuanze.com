@@ -31,7 +31,7 @@ jobs:
         node scripts/generate.js
         node scripts/generate_blog.js
         node scripts/execute_advanced_suggestions.js
-        node scripts/update_apple_ids.js
+        node scripts/update_apple_ids.js\n        node scripts/build_spider_web.js
 
     - name: 5. 部署到老薛主机 (FTP Deploy)
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
