@@ -1,0 +1,46 @@
+name: Auto Daily SEO Article Engine
+
+on:
+  schedule:
+    # Runs at 19:00 UTC (which is 03:00 AM Beijing Time) every day
+    - cron: '0 19 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install
+        continue-on-error: true # In case there's no package.json
+
+      - name: Run DeepSeek Article Generator
+        run: node scripts/generate_blog.js
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+
+      - name: Generate Updated Sitemap
+        run: |
+          if [ -f "scripts/execute_advanced_suggestions.js" ]; then
+            node scripts/execute_advanced_suggestions.js
+          fi
+        continue-on-error: true
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "auto: generate daily SEO article and update sitemap" || echo "No changes to commit"
+          git push origin main
