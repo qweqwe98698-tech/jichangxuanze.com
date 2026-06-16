@@ -5,44 +5,67 @@ const axios = require('axios');
 // GitHub Secret 中的 Key
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 
-// 极其丰富的 SEO 长尾词/干货话题库（可随时扩充）
-const blogTopics = [
-    "2026年翻墙软件推荐：还能用什么协议？",
-    "IEPL与IPLC专线区别大揭秘，买机场必看",
-    "机场跑路前兆有哪些？教你避开9.9包年的坑",
-    "ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP",
-    "Netflix 流媒体解锁原理解析：为什么你的机场只能看自制剧？",
-    "Vless 协议和 Trojan 哪个更适合晚高峰测速？",
-    "Clash Verge Rev 进阶玩法：如何自己编写分流规则？",
-    "如何用 iPhone 小火箭（Shadowrocket）实现全局去广告？",
-    "玩外服游戏跳 Ping 怎么解决？电竞级机场选购指南",
-    "TikTok 零播放量？你的节点 IP 欺诈分可能太高了",
-    "机场老板不想让你知道的行业黑话：落地机、入口机是什么？",
-    "为什么买了几十块的机场，油管 8K 还是卡？揭秘超售内幕",
-    "Mac 用户必备代理工具：Surge 与 ClashX Pro 性能对比",
-    "跨境电商独立站必备：高性价比静态住宅 IP 怎么选？",
-    "安卓 v2rayNG 保姆级配置教程：一键导入与分流设置",
-    "2026年最新便宜好用机场推荐：学生党和白嫖党必看",
-    "为什么你的节点经常断流？一文看懂线路复用与QoS限速",
-    "自建节点 vs 买机场：哪个更安全？被喝茶的概率有多大？",
-    "如何给路由器刷OpenWrt实现全家科学上网？保姆级教程",
-    "Trojan协议真的比V2ray更隐蔽吗？防火墙GFW的识别机制大揭秘"
-];
-
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// 模拟获取当天 IT 科技圈的实时热点（可通过真实的 RSSHub 或微博热搜 API 替换）
+// 1. 获取当天 IT 科技圈的实时热点
 async function fetchHotTrends() {
     try {
-        // 这里以一个模拟的网络请求架构代替，实际可以请求 v2ex/微博 热搜
-        const res = await axios.get('https://v2ex.com/api/topics/hot.json', { timeout: 3000 });
+        const res = await axios.get('https://v2ex.com/api/topics/hot.json', { timeout: 5000 });
         if (res.data && res.data.length > 0) {
-            return res.data.map(item => item.title).slice(0, 5).join('; ');
+            return res.data.map(item => item.title).slice(0, 10).join('; ');
         }
     } catch(e) {
-        // 接口失败时的后备热门话题
+        console.error("⚠️ 获取 V2EX 热点失败，使用备用热点库...");
     }
-    return "ChatGPT大规模封号风波, GitHub Copilot区域限制, 翻墙机场跑路潮, 严打违规跨境宽带";
+    return "ChatGPT大规模封号风波, GitHub Copilot区域限制, 翻墙机场跑路潮, 严打违规跨境宽带, OpenAI最新模型发布, 国际网络出口线路大拥堵";
+}
+
+// 2. 利用 AI 结合热点，动态生成当天全新的爆款标题
+async function generateDynamicTopics(trends, today) {
+    const prompt = `
+你是一个资深爆文 SEO 专家。今天是 ${today}。
+当前全网最新科技热点有：【${trends}】。
+
+请你结合上述热点，为我的“翻墙机场推荐与网络安全科普”博客，构思 5 个极具爆款潜质、长尾词覆盖率高的文章标题。
+要求：
+1. 巧妙地“蹭”上这些实时热点（比如：结合某 AI 封号聊原生 IP，结合大厂新闻聊跨境网络）。
+2. 包含核心搜索词（如：机场推荐、节点断流、翻墙、专线、IPLC、原生IP等）。
+3. 只输出合法的 JSON 数组，包含 5 个纯文本标题字符串，绝不要输出任何多余的解释、Markdown 代码块或标记。
+示例格式：["标题1", "标题2", "标题3", "标题4", "标题5"]
+`;
+    try {
+        const response = await axios.post('https://api.deepseek.com/chat/completions', {
+            model: 'deepseek-chat',
+            messages: [{ role: 'user', content: prompt }]
+        }, {
+            headers: { 'Authorization': `Bearer ${DEEPSEEK_API_KEY}`, 'Content-Type': 'application/json' }
+        });
+        
+        let content = response.data.choices[0].message.content.trim();
+        const match = content.match(/\[[\s\S]*\]/);
+        if (match) {
+            return JSON.parse(match[0]);
+        }
+        return JSON.parse(content);
+    } catch (error) {
+        console.error("❌ 动态生成话题失败:", error.message);
+        return [];
+    }
+}
+
+// 3. 获取已有文章列表，用于构建 SEO 蜘蛛网
+function getExistingLinks() {
+    const dir = path.join(__dirname, '..');
+    const files = fs.readdirSync(dir);
+    const links = [];
+    files.forEach(f => {
+        if ((f.startsWith('blog-') || f.startsWith('review-')) && f.endsWith('.html') && !f.includes('template')) {
+            let readableName = f.replace('.html', '').replace('blog-', '博客: ').replace('review-', '机场评测: ');
+            links.push(`文件路径="${f}", 主题="${readableName}"`);
+        }
+    });
+    // 随机挑选 15 个作为上下文，让 AI 自然穿插
+    return links.sort(() => 0.5 - Math.random()).slice(0, 15);
 }
 
 // IndexNow 强制秒收录推送
@@ -60,19 +83,26 @@ async function pushToIndexNow(urls) {
     }
 }
 
-async function generateBlogContent(topic, today, trends) {
+// 4. 生成带蜘蛛网内链的深度长文
+async function generateBlogContent(topic, today, trends, existingLinks) {
     const prompt = `
 你是一个专业的“网络通信优化”、“翻墙科普”与“SEO优化”专家。当前时间是 ${today}。
 今日的真实科技圈热点有：【${trends}】。
 
-请你结合上述的“今日热点”，围绕核心主题：“${topic}” 编写一篇用于发布在独立站博客上的长文（不少于 1000 字）。
-你必须在文章中自然地“蹭”一下这些热点（例如谈到某机场跑路、或者 ChatGPT 封号时引出你的分析）。
+请你围绕核心主题：“${topic}” 编写一篇用于发布在独立站博客上的深度长文（不少于 1000 字）。
+你必须在文章中自然地“蹭”一下今日热点，以制造流量爆款效果，提高时效性收录。
 
-要求：
-1. **必须包含独立的导语（Meta Description 级别）**：在文章开头用一段约 80-100 字的话总结全文，请用 <blockquote> 标签包裹作为导语。导语中必须自然地提及今天的日期（${today} 最新更新/实测），并提到一点今日的热点。
-2. **丰富的专业知识**：内容必须硬核、专业，能解决用户实际痛点。比如提到具体的协议原理、防封号机制、或具体的解决步骤。
-3. **SEO 关键词穿插**：在正文中自然地穿插相关关键词（如：晚高峰测速、专线机场、原生 IP、流媒体解锁、防跑路等），并将重要的关键词加粗 <strong>。
-4. **输出纯 HTML**：只输出文章的正文 HTML 片段（不要 <html><body> 等外壳），必须包含清晰的 <h2>、<h3> 标题结构，重点内容用 <ul> 或 <ol> 列表。
+【核心要求：构建 SEO 蜘蛛网】
+以下是网站内已经存在的其他文章链接池：
+${existingLinks.join('\n')}
+请你在正文中，当上下文提到相关机场或概念时，极其自然地插入 2 到 3 个内部链接。
+链接的 HTML 格式必须是：<a href="这里填提供的文件路径">这里填自然融合在句子里的文字</a>。
+
+【排版要求】：
+1. **必须包含独立的导语（Meta Description 级别）**：在开头用一段约 80-100 字的话总结全文，请用 <blockquote> 标签包裹作为导语。导语中必须提及今天的日期（${today} 最新实测）。
+2. **丰富的专业知识**：内容必须硬核、差异化，能解决用户实际痛点。
+3. **SEO 关键词穿插**：正文中自然穿插相关关键词并将重要的加粗 <strong>。
+4. **纯 HTML 输出**：只输出正文 HTML 片段（绝不要 <html><body> 等外壳），必须包含清晰的 <h2>、<h3> 标题结构。
 `;
 
     try {
@@ -118,12 +148,10 @@ function updateArticlesHtml(topic, fileName, today) {
     if (fs.existsSync(articlesPath)) {
         let content = fs.readFileSync(articlesPath, 'utf8');
         
-        // 生成日期盒子，比如 06 Jun
         const dateObj = new Date(today);
         const day = String(dateObj.getDate()).padStart(2, '0');
         const month = dateObj.toLocaleString('en-US', { month: 'short' });
 
-        // 拼接 HTML 块
         const newArticleBlock = `
             <!-- 新生成的文章 -->
             <a href="${fileName}" class="article-list-item">
@@ -133,16 +161,15 @@ function updateArticlesHtml(topic, fileName, today) {
                 </div>
                 <div class="article-info">
                     <h2>${topic}</h2>
-                    <p>由云端甄选 AI 引擎自动生成的深度科普长文。点击阅读详情，了解关于此话题的最新硬核解析与避坑指南...</p>
+                    <p>由云端甄选 AI 引擎自动结合全网最新热点生成的深度长文。内含硬核原理解析、测速数据与防坑指南，点击阅读详情...</p>
                     <div class="article-tags">
-                        <span>极客科普</span>
-                        <span>最新发布</span>
+                        <span>全网热点</span>
+                        <span>硬核科普</span>
                     </div>
                 </div>
             </a>
             `;
         
-        // 插入到 <div class="article-list"> 的紧后面
         if (content.includes('<div class="article-list">')) {
             content = content.replace('<div class="article-list">', '<div class="article-list">\n' + newArticleBlock);
             fs.writeFileSync(articlesPath, content);
@@ -165,46 +192,58 @@ async function main() {
     const templateHtml = fs.readFileSync(templatePath, 'utf8');
     const today = new Date().toISOString().split('T')[0];
 
-    // 筛选出尚未生成的文章
-    const unGeneratedTopics = blogTopics.filter(topic => {
+    // 1. 获取今日全网热点，用于辅助 AI 蹭流量
+    console.log(`📡 正在抓取全网最新热点...`);
+    const todayTrends = await fetchHotTrends();
+    console.log(`🔥 捕获今日全网热点: ${todayTrends}`);
+
+    // 2. 动态生成 5 个全新的爆款标题
+    console.log(`🧠 正在让 AI 结合热点思考今天的话题方向...`);
+    let targetTopics = await generateDynamicTopics(todayTrends, today);
+    
+    if (!targetTopics || targetTopics.length === 0) {
+        console.log("⚠️ AI 生成话题失败，本次放弃更新。");
+        return;
+    }
+    console.log(`💡 AI 构思的话题库:`, targetTopics);
+
+    // 3. 过滤重复文章，确保不发布重复内容
+    const newTopicsToGenerate = targetTopics.filter(topic => {
         const safeName = topic.replace(/[^\w\u4e00-\u9fa5]/g, '');
         const outputPath = path.join(__dirname, '..', `blog-${safeName}.html`);
         return !fs.existsSync(outputPath);
     });
 
-    if (unGeneratedTopics.length === 0) {
-        console.log("✅ 所有储备话题均已生成完毕，无需更新。");
+    if (newTopicsToGenerate.length === 0) {
+        console.log("✅ AI 生成的话题与历史文章有重复，全部过滤，本次不更新。");
         return;
     }
 
-    // 随机或者按顺序挑选 5 篇
-    const targetTopics = unGeneratedTopics.slice(0, 5);
-    console.log(`🚀 开始每日自动博客更新任务，今日发文量: ${targetTopics.length} 篇`);
+    console.log(`🚀 开始撰写今日的 SEO 蜘蛛网爆款文章，共: ${newTopicsToGenerate.length} 篇`);
 
-    // 获取今日全网热点，用于辅助 AI 蹭流量
-    const todayTrends = await fetchHotTrends();
-    console.log(`🔥 捕获今日全网热点: ${todayTrends}`);
+    // 4. 获取已有链接，供蜘蛛网内链使用
+    const existingLinks = getExistingLinks();
 
-    for (const topic of targetTopics) {
+    for (const topic of newTopicsToGenerate) {
         const safeName = topic.replace(/[^\w\u4e00-\u9fa5]/g, '');
         const fileName = `blog-${safeName}.html`;
         const outputPath = path.join(__dirname, '..', fileName);
 
-        console.log(`\n⏳ 正在撰写博客:《${topic}》...`);
-        const content = await generateBlogContent(topic, today, todayTrends);
+        console.log(`\n⏳ 正在撰写深度长文并织网:《${topic}》...`);
+        const content = await generateBlogContent(topic, today, todayTrends, existingLinks);
         
         if (content) {
             let finalHtml = templateHtml.replace(/\{\{TITLE\}\}/g, topic);
             
-            // 尝试提取 blockquote 中的导语作为 Meta Description
+            // 提取导语
             let descMatch = content.match(/<blockquote>([\s\S]*?)<\/blockquote>/);
-            let metaDesc = descMatch ? descMatch[1].replace(/<[^>]+>/g, '').trim().substring(0, 150) : `${topic} 深度解析文章，云端甄选独家发布。`;
+            let metaDesc = descMatch ? descMatch[1].replace(/<[^>]+>/g, '').trim().substring(0, 150) : `${topic} 深度解析文章，结合全网最新热点。`;
             finalHtml = finalHtml.replace(/\{\{DESCRIPTION\}\}/g, metaDesc);
             
             finalHtml = finalHtml.replace(/\{\{DATE\}\}/g, today);
             finalHtml = finalHtml.replace(/\{\{FILE_NAME\}\}/g, fileName);
             
-            // 插入高级 AI 自动配图
+            // 插入 AI 配图
             const encodedTopic = encodeURIComponent(topic + " cyberpunk technology network style width 1920 height 1080");
             const aiImageUrl = `https://image.pollinations.ai/prompt/${encodedTopic}`;
             const imageHtml = `
@@ -227,7 +266,7 @@ async function main() {
         await sleep(3000); // 防封锁
     }
 
-    console.log("\n🎉 今日自动博客任务完成！");
+    console.log("\n🎉 今日自动博客任务（动态蜘蛛网版）完美完成！");
 }
 
 main();
