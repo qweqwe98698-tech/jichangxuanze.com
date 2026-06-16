@@ -244,8 +244,8 @@ async function main() {
             finalHtml = finalHtml.replace(/\{\{FILE_NAME\}\}/g, fileName);
             
             // 插入 AI 配图
-            const encodedTopic = encodeURIComponent(topic + " cyberpunk technology network style width 1920 height 1080");
-            const aiImageUrl = `https://image.pollinations.ai/prompt/${encodedTopic}`;
+            const encodedTopic = encodeURIComponent(topic + " cyberpunk technology network japanese anime manga style");
+            const aiImageUrl = `https://image.pollinations.ai/prompt/${encodedTopic}?width=1920&height=1080&nologo=true`;
             const imageHtml = `
             <figure style="margin: 20px 0; text-align: center;">
                 <img src="${aiImageUrl}" alt="${topic}" style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); display: block; margin: 0 auto;">
