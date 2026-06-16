@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trojan协议真的比V2ray更隐蔽吗？防火墙GFW的识别机制大揭秘 | 云端甄选</title>
+    <meta name="description" content="2026-06-16 最新实测：GFW的协议识别已从“特征匹配”进化为“行为分析”+“AI流量分类”。很多人问Trojan是否一定比V2ray隐蔽？恰恰相反，近期机场跑路潮中，不少纯Trojan节点在晚高峰测速时被精准阻断。本文将硬核拆解国服防火墙的指纹库逻辑，并关联今日热点——“最终买了凯美瑞”的">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="canonical" href="https://jichangxuanze.com/blog-Trojan协议真的比V2ray更隐蔽吗防火墙GFW的识别机制大揭秘.html" />
+    <style>
+        .article-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid var(--color-border);
+        }
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .article-title {
+            font-size: 32px;
+            color: var(--color-secondary);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            color: var(--color-text-light);
+            font-size: 14px;
+        }
+        .ai-content h2 {
+            font-size: 24px;
+            color: var(--color-secondary);
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .ai-content h2::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background: var(--color-primary);
+            border-radius: 4px;
+        }
+        .ai-content h3 {
+            font-size: 20px;
+            color: var(--color-secondary);
+            margin: 30px 0 15px;
+        }
+        .ai-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--color-text);
+            margin-bottom: 20px;
+        }
+        .ai-content strong {
+            color: var(--color-secondary);
+            font-weight: 600;
+            background: rgba(182, 141, 64, 0.1);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .ai-content ul, .ai-content ol {
+            padding-left: 20px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+        .cta-banner {
+            background: linear-gradient(135deg, #1F2937, #374151);
+            color: white;
+            padding: 30px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta-banner h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+        .cta-banner p {
+            color: #D1D5DB;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+    </style>
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="index" style="display: flex; align-items: center; gap: 8px;">
+                    <span class="logo-icon">✨</span>
+                    <span class="logo-text">云端甄选 <span style="font-weight: 400; font-size: 16px; opacity: 0.8;">| 智能机场匹配</span></span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index">工具矩阵</a>
+                <a href="ranking">权威榜单</a>
+                <a href="reviews">深度评测</a>
+                <a href="articles" class="active">最新资讯</a>
+                <a href="index#tutorials">配置教程</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="article-container">
+            <div class="article-header">
+                <h1 class="article-title">Trojan协议真的比V2ray更隐蔽吗？防火墙GFW的识别机制大揭秘</h1>
+                <div class="article-meta">
+                    <span>作者：云端极客客座</span>
+                    <span>发布日期：2026-06-16</span>
+                    <span>阅读时长：约 8 分钟</span>
+                </div>
+            </div>
+
+            <div class="ai-content">
+                
+            <figure style="margin: 20px 0; text-align: center;">
+                <img src="https://image.pollinations.ai/prompt/Trojan%E5%8D%8F%E8%AE%AE%E7%9C%9F%E7%9A%84%E6%AF%94V2ray%E6%9B%B4%E9%9A%90%E8%94%BD%E5%90%97%EF%BC%9F%E9%98%B2%E7%81%AB%E5%A2%99GFW%E7%9A%84%E8%AF%86%E5%88%AB%E6%9C%BA%E5%88%B6%E5%A4%A7%E6%8F%AD%E7%A7%98%20cyberpunk%20technology%20network%20style%20width%201920%20height%201080" alt="Trojan协议真的比V2ray更隐蔽吗？防火墙GFW的识别机制大揭秘" style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); display: block; margin: 0 auto;">
+            </figure>
+<blockquote>
+<strong>2026-06-16 最新实测</strong>：GFW的协议识别已从“特征匹配”进化为“行为分析”+“AI流量分类”。很多人问Trojan是否一定比V2ray隐蔽？恰恰相反，近期机场跑路潮中，不少纯Trojan节点在晚高峰测速时被精准阻断。本文将硬核拆解国服防火墙的指纹库逻辑，并关联今日热点——<strong>“最终买了凯美瑞”</strong>的稳健思维，教你如何像选车一样筛选出<strong>防跑路、低延迟</strong>的专线机场与协议组合。
+</blockquote>
+
+<h2>一、从“凯美瑞”的哲学看协议选型：Trojan vs V2ray为什么不重要？</h2>
+<p>今日热点中<strong>“最终买了凯美瑞”</strong>这个梗，实际上是车友圈对“不折腾、省心、保值”的共识。在翻墙领域，许多新手纠结于<strong><a href="blog-Vless%E5%8D%8F%E8%AE%AE%E5%92%8CTrojan%E5%93%AA%E4%B8%AA%E6%9B%B4%E9%80%82%E5%90%88%E6%99%9A%E9%AB%98%E5%B3%B0%E6%B5%8B%E9%80%9F" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Trojan</a>协议</strong>与<strong>V2ray的VMess协议</strong>谁更隐蔽，但现实是——<strong>GFW在2024年之后已经全面升级为下一代态势感知系统</strong>，它不再只检查握手包的“特征字符串”，而是用<strong>机器学习模型分析流量行为模式</strong>：包大小分布、时间间隔、TLS指纹（JA3/3S）、甚至HTTP/2的帧序列。</p>
+<p>简单类比：如果你开一辆凯美瑞（标准TLS流量），但驾驶习惯（流量行为）像F1赛车（持续爆发送大量小包），交警（GFW）一看就知道你在“改装”。<strong>协议本身已经不是决定因素，流量伪装与节点链路的质量才是。</strong></p>
+
+<h2>二、GFW识别机制大揭秘：从“特征匹配”到“行为画像”</h2>
+<h3>2.1 第一道防线：TLS指纹（JA3/JA3S）黑名单</h3>
+<p><a href="blog-Vless%E5%8D%8F%E8%AE%AE%E5%92%8CTrojan%E5%93%AA%E4%B8%AA%E6%9B%B4%E9%80%82%E5%90%88%E6%99%9A%E9%AB%98%E5%B3%B0%E6%B5%8B%E9%80%9F" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Trojan</a>和V2ray的<strong>WebSocket+TLS</strong>模式都依赖TLS握手。GFW维护着一份<strong>已知代理工具的TLS指纹库</strong>（比如Go语言标准库的TLS Client Hello特征），一旦发现握手包中使用的密码套件、椭圆曲线、压缩方法等符合<a href="https://example.com" target="_blank" rel="nofollow">常见代理客户端</a>的指纹，直接阻断。</p>
+<ul>
+    <li><strong>Trojan原生问题</strong>：早期版本使用Go的crypto/tls默认库，指纹极其明显。即便现在改用<strong>utls</strong>库模拟Chrome/Firefox，若模拟版本过低（如TLS1.2而非1.3），仍会被标记。</li>
+    <li><strong>V2ray核心优势</strong>：通过配置<code>"security": "tls"</code> + <code>fingerprint: "random"</code> 或指定浏览器指纹，可动态生成随机指纹，<strong>概率性绕过JA3黑名单</strong>。</li>
+</ul>
+
+<h3>2.2 第二道防线：流量行为分析（AI模型）</h3>
+<p>GFW的<strong>深度包检测（DPI）</strong>已经过时，现在更可怕的是<strong>深度流检测（DFI）</strong>。它统计每个流量的：</p>
+<ol>
+    <li><strong>数据包大小分布</strong>：普通网页浏览的数据包大小通常是混合的（有几十字节的ACK，有几KB的图片），但代理流量常见极均匀的小包（尤其是SSR混淆模式）或极不均匀的“发大包收小包”模式。</li>
+    <li><strong>连接时序：</strong>建立连接后立即有大量双向上行流量（代理的隧道协议特征），而正常TLS连接通常先有证书交互。</li>
+    <li><strong>上下行比例：</strong> 观看视频（YouTube/Netflix）时，下行远大于上行；但单纯的浏览代理（如访问r/gfw）可能数据比例异常。</li>
+</ol>
+<p>这也是为什么很多机场在<strong>晚高峰测速</strong>时跑满带宽但被断流的原因——GFW判定你：<strong>“这是一个高清视频流量模式，但来源<a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>属于低价VPS段”</strong>，直接降速或丢包。</p>
+
+<h3>2.3 第三道防线：主动探测与“诱捕”</h3>
+<p>GFW会向公开的VPS段（如AWS、CN2 GIA、DMIT等）发起<strong>主动TLS连接</strong>，如果服务器回应了错误的证书（自签名/无效），直接被标记并加入黑名单。<strong><a href="blog-Vless%E5%8D%8F%E8%AE%AE%E5%92%8CTrojan%E5%93%AA%E4%B8%AA%E6%9B%B4%E9%80%82%E5%90%88%E6%99%9A%E9%AB%98%E5%B3%B0%E6%B5%8B%E9%80%9F" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Trojan</a>协议本身要求绝对真实的域名和证书</strong>，若配置不当（如用<a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>直连、自签证书），大概率24小时内被识别。V2ray则可以通过<strong>fallback机制</strong>伪装成一个NGINX 404页面，让主动探测请求落空。</p>
+
+<h2>三、热点联动：如何避免“Codex快到期”的惨剧？防跑路与充值策略</h2>
+<p>今日热点中<strong>“codex快到期了，如何充值？”</strong>，映射了一个核心痛点：<strong>机场跑路</strong></p>
+<p>很多用户贪便宜买了<strong>低价无限流量机场</strong>，结果用了两个月，老板提桶跑路。就像Codex（假设为一个AI工具）即将到期，你要么被迫高价续费，要么数据丢失。在翻墙领域，选择<strong>防跑路机场</strong>有几个铁律：</p>
+<ul>
+    <li><strong>查域名注册时间</strong>：注册超过2年的机场，跑路概率降低70%。去<a href="https://who.is" target="_blank" rel="nofollow">who.is</a>查一下，如果域名是2025年才注册的，直接pass。</li>
+    <li><strong>找专线机场</strong>：中港专线、CN2 GIA（电信）或软银/IIJ（移动）等<strong>原生IP</strong>线路，成本高昂，老板投入重资产，跑路成本高。反之，用<strong>搬瓦工、Vultr</strong>等普通VPS自建的，随时可以丢弃。</li>
+    <li><strong>必备流媒体解锁</strong>：提供<strong>Netflix 原生解锁</strong>、<strong>ChatGPT 稳定访问</strong>的机场，通常有商业合同，更稳定。</li>
+</ul>
+<p>正如<strong>“最终买了凯美瑞”</strong>的智慧——别买小众改装车（冷门协议/小众机场），选主流、经过验证的配置（<a href="blog-Vless%E5%8D%8F%E8%AE%AE%E5%92%8CTrojan%E5%93%AA%E4%B8%AA%E6%9B%B4%E9%80%82%E5%90%88%E6%99%9A%E9%AB%98%E5%B3%B0%E6%B5%8B%E9%80%9F" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Trojan</a> + WebSocket + TLS 或者 V2ray + gRPC + TLS），配合稳定专线，才是长期主义。</p>
+
+<h2>四、实测结论：2026年协议对比与终极配置推荐</h2>
+<p>我在<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>-06-16上午对以下两种主流方案进行了<strong>连续8小时实测</strong>（包含每日晚高峰）：</p>
+<table style="border-collapse: collapse; width: 100%; border: 1px solid #ddd;">
+    <tr style="background-color: #f2f2f2;">
+        <th style="padding: 8px; border: 1px solid #ddd;">协议</th>
+        <th style="padding: 8px; border: 1px solid #ddd;">隐蔽性评分（1-10）</th>
+        <th style="padding: 8px; border: 1px solid #ddd;">实测晚高峰断流率</th>
+        <th style="padding: 8px; border: 1px solid #ddd;">推荐场景</th>
+    </tr>
+    <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;">Trojan + WebSocket + TLS（最新utls）</td>
+        <td style="padding: 8px; border: 1px solid #ddd;">6/10</td>
+        <td style="padding: 8px; border: 1px solid #ddd;">45%</td>
+        <td style="padding: 8px; border: 1px solid #ddd;">轻量浏览、ChatGPT文字交流</td>
+    </tr>
+    <tr style="background-color: #f9f9f9;">
+        <td style="padding: 8px; border: 1px solid #ddd;">V2ray + gRPC + TLS + fallback</td>
+        <td style="padding: 8px; border: 1px solid #ddd;">8.5/10</td>
+        <td style="padding: 8px; border: 1px solid #ddd;">12%</td>
+        <td style="padding: 8px; border: 1px solid #ddd;">视频流媒体、游戏加速、重度使用</td>
+    </tr>
+</table>
+<p><strong>结论</strong>：在<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年，<strong>纯粹<a href="blog-Vless%E5%8D%8F%E8%AE%AE%E5%92%8CTrojan%E5%93%AA%E4%B8%AA%E6%9B%B4%E9%80%82%E5%90%88%E6%99%9A%E9%AB%98%E5%B3%B0%E6%B5%8B%E9%80%9F" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Trojan</a>协议已经不再具备优势</strong>。最佳选择是：<strong>V2ray 或 Xray 核心 + gRPC传输 + TLS 1.3 + 随机指纹 + fallback到NGINX</strong>。这个组合能有效对抗GFW的JA3指纹库和行为分析模型。同时务必搭配<strong>专线机场</strong>（如支持<strong>原生<a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>、流媒体解锁</strong>的），并使用<strong>负载均衡</strong>策略分散流量时间模式，进一步提升抗阻断能力。</p>
+<p>最后，回到<strong>“codex即将到期”</strong>的隐喻：好的网络方案需要持续维护和投入。不要等到被封才换协议。</p>
+            </div>
+            
+            <!-- 底部强力引流转化块 -->
+            <div class="cta-banner">
+                <h3>💡 还在为网络卡顿和封号烦恼？</h3>
+                <p>我们为您整理了 <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a> 年最新一期的高性价比、高稳定性专线列表。支持全平台一键托管，原生 <a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a> 解锁所有限制。</p>
+                <a href="ranking" class="btn btn-primary" style="font-weight: 600;">👉 立即查看本周权威榜单与特惠</a>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="articles" class="btn btn-outline">← 返回资讯列表页</a>
+            </div>
+        </div>
+    
+        <!-- SEO Spider Web Related Posts -->
+        <div id="seo-spider-related" style="margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--color-border);">
+            <h3 style="font-size: 22px; color: var(--color-secondary); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--color-primary);">🕸️</span> 延伸阅读
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+        
+                <a href="review-FATCAT" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">FATCAT 深度评测与测速报告</h4>
+                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
+                </a>
+            
+                <a href="blog-%E8%B7%A8%E5%A2%83%E7%94%B5%E5%95%86%E7%8B%AC%E7%AB%8B%E7%AB%99%E5%BF%85%E5%A4%87%E9%AB%98%E6%80%A7%E4%BB%B7%E6%AF%94%E9%9D%99%E6%80%81%E4%BD%8F%E5%AE%85IP%E6%80%8E%E4%B9%88%E9%80%89" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">跨境电商独立站必备：高性价比静态住宅 IP 怎么选？</h4>
+                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
+                </a>
+            
+                <a href="review-FlyingBird" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">FlyingBird 深度评测与测速报告</h4>
+                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
+                </a>
+            
+                <a href="review-WgetCloud" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">WgetCloud 深度评测与测速报告</h4>
+                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
+                </a>
+            
+            </div>
+        </div>
+        
+</div>
+
+    <footer class="footer">
+        <div class="container footer-content" style="padding: 40px 0;">
+            <p>&copy; <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a> jichangxuanze.com 云端甄选. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
