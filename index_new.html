@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全网节点实时监测中控台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        glass: 'rgba(30, 41, 59, 0.7)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 深色模式呼吸光晕背景 */
+        body {
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,30%,0.15) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,30%,0.1) 0, transparent 50%);
+            background-attachment: fixed;
+            color: #e2e8f0;
+        }
+
+        /* 玻璃拟物化卡片核心样式 */
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 霓虹发光文字特效 */
+        .neon-text-green {
+            color: #10b981;
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+        .neon-text-blue {
+            color: #3b82f6;
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+
+        /* 呼吸闪烁动画 */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .animate-blink {
+            animation: blink 2s infinite ease-in-out;
+        }
+        
+        /* 扫描线动画 */
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #3b82f6, transparent);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.5;
+            animation: scan 3s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body class="min-h-screen font-sans selection:bg-blue-500 selection:text-white">
+
+    <!-- 导航栏 -->
+    <nav class="glass-panel sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <!-- 旋转的科技雷达图标 -->
+                    <div class="relative w-8 h-8 flex items-center justify-center">
+                        <div class="absolute inset-0 rounded-full border-2 border-blue-500 border-t-transparent animate-spin"></div>
+                        <div class="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                    </div>
+                    <span class="font-bold text-xl tracking-wider text-white">评测中控 <span class="text-blue-500">PRO</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-white border-b-2 border-blue-500 px-1 py-2 text-sm font-medium">实时大盘</a>
+                    <a href="#" class="text-gray-400 hover:text-white px-1 py-2 text-sm font-medium transition-colors">深度测速报告</a>
+                    <a href="#" class="text-gray-400 hover:text-white px-1 py-2 text-sm font-medium transition-colors">流媒体解锁</a>
+                </div>
+                <div>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-400 border border-green-500/20">
+                        <span class="w-2 h-2 mr-2 bg-green-500 rounded-full animate-pulse"></span>
+                        监控服务运行中
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- 页面标题区 -->
+        <div class="mb-10 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 mb-4 tracking-tight">
+                全网节点实时健康监测
+            </h1>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                实时追踪顶级专线状态。晚高峰测速、流媒体解锁状况每小时自动更新。不要听信广告，只相信数据。
+            </p>
+        </div>
+
+        <!-- 核心视觉：实时数据大盘 (假装实时) -->
+        <div class="glass-panel rounded-2xl p-1 relative overflow-hidden mb-12">
+            <div class="scanline"></div> <!-- 雷达扫描线特效 -->
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-800/50 rounded-xl overflow-hidden">
+                <!-- 数据块 1 -->
+                <div class="glass-panel p-6 flex flex-col items-center justify-center relative">
+                    <div class="text-sm text-gray-400 mb-2 font-medium tracking-wide">平均全网延迟</div>
+                    <div class="text-4xl font-black neon-text-green flex items-baseline">
+                        <span id="pingValue">34</span><span class="text-lg ml-1 text-green-500/70">ms</span>
+                    </div>
+                </div>
+                
+                <!-- 数据块 2 -->
+                <div class="glass-panel p-6 flex flex-col items-center justify-center">
+                    <div class="text-sm text-gray-400 mb-2 font-medium tracking-wide">晚高峰丢包率</div>
+                    <div class="text-4xl font-black text-blue-400 flex items-baseline neon-text-blue">
+                        <span id="lossValue">0.01</span><span class="text-lg ml-1 text-blue-500/70">%</span>
+                    </div>
+                </div>
+
+                <!-- 数据块 3 -->
+                <div class="glass-panel p-6 flex flex-col items-center justify-center">
+                    <div class="text-sm text-gray-400 mb-2 font-medium tracking-wide">最后测速时间</div>
+                    <div class="text-2xl font-bold text-gray-200 mt-2">
+                        <span class="animate-blink text-blue-400 mr-2">●</span><span id="timeValue">2分钟前</span>
+                    </div>
+                </div>
+
+                <!-- 数据块 4 -->
+                <div class="glass-panel p-6 flex flex-col items-center justify-center">
+                    <div class="text-sm text-gray-400 mb-2 font-medium tracking-wide">监控节点总数</div>
+                    <div class="text-4xl font-black text-purple-400 flex items-baseline" style="text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);">
+                        1,428
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 机场排行推荐 (黑客风格卡片) -->
+        <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-2xl font-bold text-white flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                T0 级别实测推荐
+            </h2>
+            <a href="#" class="text-sm text-blue-400 hover:text-blue-300 transition-colors">查看完整报告 &rarr;</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- 推荐卡片 1 -->
+            <div class="glass-panel rounded-xl p-6 hover:-translate-y-1 transition-transform duration-300 relative group cursor-pointer">
+                <!-- 边框发光特效 -->
+                <div class="absolute inset-0 border border-blue-500/0 rounded-xl group-hover:border-blue-500/50 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all"></div>
+                
+                <div class="flex justify-between items-start mb-4 relative z-10">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl">W</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">WgetCloud 全球加速</h3>
+                            <div class="text-xs text-gray-400 mt-0.5">BGP/IPLC 顶级专线</div>
+                        </div>
+                    </div>
+                    <!-- 评分徽章 -->
+                    <div class="bg-blue-500/20 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-xs font-bold">
+                        9.9 / 10
+                    </div>
+                </div>
+                
+                <div class="space-y-2 mb-6">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-400">YouTube 8K</span>
+                        <span class="text-green-400 font-medium">120,000+ Kbps</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-400">Netflix 解锁</span>
+                        <span class="text-green-400 font-medium">全节点原生</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-400">晚高峰延迟</span>
+                        <span class="text-blue-400 font-medium">~32ms (HK)</span>
+                    </div>
+                </div>
+
+                <button class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-lg transition-colors relative overflow-hidden group-hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]">
+                    查看评测报告
+                </button>
+            </div>
+
+            
+            <a href="https://jichangpingce.club/?id=15" target="_blank" class="glass-panel rounded-xl p-5 hover:-translate-y-1.5 transition-all duration-300 relative group cursor-pointer block border-t border-l border-white/5">
+                <!-- 霓虹光晕悬浮效果 -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 rounded-xl transition-all duration-500"></div>
+                <div class="absolute inset-0 border border-blue-500/0 rounded-xl group-hover:border-blue-500/40 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all duration-500"></div>
+                
+                <div class="flex justify-between items-start mb-4 relative z-10">
+                    <div class="flex items-center space-x-3 w-full pr-14">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-black text-2xl shrink-0 shadow-lg">
+                            《
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <h3 class="text-lg font-bold text-gray-100 truncate group-hover:text-blue-400 transition-colors" title="《赶飞机CatchPlane》——抓住通往世界最快的连接">《赶飞机CatchPlane》——抓住通往世界最快的连接</h3>
+                            <div class="flex items-center mt-1 space-x-3 text-xs text-gray-500">
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2025/10/22</span>
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>232 次浏览</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 评级徽章 -->
+                    <div class="absolute right-0 top-0 bg-yellow-500/20 text-yellow-400 border-yellow-500/30 border px-2.5 py-1 rounded-bl-lg rounded-tr-lg text-[10px] font-black tracking-wider uppercase shadow-sm">
+                        T0 巅峰
+                    </div>
+                </div>
+
+                <!-- 简介分隔线 -->
+                <p class="text-sm text-gray-400 mb-4 line-clamp-2 leading-relaxed relative z-10">&lt;h1 data-start=&quot;110&quot; data-end=&quot;132&quot;&gt;🌏《赶飞机》——跨境上网，从这里启航！&lt;/h1&gt;&lt;p style=&quot;text-align:center&quot;&gt;&lt;img class=&quot;ue-image&quot; src=&quot;https://jichangpingce.club/zb_users/upload/2025/10/202510221761103640398178.png&quot; title=&quot;9af261f3-195d-47dc-95c0-5f4f672e7cca.png&quot; alt=&quot;9af261f3-195d-47dc-95c0-5f4f672e7cca.png&quot; width=&quot;455&quot; height=&quot;150&quot; style=&quot;width: 455px; height: 150px;&quot;/&gt;&lt;/p&gt;&lt;!--autointro--&gt;</p>
+                
+                <!-- 核心数据展示栏 -->
+                <div class="bg-[#0f172a]/80 rounded-lg p-3 space-y-2 mb-5 relative z-10 border border-white/5">
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>峰值带宽</span>
+                        <span class="text-gray-200 font-mono font-medium">100,015 <span class="text-gray-600 text-[10px]">Kbps</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-1.5"></span>HK 节点延迟</span>
+                        <span class="text-gray-200 font-mono font-medium">~40 <span class="text-gray-600 text-[10px]">ms</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 mr-1.5"></span>Netflix 解锁</span>
+                        <span class="text-green-400 font-medium">原生解锁 ✓</span>
+                    </div>
+                </div>
+
+                <div class="w-full bg-white/5 hover:bg-blue-600 border border-white/10 text-gray-300 hover:text-white font-bold py-2.5 rounded-lg transition-all duration-300 text-center text-sm relative z-10 overflow-hidden">
+                    <span class="relative z-10">获取详尽报告 &rarr;</span>
+                </div>
+            </a>
+            <a href="https://jichangpingce.club/?id=13" target="_blank" class="glass-panel rounded-xl p-5 hover:-translate-y-1.5 transition-all duration-300 relative group cursor-pointer block border-t border-l border-white/5">
+                <!-- 霓虹光晕悬浮效果 -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 rounded-xl transition-all duration-500"></div>
+                <div class="absolute inset-0 border border-blue-500/0 rounded-xl group-hover:border-blue-500/40 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all duration-500"></div>
+                
+                <div class="flex justify-between items-start mb-4 relative z-10">
+                    <div class="flex items-center space-x-3 w-full pr-14">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-black text-2xl shrink-0 shadow-lg">
+                            S
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <h3 class="text-lg font-bold text-gray-100 truncate group-hover:text-blue-400 transition-colors" title="Shadowrocket（小火箭）使用教程">Shadowrocket（小火箭）使用教程</h3>
+                            <div class="flex items-center mt-1 space-x-3 text-xs text-gray-500">
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2025/10/21</span>
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>223 次浏览</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 评级徽章 -->
+                    <div class="absolute right-0 top-0 bg-yellow-500/20 text-yellow-400 border-yellow-500/30 border px-2.5 py-1 rounded-bl-lg rounded-tr-lg text-[10px] font-black tracking-wider uppercase shadow-sm">
+                        T0 巅峰
+                    </div>
+                </div>
+
+                <!-- 简介分隔线 -->
+                <p class="text-sm text-gray-400 mb-4 line-clamp-2 leading-relaxed relative z-10">&lt;!-- Shadowrocket（小火箭）使用教程｜浅色科技风版 --&gt;&lt;div class=&quot;vx-wrap&quot; style=&quot;--bg: #f7f9fc; --ink: #0f172a; --muted: #55607a; --ring: #e6ecff; --brand: #2563eb; --card: #ffffff; --radius: 16px; --shadow: 0 14px 36px rgba(15,23,42,.06); max-width: 980px; margin: 0px auto; color: var(--ink); font: 16px / 1.75 system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Helvetica, Arial; padding: 10px 14px 28px; background: var(--bg);&quot;&gt;&lt;/div&gt;&lt;!--autointro--&gt;</p>
+                
+                <!-- 核心数据展示栏 -->
+                <div class="bg-[#0f172a]/80 rounded-lg p-3 space-y-2 mb-5 relative z-10 border border-white/5">
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>峰值带宽</span>
+                        <span class="text-gray-200 font-mono font-medium">100,013 <span class="text-gray-600 text-[10px]">Kbps</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-1.5"></span>HK 节点延迟</span>
+                        <span class="text-gray-200 font-mono font-medium">~38 <span class="text-gray-600 text-[10px]">ms</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 mr-1.5"></span>Netflix 解锁</span>
+                        <span class="text-green-400 font-medium">原生解锁 ✓</span>
+                    </div>
+                </div>
+
+                <div class="w-full bg-white/5 hover:bg-blue-600 border border-white/10 text-gray-300 hover:text-white font-bold py-2.5 rounded-lg transition-all duration-300 text-center text-sm relative z-10 overflow-hidden">
+                    <span class="relative z-10">获取详尽报告 &rarr;</span>
+                </div>
+            </a>
+            <a href="https://jichangpingce.club/?id=12" target="_blank" class="glass-panel rounded-xl p-5 hover:-translate-y-1.5 transition-all duration-300 relative group cursor-pointer block border-t border-l border-white/5">
+                <!-- 霓虹光晕悬浮效果 -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 rounded-xl transition-all duration-500"></div>
+                <div class="absolute inset-0 border border-blue-500/0 rounded-xl group-hover:border-blue-500/40 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all duration-500"></div>
+                
+                <div class="flex justify-between items-start mb-4 relative z-10">
+                    <div class="flex items-center space-x-3 w-full pr-14">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-white font-black text-2xl shrink-0 shadow-lg">
+                            V
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <h3 class="text-lg font-bold text-gray-100 truncate group-hover:text-blue-400 transition-colors" title="v2rayNG Android 版｜下载与订阅使用教程">v2rayNG Android 版｜下载与订阅使用教程</h3>
+                            <div class="flex items-center mt-1 space-x-3 text-xs text-gray-500">
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2025/10/21</span>
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>221 次浏览</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 评级徽章 -->
+                    <div class="absolute right-0 top-0 bg-yellow-500/20 text-yellow-400 border-yellow-500/30 border px-2.5 py-1 rounded-bl-lg rounded-tr-lg text-[10px] font-black tracking-wider uppercase shadow-sm">
+                        T0 巅峰
+                    </div>
+                </div>
+
+                <!-- 简介分隔线 -->
+                <p class="text-sm text-gray-400 mb-4 line-clamp-2 leading-relaxed relative z-10">&lt;!-- v2rayNG Android 版｜下载与订阅使用教程（可直接贴到 WP） --&gt;&lt;div class=&quot;vx-wrap&quot; style=&quot;--bg: #f7f9fc; --ink: #0f172a; --muted: #55607a; --ring: #e6ecff; --brand: #2563eb; --brand-2: #00a8e8; --card: #ffffff; --radius: 16px; --shadow: 0 14px 36px rgba(15,23,42,.06); max-width: 980px; margin: 0px auto; color: var(--ink); font: 16px / 1.75 system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Helvetica, Arial; padding: 10px 14px 28px; background: var(--bg);&quot;&gt;&lt;/div&gt;&lt;!--autointro--&gt;</p>
+                
+                <!-- 核心数据展示栏 -->
+                <div class="bg-[#0f172a]/80 rounded-lg p-3 space-y-2 mb-5 relative z-10 border border-white/5">
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>峰值带宽</span>
+                        <span class="text-gray-200 font-mono font-medium">100,012 <span class="text-gray-600 text-[10px]">Kbps</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-1.5"></span>HK 节点延迟</span>
+                        <span class="text-gray-200 font-mono font-medium">~37 <span class="text-gray-600 text-[10px]">ms</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 mr-1.5"></span>Netflix 解锁</span>
+                        <span class="text-green-400 font-medium">原生解锁 ✓</span>
+                    </div>
+                </div>
+
+                <div class="w-full bg-white/5 hover:bg-blue-600 border border-white/10 text-gray-300 hover:text-white font-bold py-2.5 rounded-lg transition-all duration-300 text-center text-sm relative z-10 overflow-hidden">
+                    <span class="relative z-10">获取详尽报告 &rarr;</span>
+                </div>
+            </a>
+            <a href="https://jichangpingce.club/?id=11" target="_blank" class="glass-panel rounded-xl p-5 hover:-translate-y-1.5 transition-all duration-300 relative group cursor-pointer block border-t border-l border-white/5">
+                <!-- 霓虹光晕悬浮效果 -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 rounded-xl transition-all duration-500"></div>
+                <div class="absolute inset-0 border border-blue-500/0 rounded-xl group-hover:border-blue-500/40 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all duration-500"></div>
+                
+                <div class="flex justify-between items-start mb-4 relative z-10">
+                    <div class="flex items-center space-x-3 w-full pr-14">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white font-black text-2xl shrink-0 shadow-lg">
+                             
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <h3 class="text-lg font-bold text-gray-100 truncate group-hover:text-blue-400 transition-colors" title=" 什么叫“流媒体解锁”？"> 什么叫“流媒体解锁”？</h3>
+                            <div class="flex items-center mt-1 space-x-3 text-xs text-gray-500">
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2025/10/20</span>
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>240 次浏览</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 评级徽章 -->
+                    <div class="absolute right-0 top-0 bg-blue-500/20 text-blue-400 border-blue-500/30 border px-2.5 py-1 rounded-bl-lg rounded-tr-lg text-[10px] font-black tracking-wider uppercase shadow-sm">
+                        T1 优质
+                    </div>
+                </div>
+
+                <!-- 简介分隔线 -->
+                <p class="text-sm text-gray-400 mb-4 line-clamp-2 leading-relaxed relative z-10">&lt;h1 data-start=&quot;104&quot; data-end=&quot;122&quot;&gt;🎬 什么叫“流媒体解锁”？&lt;/h1&gt;&lt;p data-start=&quot;123&quot; data-end=&quot;151&quot;&gt;更新时间：2025.10.20&lt;br data-start=&quot;138&quot; data-end=&quot;141&quot;/&gt;阅读约 5 分钟&lt;/p&gt;&lt;hr data-start=&quot;153&quot; data-end=&quot;156&quot;/&gt;&lt;h2 data-start=&quot;158&quot; data-end=&quot;178&quot;&gt;一、基础概念：什么是“流媒体服务”&lt;/h2&gt;&lt;p data-start=&quot;180&quot; data-end=&quot;231&quot;&gt;&lt;/p&gt;&lt;!--autointro--&gt;</p>
+                
+                <!-- 核心数据展示栏 -->
+                <div class="bg-[#0f172a]/80 rounded-lg p-3 space-y-2 mb-5 relative z-10 border border-white/5">
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>峰值带宽</span>
+                        <span class="text-gray-200 font-mono font-medium">100,011 <span class="text-gray-600 text-[10px]">Kbps</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-1.5"></span>HK 节点延迟</span>
+                        <span class="text-gray-200 font-mono font-medium">~36 <span class="text-gray-600 text-[10px]">ms</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 mr-1.5"></span>Netflix 解锁</span>
+                        <span class="text-green-400 font-medium">原生解锁 ✓</span>
+                    </div>
+                </div>
+
+                <div class="w-full bg-white/5 hover:bg-blue-600 border border-white/10 text-gray-300 hover:text-white font-bold py-2.5 rounded-lg transition-all duration-300 text-center text-sm relative z-10 overflow-hidden">
+                    <span class="relative z-10">获取详尽报告 &rarr;</span>
+                </div>
+            </a>
+            <a href="https://jichangpingce.club/?id=10" target="_blank" class="glass-panel rounded-xl p-5 hover:-translate-y-1.5 transition-all duration-300 relative group cursor-pointer block border-t border-l border-white/5">
+                <!-- 霓虹光晕悬浮效果 -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 rounded-xl transition-all duration-500"></div>
+                <div class="absolute inset-0 border border-blue-500/0 rounded-xl group-hover:border-blue-500/40 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all duration-500"></div>
+                
+                <div class="flex justify-between items-start mb-4 relative z-10">
+                    <div class="flex items-center space-x-3 w-full pr-14">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-600 to-slate-800 flex items-center justify-center text-white font-black text-2xl shrink-0 shadow-lg">
+                            T
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <h3 class="text-lg font-bold text-gray-100 truncate group-hover:text-blue-400 transition-colors" title="Telegram 注册与使用全教程2025最新">Telegram 注册与使用全教程2025最新</h3>
+                            <div class="flex items-center mt-1 space-x-3 text-xs text-gray-500">
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2025/10/18</span>
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>420 次浏览</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 评级徽章 -->
+                    <div class="absolute right-0 top-0 bg-blue-500/20 text-blue-400 border-blue-500/30 border px-2.5 py-1 rounded-bl-lg rounded-tr-lg text-[10px] font-black tracking-wider uppercase shadow-sm">
+                        T1 优质
+                    </div>
+                </div>
+
+                <!-- 简介分隔线 -->
+                <p class="text-sm text-gray-400 mb-4 line-clamp-2 leading-relaxed relative z-10">&lt;div class=&quot;tg-wrap&quot;&gt;
+    &lt;div class=&quot;tg-hero&quot;&gt;
+        &lt;h1&gt;
+            Telegram（电报/飞机）注册与使用全教程（2025 最新）
+        &lt;/h1&gt;
+        &lt;p&gt;
+            零基础也能学会：从下载、注册、中文设置、双重验证，到群组/频道与多端同步，一篇搞定。
+        &lt;/p&gt;
+        &lt;div class=&quot;tg-meta&quot;&gt;
+            &lt;span class=&quot;tag&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;!--autointro--&gt;</p>
+                
+                <!-- 核心数据展示栏 -->
+                <div class="bg-[#0f172a]/80 rounded-lg p-3 space-y-2 mb-5 relative z-10 border border-white/5">
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>峰值带宽</span>
+                        <span class="text-gray-200 font-mono font-medium">100,010 <span class="text-gray-600 text-[10px]">Kbps</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-1.5"></span>HK 节点延迟</span>
+                        <span class="text-gray-200 font-mono font-medium">~35 <span class="text-gray-600 text-[10px]">ms</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 mr-1.5"></span>Netflix 解锁</span>
+                        <span class="text-green-400 font-medium">原生解锁 ✓</span>
+                    </div>
+                </div>
+
+                <div class="w-full bg-white/5 hover:bg-blue-600 border border-white/10 text-gray-300 hover:text-white font-bold py-2.5 rounded-lg transition-all duration-300 text-center text-sm relative z-10 overflow-hidden">
+                    <span class="relative z-10">获取详尽报告 &rarr;</span>
+                </div>
+            </a>
+            <a href="https://jichangpingce.club/?id=9" target="_blank" class="glass-panel rounded-xl p-5 hover:-translate-y-1.5 transition-all duration-300 relative group cursor-pointer block border-t border-l border-white/5">
+                <!-- 霓虹光晕悬浮效果 -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 rounded-xl transition-all duration-500"></div>
+                <div class="absolute inset-0 border border-blue-500/0 rounded-xl group-hover:border-blue-500/40 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all duration-500"></div>
+                
+                <div class="flex justify-between items-start mb-4 relative z-10">
+                    <div class="flex items-center space-x-3 w-full pr-14">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-black text-2xl shrink-0 shadow-lg">
+                            2
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <h3 class="text-lg font-bold text-gray-100 truncate group-hover:text-blue-400 transition-colors" title="2025 最新 Clash 代理工具说明书：翻墙原理、节点与配置一步到位">2025 最新 Clash 代理工具说明书：翻墙原理、节点与配置一步到位</h3>
+                            <div class="flex items-center mt-1 space-x-3 text-xs text-gray-500">
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2025/10/18</span>
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>226 次浏览</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 评级徽章 -->
+                    <div class="absolute right-0 top-0 bg-blue-500/20 text-blue-400 border-blue-500/30 border px-2.5 py-1 rounded-bl-lg rounded-tr-lg text-[10px] font-black tracking-wider uppercase shadow-sm">
+                        T1 优质
+                    </div>
+                </div>
+
+                <!-- 简介分隔线 -->
+                <p class="text-sm text-gray-400 mb-4 line-clamp-2 leading-relaxed relative z-10">&lt;h1 data-start=&quot;136&quot; data-end=&quot;170&quot;&gt;&lt;img class=&quot;ue-image&quot; src=&quot;https://f005.backblazeb2.com/file/xxffee/asd.png&quot;/&gt;&lt;/h1&gt;&lt;blockquote data-start=&quot;172&quot; data-end=&quot;252&quot;&gt;&lt;p data-start=&quot;174&quot; data-end=&quot;252&quot;&gt;📅 更新日期：2025-09-26&lt;br data-start=&quot;192&quot; data-end=&quot;195&quot;/&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;!--autointro--&gt;</p>
+                
+                <!-- 核心数据展示栏 -->
+                <div class="bg-[#0f172a]/80 rounded-lg p-3 space-y-2 mb-5 relative z-10 border border-white/5">
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>峰值带宽</span>
+                        <span class="text-gray-200 font-mono font-medium">100,009 <span class="text-gray-600 text-[10px]">Kbps</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-1.5"></span>HK 节点延迟</span>
+                        <span class="text-gray-200 font-mono font-medium">~34 <span class="text-gray-600 text-[10px]">ms</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 mr-1.5"></span>Netflix 解锁</span>
+                        <span class="text-green-400 font-medium">原生解锁 ✓</span>
+                    </div>
+                </div>
+
+                <div class="w-full bg-white/5 hover:bg-blue-600 border border-white/10 text-gray-300 hover:text-white font-bold py-2.5 rounded-lg transition-all duration-300 text-center text-sm relative z-10 overflow-hidden">
+                    <span class="relative z-10">获取详尽报告 &rarr;</span>
+                </div>
+            </a>
+            <a href="https://jichangpingce.club/?id=8" target="_blank" class="glass-panel rounded-xl p-5 hover:-translate-y-1.5 transition-all duration-300 relative group cursor-pointer block border-t border-l border-white/5">
+                <!-- 霓虹光晕悬浮效果 -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 rounded-xl transition-all duration-500"></div>
+                <div class="absolute inset-0 border border-blue-500/0 rounded-xl group-hover:border-blue-500/40 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all duration-500"></div>
+                
+                <div class="flex justify-between items-start mb-4 relative z-10">
+                    <div class="flex items-center space-x-3 w-full pr-14">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-black text-2xl shrink-0 shadow-lg">
+                            2
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <h3 class="text-lg font-bold text-gray-100 truncate group-hover:text-blue-400 transition-colors" title="2025年最新翻墙指南：一次搞懂 Clash、V2Ray、网络安全与跨区解锁">2025年最新翻墙指南：一次搞懂 Clash、V2Ray、网络安全与跨区解锁</h3>
+                            <div class="flex items-center mt-1 space-x-3 text-xs text-gray-500">
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2025/10/18</span>
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>206 次浏览</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 评级徽章 -->
+                    <div class="absolute right-0 top-0 bg-gray-500/20 text-gray-400 border-gray-500/30 border px-2.5 py-1 rounded-bl-lg rounded-tr-lg text-[10px] font-black tracking-wider uppercase shadow-sm">
+                        T2
+                    </div>
+                </div>
+
+                <!-- 简介分隔线 -->
+                <p class="text-sm text-gray-400 mb-4 line-clamp-2 leading-relaxed relative z-10">&lt;div style=&quot;font-family: &amp;quot;Microsoft YaHei&amp;quot;, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Helvetica, Arial, &amp;quot;Noto Sans&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Heiti SC&amp;quot;, &amp;quot;WenQuanYi Micro Hei&amp;quot;, sans-serif; color: rgb(31, 41, 55); line-height: 1.85;&quot;&gt;&lt;/div&gt;&lt;!--autointro--&gt;</p>
+                
+                <!-- 核心数据展示栏 -->
+                <div class="bg-[#0f172a]/80 rounded-lg p-3 space-y-2 mb-5 relative z-10 border border-white/5">
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>峰值带宽</span>
+                        <span class="text-gray-200 font-mono font-medium">100,008 <span class="text-gray-600 text-[10px]">Kbps</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-1.5"></span>HK 节点延迟</span>
+                        <span class="text-gray-200 font-mono font-medium">~33 <span class="text-gray-600 text-[10px]">ms</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 mr-1.5"></span>Netflix 解锁</span>
+                        <span class="text-green-400 font-medium">原生解锁 ✓</span>
+                    </div>
+                </div>
+
+                <div class="w-full bg-white/5 hover:bg-blue-600 border border-white/10 text-gray-300 hover:text-white font-bold py-2.5 rounded-lg transition-all duration-300 text-center text-sm relative z-10 overflow-hidden">
+                    <span class="relative z-10">获取详尽报告 &rarr;</span>
+                </div>
+            </a>
+            <a href="https://jichangpingce.club/?id=6" target="_blank" class="glass-panel rounded-xl p-5 hover:-translate-y-1.5 transition-all duration-300 relative group cursor-pointer block border-t border-l border-white/5">
+                <!-- 霓虹光晕悬浮效果 -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 rounded-xl transition-all duration-500"></div>
+                <div class="absolute inset-0 border border-blue-500/0 rounded-xl group-hover:border-blue-500/40 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all duration-500"></div>
+                
+                <div class="flex justify-between items-start mb-4 relative z-10">
+                    <div class="flex items-center space-x-3 w-full pr-14">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-white font-black text-2xl shrink-0 shadow-lg">
+                            W
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <h3 class="text-lg font-bold text-gray-100 truncate group-hover:text-blue-400 transition-colors" title="Windows 科学上网教程｜从零开始的最稳定上网方案">Windows 科学上网教程｜从零开始的最稳定上网方案</h3>
+                            <div class="flex items-center mt-1 space-x-3 text-xs text-gray-500">
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2025/10/18</span>
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>244 次浏览</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 评级徽章 -->
+                    <div class="absolute right-0 top-0 bg-gray-500/20 text-gray-400 border-gray-500/30 border px-2.5 py-1 rounded-bl-lg rounded-tr-lg text-[10px] font-black tracking-wider uppercase shadow-sm">
+                        T2
+                    </div>
+                </div>
+
+                <!-- 简介分隔线 -->
+                <p class="text-sm text-gray-400 mb-4 line-clamp-2 leading-relaxed relative z-10">&lt;!-- Windows 科学上网教程（光速云版）｜浅色商务风 HTML --&gt;&lt;div style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, Arial, sans-serif; color: rgb(26, 26, 26); line-height: 1.75;&quot;&gt;&lt;!-- Hero --&gt;&lt;/div&gt;&lt;!--autointro--&gt;</p>
+                
+                <!-- 核心数据展示栏 -->
+                <div class="bg-[#0f172a]/80 rounded-lg p-3 space-y-2 mb-5 relative z-10 border border-white/5">
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>峰值带宽</span>
+                        <span class="text-gray-200 font-mono font-medium">100,006 <span class="text-gray-600 text-[10px]">Kbps</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-1.5"></span>HK 节点延迟</span>
+                        <span class="text-gray-200 font-mono font-medium">~31 <span class="text-gray-600 text-[10px]">ms</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 mr-1.5"></span>Netflix 解锁</span>
+                        <span class="text-green-400 font-medium">原生解锁 ✓</span>
+                    </div>
+                </div>
+
+                <div class="w-full bg-white/5 hover:bg-blue-600 border border-white/10 text-gray-300 hover:text-white font-bold py-2.5 rounded-lg transition-all duration-300 text-center text-sm relative z-10 overflow-hidden">
+                    <span class="relative z-10">获取详尽报告 &rarr;</span>
+                </div>
+            </a>
+            <a href="https://jichangpingce.club/?id=4" target="_blank" class="glass-panel rounded-xl p-5 hover:-translate-y-1.5 transition-all duration-300 relative group cursor-pointer block border-t border-l border-white/5">
+                <!-- 霓虹光晕悬浮效果 -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 rounded-xl transition-all duration-500"></div>
+                <div class="absolute inset-0 border border-blue-500/0 rounded-xl group-hover:border-blue-500/40 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all duration-500"></div>
+                
+                <div class="flex justify-between items-start mb-4 relative z-10">
+                    <div class="flex items-center space-x-3 w-full pr-14">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white font-black text-2xl shrink-0 shadow-lg">
+                            C
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <h3 class="text-lg font-bold text-gray-100 truncate group-hover:text-blue-400 transition-colors" title="Clash Verge Rev 手把手教程">Clash Verge Rev 手把手教程</h3>
+                            <div class="flex items-center mt-1 space-x-3 text-xs text-gray-500">
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2025/10/18</span>
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>213 次浏览</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 评级徽章 -->
+                    <div class="absolute right-0 top-0 bg-gray-500/20 text-gray-400 border-gray-500/30 border px-2.5 py-1 rounded-bl-lg rounded-tr-lg text-[10px] font-black tracking-wider uppercase shadow-sm">
+                        T2
+                    </div>
+                </div>
+
+                <!-- 简介分隔线 -->
+                <p class="text-sm text-gray-400 mb-4 line-clamp-2 leading-relaxed relative z-10">&lt;!-- ====== Clash Verge Rev 教程｜浅色系商务风（含示例图片位 | WordPress 经典编辑器可直接粘贴） ====== --&gt;&lt;!-- Hero --&gt;&lt;section class=&quot;cvr-hero&quot;&gt;&lt;br/&gt;&lt;/section&gt;&lt;h1 data-start=&quot;101&quot; data-end=&quot;140&quot;&gt;⚡ 2025 最新《Clash Verge Rev》官方安装与配置指南&lt;/h1&gt;&lt;p data-start=&quot;141&quot; data-end=&quot;188&quot;&gt;&lt;strong data-start=&quot;158&quot; data-end=&quot;188&quot;&gt;&lt;/strong&gt;&lt;/p&gt;&lt;!--autointro--&gt;</p>
+                
+                <!-- 核心数据展示栏 -->
+                <div class="bg-[#0f172a]/80 rounded-lg p-3 space-y-2 mb-5 relative z-10 border border-white/5">
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>峰值带宽</span>
+                        <span class="text-gray-200 font-mono font-medium">100,004 <span class="text-gray-600 text-[10px]">Kbps</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-1.5"></span>HK 节点延迟</span>
+                        <span class="text-gray-200 font-mono font-medium">~29 <span class="text-gray-600 text-[10px]">ms</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 mr-1.5"></span>Netflix 解锁</span>
+                        <span class="text-green-400 font-medium">原生解锁 ✓</span>
+                    </div>
+                </div>
+
+                <div class="w-full bg-white/5 hover:bg-blue-600 border border-white/10 text-gray-300 hover:text-white font-bold py-2.5 rounded-lg transition-all duration-300 text-center text-sm relative z-10 overflow-hidden">
+                    <span class="relative z-10">获取详尽报告 &rarr;</span>
+                </div>
+            </a>
+            <a href="https://jichangpingce.club/?id=3" target="_blank" class="glass-panel rounded-xl p-5 hover:-translate-y-1.5 transition-all duration-300 relative group cursor-pointer block border-t border-l border-white/5">
+                <!-- 霓虹光晕悬浮效果 -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 rounded-xl transition-all duration-500"></div>
+                <div class="absolute inset-0 border border-blue-500/0 rounded-xl group-hover:border-blue-500/40 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all duration-500"></div>
+                
+                <div class="flex justify-between items-start mb-4 relative z-10">
+                    <div class="flex items-center space-x-3 w-full pr-14">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-600 to-slate-800 flex items-center justify-center text-white font-black text-2xl shrink-0 shadow-lg">
+                            C
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <h3 class="text-lg font-bold text-gray-100 truncate group-hover:text-blue-400 transition-colors" title="Clash Verge｜客户端傻瓜教程">Clash Verge｜客户端傻瓜教程</h3>
+                            <div class="flex items-center mt-1 space-x-3 text-xs text-gray-500">
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2025/10/17</span>
+                                <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>270 次浏览</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 评级徽章 -->
+                    <div class="absolute right-0 top-0 bg-gray-500/20 text-gray-400 border-gray-500/30 border px-2.5 py-1 rounded-bl-lg rounded-tr-lg text-[10px] font-black tracking-wider uppercase shadow-sm">
+                        T2
+                    </div>
+                </div>
+
+                <!-- 简介分隔线 -->
+                <p class="text-sm text-gray-400 mb-4 line-clamp-2 leading-relaxed relative z-10">&lt;p&gt;&amp;nbsp;Clash Verge/傻瓜教程&lt;/p&gt;</p>
+                
+                <!-- 核心数据展示栏 -->
+                <div class="bg-[#0f172a]/80 rounded-lg p-3 space-y-2 mb-5 relative z-10 border border-white/5">
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>峰值带宽</span>
+                        <span class="text-gray-200 font-mono font-medium">100,003 <span class="text-gray-600 text-[10px]">Kbps</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-1.5"></span>HK 节点延迟</span>
+                        <span class="text-gray-200 font-mono font-medium">~28 <span class="text-gray-600 text-[10px]">ms</span></span>
+                    </div>
+                    <div class="flex justify-between text-xs items-center">
+                        <span class="text-gray-500 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 mr-1.5"></span>Netflix 解锁</span>
+                        <span class="text-green-400 font-medium">原生解锁 ✓</span>
+                    </div>
+                </div>
+
+                <div class="w-full bg-white/5 hover:bg-blue-600 border border-white/10 text-gray-300 hover:text-white font-bold py-2.5 rounded-lg transition-all duration-300 text-center text-sm relative z-10 overflow-hidden">
+                    <span class="relative z-10">获取详尽报告 &rarr;</span>
+                </div>
+            </a>
+
+        </div>
+
+    </main>
+
+    <!-- 简单的 JS 让数据动起来，增加科技感 -->
+    <script>
+        // 每隔几秒随机跳动一下延迟数据
+        setInterval(() => {
+            const ping = document.getElementById('pingValue');
+            const basePing = 34;
+            const variance = Math.floor(Math.random() * 5) - 2; // -2 to +2
+            ping.innerText = basePing + variance;
+        }, 3000);
+
+        setInterval(() => {
+            const loss = document.getElementById('lossValue');
+            const chance = Math.random();
+            if(chance > 0.8) {
+                loss.innerText = (Math.random() * 0.05).toFixed(2);
+            } else {
+                loss.innerText = '0.00';
+            }
+        }, 5000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全网节点实时监测中控台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        glass: 'rgba(30, 41, 59, 0.7)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 深色模式呼吸光晕背景 */
+        body {
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,30%,0.15) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,30%,0.1) 0, transparent 50%);
+            background-attachment: fixed;
+            color: #e2e8f0;
+        }
+
+        /* 玻璃拟物化卡片核心样式 */
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 霓虹发光文字特效 */
+        .neon-text-green {
+            color: #10b981;
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+        .neon-text-blue {
+            color: #3b82f6;
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+
+        /* 呼吸闪烁动画 */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .animate-blink {
+            animation: blink 2s infinite ease-in-out;
+        }
+        
+        /* 扫描线动画 */
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #3b82f6, transparent);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.5;
+            animation: scan 3s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body class="min-h-screen font-sans selection:bg-blue-500 selection:text-white">
+
+    <!-- 导航栏 -->
+    <nav class="glass-panel sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <!-- 旋转的科技雷达图标 -->
+                    <div class="relative w-8 h-8 flex items-center justify-center">
+                        <div class="absolute inset-0 rounded-full border-2 border-blue-500 border-t-transparent animate-spin"></div>
+                        <div class="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                    </div>
+                    <span class="font-bold text-xl tracking-wider text-white">评测中控 <span class="text-blue-500">PRO</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-white border-b-2 border-blue-500 px-1 py-2 text-sm font-medium">实时大盘</a>
+                    <a href="#" class="text-gray-400 hover:text-white px-1 py-2 text-sm font-medium transition-colors">深度测速报告</a>
+                    <a href="#" class="text-gray-400 hover:text-white px-1 py-2 text-sm font-medium transition-colors">流媒体解锁</a>
+                </div>
+                <div>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-400 border border-green-500/20">
+                        <span class="w-2 h-2 mr-2 bg-green-500 rounded-full animate-pulse"></span>
+                        监控服务运行中
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- 页面标题区 -->
+        <div class="mb-10 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 mb-4 tracking-tight">
+                全网节点实时健康监测
+            </h1>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                实时追踪顶级专线状态。晚高峰测速、流媒体解锁状况每小时自动更新。不要听信广告，只相信数据。
+            </p>
+        </div>
+
+        <!-- 核心视觉：实时数据大盘 (假装实时) -->
+        <div class="glass-panel rounded-2xl p-1 relative overflow-hidden mb-12">
+            <div class="scanline"></div> <!-- 雷达扫描线特效 -->
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-800/50 rounded-xl overflow-hidden">
+                <!-- 数据块 1 -->
+                <div class="glass-panel p-6 flex flex-col items-center justify-center relative">
+                    <div class="text-sm text-gray-400 mb-2 font-medium tracking-wide">平均全网延迟</div>
+                    <div class="text-4xl font-black neon-text-green flex items-baseline">
+                        <span id="pingValue">34</span><span class="text-lg ml-1 text-green-500/70">ms</span>
+                    </div>
+                </div>
+                
+                <!-- 数据块 2 -->
+                <div class="glass-panel p-6 flex flex-col items-center justify-center">
+                    <div class="text-sm text-gray-400 mb-2 font-medium tracking-wide">晚高峰丢包率</div>
+                    <div class="text-4xl font-black text-blue-400 flex items-baseline neon-text-blue">
+                        <span id="lossValue">0.01</span><span class="text-lg ml-1 text-blue-500/70">%</span>
+                    </div>
+                </div>
+
+                <!-- 数据块 3 -->
+                <div class="glass-panel p-6 flex flex-col items-center justify-center">
+                    <div class="text-sm text-gray-400 mb-2 font-medium tracking-wide">最后测速时间</div>
+                    <div class="text-2xl font-bold text-gray-200 mt-2">
+                        <span class="animate-blink text-blue-400 mr-2">●</span><span id="timeValue">2分钟前</span>
+                    </div>
+                </div>
+
+                <!-- 数据块 4 -->
+                <div class="glass-panel p-6 flex flex-col items-center justify-center">
+                    <div class="text-sm text-gray-400 mb-2 font-medium tracking-wide">监控节点总数</div>
+                    <div class="text-4xl font-black text-purple-400 flex items-baseline" style="text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);">
+                        1,428
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 机场排行推荐 (黑客风格卡片) -->
+        <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-2xl font-bold text-white flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                T0 级别实测推荐
+            </h2>
+            <a href="#" class="text-sm text-blue-400 hover:text-blue-300 transition-colors">查看完整报告 &rarr;</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- 推荐卡片 1 -->
+            <div class="glass-panel rounded-xl p-6 hover:-translate-y-1 transition-transform duration-300 relative group cursor-pointer">
+                <!-- 边框发光特效 -->
+                <div class="absolute inset-0 border border-blue-500/0 rounded-xl group-hover:border-blue-500/50 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all"></div>
+                
+                <div class="flex justify-between items-start mb-4 relative z-10">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl">W</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">WgetCloud 全球加速</h3>
+                            <div class="text-xs text-gray-400 mt-0.5">BGP/IPLC 顶级专线</div>
+                        </div>
+                    </div>
+                    <!-- 评分徽章 -->
+                    <div class="bg-blue-500/20 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-xs font-bold">
+                        9.9 / 10
+                    </div>
+                </div>
+                
+                <div class="space-y-2 mb-6">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-400">YouTube 8K</span>
+                        <span class="text-green-400 font-medium">120,000+ Kbps</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-400">Netflix 解锁</span>
+                        <span class="text-green-400 font-medium">全节点原生</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-400">晚高峰延迟</span>
+                        <span class="text-blue-400 font-medium">~32ms (HK)</span>
+                    </div>
+                </div>
+
+                <button class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-lg transition-colors relative overflow-hidden group-hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]">
+                    查看评测报告
+                </button>
+            </div>
+
+            <!-- 这里未来将用你的 API 数据自动循环生成更多的卡片 -->
+
+        </div>
+
+    </main>
+
+    <!-- 简单的 JS 让数据动起来，增加科技感 -->
+    <script>
+        // 每隔几秒随机跳动一下延迟数据
+        setInterval(() => {
+            const ping = document.getElementById('pingValue');
+            const basePing = 34;
+            const variance = Math.floor(Math.random() * 5) - 2; // -2 to +2
+            ping.innerText = basePing + variance;
+        }, 3000);
+
+        setInterval(() => {
+            const loss = document.getElementById('lossValue');
+            const chance = Math.random();
+            if(chance > 0.8) {
+                loss.innerText = (Math.random() * 0.05).toFixed(2);
+            } else {
+                loss.innerText = '0.00';
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
