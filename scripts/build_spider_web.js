@@ -69,6 +69,9 @@ htmlFiles.forEach(file => {
     let originalHtml = html;
     
     // Only process content body to avoid messing up heads/navs
+    // Also skip articles.html and other list pages to avoid nested <a> tags
+    const isContentPage = file.startsWith('blog-') || file.startsWith('article-') || file.startsWith('review-') || file.startsWith('tool-');
+
     // Find the main content area. Assuming it's inside <div class="container">...
     
     // Function to replace keywords outside of HTML tags
@@ -105,11 +108,13 @@ htmlFiles.forEach(file => {
     };
     
     // Replace in paragraphs
-    html = html.replace(/<p[^>]*>([\s\S]*?)<\/p>/gi, (match, p1) => {
-        if (match.includes('class="page-desc"') || match.includes('由云端甄选 AI 引擎自动生成')) return match;
-        const newP = replaceKeywords(p1, file);
-        return match.replace(p1, newP);
-    });
+    if (isContentPage) {
+        html = html.replace(/<p[^>]*>([\s\S]*?)<\/p>/gi, (match, p1) => {
+            if (match.includes('class="page-desc"') || match.includes('由云端甄选 AI 引擎自动生成')) return match;
+            const newP = replaceKeywords(p1, file);
+            return match.replace(p1, newP);
+        });
+    }
     
     // Add "相关推荐" (Related Posts) at the bottom of articles
     if ((file.startsWith('blog-') || file.startsWith('article-') || file.startsWith('review-')) && !html.includes('id="seo-spider-related"')) {
