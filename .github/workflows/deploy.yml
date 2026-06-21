@@ -43,6 +43,14 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         # 您的 FTP 账号根目录已经是该网站目录，所以填 ./ 即可
         server-dir: ./
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/*.zip
+          scripts/**
+          *.md
+          .github/**
 
     - name: 6. 提交并推送生成的静态文件回 GitHub 仓库
       run: |
