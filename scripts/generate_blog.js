@@ -117,10 +117,7 @@ ${existingLinks.join('\n')}
                 'Content-Type': 'application/json'
             }
         });
-        let content = response.data.choices[0].message.content.trim();
-        content = content.replace(/^```html\s*/i, '').replace(/```$/i, '').trim();
-        content = content.replace(/^```\s*/i, '').replace(/```$/i, '').trim();
-        return content;
+        return response.data.choices[0].message.content;
     } catch (error) {
         console.error(`❌ 获取文章《${topic}》失败:`, error.response ? error.response.data : error.message);
         return null;
@@ -217,7 +214,7 @@ async function main() {
 
     // 3. 过滤重复文章，确保不发布重复内容
     const newTopicsToGenerate = targetTopics.filter(topic => {
-        const safeName = topic.replace(/[^\w\u4e00-\u9fa5]/g, '').substring(0, 50);
+        const safeName = topic.replace(/[^\w\u4e00-\u9fa5]/g, '');
         const outputPath = path.join(__dirname, '..', `blog-${safeName}.html`);
         return !fs.existsSync(outputPath);
     });
@@ -230,7 +227,7 @@ async function main() {
     console.log(`🚀 开始撰写今日的 SEO 蜘蛛网爆款文章，共: ${newTopicsToGenerate.length} 篇`);
 
     for (const topic of newTopicsToGenerate) {
-        const safeName = topic.replace(/[^\w\u4e00-\u9fa5]/g, '').substring(0, 50);
+        const safeName = topic.replace(/[^\w\u4e00-\u9fa5]/g, '');
         const fileName = `blog-${safeName}.html`;
         const outputPath = path.join(__dirname, '..', fileName);
 
