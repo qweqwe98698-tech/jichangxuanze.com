@@ -8,7 +8,7 @@ const today = new Date().toISOString().split('T')[0];
 
 const articles = [
     {
-        filename: "blog-AI时代挣到钱了吗从二狗API低价模型聊到原生IP机场2026年跨境玩家必备的节点断流解决方案与机场推荐.html",
+        filename: "blog-ai-native-ip-airport-guide.html",
         topic: "AI时代挣到钱了吗？从二狗API低价模型聊到原生IP机场：2026年跨境玩家必备的节点断流解决方案与机场推荐",
         content: `
         <blockquote>${today} 最新实测：在 AI 时代，淘金者众多，但真正赚钱的往往是“卖水人”。本文深度解析如何利用低价 API 模型（如二狗API）结合原生 IP 和 IPLC 专线机场，彻底解决跨境业务中致命的节点断流问题，并为您推荐 2026 年最稳的翻墙节点方案。</blockquote>
@@ -54,7 +54,7 @@ const articles = [
         `
     },
     {
-        filename: "blog-为了省点API钱我竟然靠翻墙机场的IPLC专线干翻了AI断流与米家空调App的延迟兼论拼多多不做网贷的底层逻辑与2026年最稳原生IP机场推荐评测.html",
+        filename: "blog-2026-best-iplc-airport-review-515.html",
         topic: "为了省点API钱，我竟然靠翻墙机场的IPLC专线干翻了AI断流与米家空调App的延迟——兼论拼多多不做网贷的底层逻辑与2026年最稳原生IP机场推荐评测",
         content: `
         <blockquote>${today} 最新实测：当你试图在 API 接口上抠抠搜搜时，往往会因为网络断流付出更大的代价。本文深度记录了一次通过升级 IPLC 专线彻底解决 AI 断流与智能家居延迟的真实经历，并跨界剖析拼多多的商业逻辑，为您呈上 2026 年最硬核的原生 IP 机场评测。</blockquote>

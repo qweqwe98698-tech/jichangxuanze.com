@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何给路由器刷OpenWrt实现全家科学上网？保姆级教程 | 云端甄选</title>
+    <meta name="description" content="今天是 2026年6月16日，针对近期“Codex到期如何充值”以及大家热议的“机场跑路”风险，本文为你带来全集科学上网保姆级教程。从路由器刷机OpenWrt到配置防封、晚高峰测速，手把手教你实现稳定、低延迟的透明代理，告别手动切换客户端的烦恼。">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="canonical" href="https://jichangxuanze.com/blog-openwrt-router-router-proxy-guide.html" />
+    <style>
+        .article-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid var(--color-border);
+        }
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .article-title {
+            font-size: 32px;
+            color: var(--color-secondary);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            color: var(--color-text-light);
+            font-size: 14px;
+        }
+        .ai-content h2 {
+            font-size: 24px;
+            color: var(--color-secondary);
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .ai-content h2::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background: var(--color-primary);
+            border-radius: 4px;
+        }
+        .ai-content h3 {
+            font-size: 20px;
+            color: var(--color-secondary);
+            margin: 30px 0 15px;
+        }
+        .ai-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--color-text);
+            margin-bottom: 20px;
+        }
+        .ai-content strong {
+            color: var(--color-secondary);
+            font-weight: 600;
+            background: rgba(182, 141, 64, 0.1);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .ai-content ul, .ai-content ol {
+            padding-left: 20px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+        .cta-banner {
+            background: linear-gradient(135deg, #1F2937, #374151);
+            color: white;
+            padding: 30px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta-banner h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+        .cta-banner p {
+            color: #D1D5DB;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+    </style>
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="index" style="display: flex; align-items: center; gap: 8px;">
+                    <span class="logo-icon">✨</span>
+                    <span class="logo-text">云端甄选 <span style="font-weight: 400; font-size: 16px; opacity: 0.8;">| 智能机场匹配</span></span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index">工具矩阵</a>
+                <a href="ranking">权威榜单</a>
+                <a href="reviews">深度评测</a>
+                <a href="articles" class="active">最新资讯</a>
+                <a href="index#tutorials">配置教程</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="article-container">
+            <div class="article-header">
+                <h1 class="article-title">如何给路由器刷OpenWrt实现全家科学上网？保姆级教程</h1>
+                <div class="article-meta">
+                    <span>作者：云端极客客座</span>
+                    <span>发布日期：2026-06-16</span>
+                    <span>阅读时长：约 8 分钟</span>
+                </div>
+            </div>
+
+            <div class="ai-content">
+                
+            <figure style="margin: 20px 0; text-align: center;">
+                <img src="https://image.pollinations.ai/prompt/%E5%A6%82%E4%BD%95%E7%BB%99%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7OpenWrt%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%AE%B6%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%9F%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%20cyberpunk%20technology%20network%20style%20width%201920%20height%201080" alt="如何给路由器刷OpenWrt实现全家科学上网？保姆级教程" style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); display: block; margin: 0 auto;">
+            </figure>
+<blockquote>
+<p>今天是 <strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月16日</strong>，针对近期“Codex到期如何充值”以及大家热议的“机场跑路”风险，本文为你带来<strong>全集科学上网保姆级教程</strong>。从路由器刷机OpenWrt到配置防封、晚高峰测速，手把手教你实现稳定、低延迟的透明代理，告别手动切换客户端的烦恼。</p>
+</blockquote>
+
+<h2>一、为什么你需要一台刷了OpenWrt的路由器？</h2>
+<p>近期在科技圈，我看到很多人吐槽：“老哥们，帮我分析一下，没想到这个狗血的事情，发生在我身上”——点进去一看，原来是买了某家便宜机场，结果用了3个月就跑路了，连账号数据都没来得及导出。这种事情在<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年的今天依然高频发生。为了避免这种“狗血”剧情，最稳定的方案就是<strong><a href="blog-%E8%87%AA%E5%BB%BA%E8%8A%82%E7%82%B9vs%E4%B9%B0%E6%9C%BA%E5%9C%BA%E5%93%AA%E4%B8%AA%E6%9B%B4%E5%AE%89%E5%85%A8%E8%A2%AB%E5%96%9D%E8%8C%B6%E7%9A%84%E6%A6%82%E7%8E%87%E6%9C%89%E5%A4%9A%E5%A4%A7" title="自建节点 vs 买机场：哪个更安全？被喝茶的概率有多大？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">自建节点</a>+路由器刷机</strong>，让全网设备（手机、电视、游戏机）自动走梯子，无需每个设备单独配置。</p>
+<p>同样，最近很多人问“Codex快到期了，如何充值？”其实，如果你的路由器实现了全局代理，你完全可以在电脑上挂代理后直接在国内支付，根本不用担心API调用被限制。这就是<strong>底层网络协议优化</strong>带来的便利。</p>
+
+<h2>二、刷机前的硬件选择与固件准备</h2>
+<h3>2.1 路由器硬件推荐</h3>
+<p>别想直接给老掉牙的百兆路由器刷机。推荐以下<strong>硬路由</strong>作为主路由：</p>
+<ul>
+<li><strong>红米 AX6S / AX6000</strong>：千兆接口，WiFi6，刷机后能跑满500M加密流量。</li>
+<li><strong>GL.iNet MT3000/MT6000</strong>：原生OpenWrt友好，且能安装<strong>passwall</strong>和<strong>ssrplus</strong>。</li>
+<li><strong>硬改的 K2P</strong>（适合老玩家）：性能虽弱，但胜在性价比。</li>
+</ul>
+<p><strong>避坑提示</strong>：最近有人像“最终买了凯美瑞”一样，盲目跟风买了某款小众路由，结果官方OP源缺少驱动，导致WiFi信号弱。建议优先选择<strong>Lean（大雕）编译的固件</strong>，驱动兼容性最好。</p>
+
+<h3>2.2 下载固件</h3>
+<ol>
+<li>访问 <code>openwrt.ai</code>（2026年仍在运营）或 <code>immortalwrt.org</code>，选择对应设备型号。</li>
+<li>下载 <strong>ext4 固件</strong>（如果你需要扩容Overlay）或 <strong>squashfs</strong>（适合恢复出厂）。</li>
+<li>确认固件包含 <strong>luci-app-ssr-plus</strong> 或 <strong>luci-app-passwall</strong> 插件。</li>
+</ol>
+
+<h2>三、刷机实战：从Uboot到Web界面</h2>
+<h3>3.1 进入刷机环境</h3>
+<p>不同品牌的进入方式不同，以红米AX6S举例：</p>
+<ul>
+<li>按住 <strong>Reset</strong> 键上电，直到指示灯变成蓝色闪烁——进入 <code>Uboot Web UI</code>。</li>
+<li>浏览器访问 <code>192.168.1.1</code>，上传你下载的<strong>过渡固件</strong>（通常是factory.bin）。</li>
+<li>等待刷机完成后，系统会自动重启到OpenWrt后台。</li>
+</ul>
+
+<h3>3.2 配置基础网络</h3>
+<p>进后台后，第一步：</p>
+<ol>
+<li>设置 <strong>接口 → LAN → 修改IP</strong> 为你主路由网段（如 <code>192.168.31.1</code>）。</li>
+<li>关闭 <strong>DHCP</strong> 并桥接到WAN？不，别乱来！建议<strong>设为静态IP</strong>，将上一级路由的网关指向光猫。</li>
+<li>关闭IPv6（除非你确定知道自己在做什么，IPv6可能泄露DNS）。</li>
+</ol>
+
+<h2>四、配置科学上网核心插件</h2>
+<h3>4.1 订阅节点 vs 自建节点</h3>
+<p>近期“Codex到期如何充值”的帖子下面，很多人推荐<strong>V2Ray</strong>、<strong><a href="blog-Vless%E5%8D%8F%E8%AE%AE%E5%92%8CTrojan%E5%93%AA%E4%B8%AA%E6%9B%B4%E9%80%82%E5%90%88%E6%99%9A%E9%AB%98%E5%B3%B0%E6%B5%8B%E9%80%9F" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Trojan</a></strong> 协议。我建议：</p>
+<ul>
+<li><strong>买机场</strong>：使用<strong>SSID（Shadowsocks）</strong> 或 <strong>VLESS-XTLS</strong> 协议，买之前务必确认该机场是否支持 <strong>IPLC专线</strong>，否则晚高峰测速时你会哭。</li>
+<li><strong>自建</strong>：在搬瓦工、Vultr等买VPS，用<strong>xray + nginx + ws + tls</strong> 伪装成正规网站流量，防封号效果最好。</li>
+<li><strong>避坑关键</strong>：千万别买那些吹嘘“万1免5”低佣开户性质的机场（没错，最近热点“万1免5”股票ETF梗被套用到机场广告），它们往往没有售后，跑路风险极高。</li>
+</ul>
+
+<h3>4.2 配置SSRPlus+ / PassWall</h3>
+<p>进入 <strong>服务 → SSRPlus+</strong>：</p>
+<ol>
+<li>点击 <strong>服务器节点</strong> → 添加，填入你购买的节点信息（地址、端口、密码、加密方式）。</li>
+<li>在 <strong>客户端设置</strong> 中，选择 <strong>全局代理</strong> 或 <strong>GFW列表模式</strong>。</li>
+<li><strong>进阶设置</strong>：开启 <strong>UDP转发</strong>，否则无法玩国外游戏或使用 <strong>WebRTC</strong>。</li>
+<li><strong>负载均衡</strong>：添加2个以上节点，避免某个节点被<strong>QoS</strong>。</li>
+</ol>
+
+<h3>4.3 智能分流与流媒体解锁</h3>
+<p>不想让国内网站也走代理导致减速？利用<strong>规则查看器</strong>：</p>
+<ul>
+<li>在 <strong>访问控制</strong> 中添加 <strong>中国IP段</strong> 走直连。</li>
+<li>如果你需要看Netflix/Disney+，建议启用 <strong>DNS filter</strong> 并开启 <strong>原生IP</strong> 模式（很多机场提供<strong>流媒体解锁</strong>节点）。</li>
+</ul>
+<p>一个小技巧：如果你买了“迈从A7 V3 PRO+鼠标”（近期抽奖热点），用它连接刷了OP的电视盒子，配合<strong>Hysteria2</strong>协议，远程办公或看4K视频，延迟能降到80ms以内。</p>
+
+<h2>五、防封号与稳定性优化</h2>
+<h3>5.1 防止GFW探测</h3>
+<ul>
+<li>启用 <strong>Udp over TCP</strong> 将UDP流量伪装成TCP。</li>
+<li>打开 <strong>TLS填充</strong>（在PassWall中叫“TLS伪装”），定期更换节点端口（每3天随机一次）。</li>
+<li>关闭 <strong>ICMP响应</strong>，避免被主动探测。</li>
+</ul>
+
+<h3>5.2 “防跑路”策略</h3>
+<p>结合热点“最终买了凯美瑞”的教训——买车不能只看参数，<a href="blog-%E8%87%AA%E5%BB%BA%E8%8A%82%E7%82%B9vs%E4%B9%B0%E6%9C%BA%E5%9C%BA%E5%93%AA%E4%B8%AA%E6%9B%B4%E5%AE%89%E5%85%A8%E8%A2%AB%E5%96%9D%E8%8C%B6%E7%9A%84%E6%A6%82%E7%8E%87%E6%9C%89%E5%A4%9A%E5%A4%A7" title="自建节点 vs 买机场：哪个更安全？被喝茶的概率有多大？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">买机场</a>也一样：</p>
+<ol>
+<li>不要买月付很便宜但年付很贵的套餐（摆明了要割韭菜）。</li>
+<li>优先选择支持 <strong>中转IPLC/CN2 GIA</strong> 的商家，这种线路不会轻易被墙。</li>
+<li>将你的所有节点<strong>导出为订阅链接</strong>，备份到本地笔记软件——即使机场跑路了，也能手动重建。</li>
+</ol>
+
+<h3>5.3 晚高峰测速与维护</h3>
+<p>就像有人“3个月减重20斤”需要长期坚持一样，网络优化也需要持续监控：</p>
+<ul>
+<li>在路由器的 <strong>系统 → 定时任务</strong> 中，添加每晚8点自动执行 <code>speedtest-cli</code> 并邮件通知结果。</li>
+<li>启用 <strong>存活检测</strong>，ping丢包率大于10%自动切换节点。</li>
+<li>如果发现速度惨不忍睹，立即更换节点或开启 <strong>BBR+FQ</strong> 队列算法。</li>
+</ul>
+
+<h2>六、常见问题与排障</h2>
+<h3>6.1 Codex充值后连不上？</h3>
+<p>如果你在用<strong>Codex API</strong>开发，刷了OP后，请确保 <strong>代理端口</strong> 已通过防火墙（网络 → 防火墙 → 流量规则），并且在Codex配置中设置 <strong>HTTP_PROXY</strong> 环境变量指向路由器<a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>:8080。</p>
+
+<h3>6.2 局部网站无法访问（如淘宝）</h3>
+<p>很大原因是 <strong>DNS泄露</strong>。在 <strong>DHCP/DNS → 高级设置</strong> 中，取消勾选“过滤”和“重绑定保护”，并设置上游DNS为 <code>223.5.5.5</code>（阿里云）或 <code>114.114.114.114</code>。</p>
+
+<h3>6.3 跑不满带宽</h3>
+<ul>
+<li>检查你的路由器CPU，如果是 <strong>MT7621</strong>，加密流量跑满千兆很吃力。</li>
+<li>尝试更换为 <strong>AES-256-GCM</strong> 加密（硬件加速友好）。</li>
+<li>关闭 <strong>流量统计</strong> 和 <strong>QoS 限速</strong>，它们会吃掉30%的CPU。</li>
+</ul>
+
+<h2>七、总结——刷机之后的世界</h2>
+<p>当你成功刷好OpenWrt并配置完科学上网，你会发现自己再也不需要为“Codex充值”或“机场跑路”焦虑。就像最近玩家抽中“迈从Ace 68 V2键盘”一样，这种成就感是实实在在的。但请记住：网络自由是一把双刃剑，请合理使用，为自己的安全负责。</p>
+<p><strong>最后，祝你在<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月16日之后的每一天，都能享受极速、稳定的网络体验。</strong></p>
+            </div>
+            
+            <!-- 底部强力引流转化块 -->
+            <div class="cta-banner">
+                <h3>💡 还在为网络卡顿和封号烦恼？</h3>
+                <p>我们为您整理了 <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a> 年最新一期的高性价比、高稳定性<a href="blog-%E8%8B%B9%E6%9E%9CiPad%E5%85%A8%E7%BA%BF%E6%B6%A8%E4%BB%B720%E5%90%8E%E6%88%91%E7%9A%84%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%A2%84%E7%AE%97%E5%8F%8D%E8%80%8C%E7%9C%81%E4%BA%862026%E5%B9%B4%E6%9C%BA%E5%9C%BA%E6%8E%A8%E8%8D%90%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97IPLC%E4%B8%93%E7%BA%BF%E5%8E%9F%E7%94%9FIP%E9%98%B2%E6%96%AD" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>列表。支持全平台一键托管，<a href="blog-%E8%8B%B9%E6%9E%9CiPad%E5%85%A8%E7%BA%BF%E6%B6%A8%E4%BB%B720%E5%90%8E%E6%88%91%E7%9A%84%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E9%A2%84%E7%AE%97%E5%8F%8D%E8%80%8C%E7%9C%81%E4%BA%862026%E5%B9%B4%E6%9C%BA%E5%9C%BA%E6%8E%A8%E8%8D%90%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97IPLC%E4%B8%93%E7%BA%BF%E5%8E%9F%E7%94%9FIP%E9%98%B2%E6%96%AD" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">原生</a> <a href="blog-ChatGPT%E5%B0%81%E5%8F%B7%E5%A4%AA%E4%B8%A5%E9%87%8D%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E4%B8%8D%E6%98%AF%E7%BA%AF%E5%87%80%E5%8E%9F%E7%94%9FIP" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a> 解锁所有限制。</p>
+                <a href="ranking" class="btn btn-primary" style="font-weight: 600;">👉 立即查看本周权威榜单与特惠</a>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="articles" class="btn btn-outline">← 返回资讯列表页</a>
+            </div>
+        </div>
+    
+        <!-- SEO Spider Web Related Posts -->
+        <div id="seo-spider-related" style="margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--color-border);">
+            <h3 style="font-size: 22px; color: var(--color-secondary); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--color-primary);">🕸️</span> 延伸阅读
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+        
+                <a href="review-%E5%85%A8%E7%90%83%E4%BA%91" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">全球云 深度评测与测速报告</h4>
+                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
+                </a>
+            
+                <a href="review-SpeedCAT" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">SpeedCAT 深度评测与测速报告</h4>
+                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
+                </a>
+            
+                <a href="review-TNTCloud" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">TNTCloud 深度评测与测速报告</h4>
+                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
+                </a>
+            
+                <a href="review-FlyingBird" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">FlyingBird 深度评测与测速报告</h4>
+                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
+                </a>
+            
+            </div>
+        </div>
+        
+</div>
+
+    <footer class="footer">
+        <div class="container footer-content" style="padding: 40px 0;">
+            <p>&copy; <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a> jichangxuanze.com 云端甄选. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

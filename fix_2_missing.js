@@ -7,11 +7,11 @@ const templateHtml = fs.readFileSync(templatePath, 'utf8');
 const articles = [
     {
         topic: "警惕“陈恳求助”的VPS陷阱！2026年拼多多都绕开网贷，你的机场还在用垃圾IPLC赚钱？实测靠谱机场推荐与节点断流急救指南",
-        filename: "blog-警惕陈恳求助的VPS陷阱2026年拼多多都绕开网贷你的机场还在用垃圾IPLC赚钱实测靠谱机场推荐与节.html"
+        filename: "blog-warning-vps-scam-airport-recommend.html"
     },
     {
         topic: "拼多多“弃贷”，AI大佬集体“求助”VPS？深度解析2026年机场推荐底层逻辑：如何用专线IPLC与原生IP避开断流、封号与无效流量的坑",
-        filename: "blog-拼多多弃贷AI大佬集体求助VPS深度解析2026年机场推荐底层逻辑如何用专线IPLC与原生IP避开断.html" // The second one was stripped originally but we add .html back
+        filename: "blog-pdd-vs-iplc-airport-guide.html" // The second one was stripped originally but we add .html back
     }
 ];
 
@@ -57,7 +57,7 @@ articles.forEach(article => {
 
 // Fix articles.html links
 let articlesContent = fs.readFileSync(path.join(__dirname, 'articles.html'), 'utf8');
-let newArticlesContent = articlesContent.replace(/href="blog-拼多多弃贷AI大佬集体求助VPS深度解析2026年机场推荐底层逻辑如何用专线IPLC与原生IP避开断"/g, 'href="blog-拼多多弃贷AI大佬集体求助VPS深度解析2026年机场推荐底层逻辑如何用专线IPLC与原生IP避开断.html"');
+let newArticlesContent = articlesContent.replace(/href="blog-拼多多弃贷AI大佬集体求助VPS深度解析2026年机场推荐底层逻辑如何用专线IPLC与原生IP避开断"/g, 'href="blog-pdd-vs-iplc-airport-guide.html"');
 if (articlesContent !== newArticlesContent) {
     fs.writeFileSync(path.join(__dirname, 'articles.html'), newArticlesContent);
     console.log("Fixed articles.html missing .html extension");
