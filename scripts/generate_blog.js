@@ -256,7 +256,19 @@ async function main() {
     }
     
     const topic = targetTopics[0];
-    const safeName = topic.replace(/[^\w\u4e00-\u9fa5]/g, '').substring(0, 50);
+    // 从长尾词提取英文短链 (Slug)
+    let safeName = topic.replace(/[^\w\u4e00-\u9fa5]/g, '').substring(0, 50);
+    try {
+        const slugPrompt = `请将以下文章标题翻译成极简英文SEO链接(Slug)，全小写，连字符分隔，极简核心词(4-8个单词)，不要多余解释：\n${topic}`;
+        const slugResp = await axios.post('https://api.deepseek.com/chat/completions', {
+            model: 'deepseek-chat',
+            messages: [{ role: 'user', content: slugPrompt }]
+        }, { headers: { 'Authorization': `Bearer ${DEEPSEEK_API_KEY}`, 'Content-Type': 'application/json' } });
+        let slug = slugResp.data.choices[0].message.content.trim().toLowerCase();
+        slug = slug.replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+        if (slug) safeName = slug;
+    } catch(e) { console.error("⚠️ 生成英文Slug失败，降级为默认格式"); }
+
     const fileName = `blog-${safeName}.html`;
     const outputPath = path.join(rootDir, fileName);
 
