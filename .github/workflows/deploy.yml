@@ -54,6 +54,7 @@ jobs:
           .github/**
 
     - name: 6. 提交并推送生成的静态文件回 GitHub 仓库
+      if: always()
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
