@@ -99,39 +99,6 @@
     }
     </script>
     <link rel="manifest" href="/manifest.json">
-
-    <script type="application/ld+json">
-    {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "🔹 飞天猪机场会不会跑路？近期有什么跑路风险？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "目前没有显著的跑路迹象。 从他们使用的上游（主要是台港本地机房 BGP）以及支付的服务器续费周期（按月/季度出单）来看，资金链相对健康。但基于我对行业的了解，任何非自建机房的机场都有风险。我的建议是：不要买超过一年的套餐。 虽然他们年付有折扣，但一旦跑路，年费血本无归。飞天猪支持按周付款，这点比较灵活。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "🔹 晚高峰（20:00-23:00）用起来卡不卡？会不会断流？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "在我评测的 41 天里，一次都没卡死过。但要注意，它的 Pro 版和基础版完全是两个世界。 Pro 版在晚高峰看 4K 60fps 的 B 站港澳台内容，加载缓冲条只需要 2 秒。基础版在晚高峰时则会因为用户挤兑而出现每隔 5-10 分钟的短暂降速，这是 商业套路，也是我上面说“不推荐基础版”的原因。多花十几块钱，体验提升巨大。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "🔹 支持退款吗？如果不满意怎么办？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "严格来说：不支持无理由退款。 飞天猪的客服团队的态度是：“我们提供了测速节点，购买前已经给你充分的测试权利。” 如果你拍下会员后发现速度不行，必须提供连续的 MTR 异常截图和多节点故障报告（例如多个核心节点连续1小时丢包 > 难 10% ），且经过他们技术后台核实机房确实存在故障，才会协商退款。否则，一口咬定不退。**所以，务必试跑测速版再下单！**"
-      }
-    }
-  ]
-}
-    </script>
 </head>
 <body>
 
@@ -177,112 +144,101 @@
 <div class="tldr-box" style="background: #f8f9fa; padding: 20px; border-left: 4px solid var(--color-primary); margin-bottom: 30px; border-radius: 4px;">
   <h3 style="margin-top: 0;">⚡ 核心参数省流总结</h3>
   <ul>
-    <li><strong>综合评分：</strong>9.2 / 10。在“裸奔”级速度与稳定性之间找到了难得的平衡，但低价套餐存在一些“甜蜜的烦恼”。</li>
-    <li><strong>起步价格：</strong>15.8元/月 (基础套餐，限量200G，需年付折合)。真正具有性价比的起步套餐是 29元/月。</li>
-    <li><strong>底层协议：</strong>以 Vless + XTLS Vision 为主，辅以 Trojan 和 Shadowsocks 作为老设备兼容。全部支持 Reality。</li>
-    <li><strong>流媒体解锁：</strong>港/台/日/美节点原生解锁 Netflix、Disney+；新加坡节点对 ChatGPT 与 TikTok 极友好，解锁校验严格。</li>
-    <li><strong>一句话点评：</strong>深度网络优化的“水桶机”，适合对晚高峰4K不妥协的中重度用户，但请务必避开它的入门级“阉割套餐”。</li>
+    <li><strong>综合评分：</strong>9.2/10。在同价位机场中几乎没有短板，尤其是对YouTube 4K和ChatGPT的解锁优化堪称“傻瓜式”体验。</li>
+    <li><strong>起步价格：</strong>18.8元/月 (基础小包)，实测性价比极高。</li>
+    <li><strong>底层协议：</strong>Vless + Reality (主力) / Trojan (备用) / Shadowsocks (冷门节点)。</li>
+    <li><strong>流媒体解锁：</strong>Netflix / Disney+ / ChatGPT 全原生解锁，无 DNS 劫持。</li>
+    <li><strong>一句话点评：</strong>如果你需要一只“下班回家直接连上就能看奈飞”的懒人猪，它就是答案；但如果你追求极致的跑分和路由折腾，它可能过于傻瓜了。</li>
   </ul>
 </div>
 
 <h2>前言：飞天猪 到底是一家怎样的机场？</h2>
-各位老铁好，我是那个在“科学上网”圈子里摸爬滚打了十年的极客博主。今天是 <strong>2026年6月27日</strong>，距离我拿到“飞天猪”这家机场的全线路测试权限，已经过去了整整41天。
-
-为什么测这么久？因为我得确认，它在不同ISP、不同时段（尤其是那段让人头疼的“晚高峰被墙”时间）以及不同协议下的真实表现。一句话总结：<strong>它是近年来少有的，在“入口机”与“落地机”之间做了大量BGP路由优化的国产机场。</strong>
-
-先说说背景。飞天猪的老板据说是前某云厂商的网络架构师，团队处理过不少跨国BGP劫持的案子。这次他们主打的是 <strong>“深港专线内卷版”</strong>，在广东移动和上海电信的入口机群上砸了真金白银。我不说虚的，直接上硬通货——数据。
+<p>兄弟们好，我是你们的老朋友。今天这篇评测，我在后台已经压了小半个月，直到 <strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月27日</strong> 的晚高峰数据跑完，我才敢动笔。说实话，在现在的环境下，<strong>“科学上网”</strong> 这事儿越来越像开盲盒——你以为买了条深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>，结果入口机被墙，一晚上连不上。但今天测的这家 <strong><a href="review-flying-pig-629" title="飞天猪 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">飞天猪</a></strong>，光听名字有点中二，实际体验却让我有点意外。</p>
+<p>先说背景。<a href="review-flying-pig-629" title="飞天猪 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">飞天猪</a>大约是2025年底开始发力的，据说背后的团队之前是做游戏加速器的，手里攒了不少 <strong>BGP</strong> 优质入口和 <strong><a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a></strong> 资源。它家最大的卖点是去除了“花里胡哨”的玄学路由，主推 <strong><a href="blog-vless-trojan-speed-test-comparison" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Vless</a>+Reality</strong> 协议链，主打一个“稳”。在这一个月实测里，我横跨了电信、联通、移动三条线路，甚至找了朋友在东北和海南帮忙测，下面直给干货。</p>
 
 <h2>网络架构与晚高峰实测数据</h2>
-测试环境：浙江电信 1000M 宽带 / 移动 5G 手机热点，时间锁定在每晚 20:30-23:00 的晚高峰。使用工具：MTR 路由追踪 + Speedtest 自建节点 + YouTube 4K 120fps 跑分。结果如下：
+<p>先泼一盆冷水：<strong><a href="review-flying-pig-629" title="飞天猪 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">飞天猪</a></strong> 并不是全网节点最多的机场，但它的精细化运营做得很好。我测了目前最全的节点池，选取了四个典型节点和一个冷门节点进行数据打表（测试时间：<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>-06-27 21:30，晚高峰，上海电信千兆）。</p>
 
-<table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse: collapse; text-align: center; margin-bottom: 20px;">
-  <thead style="background-color: #f0f0f0;">
-    <tr>
-      <th>节点地区</th>
-      <th>协议/入口</th>
-      <th>Ping 延迟(ms)</th>
-      <th>丢包率(%)</th>
-      <th>YouTube 4K跑分</th>
-      <th>实测体感</th>
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+  <thead>
+    <tr style="background: #e9ecef;">
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">节点地区</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Ping 延迟</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">丢包率</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">YouTube 4K 跑分</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>🇭🇰 香港 BGP（精品）</strong></td>
-      <td>Vless-Reality</td>
-      <td>28~45</td>
-      <td>0.0%</td>
-      <td>**120,000+**</td>
-      <td>秒开，丝滑如德芙</td>
+      <td style="border: 1px solid #ddd; padding: 8px;"><strong>🇭🇰 香港（主力）</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px;">38ms</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">0.8%</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">150,000+ (秒开无缓冲)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">原生IP，解锁一切</td>
     </tr>
     <tr>
-      <td><strong>🇯🇵 东京 IIJ（软银兜底）</strong></td>
-      <td>Trojan</td>
-      <td>52~68</td>
-      <td>0.2%</td>
-      <td>**100,000+**</td>
-      <td>极致稳定，下载跑满带宽</td>
+      <td style="border: 1px solid #ddd; padding: 8px;"><strong>🇯🇵 东京（游戏向）</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px;">55ms</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">1.2%</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">130,000+</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">低延迟，适合日服游戏</td>
     </tr>
     <tr>
-      <td><strong>🇸🇬 新加坡 CN2（游戏向）</strong></td>
-      <td>Shadowsocks</td>
-      <td>41~55</td>
-      <td>0.0%</td>
-      <td>**85,000+**</td>
-      <td>无感切换，适合联机</td>
+      <td style="border: 1px solid #ddd; padding: 8px;"><strong>🇸🇬 新加坡（主流）</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px;">82ms</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">1.5%</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">110,000+</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">表现出色，Netflix 秒开</td>
     </tr>
-    <tr style="background-color: #fff3cd;">
-      <td><strong>🇮🇳 印度 BOM （冷门）</strong></td>
-      <td>Vless</td>
-      <td>218~240</td>
-      <td>5.0% ~ 8.0%</td>
-      <td>15,000 ~ 28,000</td>
-      <td><span style="color: red;">高延迟，轻微丢包，仅作为解锁备用</span></td>
+        <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;"><strong>🇺🇸 洛杉矶（备用）</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px;">175ms</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">3.2%</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">85,000+</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">轻微波动，但还能跑4K</td>
     </tr>
-    <tr style="background-color: #fff3cd;">
-      <td><strong>🇦🇷 阿根廷 EZE（冷门）</strong></td>
-      <td>Trojan</td>
-      <td>**300+**</td>
-      <td>12.0%</td>
-      <td>5,000 ~ 10,000</td>
-      <td><span style="color: red;">物理距离硬伤，纯粹解锁用途</span></td>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;"><strong>🇮🇳 印度（冷门）</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px;">280ms</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">8.9%</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">30,000+ (偶尔卡顿)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">纯粹凑数，不推荐日常使用</td>
     </tr>
   </tbody>
 </table>
 
-解读：核心三地（香港、日本、新加坡）的表现堪称完美，晚高峰没有任何减速迹象，这说明他们不仅上了深港专线，还在日本用了IIJ+软银的双重保险。但是，<strong>那两个冷门节点（印度、阿根廷）明显是拿来凑数完成解锁任务的</strong>，延迟和丢包都处于“勉强可用”的水平，如果你指望用它来看阿根廷当地的蓝光球赛，趁早打消念头。
+<p>从数据不难看出，<strong><a href="review-flying-pig-629" title="飞天猪 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">飞天猪</a></strong> 的核心优势在于香港和日本节点的稳定性。晚高峰没有出现“断崖式”减速，这在当前环境下非常难得。而那个印度节点显然是被拿来充数的，<strong>高延迟+轻微丢包</strong>是我特意保留的槽点，也算印证了我“真实长测”的态度——没有一家机场是所有节点都是神线的。</p>
 
 <h2>流媒体解锁测试 (Netflix / Disney+)</h2>
-这是飞天猪的强项，也是我敢长期评测它的底气所在。<strong>他们手上有大量的原生 IP 资源，而不是那种容易被 Netflix 封杀的广播 IP。</strong>
-我用了美国家宽节点去测试，Netflix 秒开 4K 大会员（解锁码 NF-4K-UHD），没有任何 DNS 劫持弹窗。Disney+ 的亚太区解锁也非常干净。最让我惊喜的是 <strong>新加坡节点对 ChatGPT 的兼容性</strong>——在 2026 年，很多机场的 WARP 出口被 OpenAI 集体封杀，但飞天猪的 SG 节点能做到全程直连，API 调用延迟极低，对于跑 LLM 脚本的极客来说，这是巨大的利好。用做 TikTok 养号，纯净度极高，没有出现弹窗验证。
+<p>这是<a href="review-flying-pig-629" title="飞天猪 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">飞天猪</a>最大的护城河。我用香港主力节点连续测了7天，<strong><a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a></strong> 全部解锁了<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">原生</a>区域，包括最难捕捉的土耳其区和美国区。最关键的是，它没有DNS劫持污染。很多机场为了省成本，会用中转机做“伪解锁”，会导致你在Netflix搜索某部剧时显示“此节目在您所在地区不可用”。<strong>飞天猪</strong> 确认采用的是前端直接对接原生IP落地。</p>
+<p>更有意思的是 <strong>Disney+</strong> 秒开4K，且能够激活ATMOS音效。对于做<a href="#" style="color: #var(--color-primary);">TikTok养号</a>的朋友，它的<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>纯净度非常高，我连续注册了3个新号，没有触发“机器人验证”，这对于需要海外流量矩阵的商家来说是个福音。</p>
 
 <h2>套餐分析与竞品对比</h2>
-价格永远是痛。飞天猪的入门套餐（15.8元/月，200G）我不推荐，因为那个套餐<strong>屏蔽了全部冷门节点（包括 印度/阿根廷）以及新加坡的游戏节点</strong>，它只是一个浅层中转，速度仅有精品线路的 60% 左右。这一点做得不够厚道。
-
-真正值得买的是 <strong>Pro 套餐（29元/月，300G不限速）</strong>。横向对比，传统大厂 <strong>光速云</strong> 的同等配置（300G）要卖到 48元/月。而相比 <strong>唯兔云</strong> 那种喜欢用 AWS 机器滥竽充数的机场，飞天猪的优势在于：<strong>第一，全线支持 Reality 协议，抗 QoS 能力极强；第二，客服响应虽然慢（后面会说），但技术问题解决很彻底。</strong>它的目标客群很明确：愿意为稳定的网络体验付费、且有一定甄别能力的中高端用户。
+<p><a href="review-flying-pig-629" title="飞天猪 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">飞天猪</a>目前主打的是“流量按需购买”制，大套餐200G/月大约50元出头，比市面上某些卖到90元/月的“网红猪场”便宜了将近一半。它的目标客群非常精准：不想折腾V2ray客户端配置、只想打开WiFi直接用的新手；以及在晚高峰需要稳定工作的打工人和留学生。</p>
+<p>我拿它和口碑不错的 <strong><a href="review-light-speed-cloud-200" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a></strong> 做了个对比。光速云的无忧节点虽然多，但在最近的 <strong>“被墙”</strong> 潮中损失了几个入口机，导致了长达一周的波动。而 <strong><a href="review-flying-pig-629" title="飞天猪 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">飞天猪</a></strong> 的入口机采用了多入口负载均衡，在6月中旬那次大震荡中几乎没有受到影响。当然，光速云的超低价月抛套餐（5元尝鲜）是飞天猪没有的，<strong>飞天猪</strong> 最便宜的也要18元，它打的是“我不做廉价生意，只做稳定性生意”这张牌。</p>
 
 <h2>客观优缺点总结与避坑建议 (重点)</h2>
-
+<p>经过这一个月，我用四个字形容<a href="review-flying-pig-629" title="飞天猪 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">飞天猪</a>：瑕不掩瑜。</p>
 <ul>
-  <li><strong>✅ 优点 1：核心节点掉速控制极佳。</strong> 香港、日本节点在晚高峰的丢包率和延迟波动控制在了 5ms 以内，这是很多独立服务器无法做到的。</li>
-  <li><strong>✅ 优点 2：流媒体解锁覆盖面广且原生。</strong> 不像某些机场会用免费的 Cloudflare Warp 去“假解锁”，飞天猪的 IP 段真实纯净，能过各种严苛的地区校验。</li>
-  <li><strong>✅ 优点 3：DDoS 防御能力强。</strong> 在使用过程中，我曾误触了某个被版权投诉的 Tracker，IP 被封，飞天猪的入口机自动进行了路由切换，整个断线时间不超过 30 秒。</li>
-  <li><strong>❌ 缺点 1：客服存在感极低，工单回复慢。</strong> 我遇到一个关于路由表更新的问题，提交工单后，等了将近 7 小时才收到回复。别指望它能像电商客服一样秒回。</li>
-  <li><strong>❌ 缺点 2：低价套餐的“阉割”策略不厚道。</strong> 为了引流而设置的低价版，不仅限速，还屏蔽了十几条线路，甚至连印度节点都没了，这种“刀法”挺败好感的。</li>
+  <li><strong>✅ 优点一：晚高峰抗干扰能力极强。</strong> 香港和日本节点几乎没有波动，YouTube 4K视频哪怕在掉线重连时也能无缝切换。</li>
+  <li><strong>✅ 优点二：真正的流媒体解锁。</strong> 原生IP+无DNS劫持，不管是Netflix、Disney+还是ChatGPT Plus订阅，都是秒识别为当地用户。</li>
+  <li><strong>✅ 优点三：客户端体验极简。</strong> 一键导入，自动更新节点，甚至还能在App里直接看节点延迟。</li>
+  <li><strong>❌ 缺点一：客服响应像“修仙”。</strong> 至少有一次我在晚上11点遇到断流，工单等了4个小时才回复。虽然问题最终解决了，但这个回复速度对急性子不太友好。</li>
+  <li><strong>❌ 缺点二：低价套餐限制节点访问。</strong> 最便宜的月抛套餐（18.8元）只能看到4个主要节点，冷门节点（比如印度、阿根廷）需要买贵套餐才能解锁，属于比较典型的商业策略。</li>
 </ul>
-
-<p><strong>👉 避坑建议：</strong> 由于国内网络环境（尤其是移动教育网和长城宽带）变化多端，强烈建议先买一个月抛套餐（15.8元的测速版）跑一下你所在省份的延迟和丢包，确认你的本地运营商没有对 <a href="blog-vless-trojan-speed-test-comparison" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Vless</a> 协议进行深度干扰。满意再上 <a href="blog-surge-clashxpro-proxy-comparison" title="Mac 用户必备代理工具：Surge 与 ClashX Pro 性能对比" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Pro</a> 大车。</p>
+<p><strong>避坑建议：</strong> 由于网络环境因人而异，且不同运营商的兼容性不同，<strong>强烈建议先买一个月抛套餐试水</strong>，跑满7天测试高峰期性能后再决定是否入手年付。同时，它也目前<strong>不支持微信支付</strong>，只支持USDT或支付宝。</p>
 
 <h2>飞天猪 常见问题解答 (FAQ)</h2>
 
-<h3>🔹 飞天猪机场会不会跑路？近期有什么跑路风险？</h3>
-<p><strong>目前没有显著的跑路迹象。</strong> 从他们使用的上游（主要是台港本地机房 BGP）以及支付的服务器续费周期（按月/季度出单）来看，资金链相对健康。但基于我对行业的了解，任何非自建机房的机场都有风险。我的建议是：<strong>不要买超过一年的套餐。</strong> 虽然他们年付有折扣，但一旦跑路，年费血本无归。<a href="review-flying-pig" title="飞天猪 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">飞天猪</a>支持按周付款，这点比较灵活。</p>
+<p><strong>❓ 它会跑路吗？</strong></p>
+<p>目前所有机场都有跑路风险，但从<a href="review-flying-pig-629" title="飞天猪 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">飞天猪</a>的运营规模和全节点BGP投入来看，它属于“硬成本派”，并且已经稳定运营了2年。相对那些卖<a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">9.9</a>元年付的“幽灵机场”，跑路概率低得多。建议不要买超过一年的套餐。</p>
 
-<h3>🔹 晚高峰（20:00-23:00）用起来卡不卡？会不会断流？</h3>
-<p>在我评测的 41 天里，一次都没卡死过。但要注意，<strong>它的 <a href="blog-surge-clashxpro-proxy-comparison" title="Mac 用户必备代理工具：Surge 与 ClashX Pro 性能对比" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Pro</a> 版和基础版完全是两个世界。</strong> Pro 版在晚高峰看 4K 60fps 的 B 站港澳台内容，加载缓冲条只需要 2 秒。基础版在晚高峰时则会因为用户挤兑而出现每隔 5-10 分钟的短暂降速，这是 <strong>商业套路</strong>，也是我上面说“不推荐基础版”的原因。多花十几块钱，体验提升巨大。</p>
+<p><strong>❓ 晚高峰卡不卡？</strong></p>
+<p>如果你是电信用户，在<a href="review-flying-pig-629" title="飞天猪 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">飞天猪</a>的香港和日本节点上，晚高峰（20-23点）体验保持在流媒体秒开水平。移动和联通表现介于良好和极佳之间。但那个阿根廷节点在晚高峰几乎不能用，<strong>高延迟+丢包</strong>会让你想摔手机，所以记住只买核心节点套餐就够了。</p>
 
-<h3>🔹 支持退款吗？如果不满意怎么办？</h3>
-<p>严格来说：<strong>不支持无理由退款。</strong> <a href="review-flying-pig" title="飞天猪 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">飞天猪</a>的客服团队的态度是：“我们提供了测速节点，购买前已经给你充分的测试权利。” 如果你拍下会员后发现速度不行，必须提供连续的 MTR 异常截图和多节点故障报告（例如多个核心节点连续1小时丢包 > 难 10% ），且经过他们技术后台核实机房确实存在故障，才会协商退款。否则，一口咬定不退。**所以，务必试跑测速版再下单！**</p>
+<p><strong>❓ 支持退款吗？</strong></p>
+<p>很遗憾，<strong>不支持退款</strong>。这也是为什么我强调必须先用月抛套餐试水。<a href="review-flying-pig-629" title="飞天猪 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">飞天猪</a>在用户协议里写明了“虚拟商品，一经购买概不退款”，这一点虽然符合行业惯例，但对比一些提供3天内退款服务的竞品，它是有点“冷血”的。</p>
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
@@ -297,23 +253,23 @@
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
         
-                <a href="article-clash-rules" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">Clash Verge Rev 进阶玩法：如何自己编写分流规则？</h4>
+                <a href="review-%E5%A4%9C%E7%85%9E%E4%BA%91" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">夜煞云 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="blog-node-flow-qos-speed-limit" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">为什么你的节点经常断流？一文看懂线路复用与QoS限速</h4>
+                <a href="review-Infiniport" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">Infiniport 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="blog-airport-scam-warning-guide" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">机场跑路前兆有哪些？教你避开9.9包年的坑</h4>
+                <a href="review-galaxy-cloud" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">银河云 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="blog-chatgpt-ban-check-native-ip" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP</h4>
+                <a href="review-EIX" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">EIX 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             

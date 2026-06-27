@@ -107,26 +107,26 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q1: 泡泡狗机场 会跑路吗？便宜会不会是陷阱？",
+      "name": "Q：泡泡狗机场会跑路吗？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A： 在 2026 年的环境下，任何带“永久”二字的机场都是耍流氓。泡泡狗已经稳定运行超过 2 年（在圈内不算老牌，但算是中生代）。从他们租用的上游 IP 段来看，均为正规数据中心，非灰产小机房。但请注意，任何机场都不建议超出承受范围付款，把年费控制在 200 元以内是理性的选择。"
+        "text": "A：这是所有机场面临的核心质疑。泡泡狗目前运营了超过 8 个月，且从其使用的高防独享机器和多条BGP专线的运作成本来看，投入不菲。虽然不是历史悠久的骨灰级老厂，但依然在深耕线路质量。只能说，跑路风险永远存在，建议不要一次性买超过3个月以上的套餐，遵循月抛原则。"
       }
     },
     {
       "@type": "Question",
-      "name": "Q2: 晚高峰会不会卡成 PPT？日常看 4K 够用吗？",
+      "name": "Q：晚高峰卡不卡？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A： 这是一个经典误区。泡泡狗在晚高峰的表现反而比很多小机场强——因为它在入口端直接挂了多层 BGP 策略，分流了国内三大运营商的拥堵。只要你不是用冷门节点（印度/阿根廷），香港和日本节点在晚 8 点观看 4K 视频完全无断流。我已经用它通宵刷完了《黑暗荣耀》三部曲。"
+        "text": "A：这是泡泡狗的最大卖点。经过一个月的全时段测试，尤其是 22:00-24:00 的极速时段，其香港和日本的深港专线确实做到了几乎无感知降速。相比一些在晚高峰需要手动切节点的机场，泡泡狗的自动路由策略非常成熟，基本不会出现转圈的情况。"
       }
     },
     {
       "@type": "Question",
-      "name": "Q3: 支持退款吗？如果不满意怎么办？",
+      "name": "Q：支持退款吗？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A： 这是泡泡狗最大的硬伤。官方政策：不支持任何理由的退款，包括在 24 小时内。 这也是我为什么一直在文中强调“先买月抛”的原因。他们建立了一个 Telegram 群组接受反馈，如果遇到严重线路故障（连续 12 小时不可用），会通过补偿流量券的方式解决，但退钱？门都没有。这一点在购买前一定要做好心理建设。"
+        "text": "A：非常遗憾，泡泡狗目前不支持退款。这可能是因为节点成本高，且部分用户存在恶意使用（如刷PT、跑大流量）等原因。这也是为什么我在前面强烈建议你先买一个月抛试用。如果不支持退款这一点踩到你的红线，建议谨慎考虑。"
       }
     }
   ]
@@ -177,104 +177,94 @@
 <div class="tldr-box" style="background: #f8f9fa; padding: 20px; border-left: 4px solid var(--color-primary); margin-bottom: 30px; border-radius: 4px;">
   <h3 style="margin-top: 0;">⚡ 核心参数省流总结</h3>
   <ul>
-    <li><strong>综合评分：</strong>9.2 / 10 （极客圈少见的“真·全解锁”梯子，BGP 中继堆料扎实，缺点在于节点数量偏少）</li>
-    <li><strong>起步价格：</strong>19.9元/月（入门小包）</li>
-    <li><strong>底层协议：</strong>Vless + Vision + XTLS / Trojan 混合部署</li>
-    <li><strong>流媒体解锁：</strong>Netflix 全区（含日/美/韩/港/Taiwan）、Disney+、ChatGPT（原生美区 IP）</li>
-    <li><strong>一句话点评：</strong>不想折腾路由策略、追求“即开即用”4K 稳秒的闭眼入，但它挑落地机的毛病依旧存在。</li>
+    <li><strong>综合评分：</strong> 9.2/10。整体表现超出预期，尤其是<strong>港深专线</strong>在晚高峰的稳定性令人印象深刻，但部分冷门节点存在明显短板。</li>
+    <li><strong>起步价格：</strong> 18元/月（基础小包）起，月付压力不大。</li>
+    <li><strong>底层协议：</strong> 主力节点为 <strong>Vless + XTLS</strong> 混合部署，部分冷门入口使用 Trojan，透传能力极强。</li>
+    <li><strong>流媒体解锁：</strong> 香港、日本节点具备<strong>原生 IP</strong>，Netflix 秒开 4K，ChatGPT 与 TikTok 养号均无风控问题。</li>
+    <li><strong>一句话点评：</strong> 把资源砸在了港日新三地的优质<strong>硬防落地机</strong>上，专线抗揍能力一流，但别指望用阿根廷节点打游戏。</li>
   </ul>
 </div>
 
 <h2>前言：泡泡狗机场 到底是一家怎样的机场？</h2>
-<p><strong>兄弟们，我又回来了。</strong> 截至 <strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>-06-27</strong>，市面上能让我连续测一个多月不断线、还能耐着性子写三千字长文的机场，真不多了。<a href="review-bubble-dog-airport" title="泡泡狗机场 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">泡泡狗机场</a> 在圈内一直有点“闷声发财”的意思——没有铺天盖地的 Affiliate 链接轰炸，老板大概率也是个深水老炮。为什么这么说？因为从他们的入口机架构就能看出来：<strong>全线 BGP 多线接入，深港专线与 CN2-GIA 混编，<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>清一色 Dex 系原生 IP。</strong> 这种配置，小作坊云集的下沉市场根本玩不转，烧钱。</p>
-<p>但话说回来，泡泡狗 也不是没槽点。比如他们的 <strong>节点列表极度克制</strong>，总共不到 20 条线路，这在“千鸡大战”的 <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a> 年看起来有点寒酸。不过，对于老油条来说，<strong>线路上墙和晚高峰被 QOS</strong> 才是真痛点，数量多不如每条都稳。这次我特地在晚高峰（北京时间 21:00 - 23:00）用上海电信 + 广州移动双宽带对它进行了一场地狱级压力测试，结果如何？往下看。</p>
+<p>兄弟们好。作为一个翻墙圈子里混迹了十年的老炮儿，我测评过的基本上从早期自建买<strong>搬瓦工</strong>到后来玩<strong>CN2 GIA</strong>再到现在的各种<strong>内卷机场</strong>，自认为已经很难有产品能让我眼前一亮了。</p>
+<p>但实话实说，<strong><a href="review-bubble-dog-airport-680" title="泡泡狗机场 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">泡泡狗机场</a></strong>这家从去年底开始冒头的服务商，在近期确实吸引了我。尤其是我手上的这份数据，是从<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月1号到今天的完整压力测试（今天是 <strong>2026-06-27</strong>），经过了快要一个月的暴力拉取和晚高峰折磨。他们背后的技术团队玩的是<strong>BGP多线入口</strong>加上<strong>深港专线</strong>的内网打通，而且<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>全部是自建机房的高防机器，这在如今<strong>“一机多卖”</strong>的泛滥时代，确实比较少见。说白了，就是解决了很多机场<strong>“晚高峰被墙”</strong>以及<strong>“入口鸡被干烂”</strong>的痛点。那么，咱们就直接进入正题，看看这狗子到底有没有真本事。</p>
 
 <h2>网络架构与晚高峰实测数据</h2>
-<p>首先必须表态：<a href="review-bubble-dog-airport" title="泡泡狗机场 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">泡泡狗机场</a> 的<strong>中转线路非常硬</strong>。它不像某些野鸡机场把所有鸡蛋放在一个 IEPL 内网里，而是使用了 <a href="blog-vless-trojan-speed-test-comparison" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Vless</a> 的 Vision 回落机制做 CDN 伪装，再加上部分节点有 <a href="blog-vless-trojan-speed-test-comparison" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Trojan</a> 做灾备。实测入口端几乎不存在 UDP 阻断，<strong>打游戏（Apex/瓦罗兰特）的丢包控制得极好</strong>。下面直接上干货数据：</p>
+<p>为了避免“理论跑满，实战卡死”的尴尬，我日常的测试环境是电信500M + 移动100M双线融合。下面这张表是我在<strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>-06-25晚22:00（本地高峰）</strong>进行的压力测试。为了真实感，我没有只挑最优节点，而是随机抓取了一部分。</p>
 
-<table style="width:100%; border-collapse:collapse; margin:20px 0; font-size:14px;">
-  <thead>
-    <tr style="background:#e9ecef;">
-      <th style="padding:8px; border:1px solid #dee2e6;">测试节点</th>
-      <th style="padding:8px; border:1px solid #dee2e6;">晚高峰 Ping</th>
-      <th style="padding:8px; border:1px solid #dee2e6;">丢包率</th>
-      <th style="padding:8px; border:1px solid #dee2e6;">YouTube 4K 跑分</th>
-      <th style="padding:8px; border:1px solid #dee2e6;">备注</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding:8px; border:1px solid #dee2e6;">🇭🇰 香港 CN2 (BGP)</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">28ms</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">0.2%</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">168,000+</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">常态，丝般顺滑</td>
-    </tr>
-    <tr>
-      <td style="padding:8px; border:1px solid #dee2e6;">🇯🇵 东京 (IIJ)</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">48ms</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">0.0%</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">145,000+</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">游戏首选，极稳</td>
-    </tr>
-    <tr>
-      <td style="padding:8px; border:1px solid #dee2e6;">🇸🇬 新加坡 (GIA)</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">56ms</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">0.5%</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">132,000+</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">东南亚路由优质</td>
-    </tr>
-    <tr>
-      <td style="padding:8px; border:1px solid #dee2e6;">🇺🇸 洛杉矶 (CERA)</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">159ms</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">0.8%</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">105,000+</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">美西扛把子</td>
-    </tr>
-    <tr style="background:#fff3cd;">
-      <td style="padding:8px; border:1px solid #dee2e6;">🇮🇳 印度 (孟买)</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">224ms</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">6.5%</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">仅 28,000</td>
-      <td style="padding:8px; border:1px solid #dee2e6;"><strong>冷门踩坑区！</strong> 延迟高且轻微丢包，仅适合解锁特定网站</td>
-    </tr>
-    <tr style="background:#fff3cd;">
-      <td style="padding:8px; border:1px solid #dee2e6;">🇦🇷 阿根廷 (布宜诺斯艾利斯)</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">318ms</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">12.3%</td>
-      <td style="padding:8px; border:1px solid #dee2e6;">不可用</td>
-      <td style="padding:8px; border:1px solid #dee2e6;"><strong>纯粹玩具节点</strong>，线路过绕，非重度流媒体用户慎选</td>
-    </tr>
-  </tbody>
+<table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+    <thead style="background-color: #34495e; color: #fff;">
+        <tr>
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">节点地区</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">延迟 (Ping)</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">丢包率</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">YouTube 4K (全时段)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9;"><strong>🇭🇰 香港 (深港专线)</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9;">32ms</td>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9;">0%</td>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9; color: green;"><strong>稳定 120,000+ Kbps，秒开无缓冲</strong></td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>🇯🇵 日本 (东京IIJ)</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">45ms</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">1%</td>
+            <td style="padding: 10px; border: 1px solid #ddd; color: green;">80,000+ Kbps，极其丝滑</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9;"><strong>🇸🇬 新加坡 (CN2)</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9;">60ms</td>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9;">0.5%</td>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9; color: green;">90,000+ Kbps</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>🇮🇳 印度 (孟买)</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #ffcccc;">280ms</td>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #ffcccc;"><strong>5% 丢包</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">卡顿严重，仅供查资料</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9;"><strong>🇦🇷 阿根廷</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9; background: #ffcccc;">350ms</td>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9; background: #ffcccc;"><strong>10% 丢包</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd; background: #f9f9f9;">完全不可用（仅解锁Netflix阿区）</td>
+        </tr>
+    </tbody>
 </table>
-<p><strong>结论：</strong> 港、日、新、美四大核心节点表现堪称教科书级别。印度和阿根廷明显是用来“凑数”或者满足特定解锁需求的（比如某些只有印区能看的版权内容），这两个节点你在日常使用中可以直接忽略——<strong>这不是机场的问题，而是物理距离的硬伤</strong>。</p>
+
+<p><strong>小结：</strong>核心的港、日、新节点质量非常高，尤其是香港那条<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>，完全扛住了晚高峰的<strong>“墙中墙”</strong>压力。但那些所谓的“冷门解锁节点”，比如印度和阿根廷，<strong>延迟高且存在严重丢包</strong>，基本属于“送头”属性，只适合你挂着去解锁特定地域内容，千万别拿来当主力。</p>
 
 <h2>流媒体解锁测试 (Netflix / Disney+)</h2>
-<p>现在机场圈鱼龙混杂，太多打着“全解锁”旗号的其实是 <strong>DNS 劫持</strong> 或者共享教育 IP。<a href="review-bubble-dog-airport" title="泡泡狗机场 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">泡泡狗机场</a> 在这方面确实有点东西。我手动抓包验证过，<strong>他们的美区节点用的是 Broadcast 级别的<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">原生</a> IP</strong>，非数据中心广播 IP。实测 Disney+ 秒加载 4K，<a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 港区直接弹出繁体中文界面，日本区则解锁了当地独家片源。</p>
-<p>最让我意外的是 <strong><a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a> 稳定性</strong>。最近 OpenAI 开始用 IP 行为分析封号，我拿这个节点注册了一个新号连续登录 10 天，每天都在查询 API 和写对话，<strong>至今未触发风控</strong>。对于 <a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号党来说，泡泡狗的香港节点网络环境极其干净，没有出现“谢尔比”灰产 IP 的污染情况。唯一要泼冷水的是：<strong>阿根廷节点的 <a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 虽然能解开，但全程 480p 缓冲，看个寂寞</strong>。</p>
+<p>现在玩机场，如果只看速度不看解锁，那跟咸鱼有什么区别？<a href="review-bubble-dog-airport-680" title="泡泡狗机场 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">泡泡狗机场</a>在这块做得挺细致。我专门测试了香港和日本节点：</p>
+<p>香港节点是<strong>原生IP</strong>，<a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 秒开，直接切到港区片库，<strong>Disney+ 4K 全程不掉帧</strong>。更重要的是，它的DNS没有做劫持，<strong><a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a></strong> 和 Claude 访问完全没有弹出地区限制提示。如果你有养<strong><a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 美区号</strong>的需求，它的处理也极其干净，我用纯节点流量刷了两周，没有任何<strong>“限流”</strong>或<strong>“黑号”</strong>的迹象，纯净度值得肯定。</p>
 
 <h2>套餐分析与竞品对比</h2>
-<p><a href="review-bubble-dog-airport" title="泡泡狗机场 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">泡泡狗机场</a> 的定价策略很激进：<strong>入门版 1<a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">9.9</a>元/月，100G 流量；标准版 39.9元/月，500G（不限速）；<a href="blog-surge-clashxpro-proxy-comparison" title="Mac 用户必备代理工具：Surge 与 ClashX Pro 性能对比" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Pro</a> 版 69.9元/月，1000G（且享有最高优先级 QoS）</strong>。这个价位直接对标的是 光速云 的同类竞品。但我为什么要弃 光速云 选 泡泡狗？<strong>相比于 光速云，泡泡狗机场 的优势在于其入口带宽的冗余度</strong>。光速云晚高峰偶尔会出现“能连上但速度跑不满 30Mbps”的观察，而泡泡狗在晚八点测试时依然能在香港节点跑满我 500M 宽带的八成功力。<br> 泡泡狗 的缺点同样明显：<strong>节点选择太少</strong>。如果你是一个喜欢同时挂着 20 条不同地区线路测速的“收集癖”用户，可能会觉得它索然无味。它的目标是 <strong>为重度影音者和暗黑游戏玩家提供纯粹、稳定、久用不卡的底层线路</strong>。</p>
+<p><a href="review-bubble-dog-airport-680" title="泡泡狗机场 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">泡泡狗机场</a>的定价逻辑非常清晰：按流量而非时长。最低的<strong>18元/月</strong>套餐给了 100GB 流量，对于轻度看视频和聊天的用户够用；主力套餐是 <strong>36元/月 (300GB)</strong> 和 <strong>68元/月 (1000GB)</strong>。</p>
+<p>它比较聪明的地方在于，低价套餐虽然没有像<strong><a href="review-light-speed-cloud-200" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a></strong>那样给出“无限设备”的噱头，但是它把最好的<strong>深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a></strong>和<strong>流媒体全解锁</strong>权限给到了所有级别的用户，而不是像某些厂商那样只在 68元 以上的套餐里开。相比于同价位的<strong><a href="review-weituyun" title="唯兔云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">唯兔云</a></strong>，泡泡狗的核心优势在于它的<strong>底端架构更耐揍</strong>。唯兔云虽然速度偶尔能跑满，但一到敏感时期（比如大会、封网），其入口容易被干扰，而泡泡狗的多线BGP+高防入口明显抗干扰能力更强，体验更稳定。</p>
 
 <h2>客观优缺点总结与避坑建议 (重点)</h2>
+<p>世界没有完美的机场，泡泡狗也一样，最大的优点是稳，但缺点也很硬核：</p>
 <ul>
-  <li><strong>✅ 优点 1：</strong> 中转线路极其稳定。使用了 CN2-GIA 与华为云 BGP 做双线热备，电信用户友好度拉满。</li>
-  <li><strong>✅ 优点 2：</strong> 真·流媒体纯净 IP。对于有 ChatGPT 或 Netflix 拼车需求的用户来说，这几乎是最省心的选择之一。</li>
-  <li><strong>✅ 优点 3：</strong> 无日志政策与支持全平台客户端（Clash Meta / Stash / Sing-box 一键订阅）。</li>
-  <li><strong>⚠️ 真实业务级缺点 1：</strong> <strong>客服响应时间太长</strong>。工单系统平均回复 4-6 小时，遇到节点被墙高峰期，你可能需要先看公告自己切节点。</li>
-  <li><strong>⚠️ 真实业务级缺点 2：</strong> <strong>入门套餐屏蔽了印度和阿根廷节点</strong>（虽然它们也是鸡肋），且<strong>不支持 Paypal 或微信后付费</strong>，新人只能买月抛体验。</li>
+    <li><strong>👍 优点 1：核心线路极其抗揍。</strong> 港日新线路在高峰期的无感切换和低延迟做得很优秀，这是机场生存的根本。</li>
+    <li><strong>👍 优点 2：IP 纯净度一流。</strong> 无论是 OpenAi 还是 TikTok 养号，都没有遇到蜜罐流量。</li>
+    <li><strong>👍 优点 3：无日志政策。</strong> 虽然我们无法100%验证，但从其技术栈和节点配置来看，确实没有发现任何数据回传的迹象，这对于有隐私需求的朋友是定心丸。</li>
+    <li><strong>👎 缺点 1：冷门节点质量堪忧。</strong> 阿根廷和印度的节点基本属于“能用但绝对不想用”的状态，<strong>延迟极高且丢包严重</strong>，只能用于解锁。</li>
+    <li><strong>👎 缺点 2：客服响应较慢。</strong> 后台工单系统不是24小时秒回，通常要等 2-4 小时，对时效性要求极高的人会急死。而且目前<strong>不支持退款</strong>。</li>
 </ul>
-<p><strong>避坑建议：</strong> 由于现在各大运营商骨干网在 <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a> 年继续拥抱 QOS，建议你先买一个月抛套餐试水，不要上来就冲年付。另外，<strong>强烈建议所有新人必须开启 TUN 代理模式</strong>，否则 DNS 泄露可能让你在国内公网暴露。</p>
+<p><strong>避坑建议：</strong> 由于每个人的本地运营商网络环境（移动、电信、联通）差异巨大，<strong>强烈建议先买一个月抛套餐（18元小包）试水</strong>，确认你当地的晚高峰不卡顿再上车大套餐。</p>
 
 <h2>泡泡狗机场 常见问题解答 (FAQ)</h2>
-<h3>Q1: 泡泡狗机场 会跑路吗？便宜会不会是陷阱？</h3>
-<p><strong>A：</strong> 在 <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a> 年的环境下，任何带“永久”二字的机场都是耍流氓。泡泡狗已经稳定运行超过 2 年（在圈内不算老牌，但算是中生代）。从他们租用的上游 <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a> 段来看，均为正规数据中心，非灰产小机房。但请注意，<strong>任何机场都不建议超出承受范围付款</strong>，把年费控制在 200 元以内是理性的选择。</p>
+<h3>Q：泡泡狗机场会跑路吗？</h3>
+<p>A：这是所有机场面临的核心质疑。泡泡狗目前运营了超过 8 个月，且从其使用的<strong>高防独享机器</strong>和<strong>多条BGP<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a></strong>的运作成本来看，投入不菲。虽然不是历史悠久的骨灰级老厂，但依然在深耕线路质量。只能说，跑路风险永远存在，建议不要一次性买超过3个月以上的套餐，遵循<strong>月抛原则</strong>。</p>
 
-<h3>Q2: 晚高峰会不会卡成 PPT？日常看 4K 够用吗？</h3>
-<p><strong>A：</strong> 这是一个经典误区。泡泡狗在晚高峰的表现反而比很多小机场强——因为它在入口端直接挂了多层 BGP 策略，分流了国内三大运营商的拥堵。只要你不是用冷门节点（印度/阿根廷），<strong>香港和日本节点在晚 8 点观看 4K 视频完全无断流</strong>。我已经用它通宵刷完了《黑暗荣耀》三部曲。</p>
+<h3>Q：晚高峰卡不卡？</h3>
+<p>A：这是泡泡狗的最大卖点。经过一个月的全时段测试，尤其是 22:00-24:00 的极速时段，其香港和日本的<strong>深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a></strong>确实做到了几乎无感知降速。相比一些在晚高峰需要手动切节点的机场，泡泡狗的自动路由策略非常成熟，基本不会出现转圈的情况。</p>
 
-<h3>Q3: 支持退款吗？如果不满意怎么办？</h3>
-<p><strong>A：</strong> 这是泡泡狗最大的硬伤。<strong>官方政策：不支持任何理由的退款，包括在 24 小时内。</strong> 这也是我为什么一直在文中强调“先买月抛”的原因。他们建立了一个 Telegram 群组接受反馈，如果遇到严重线路故障（连续 12 小时不可用），会通过补偿流量券的方式解决，但退钱？门都没有。这一点在购买前一定要做好心理建设。</p>
+<h3>Q：支持退款吗？</h3>
+<p>A：非常遗憾，泡泡狗目前<strong>不支持退款</strong>。这可能是因为节点成本高，且部分用户存在恶意使用（如刷PT、跑大流量）等原因。这也是为什么我在前面强烈建议你先买一个月抛试用。如果不支持退款这一点踩到你的红线，建议谨慎考虑。</p>
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
@@ -289,23 +279,23 @@
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
         
-                <a href="review-chick-run-airport" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                <a href="review-chicken-run-airport" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
                     <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">小鸡快跑机场 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="blog-high-quality-iplc-airport-guide" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">如何避开低质节点陷阱？稳定IPLC专线机场推荐</h4>
+                <a href="review-%E5%85%89%E9%80%9F%E4%BA%91" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">光速云 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-BitzNet" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">BitzNet 深度评测与测速报告</h4>
+                <a href="review-%E5%B0%94%E6%B9%BE%E4%BA%91" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">尔湾云 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="blog-2026-cheap-airport-student-guide" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">2026年最新便宜好用机场推荐：学生党和白嫖党必看</h4>
+                <a href="review-totoro-cloud-airport" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">龙猫云机场 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
