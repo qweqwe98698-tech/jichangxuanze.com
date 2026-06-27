@@ -5,6 +5,8 @@ const axios = require('axios');
 // 从环境变量读取 GitHub Secrets 传进来的 Key
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 
+const airportSlugMap = {};
+
 // 待生成的机场列表（已扩充至全部 81 家）
 const airports = [
     // TOP 5 阵营
@@ -122,7 +124,10 @@ async function main() {
     for (const airport of airports) {
         // 生成纯净的中文文件名，去掉特殊符号
         const safeName = airport.replace(/[^\w\u4e00-\u9fa5]/g, '');
-        const fileName = `review-${safeName}.html`;
+        let fileName = `review-${safeName}.html`;
+        if (airportSlugMap[airport]) {
+            fileName = `review-${airportSlugMap[airport]}.html`;
+        }
         const outputPath = path.join(__dirname, '..', fileName);
         
         // 增量生成：如果文件已经存在，就不重新消耗 Token 生成了
