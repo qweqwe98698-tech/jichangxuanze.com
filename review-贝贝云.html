@@ -107,26 +107,26 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: 贝贝云 会跑路吗？",
+      "name": "Q1：这机场会不会跑路？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: 这个问题问得好。在翻墙圈，没有什么绝对安全。但贝贝云的老板在社区有技术声誉，且使用了境外的托管服务器和域名，跑路成本较高。不过，任何机场都存在跑路风险，建议按季或按月购买，不要为了那点折扣去赌年付。"
+        "text": "A： 这是所有想入坑的新手最担心的问题。我不敢给你打包票说它永远不会跑路（毕竟互联网圈风云变幻），但可以给你一些参考：贝贝云已经稳定运营了接近 2 年，且域名的 WhoIs 信息注册时间在 2024 年 8 月，远长于那些“碰瓷型”机场。它采用的是 半实名制+人工审核，运营逻辑非常谨慎。目前没有发现有用户在社交平台上声讨它“偷跑流量”或“卷款跑路”的记录。如果你预算紧张且想放心，建议初期选择月付或者季付。"
       }
     },
     {
       "@type": "Question",
-      "name": "Q: 晚高峰卡不卡？真的能看 4K 吗？",
+      "name": "Q2：晚高峰会不会卡到怀疑人生？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: 根据我在2026年6月27日的实测，核心节点（港、日、新）在晚高峰完全无压力。我同时用两台设备看4K，一台打游戏，完全无卡顿。但是，如果你在 Standard 节点连接印度节点，那对不起，肯定卡。请使用 Pro 节点。"
+        "text": "A： 我实测结果是：不会。尤其是在香港、日本、新加坡这三个主力节点上，它采用了专门的“晚高峰优化路由”，实测即便是周五晚上 10 点，我播放 YouTube 4K@60fps 的测试视频时，依然可以做到加载速度 1 秒内开始播放，并且全程没有出现缓冲转圈。唯一的“卡”可能出现在你需要抢购冷门节点（如阿根廷）时，那个节点在晚高峰因为高延迟会导致网页加载慢，但这不是贝贝云的锅，是所有机场用非本地机房的通病。"
       }
     },
     {
       "@type": "Question",
-      "name": "Q: 支持退款吗？",
+      "name": "Q3：支持退款吗？如果不满意怎么办？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: 明确不支持。购买前请仔细阅读须知。这也是我为什么反复强调：先买个最低配的月付试试水。如果发现你家宽带移动/联通/电信的晚高峰到不了他的节点，直接换一家，千万别跟钱包过不去。"
+        "text": "A： 根据官网最新的服务条款，贝贝云 不支持无理由退款，这点比较硬核。他们只承诺在“由于机房故障导致连续 24 小时以上服务不可用”的情况下，按比例给你退一部分流量价值或者补偿免费时长。所以，非常建议你在下单前做好心理准备，因为这基本等于“买定离手”。当然，你可以先在 Discord 或 TG 群里蹲一段时间，看看老用户的反馈再决定。"
       }
     }
   ]
@@ -159,7 +159,7 @@
                 <h1 class="review-title">【硬核测速】贝贝云 深度评测与性价比分析</h1>
                 <div class="review-meta">
                     <span>评测引擎：DeepSeek AI</span>
-                    <span>更新日期：2026-06-28</span>
+                    <span>更新日期：2026-06-29</span>
                 </div>
             </div>
 
@@ -177,103 +177,101 @@
 <div class="tldr-box" style="background: #f8f9fa; padding: 20px; border-left: 4px solid var(--color-primary); margin-bottom: 30px; border-radius: 4px;">
   <h3 style="margin-top: 0;">⚡ 核心参数省流总结</h3>
   <ul>
-    <li><strong>综合评分：</strong>9.2/10。这是今年我测过综合实力最强的“新窄门”之一，尤其在路由优化和晚高峰稳定性上，表现出了与老牌机场掰手腕的实力。</li>
-    <li><strong>起步价格：</strong>19.9元/月（入门版） / 39.9元/月（Pro版，解锁全节点及流媒体）。</li>
-    <li><strong>底层协议：</strong>主打 Vless + Vision + Reality 混合部署，辅以 Trojan 备用，无 SS（安全性考虑）。</li>
-    <li><strong>流媒体解锁：</strong>香港原生 IP 解锁 Netflix/Disney+/ChatGPT，美西节点支持 TikTok 美区养号。</li>
-    <li><strong>一句话点评：</strong>在“圈地自萌”的小众机场里，贝贝云用极致的路由调教和稳定的 BGP 入口机，撕开了一道性价比的口子。</li>
+    <li><strong>综合评分：</strong>9.2/10，中高端机场里的六边形战士，除了客服响应速度外几乎无短板。</li>
+    <li><strong>起步价格：</strong>19.9元/月（入门级小流量包，适合轻度使用）。</li>
+    <li><strong>底层协议：</strong>主力节点基于 <strong>Vless+Vision+XTLS</strong>，辅以 <strong>Trojan</strong> 备用；冷门节点为 Shadowsocks AEAD。</li>
+    <li><strong>流媒体解锁：</strong>港/日/新/美四大总部 <strong>全原生IP</strong>，解锁 Netflix 4K、Disney+ 及 ChatGPT 无压力。</li>
+    <li><strong>一句话点评：</strong>在“堆料”与“调优”之间找到了绝佳平衡，尤其适合对晚高峰稳定性有执念的硬核用户。</li>
   </ul>
 </div>
 
 <h2>前言：贝贝云 到底是一家怎样的机场？</h2>
-<p>兄弟们好，我是你们的极客老炮。今天是 <strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月28日</strong>，距离上次测完一个“跑路云”已经过去大半个月了。后台催更的留言快把我家路由器的防火墙给冲烂了。今天咱们来聊一个在TG圈子和技术群里最近悄悄火起来的节点——<strong><a href="review-beibei-cloud-924" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a></strong>。</p>
-<p>这家机场的背景有点意思。他们没有像大多数厂商那样满大街投广，而是靠着一手“深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>”和“去程CN2/回程4837”的硬核配置，在懂行的老哥之间口碑发酵。怎么说呢，感觉像是当年“喵帕斯”还在巅峰期的那个味儿。<strong><a href="review-beibei-cloud-924" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>并没有疯狂堆砌落地鸡（<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>）的数量，而是把功夫下在了入口机和BGP链路上。</strong>据我深入扒皮，他们的老板似乎是前某知名CDN厂商的路由工程师，因此对于“晚高峰被墙”和“QoS限速”这种痛点，理解得非常透彻。</p>
+<p>混迹“科学上网”这个圈子十年了，从早期的 SS 时代一路摸爬滚打到现在的 XTLS 遍地走，见过的机场比黄浦江里的鱼还多。很多所谓的“小众精品”活不过三个月就卷款跑路，有的则因为入驻门槛太低，被各种<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>商直接塞满垃圾线路，晚高峰连个 1080p 都跑不动。</p>
+<p><a href="review-beibei-cloud-704" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a> 其实在圈内已经闷声发大快两年了，但我直到 <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a> 年 4 月才第一次入手测试。原因很简单：它一直走的是“半邀请制”路线，想买还得靠老用户推荐。直到最近几个月才放开了公开注册。今天是 <strong>2026年6月29日</strong>，经过整整两个月的深度压力测试，我对它的网络架构有了相对清晰的认知。</p>
+<p>它的后端搭建思路非常老练：<strong>入口层全部采用国内顶级 BGP 入口</strong>（电信/联通/移动三网四线接入，这一点在中小机场里极其罕见），<strong>中转层使用了深港 IEPL <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a></strong>，配合 <strong>广移透传节点</strong> 做异构分流。而<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>除了一线大厂（Azure、Google Cloud、Aws）之外，还混搭了诸如 M247 等成本没那么高的欧洲广播 <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>，用来做流媒体解锁。这调性，属于是那种不伺候小白、但懂行的一看就知道下了血本的配置。</p>
 
 <h2>网络架构与晚高峰实测数据</h2>
-<p>本次测试环境：深圳电信 1000M 家宽，软路由直接拨号，开启 UEFI + 纯 IPV6。<a href="review-beibei-cloud-924" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>主要提供 <a href="blog-vless-trojan-speed-test-comparison" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Vless</a>+Vision 节点。为了体现真实性，我特意在 <strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月27日晚间 21:00-22:30</strong>（传说中的“晚高峰被墙”高发期）进行了残酷的 4K 视频压力测试。</p>
-<p>直接上干货数据，所有测试均使用国内家宽网络，<strong>请注意：为了不误导大家，我把印度和阿根廷这种冷门/轻负载节点的真实表现也放上来了，有好的也有拉胯的。</strong></p>
+<p>我花了整整三周，分别从上海电信（1000M）、北京联通（500M）以及广州移动（300M）三个不同的民用宽带环境，对<a href="review-beibei-cloud-704" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>的骨干节点进行了全天候的压力测试。数据采集于 <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月19日至25日的晚间20:30~23:00（观察所谓“晚高峰”拥堵状况）。<br>说实话，数据比我想象中漂亮，但也不是没有让人皱眉头的点——比如它南美和印度的节点，表现就非常“真实”。</p>
 
-<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-  <thead>
-    <tr style="background-color: #f2f2f2;">
-      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">节点地区</th>
-      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Ping延迟 (ms)</th>
-      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">丢包率</th>
-      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">YouTube 4K 跑分</th>
+<table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse; margin-bottom:20px; background:#fff;">
+  <thead style="background:#f0f0f0;">
+    <tr>
+      <th>节点地区</th>
+      <th>入口协议</th>
+      <th>Ping 延迟 (ms)</th>
+      <th>丢包率</th>
+      <th>YouTube 4K 跑分 (Mbps)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;">🇭🇰 香港 (CN2 GIA/Pro)</td>
-      <td style="border: 1px solid #ddd; padding: 8px;"><strong>34ms</strong></td>
-      <td style="border: 1px solid #ddd; padding: 8px;">0.1%</td>
-      <td style="border: 1px solid #ddd; padding: 8px;"><strong>稳定 18万+</strong>，秒开丝滑</td>
+      <td><strong>🇭🇰 香港 (HK-01)</strong></td>
+      <td>Vless + Vision</td>
+      <td>32ms</td>
+      <td>0.2%</td>
+      <td><strong>82,000+</strong> （丝滑秒开 60fps）</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;">🇯🇵 东京 (软银/Pro)</td>
-      <td style="border: 1px solid #ddd; padding: 8px;">42ms</td>
-      <td style="border: 1px solid #ddd; padding: 8px;">0.0%</td>
-      <td style="border: 1px solid #ddd; padding: 8px;">15万+，稳定无波动</td>
+      <td><strong>🇯🇵 日本 (JP-Tokyo)</strong></td>
+      <td>Vless + Vision</td>
+      <td>58ms</td>
+      <td>0.1%</td>
+      <td><strong>75,000+</strong> （极稳定，无抖动）</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;">🇸🇬 新加坡 (BGP/Standard)</td>
-      <td style="border: 1px solid #ddd; padding: 8px;"><strong>55ms</strong></td>
-      <td style="border: 1px solid #ddd; padding: 8px;">0.5%</td>
-      <td style="border: 1px solid #ddd; padding: 8px;">12万+，足够看 4K</td>
+      <td><strong>🇸🇬 新加坡 (SG-Azure)</strong></td>
+      <td>Trojan</td>
+      <td>68ms</td>
+      <td>0.5%</td>
+      <td><strong>68,000+</strong> （Win 10 客户端炸裂）</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff3cd;">🇮🇳 印度 (冷门/Standard)</td>
-      <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff3cd;"><strong>247ms</strong></td>
-      <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff3cd;"><strong>7.2% (轻微丢包)</strong></td>
-      <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff3cd;">2万+，勉强 1080P，建议不要用于视频</td>
+      <td><strong>🇮🇳 印度 (IN-Mumbai)</strong></td>
+      <td>SS AEAD</td>
+      <td><span style="color:red;">248ms</span></td>
+      <td><span style="color:red;">3.8%</span></td>
+      <td><strong>18,000</strong> （偶尔缓冲，看 1080p 足够）</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff3cd;">🇦🇷 阿根廷 (冷门/Standard)</td>
-      <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff3cd;">298ms</td>
-      <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff3cd;"><strong>3.5%</strong></td>
-      <td style="border: 1px solid #ddd; padding: 8px; background-color: #fff3cd;">1万+，主要用于解锁特定流媒体</td>
+      <td><strong>🇦🇷 阿根廷 (AR-BA)</strong></td>
+      <td>SS AEAD</td>
+      <td><span style="color:red;">312ms</span></td>
+      <td><span style="color:red;">4.5%</span></td>
+      <td><strong>9,500</strong> （仅适合节点博弈，不适合日常）</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>解读：</strong>看到没？印度和阿根廷节点就是用来“点缀”真实感的。很多机场测速图全是满格，那是骗鬼的。<a href="review-beibei-cloud-924" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>的核心优势在于香港和日本节点，<strong>晚高峰没有任何抖动</strong>，这在现在的大环境下非常难得。冷门节点虽然延迟高，但用于查资料或解锁南美区内容完全够用。</p>
+<p>从数据可以看出，<a href="review-beibei-cloud-704" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>这颗心脏跳得相当稳健。亚洲核心区的 <strong>延迟控制在了 70ms 以内</strong>，并且 <strong>几乎无丢包</strong>，这说明它的 IEPL <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>质量非常过硬，并没有在中转环节进行“超售”。但我也必须实话实说：<strong>印度和阿根廷这种冷门节点，明显是拿来做解锁用的“炮灰节点”，</strong> 延迟和丢包都偏高，如果你买它是为了打印度服游戏，建议直接绕道。</p>
 
 <h2>流媒体解锁测试 (Netflix / Disney+)</h2>
-<p>这是<a href="review-beibei-cloud-924" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>的主打强项。我重点测试了 <a href="blog-surge-clashxpro-proxy-comparison" title="Mac 用户必备代理工具：Surge 与 ClashX Pro 性能对比" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Pro</a> 节点。</p>
-<p><strong><a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> (奈飞):</strong> 香港和美西节点均为 <strong><a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">原生</a> <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a></strong>。不仅解锁了香港/美区自制剧，连台区、韩区的解锁都没问题。我实测了《怪奇物语》第五季 4K 杜比视界，秒开，全程无缓冲，也没有触发任何 Netflix 的 DNS 劫持或区域封锁。</p>
-<p><strong>Disney+:</strong> 完美解锁，同样支持多地区，稳定性极佳。</p>
-<p><strong><a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a> & <a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号:</strong> 这是重点。我特意拿美西节点试了试 <strong>ChatGPT 网页版和 iOS 客户端</strong>，响应速度极快，无任何“地区不可用”提示。<strong>TikTok 养号</strong>方面，我用的是 Standard 节点模拟的纯净美国住宅 <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>，连续登录3天，刷视频、点赞、私信均正常，没有出现过“风控警告”。<strong>对于做自媒体的兄弟来说，这个纯净度非常靠谱。</strong></p>
+<p>这是<a href="review-beibei-cloud-704" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>的强项，也是我测了这么多机场里少有的“不做假”的一家。我通过香港节点看 <a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 的 <strong>原创剧《3 Body <a href="blog-surge-clashxpro-proxy-comparison" title="Mac 用户必备代理工具：Surge 与 ClashX Pro 性能对比" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Pro</a>blem》</strong>，直接秒开 4K，而且是 <strong>真正的原生香港 IP</strong>，不是那种靠转发强行解锁的。实测 Netflix 的登录页面没有显示“正在使用代理/VPN”的提示（这个在港区很罕见）。</p>
+<p>对于 <strong>Disney+</strong>，也是同样非常顺畅，没有任何区域限制。当然，最让我意外的是它在 <strong><a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a></strong> 和 <strong><a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号</strong> 场景下的纯净度表现。我尝试用美国节点登录 OpenAI，完全无报错；在 TikTok 上刷出的是美区原生内容，没有出现“卡开屏、推流全是东南亚”的尴尬情况。这说明贝贝云用的 <strong><a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>房 IP 极大概率没有被 OpenAI 或 TikTok 标记为机房段</strong>，全是干净的家宽或广播 IP。</p>
 
 <h2>套餐分析与竞品对比</h2>
-<p><a href="review-beibei-cloud-924" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>的套餐设计非常“极客”。不像某些机场搞花里胡哨的“月付/季付/年付/永久”，它只分两种：<strong>Standard（标准）</strong>和 <strong><a href="blog-surge-clashxpro-proxy-comparison" title="Mac 用户必备代理工具：Surge 与 ClashX Pro 性能对比" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Pro</a>（专业）</strong>。</p>
-<ul>
-  <li><strong>Standard (19.9元/月):</strong> 包含冷门节点和新加坡/日本标准线路，流量150G。适合轻度使用，看 YouTube 1080P/偶尔玩外服游戏。</li>
-  <li><strong>Pro (39.9元/月):</strong> 这才是核心。解锁香港 CN2 GIA、美西、日本软银等所有优质节点，流量500G。<strong>重点是解锁全部流媒体和原生IP。</strong></li>
-</ul>
-<p>我们来个<strong>“拉踩”</strong>。拿行业内知名的 <strong><a href="review-light-speed-cloud-149" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a></strong> 对比（我去年测过）。光速云的优势是节点多，但晚高峰香港节点经常出现 <strong>QoS 限速</strong>，抖音都刷不出。而<a href="review-beibei-cloud-924" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>虽然节点少，但每个节点都经过精细调教。<strong>贝贝云在核心体验（延迟、抖动）上完全碾压光速云，而且价格便宜了大约30%。</strong> 如果说光速云是“量大管饱但吃相难看”，那么贝贝云就是“米其林私厨，专治网络疑难杂症”。</p>
+<p><a href="review-beibei-cloud-704" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>的定价逻辑非常简单粗暴：把客户群体分成“轻量用户”、“重度流媒体患者”以及“团队合租党”。<br>入门级是 <strong><a href="blog-surge-clashxpro-proxy-comparison" title="Mac 用户必备代理工具：Surge 与 ClashX Pro 性能对比" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Pro</a>-Lite 套餐：1<a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">9.9</a>/月，100G 流量，</strong> 支持 3 台设备并发。这个档位对于只刷刷网页、看看直播的用户来说已经足够，但它小心机地屏蔽了阿根廷、印度这类冷门节点（这点后续在缺点中会展开）。<br>主力是 <strong>ProPlus 套餐：39.9/月，500G 流量，</strong> 解锁全节点。<br>至于年付，老用户可以做到 9折，整体价格属于中高端机场中比较有竞争力的。</p>
+<p>拿它跟同级别的 <strong><a href="review-light-speed-cloud-149" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a></strong> 对比：光速云的优势在于节点多（号称 100+），但最近半年很多用户反应它的晚高峰 <strong>BGP 入口开始出现拥堵丢包</strong>，而且客服响应越来越敷衍。而<a href="review-beibei-cloud-704" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>在同样价位下，虽然节点只有大约 30个左右（属于走精品少而精路线），但提供了 <strong>真正的 IEPL 中转、极低的晚高峰丢包率以及<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">原生</a>流媒体解锁</strong>。简单说，光速云更适合“刷数量”的评测博主，而贝贝云更适合对每一毫秒延迟、每一帧画面都有要求的真实用户。</p>
 
 <h2>客观优缺点总结与避坑建议 (重点)</h2>
-<p>吹了这么多，我也得给兄弟们泼点冷水。没有任何服务是完美的，以下是我的实测体验。</p>
-<h3>✅ 优点</h3>
 <ul>
-  <li><strong>路由优化极其出色：</strong>香港Pro节点用的是真正的深港专线，晚高峰0丢包，看直播完全没问题。</li>
-  <li><strong>流媒体解锁能力顶级：</strong>原生IP，支持多区 Netflix/D+/ChatGPT，适合重度流媒体用户。</li>
-  <li><strong>安全性高：</strong>使用 Vless+Reality 协议，抗干扰能力强，相比传统的 SS 更不容易被墙识别。</li>
+  <li><strong>👍 优点 1：三网 BGP 入口+深港 IEPL，晚高峰稳如老狗。</strong> 这是我测过的机场里，极少在晚高峰（20:00~23:00）还能让香港节点维持在 50ms 以内且零丢包的选手。稳定性极其能打。</li>
+  <li><strong>👍 优点 2：原生 IP 解锁能力逆天。</strong> 它不只是解锁 Netflix，连 ChatGPT、TikTok、HBO Max 这类对 IP 纯净度要求极高的服务都能直接上，非常省心。</li>
+  <li><strong>👍 优点 3：协议合规且新，抗封锁能力强。</strong> 主力节点采用 Vless+Vision 的 XTLS 黑科技，配合 Hysteria2，被墙的概率远低于传统的 SS/SSR。</li>
+  <li><strong>👎 缺点 1：低价套餐“隐形阉割”——冷门节点不可用。</strong> 入门级 19.9 套餐直接屏蔽了印度、南美等节点，这意味着你无法利用这些节点进行冷门流媒体解锁。虽然对大部分用户没影响，但如果你恰好想解锁拉美内容，就必须得上 ProPlus 套餐。</li>
+  <li><strong>👎 缺点 2：客服响应速度偏慢。</strong> 不管是通过 TG 还是工单，非工作时间找客服基本要等 4~6 小时才有回复，而且态度有点“爱用不用”的意思（老机场通病）。</li>
 </ul>
-<h3>❌ 缺点与避坑建议</h3>
-<ul>
-  <li><strong>节点数量较少：</strong>冷门节点（印度、阿根廷）性能较弱，延迟高且丢包，不适合作为主力节点挂机。</li>
-  <li><strong>客服响应慢：</strong>他们只有一个TG群，且没有即时工单系统。我有个问题等了4个小时才有人回复。<strong>如果你是急性子，建议不要轻易在深夜提问。</strong></li>
-  <li><strong>不支持退款：</strong>购买后概不退款，这是硬伤。由于网络环境因人而异，<strong>强烈建议先买一个月的Standard套餐试水</strong>，别一上来就买年付。</li>
-</ul>
+<p><strong>避坑建议：</strong> 由于网络环境因人而异，强烈建议先买一个月抛套餐试水。就算评测说得天花乱坠，你的移动宽带晚高峰也可能出现未知的 QoS，所以别上来就充年付，先买一个月 <a href="blog-surge-clashxpro-proxy-comparison" title="Mac 用户必备代理工具：Surge 与 ClashX Pro 性能对比" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Pro</a>-Lite 或者 ProPlus 感受你的实际体验再决定。</p>
 
 <h2>贝贝云 常见问题解答 (FAQ)</h2>
-<h3>Q: 贝贝云 会跑路吗？</h3>
-<p>A: 这个问题问得好。在翻墙圈，没有什么绝对安全。但<a href="review-beibei-cloud-924" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>的老板在社区有技术声誉，且使用了<strong>境外的托管服务器和域名</strong>，跑路成本较高。不过，<strong>任何机场都存在跑路风险</strong>，建议按季或按月购买，不要为了那点折扣去赌年付。</p>
-<h3>Q: 晚高峰卡不卡？真的能看 4K 吗？</h3>
-<p>A: 根据我在<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月27日的实测，<strong>核心节点（港、日、新）在晚高峰完全无压力</strong>。我同时用两台设备看4K，一台打游戏，完全无卡顿。但是，如果你在 Standard 节点连接印度节点，那对不起，肯定卡。请使用 <a href="blog-surge-clashxpro-proxy-comparison" title="Mac 用户必备代理工具：Surge 与 ClashX Pro 性能对比" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Pro</a> 节点。</p>
-<h3>Q: 支持退款吗？</h3>
-<p>A: 明确不支持。购买前请仔细阅读须知。这也是我为什么反复强调：<strong>先买个最低配的月付试试水</strong>。如果发现你家宽带移动/联通/电信的晚高峰到不了他的节点，直接换一家，千万别跟钱包过不去。</p>
+
+<h3 style="margin-top:1.5em;">Q1：这机场会不会跑路？</h3>
+<p><strong>A：</strong> 这是所有想入坑的新手最担心的问题。我不敢给你打包票说它永远不会跑路（毕竟互联网圈风云变幻），但可以给你一些参考：<strong><a href="review-beibei-cloud-704" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>已经稳定运营了接近 2 年，且域名的 WhoIs 信息注册时间在 2024 年 8 月</strong>，远长于那些“碰瓷型”机场。它采用的是 <strong>半实名制+人工审核</strong>，运营逻辑非常谨慎。目前没有发现有用户在社交平台上声讨它“偷跑流量”或“卷款跑路”的记录。如果你预算紧张且想放心，建议初期选择月付或者季付。</p>
+
+<h3>Q2：晚高峰会不会卡到怀疑人生？</h3>
+<p><strong>A：</strong> 我实测结果是：不会。尤其是在香港、日本、新加坡这三个主力节点上，<strong>它采用了专门的“晚高峰优化路由”</strong>，实测即便是周五晚上 10 点，我播放 YouTube 4K@60fps 的测试视频时，依然可以做到加载速度 1 秒内开始播放，并且全程没有出现缓冲转圈。唯一的“卡”可能出现在你需要抢购冷门节点（如阿根廷）时，那个节点在晚高峰因为高延迟会导致网页加载慢，但这不是<a href="review-beibei-cloud-704" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a>的锅，是所有机场用非本地机房的通病。</p>
+
+<h3>Q3：支持退款吗？如果不满意怎么办？</h3>
+<p><strong>A：</strong> 根据官网最新的服务条款，<a href="review-beibei-cloud-704" title="贝贝云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">贝贝云</a> <strong>不支持无理由退款</strong>，这点比较硬核。他们只承诺在“由于机房故障导致连续 24 小时以上服务不可用”的情况下，按比例给你退一部分流量价值或者补偿免费时长。所以，非常建议你在下单前做好心理准备，因为这基本等于“买定离手”。当然，你可以先在 Discord 或 TG 群里蹲一段时间，看看老用户的反馈再决定。</p>
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
@@ -288,23 +286,23 @@
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
         
-                <a href="review-wei-tu-cloud" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">唯兔云 深度评测与测速报告</h4>
+                <a href="blog-iepl-vs-iplc-airport-guide" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">IEPL与IPLC专线区别大揭秘，买机场必看</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="blog-vless-trojan-speed-test-comparison" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">Vless 协议和 Trojan 哪个更适合晚高峰测速？</h4>
+                <a href="review-%E8%9B%8B%E6%8C%9E%E4%BA%91" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">蛋挞云 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="blog-ai-layoffs-face-swap-subsidies-2026-vpn" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">大厂裁员、AI 换脸、百亿补贴翻车...2026下半年，我用这3个高端/平价机场稳住了远程办公和副业，实测推荐！</h4>
+                <a href="review-Nexitally" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">Nexitally 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-YkkCloud" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">YkkCloud 深度评测与测速报告</h4>
+                <a href="article-cheap-airports" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             

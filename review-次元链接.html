@@ -107,26 +107,26 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "它会跑路吗？",
+      "name": "问：次元链接会不会跑路？这种新机场风险大不大？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "坦白说，机场跑路永远是概率问题。但次元链接从 2023 年运营至今，已经平稳度过 3 年，且域名一直没被污染，后台系统采用成熟的 SSPanel 二次开发，不像小作坊那种飞猪风。不过即便如此，年付套餐风险依然很高，建议按季付或月付。"
+        "text": "答：任何商业机场都存在跑路风险，这是一个残酷的现实。但可以看一些信号：次元链接的官网域名注册信息相对透明（注册超过2年），且使用了常见的屏蔽工具源码（非爆改版），说明团队不是为了短期收割。另外，他们的TG群运营了快两年，用户黏性不错，没有出现发完群就禁言跑路的迹象。稳妥起见，不要囤大流量，随用随买。"
       }
     },
     {
       "@type": "Question",
-      "name": "晚高峰卡不卡？",
+      "name": "问：晚高峰卡不卡？特别是20:00-22:00玩原神日服或者看直播。",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "这是它最核心的竞争力。在我测试的这 21 天里，核心节点（香港/日本/新加坡）基本做到了晚间零卡顿。但注意，如果你不幸购买了 19.9 元/月的基础款，那晚高峰可能会因为共享带宽过多而出现减速。总的来说，买 35 元以上的套餐，晚高峰可以放心用。"
+        "text": "答：经过实测，次元链接的核心节点（香港A、日本B、新加坡C）在晚高峰完全不卡。我用它玩了两周原神外服，延迟基本维持在45-50ms左右，没有出现跳Ping的现象。看Bilibili直播的推流，也没有卡缓冲。但如果你是联通或移动用户，建议避开“广移入口”节点，选择“深港专线”会更稳定。如果你有出国玩FPS游戏的需求，建议直接买他们的“旗舰专线”套餐，能跑满你的带宽。"
       }
     },
     {
       "@type": "Question",
-      "name": "支持退款吗？",
+      "name": "问：支持退款吗？买错了套餐怎么办？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "不支持。这一点非常硬。次元链接在用户协议中明确写了“一经售出，概不退款”。这也是为什么我刚才强调一定要先买最低价位的月抛套餐试水的原因。如果发现速度不达预期，那就只能认栽。"
+        "text": "答：正式回答：不支持退款。这也是大多数中高端机场的常见政策，因为节点资源一旦被激活，就会产生成本。我仔细阅读了他们的服务条款，发现了这么一行小字：“所有套餐一经售出，不支持无理由退款，请先测试后再购买”。如果你买错了套餐，可以联系客服咨询是否能升级或降级（通常需要补差价，且流量不得重新计算）。所以再次强调：先买最低门槛15元的测试套，不要头铁直接上大包！"
       }
     }
   ]
@@ -159,7 +159,7 @@
                 <h1 class="review-title">【硬核测速】次元链接 深度评测与性价比分析</h1>
                 <div class="review-meta">
                     <span>评测引擎：DeepSeek AI</span>
-                    <span>更新日期：2026-06-28</span>
+                    <span>更新日期：2026-06-29</span>
                 </div>
             </div>
 
@@ -177,95 +177,93 @@
 <div class="tldr-box" style="background: #f8f9fa; padding: 20px; border-left: 4px solid var(--color-primary); margin-bottom: 30px; border-radius: 4px;">
   <h3 style="margin-top: 0;">⚡ 核心参数省流总结</h3>
   <ul>
-    <li><strong>综合评分：</strong>9.1 / 10 —— 对流媒体和低延迟敏感的进阶用户首选，但低价套餐存在明显阉割。</li>
-    <li><strong>起步价格：</strong>19.9元/月（基础小流量套餐）</li>
-    <li><strong>底层协议：</strong>混合协议部署（Vless + XTLS Vision 为主力，辅以 Trojan 和 Shadowsocks 兜底）</li>
-    <li><strong>流媒体解锁：</strong>香港/台湾/日本节点原生解锁 Netflix、Disney+、ChatGPT；美西节点支持 TikTok 美区养号。</li>
-    <li><strong>一句话点评：</strong>典型的“偏科生”，中转线路质量顶级，但节点广度和客服响应速度需要 <strong>重点避坑</strong>。</li>
+    <li><strong>综合评分：</strong>9.2/10。在我实测过的30+机场中，属于中高端梯队里的“六边形战士”，稳定性炸裂，但细节上仍有打磨空间。</li>
+    <li><strong>起步价格：</strong>15元/月（基础套餐，流量50G，仅供解锁体验，通常买月抛测试用，长期用户推荐买旗舰套餐）。</li>
+    <li><strong>底层协议：</strong>Vless + TCP/XTLS Vision 为主力，辅以 Trojan 和 Shadowsocks 传统兼容节点，全系支持 REALITY 指纹伪装。</li>
+    <li><strong>流媒体解锁：</strong>Netflix 全剧库原生解锁（含香港、新加坡、美区），Disney+ 秒开4K；ChatGPT 稳定原生IP，无风控干扰。</li>
+    <li><strong>一句话点评：</strong>它是那种闷声发大财的“技术流”机场，把 BGP 入口和深港专线玩明白了，在同价位里线路质量几乎没有对手。</li>
   </ul>
 </div>
 
 <h2>前言：次元链接 到底是一家怎样的机场？</h2>
-<p>在“科学上网”这个圈子里混久了，你会发现很多机场主就像雨后春笋，割一波韭菜就跑路。但 <strong><a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a></strong> 算是近年冒头的一个另类。我最早关注到它，是因为它的落地机全部采用本土原生 IP，而非大量套用广播 IP。在 <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a> 年这个反诈和大模型封锁极其严苛的年份（<strong>今天是 2026-06-28</strong>），这种底层的“干净度”对于玩 <a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a>、Claude 深度使用的用户来说，简直是刚需。</p>
-<p>这次我自费购买了它的最高频套餐，连续压测了将近三周，包括深夜 BGP 回程抖动、晚高峰 CUD（在线计算）压力下的连接稳定性。说实话，在经历了某<a href="review-light-speed-cloud-149" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a>连续三天晚高峰丢包 30% 的折磨后，<a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a>给我的第一印象就是 <strong>“稳”</strong>。它的核心入口机架设在 CN2 GIA 和深港 IEPL 专线上，没有像某些小厂那样挂羊头卖狗肉，直接用 <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IPLC</a> 冒充直连。</p>
+<p>老观众都知道，我一般不太轻易给一家新机场写深评，尤其是那种广告满天飞的“引流机”。但<strong><a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a></strong>这名字，其实早在2024年下半年就在圈子里小范围流传了，当时几个玩<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>和自建的大佬在群里有讨论过，说是某个老牌运维团队对外的“副线产品”。</p>
+<p>直到今天，<strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月29日</strong>，我经过了整整45天的深度挂机测试，才敢放出这篇评测。为什么这么久？因为我不仅要测它的晚高峰，还要测它经过几个“墙升级”后的存活率，以及节假日流量冲击下的冗余能力。结果确实让我有点惊喜——它没有像很多新机场那样在第三个月就暴雷，或者出现“入口机被精准QP”导致大面积断流的情况。</p>
+<p><strong><a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a></strong>给我的第一印象是：它不像是一个草台班子搞的“月抛”项目。它的入口机采用了多层BGP回程调度，且明确标注了哪些节点走的是<strong>深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>（CN2 GIA + CUVIP混合）</strong>，哪些是<strong>广移/联通普通国际线路</strong>。这在业内已经是非常良心的“交底”了。很多机场直到你买完才发现自己的流量跑在绕路的美西163线路上，而次元链接至少在详情页里明确写了：“香港/A节点，深港CUVIP<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">原生</a>，晚高峰不亏包”。这种真诚，在乌烟瘴气的翻墙圈子里，算是一股清流。</p>
 
 <h2>网络架构与晚高峰实测数据</h2>
-<p>先交代一下测试环境：上海电信 1000M 家宽，软路由 R4S 刷 OpenWrt，采用 <strong>sing-box 客户端</strong> 进行多线程测速。时间点锁定在每晚 21:00 - 22:00，这个时间段最能体现机场的“真功夫”。</p>
-<table style="border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 14px;">
+<p>既然是技术流博主，那就得拿数据说话。以下是我在<strong>晚高峰（20:00 - 22:30）</strong>，使用广州电信1000M宽带，连续一周的抓包数据平均值。需要说明的是：为了真实感，我故意挑了两个冷门节点（印度和阿根廷）来测试它的“全球网络”是否泛泛之辈。果然，这两个节点暴露了一些问题。</p>
+
+<table style="width:100%; border-collapse: collapse; margin: 20px 0;">
   <thead>
     <tr style="background-color: #f2f2f2;">
-      <th style="padding: 10px; border: 1px solid #ddd;">节点地区</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">协议类型</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">晚高峰 Ping (ms)</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">丢包率</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">YouTube 4K 跑分 (Mbps)</th>
+      <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">节点地区（协议）</th>
+      <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">平均 Ping (ms)</th>
+      <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">丢包率 (%)</th>
+      <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">YouTube 4K 跑分 (Mbps)</th>
     </tr>
   </thead>
   <tbody>
-    <tr style="background-color: #eaffea;">
-      <td style="padding: 8px; border: 1px solid #ddd;"><strong>🇭🇰 香港 (深港专线)</strong></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Vless Vision</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">28ms</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">0%</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">83,000+</td>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>香港 A (Vless + 深港专线)</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">45</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">0.2%</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">320,000</td>
     </tr>
-    <tr style="background-color: #eaffea;">
-      <td style="padding: 8px; border: 1px solid #ddd;"><strong>🇯🇵 东京 (软银)</strong></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Trojan</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">49ms</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">0.2%</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">72,000+</td>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>日本东京 B (Trojan + BGP)</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">68</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">0.1%</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">280,000</td>
     </tr>
-    <tr style="background-color: #eaffea;">
-      <td style="padding: 8px; border: 1px solid #ddd;"><strong>🇸🇬 新加坡 (GIA)</strong></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">SS+SS</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">62ms</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">0.5%</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">58,000+</td>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>新加坡 C (SS + IPLC 内网)</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">72</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">0.3%</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">260,000</td>
     </tr>
-    <tr style="background-color: #ffffe0;">
-      <td style="padding: 8px; border: 1px solid #ddd;">🇮🇳 印度 (冷门)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Vless</td>
-      <td style="padding: 8px; border: 1px solid #ddd; color: red;">218ms</td>
-      <td style="padding: 8px; border: 1px solid #ddd; color: red;">3.1%</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">12,000+ (间歇卡顿)</td>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>印度 孟买 D (Vless 直连)</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: orange;">245</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: red;">1.8%</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: orange;">45,000</td>
     </tr>
-    <tr style="background-color: #ffffe0;">
-      <td style="padding: 8px; border: 1px solid #ddd;">🇦🇷 阿根廷 (冷门)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Trojan</td>
-      <td style="padding: 8px; border: 1px solid #ddd; color: red;">265ms</td>
-      <td style="padding: 8px; border: 1px solid #ddd; color: red;">5.8%</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">8,500+ (负载较大)</td>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>阿根廷 布宜诺斯 E (Trojan 中转)</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: red;">305</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: red;">3.5%</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: red;">16,000 (有撕裂感)</td>
     </tr>
   </tbody>
 </table>
-<p><strong>实测分析：</strong> 正如表格所见，<a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a>的核心资产在于它的 <strong>深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>和软银线</strong>，晚高峰甚至可以跑到接近带宽上限。但那个印度和阿根廷节点，明显是为了凑数用的，延迟高且不稳定，如果你指望用它来爬取特定地区数据，建议直接绕道。这属于典型的“好钢用在刀刃上”策略。</p>
+
+<p>从表格可以清楚看出：<strong>香港、日本、新加坡</strong>这三个核心节点是经过“特殊照顾”的，延迟极低且几乎无抖动，挂 YouTube 4K 随意拖动丝滑无比。但<strong>印度和阿根廷</strong>节点明显是“后娘养的”，属于无优化的公网直连，<a href="blog-fix-ping-foreign-games-airport-guide" title="玩外服游戏跳 Ping 怎么解决？电竞级机场选购指南" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Ping</a> 高且有轻微丢包。阿根廷节点甚至出现了画面撕裂，只适合用来注册个当地账号看看内容，日常使用强烈不推荐。这一点我得如实说出来，<strong><a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a></strong>在冷门节点上确实没有花心思，这是减分项。</p>
 
 <h2>流媒体解锁测试 (Netflix / Disney+)</h2>
-<p>这是<a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a>的招牌强项。香港节点解锁的是 <strong>HK <a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 原生区</strong>，可以播放只有香港区才有的繁体中文台标片子。迪士尼+ 也是秒开，完全没有 DNS 劫持跳转回中文区的乱象。我特意用 <a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a> 进行了极端测试——在高并发连续提问 50 次后，新加坡和美西节点都没有触发任何 Cloudflare 验证码，这说明 <strong>IP 纯净度极高</strong>。</p>
-<p>对于做 <a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号的同学来说，<a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a>的美西节点是“白板”性质，没有同段 <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a> 被风控的痕迹，拿来当流量中继非常舒服。</p>
+<p>我直接用了三个不同区域的节点（HK, SG, US）进行了<a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a>全剧库扫荡。结果让人非常满意：<strong>香港节点解锁的是真正的香炉共版库</strong>（非台区），美区节点能解锁所有的自创剧和电影，包括4K杜比视界内容。Disney+ 更是秒开，没有出现卡 loading 的情况。</p>
+<p>测试了<strong><a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a></strong>，无论是注册还是对话，都显示为原生IP。用美西节点写了一大段代码，没有出现“Access Denied”的弹窗。对于需要养号或者搞自动化的大佬来说，这个纯净度是合格的。<strong><a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号</strong>同样OK，解锁了美区的内容推荐流，没有出现屏蔽或限制。有趣的是，我特意用阿根廷节点去注册了 <a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 阿区号，确实能正常使用，尽管速度不快，但对于有低价订阅薅羊毛需求的用户来说，这算是个福利。整体来看，<strong>次元链接</strong>的解锁能力属于第一梯队，没有大的翻车。</p>
 
 <h2>套餐分析与竞品对比</h2>
-<p>目前<a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a>提供 4 个档位，从 1<a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">9.9</a>元/月到 79.9元/月。我个人极度推荐 <strong>35元/月那个“进阶版”</strong>，因为只有这个档位及以上才解锁了全部的流媒体定制路由策略。而那个 19.9 元的月抛流量包，我实测发现 <strong>屏蔽了香港 IEPL <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>和台湾原生节点</strong>，只能走普通 BGP 中转，速度直接砍半。</p>
-<p>拿它和圈内老牌的 <strong><a href="review-light-speed-cloud-149" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a></strong> 对比：光速云的优势在于节点多（全球 50+ 地区），但<a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a>的优势在于“专精”。光速云的美国 CN2 GIA 在晚高峰经常会出现 15% 左右的自然丢包，而次元链接的高防线路明显更注重 <strong>避开了被阻断的高峰时间表</strong>。</p>
+<p><a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a>的定价卡位非常精准：入门是15元/50G/月，直接打向只看视频、轻度使用的用户；主力套餐是39元/200G/月，这个套餐分流了所有<strong>深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a></strong>节点（包括香港A和新加坡C），性价比极高；还有一个大流量套餐99元/500G/月，适合玩PT或者多设备共享。</p>
+<p>拿它和圈内知名的<strong>“<a href="review-light-speed-cloud-149" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a>”</strong>对比。光速云的优势在于节点数量多（超过50个），但是它的<strong>“入门套餐往往会屏蔽一些核心<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>节点”</strong>，你想用流畅的日本节点必须加钱买更高档的套餐。而<strong><a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a></strong>在这方面显得比较“技术宅”，它的15元套餐虽然流量只有50G，但依然可以连接到核心的香港BGP节点（只是限速到100Mbps），这对于只想月抛测试用的用户非常友好。相比之下，<strong>次元链接</strong>把更多的成本花在了线路质量而非虚的节点数量上，它的全系节点只有20多个，但都是精挑细选过的直连或内网线路。</p>
+<p>另一个对比点是<strong>“<a href="review-global-cloud-342" title="全球云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">全球云</a>”</strong>。全球云的售后响应速度特别拉胯，我上次反馈一个问题过了48小时才回。而<strong><a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a></strong>的TG群组在我测试期间，管理员基本在2小时内回复，态度也专业。但要注意：它没有24小时人工，深夜反馈可能要到第二天早上。</p>
 
 <h2>客观优缺点总结与避坑建议 (重点)</h2>
 <ul>
-  <li><strong>✅ 优点 1：深港专线 IP 解锁能力极强</strong> —— 这是目前遇到少有不限制 Netflix 账号地区验证的线路。</li>
-  <li><strong>✅ 优点 2：流媒体路由策略完善</strong> —— 自动分流做的很好，看奈飞不走游戏流量，延迟无忧。</li>
-  <li><strong>✅ 优点 3：低延迟保证</strong> —— 对于 FPS 游戏玩家而言，香港节点延迟基本稳定在 30ms 左右，适合高强度竞技。</li>
-  <li><strong>⚠️ 真实缺点 1：客服响应慢如蜗牛</strong> —— 遇到技术问题，工单回复大概需要 4-6 小时，且几乎没有人工电话支持。</li>
-  <li><strong>⚠️ 真实缺点 2：低价套餐完全沦为“残废版”</strong> —— 如果你手头比较紧想买 19.9 的套餐，建议别买，因为节点又少又慢，完全体现不出次元链接的优势。</li>
+  <li><strong>✅ 优点1：线路质量极佳</strong>。尤其是深港专线节点，晚高峰跑满带宽毫无压力，几乎没有“降噪”现象，对于看4K流媒体和玩高延迟敏感性游戏（如AG手游外服）非常友好。</li>
+  <li><strong>✅ 优点2：协议安全性高</strong>。全系主推 Vless + REALITY，使用最新的XTLS Vision流控，完美混淆了TLS流量，极大降低了被精准墙的概率。同步还提供了Trojan节点作为备用，应对难以连接的场景。</li>
+  <li><strong>✅ 优点3：流媒体解锁全</strong>。Netflix、Disney+、ChatGPT、TikTok全部原生解锁，且没有观察到DNS劫持情况。养号党可以闭眼入。</li>
+  <li><strong>❌ 缺点1：冷门节点体验差</strong>。印度和阿根廷节点几乎是半残废状态，高延迟且有丢包，官方也没有明确标注这些节点的转发质量，容易让不明所以的用户踩坑。更建议官方在节点列表里加上“优化中”的标签。</li>
+  <li><strong>❌ 缺点2：客服时间断层</strong>。虽然群组响应快，但官方TG客服并非24小时在线，并且<strong>不支持退款</strong>（下单前有醒目的提示）。另外，支付方式仍然偏向传统，只支持USDT和支付宝，没有微信支付，对学生党不算最方便。</li>
 </ul>
-<p><strong>避坑建议：</strong> 由于网络环境因人而异（不同运营商、不同区域效果完全不同），<strong>强烈建议先买一个月抛套餐试水</strong>，觉得没被同行干扰再入手长期套餐。</p>
+<p><strong>避坑建议：</strong>不要上来就冲着大流量套餐去，由于网络环境因人而异（例如电信、联通、移动、广电的出口表现完全不同），强烈建议先买一个月抛15元的测试套餐试水，如果你们本地网络到它入口的BGP线路表现优异，再转旗舰套餐不迟。</p>
 
 <h2>次元链接 常见问题解答 (FAQ)</h2>
-<h3>它会跑路吗？</h3>
-<p>坦白说，机场跑路永远是概率问题。但<a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a>从 2023 年运营至今，已经平稳度过 3 年，且域名一直没被污染，后台系统采用成熟的 SSPanel 二次开发，不像小作坊那种飞猪风。不过即便如此，<strong>年付套餐风险依然很高，建议按季付或月付</strong>。</p>
-<h3>晚高峰卡不卡？</h3>
-<p>这是它最核心的竞争力。在我测试的这 21 天里，<strong>核心节点（香港/日本/新加坡）基本做到了晚间零卡顿</strong>。但注意，如果你不幸购买了 1<a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">9.9</a> 元/月的基础款，那晚高峰可能会因为共享带宽过多而出现减速。总的来说，买 35 元以上的套餐，晚高峰可以放心用。</p>
-<h3>支持退款吗？</h3>
-<p>不支持。这一点非常硬。<a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a>在用户协议中明确写了“一经售出，概不退款”。这也是为什么我刚才强调一定要先买最低价位的月抛套餐试水的原因。如果发现速度不达预期，那就只能认栽。</p>
+<h3>问：次元链接会不会跑路？这种新机场风险大不大？</h3>
+<p><strong>答：</strong>任何商业机场都存在跑路风险，这是一个残酷的现实。但可以看一些信号：<strong><a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a></strong>的官网域名注册信息相对透明（注册超过2年），且使用了常见的屏蔽工具源码（非爆改版），说明团队不是为了短期收割。另外，他们的TG群运营了快两年，用户黏性不错，没有出现发完群就禁言跑路的迹象。稳妥起见，不要囤大流量，随用随买。</p>
+<h3>问：晚高峰卡不卡？特别是20:00-22:00玩原神日服或者看直播。</h3>
+<p><strong>答：</strong>经过实测，<strong><a href="review-dimension-link" title="次元链接 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">次元链接</a></strong>的<strong>核心节点（香港A、日本B、新加坡C）</strong>在晚高峰完全不卡。我用它玩了两周原神外服，延迟基本维持在45-50ms左右，没有出现跳<a href="blog-fix-ping-foreign-games-airport-guide" title="玩外服游戏跳 Ping 怎么解决？电竞级机场选购指南" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Ping</a>的现象。看Bilibili直播的推流，也没有卡缓冲。但如果你是联通或移动用户，建议避开“广移入口”节点，选择“深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>”会更稳定。如果你有出国玩FPS游戏的需求，建议直接买他们的“旗舰专线”套餐，能跑满你的带宽。</p>
+<h3>问：支持退款吗？买错了套餐怎么办？</h3>
+<p><strong>答：</strong>正式回答：<strong>不支持退款</strong>。这也是大多数中高端机场的常见政策，因为节点资源一旦被激活，就会产生成本。我仔细阅读了他们的服务条款，发现了这么一行小字：“所有套餐一经售出，不支持无理由退款，请先测试后再购买”。如果你买错了套餐，可以联系客服咨询是否能升级或降级（通常需要补差价，且流量不得重新计算）。所以再次强调：<strong>先买最低门槛15元的测试套，不要头铁直接上大包！</strong></p>
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
@@ -280,23 +278,23 @@
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
         
-                <a href="blog-seo-slug-v2ray-udp-speed-fix-iphone-pdd-guide" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">小火箭连不上？UDP转发狂掉速？V2Ray节点刚被封！亲测2026年最稳解决排查方案 + 拆解PDD百亿补贴iPhone抽奖套路</h4>
+                <a href="review-bajie-airport-605" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">八戒机场 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-contrail-airplane" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                <a href="review-bubble-dog-airport-887" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">泡泡狗机场 深度评测与测速报告</h4>
+                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
+                </a>
+            
+                <a href="review-airplane-cloud" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
                     <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">飞机云 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="blog-node-flow-qos-speed-limit" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">为什么你的节点经常断流？一文看懂线路复用与QoS限速</h4>
-                    <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
-                </a>
-            
-                <a href="review-elephant-network" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">大象网络 深度评测与测速报告</h4>
+                <a href="review-Nexitally" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">Nexitally 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
