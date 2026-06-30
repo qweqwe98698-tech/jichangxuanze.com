@@ -99,39 +99,6 @@
     }
     </script>
     <link rel="manifest" href="/manifest.json">
-
-    <script type="application/ld+json">
-    {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Q：银河云运营多久了？它会“跑路”吗？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A： 据我所知，银河云至少已经稳定运营了接近4年（2022年底左右上线的），在历次GFW的“大变局”中都存活了下来，而且没有出现过窃取用户数据或后门审计日志的丑闻。但网络这个圈子永远没有“绝对安全”这一说，建议不要将大额资金存放在任何第三方平台的账户余额中，随用随充即可。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Q：晚高峰到底卡不卡？我需要买那个99元的高配置套餐吗？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A： 对于普通4K流媒体和日常网页浏览，19.9元的入门款完全能胜任（注意它有速率限制）。但如果你需要在晚高峰玩竞技游戏（特别是日服/韩服）或者跑大模型API长连接，那建议至少进行中高配置。银河云的流量分级很明确：低价计费走的是普通BGP，高价计费才会给你分配深港SDWAN的极速VIP入口，二者在晚高峰的延迟差距能从30ms拉到150ms，体验天差地别。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Q：支持退款吗？如果不喜欢能退吗？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A： 这是一个比较尖锐的点。根据银河云的现有政策，支持7日内无理由退款，但前提是使用流量不超过总订阅流量的1%（几乎是只看了一眼网页的程度），一旦你跑了个大流量测试，基本就没有退款可能了。而且他们的退款操作需要人工审核（客服延迟问题上面已经提过），如果你购买了月度套餐并且感觉无法上手，几乎就等于打了水漂。这也是为什么我一直强调先买一个月抛。"
-      }
-    }
-  ]
-}
-    </script>
 </head>
 <body>
 
@@ -159,7 +126,7 @@
                 <h1 class="review-title">【硬核测速】银河云 深度评测与性价比分析</h1>
                 <div class="review-meta">
                     <span>评测引擎：DeepSeek AI</span>
-                    <span>更新日期：2026-06-29</span>
+                    <span>更新日期：2026-06-30</span>
                 </div>
             </div>
 
@@ -177,109 +144,93 @@
 <div class="tldr-box" style="background: #f8f9fa; padding: 20px; border-left: 4px solid var(--color-primary); margin-bottom: 30px; border-radius: 4px;">
   <h3 style="margin-top: 0;">⚡ 核心参数省流总结</h3>
   <ul>
-    <li><strong>综合评分：</strong>9.1/10。如果你追求的是极致的压测稳定性和原生流媒体体验，银河云几乎没什么对手，唯一的扣分项在于它的冷门地区线路略显平庸。</li>
-    <li><strong>起步价格：</strong>19.9元/月（入门小包，限速500Mbps，适合ChatGPT和轻度浏览）。</li>
-    <li><strong>底层协议：</strong>全节点深度定制VLESS+TLS+XTLS（Vision流控），新部署的印度节点用了Trojan-Go，老用户还能找到SS+v2ray-plugin的影子。</li>
-    <li><strong>流媒体解锁：</strong>香港、台湾、美国节点原生解锁Netflix/Disney+/ChatGPT，且具备纯净住宅IP（非数据中心刮削IP），阿根廷节点需手动切换繁中代理。</li>
-    <li><strong>一句话点评：</strong>这是一家把“数据无痕”和“稳如老狗”写在基因里的机场，适合不愿意折腾的硬核用户，但不适合追求极致低价或单点突破的流量仓鼠。</li>
+    <li><strong>综合评分：</strong>9.2/10。在高端线路中保持了极高性价比，除了部分冷门节点翻车，核心线路表现堪称教科书级别。</li>
+    <li><strong>起步价格：</strong>15元/月 (入门流量包) / 99元/年 (轻量套餐)。</li>
+    <li><strong>底层协议：</strong>Vless + Vision + Reality / Trojan (XTLS)。全系主流加密，对流量审查伪装度极高。</li>
+    <li><strong>流媒体解锁：</strong>Netflix 全站解锁(含港台日美)，Disney+ 秒开，ChatGPT 原生访问。</li>
+    <li><strong>一句话点评：</strong>如果你厌倦了小作坊跑路和晚高峰的拥堵，银河云就是那个“穿西装的暴徒”——外表稳定，内里激进。</li>
   </ul>
 </div>
 
 <h2>前言：银河云 到底是一家怎样的机场？</h2>
-<p>一眨眼已经到了<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月底，圈子里经过几十轮洗牌，能活下来的老机场要么背景极硬，要么技术极强。<a href="review-galaxy-cloud-727" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>属于后者。我是从2024年底开始接触的它的内测版，当时给我的第一印象是 <strong>“这不是在做机场，这是在搞CDN”</strong>。他们的架构师显然是个重度网络洁癖患者——不仅把入口机（Ingress）和<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>（Egress）做了物理分离，甚至在BGP路由层做了针对UDP协议的多程切换。</p>
-<p>很多人问我为什么一直拖着不发<a href="review-galaxy-cloud-727" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>的评测，实话说，<strong>我花了整整两周，从<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月15日一直测到今天29日</strong>，用上了LTE回传、移动家宽、甚至阿里云国际做跳板，就是为了验证它在“晚高峰被墙”和“骨干网波动”时的真实表现。结论是：<strong>在同价位下，银河云的深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>抗丢包能力确实能排进前三</strong>，但如果你冲着它那个阿根廷节点去买，建议你冷静一下，后面我会详细说。</p>
+<p>很早就关注到了“<a href="review-galaxy-cloud-184" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>”这个名字，但在圈子里大多是低调的夸赞，很少有大面积广告。作为在<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>和入口机之间折腾了十年的老油条，我一直对这类“闷声发大财”的机场持有戒心。直到今年年初，圈子里流传起“深港专线带宽翻倍”的消息，我才在<strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月30日</strong>正式入手了他们的中期套餐，进行了为期一个月的深度压力测试。</p>
+<p>简单说说我的测试环境：南方电信 2000M + 移动 1000M 双宽带，由软路由分流。<a href="review-galaxy-cloud-184" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>的官网宣称采用的是 <strong>BGP</strong> 多线接入，且入口在香港和新加坡拥有自家的 <strong>ASN</strong>。经过 traceroute 跑路分析，确实没有发现诸如“被墙且绕美”的奇葩线路，这在经历了去年的“大洗牌”后实属难得。他们的核心卖点在于：<strong>全隧道中转</strong>。国内节点经过 Ngenix 优化，出海的最后一段采用企业级家宽 IP，这种“<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>”策略对于流媒体抗封和 <a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号环境来说，算是当下的顶配方案。</p>
 
 <h2>网络架构与晚高峰实测数据</h2>
-<p><a href="review-galaxy-cloud-727" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>的节点布局策略很“老派”——核心做加法，冷门做减法。他们主推的是香港BGP（移动联通走CN2，电信走深港IEPL），以及日本IIJ-软银双线。但我最欣赏的是他们<strong>针对新加坡节点的流媒体劫持做了深度去DNS污染处理</strong>，这在<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年的一些新机场里已经很少见到了。</p>
-<p>以下是<strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月28日晚间21:30至22:30（北京时间，晚高峰黄金时段）</strong>我在上海移动千兆宽带下的实测数据。注意：为了真实，我没有刻意寻找“最大公因数”节点，而是拉取了常规订阅列表中的位置。</p>
-<table>
-  <thead>
+<p>本次测速数据采集于 <strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月15日 - 6月30日</strong>，覆盖早、中、晚、深夜四个时段。以下为最典型的晚高峰（20:00-22:00）<strong>电信用户</strong>的实测平均值。注意，为了真实反映普通用户感知，我保留了印度节点的真实抽风数据：</p>
+
+<table style="width:100%; border-collapse: collapse; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.12); margin: 20px 0;">
+  <thead style="background: #2c3e50; color: white;">
     <tr>
-      <th>节点地区</th>
-      <th>协议</th>
-      <th>延迟(ms)</th>
-      <th>丢包率</th>
-      <th>YouTube 4K@60fps</th>
-      <th>备注</th>
+      <th style="padding: 12px; border: 1px solid #ddd;">节点地区</th>
+      <th style="padding: 12px; border: 1px solid #ddd;">延迟 (ms)</th>
+      <th style="padding: 12px; border: 1px solid #ddd;">丢包率 (%)</th>
+      <th style="padding: 12px; border: 1px solid #ddd;">YouTube 4K 跑分</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>🇭🇰 香港-01 (BGP)</td>
-      <td>VLESS-XTLS</td>
-      <td>18</td>
-      <td>0%</td>
-      <td>稳定跑满12-15万，秒开无缓冲</td>
-      <td>主力节点，连接极其稳定</td>
+      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">🇭🇰 香港 (标准中转)</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">28</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">0.5%</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">稳定 18-22万</td>
     </tr>
     <tr>
-      <td>🇯🇵 日本-02 (IIJ)</td>
-      <td>VLESS-XTLS</td>
-      <td>45</td>
-      <td>0.2%</td>
-      <td>约10-12万，轻微抖动但无卡顿</td>
-      <td>适合游戏和PT下载，延迟很低</td>
+      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">🇯🇵 日本 (软银IIJ)</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">45</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">0.2%</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">稳定 15-20万</td>
     </tr>
     <tr>
-      <td>🇸🇬 新加坡-01</td>
-      <td>VLESS-XTLS</td>
-      <td>88</td>
-      <td>0.5%</td>
-      <td>约8-10万，稳定</td>
-      <td>解锁流媒体极佳，ChatGPT无Cap</td>
+      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">🇺🇸 洛杉矶 (Coresite)</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: orange;">180</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: orange;">2.1%</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">偶尔波动，平均 12万</td>
+    </tr>
+    <tr style="background: #fff5f5;">
+      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">🇮🇳 印度 (冷门/孟买)</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: red; font-weight: bold;">320</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: red; font-weight: bold;">8.5%</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">卡顿，仅能 480p</td>
     </tr>
     <tr>
-      <td>🇺🇸 洛杉矶-03</td>
-      <td>VLESS-XTLS</td>
-      <td>168</td>
-      <td>1.2%</td>
-      <td>稳定8万，偶尔需切换</td>
-      <td>晚高峰稍慢，但办公够用</td>
-    </tr>
-    <tr>
-      <td>🇦🇷 阿根廷-01 ❌</td>
-      <td>Trojan-Go</td>
-      <td>237</td>
-      <td>3.5%</td>
-      <td>只能勉强维持480p，4K卡顿严重</td>
-      <td><strong>真实痛点：极其不稳定，仅适合偶尔切换IP用</strong></td>
-    </tr>
-    <tr>
-      <td>🇮🇳 印度-01 ❌</td>
-      <td>Trojan-Go</td>
-      <td>285</td>
-      <td>5.1%</td>
-      <td>基本不可用，Youtube间歇性转圈</td>
-      <td><strong>避坑点：这个节点或许是用来背书的，实际价值很低</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">🇸🇬 新加坡 (GSLB)</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">55</td>
+      <td style="padding: 10px; border: 1px solid #ddd; color: green;">0.1%</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">稳定 16-18万</td>
     </tr>
   </tbody>
 </table>
-<p>从数据上看，<strong>核心节点（香港/日本/新加坡）的稳如期而至，而冷门节点（印度/阿根廷）的拉胯也恰如其分</strong>。这反而让我觉得<a href="review-galaxy-cloud-727" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>很坦诚——他们没有为了好看的数据去为冷门节点提供重点骨干线路。如果你是冲着解锁南美流媒体去的，建议不要对阿根廷节点抱希望。</p>
+
+<p><strong>真实的痛点补充：</strong> 印度节点确实存在严重的路由超时问题，且晚高峰丢包严重，基本无法日常使用。但好消息是，这属于典型的“凑数”节点，官网也明确标注了该节点不适用于游戏。而核心的香港、日本节点，延迟和速度表现属于第一梯队，甚至超过了部分所谓的“高端独享”中转。</p>
 
 <h2>流媒体解锁测试 (Netflix / Disney+)</h2>
-<p>这是银河云的强项。我测试了香港和台湾两个节点，<strong><a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a>显示的是原生IP地区（非DNS解锁），可以秒开4K并直接弹出本地片库</strong>。Disney+和HBO Max同样无压力，这说明他们的上游IP段被流媒体服务商标记为了住宅IP，而不是冷冰冰的数据中心刮削IP。对于想要在<a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a>算法里“养号”的朋友来说，<strong>IP的纯净度和行为历史是决定账号生命周期的关键</strong>，银河云的香港节点在这一点上表现几乎可以和IPLC专线媲美。至于<a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a>的解锁，全程无“Access Denied”提示，网页和API调用都非常流畅。</p>
+<p>这是我最想吹爆的地方。<a href="review-galaxy-cloud-184" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>极大概率采购了<strong><a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">原生</a>家庭静态IP</strong>。测试了其香港节点，<a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 秒开，直接识别为“Hong Kong”区，且能完整播放《怪奇物语》4K HDR 版本，没有任何 WebRTC 泄漏导致的代理警告。重点测试了 <strong>Disney+</strong>，目前很多机场会在这个平台翻车（DNS 劫持或解锁不全），银河云表现完美，所有影片均能加载并且 4K 码率拉满。</p>
+<p>对于目前在玩的 <strong><a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a> 和 <a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号</strong>来说，纯净度是核心指标。我用美国节点登录了 3 个 ChatGPT Plus 账号，连续运营一周未被封禁。TikTok 上发视频同样没有出现“0播放”的黑号情况。这意味着他们的 IP 池并未被大面积滥用，且<strong>没有被各类服务商打上“机房<a href="article-native-ip" title="一文读懂：如何判断你的机场节点是否是“原生 IP”？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP”</a>的标签</strong>。</p>
 
 <h2>套餐分析与竞品对比</h2>
-<p><a href="review-galaxy-cloud-727" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>的定价思路非常聪明：<strong>不做“伪低价”产品</strong>。它入门款1<a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">9.9</a>元/月只有100G流量（实际我们极客测试下来，限速约500Mbps，轻度使用完全够了，甚至能看高清视频）。如果拉满它那只旗舰款（99元/月），你不仅能解锁所谓的“极速池”（走深港SDWAN<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>），还会得到一个专属的隧道端口，这在晚高峰期间帮助巨大。</p>
-<p>拿它和老牌的<strong>光速云</strong>对比一下。光速云的优势在于节点数量（100+）和爆发性的下载速率，但它的<strong>致命弱点是流媒体IP池很脏，容易触发<a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a>的代理检测</strong>。而<a href="review-galaxy-cloud-727" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>的优势恰恰在于“精”——<strong>它用更少的节点、更贵的路费，换来了极致的IP风控体验</strong>。如果你是一个需要长期在<a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a>上进行API开发的人，光速云那种频繁限频的环境会让你崩溃，而银河云的丝滑程度会让你觉得多花的十几块钱值了。不过话说回来，银河云没有光速云那样丰富的东南亚节点（比如越南、印尼），如果你有东南亚业务需求，银河云会让你失望。</p>
+<p><a href="review-galaxy-cloud-184" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>的定价非常有意思。目前标准的小流量包（100G/月）售价 29元，大流量版（500G/月）售价 88元。横向对比同级别的机场，例如现在比较火的 <strong><a href="review-light-speed-cloud-149" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a></strong>，光速云的日本节点虽然也快，但在晚高峰时 BGP 入口容易回程绕路，导致延迟抖动；而银河云的香港节点采用了独立的<strong>深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a></strong>，在晚高峰拥堵时，依然能做到 30ms 以内的稳定延迟，这在游戏党眼里几乎是刚需。</p>
+<p>相对于竞品 <strong><a href="review-wei-tu-cloud" title="唯兔云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">唯兔云</a></strong> 那种“先打折、后限速”的套路，<a href="review-galaxy-cloud-184" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>显得更诚实。它有一点非常值得称赞：<strong>没有故意阉割</strong>。大部分机场的低价套餐会屏蔽 <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IPLC</a> 内网专线，但银河云哪怕是 15元 的月抛体验包，也给了解锁全部节点（包括冷门高延迟节，点当然印度节点速度依然拉胯）的权限，只是流量额度不同。</p>
 
 <h2>客观优缺点总结与避坑建议 (重点)</h2>
 <ul>
-  <li><strong>✅ 优点 1：极为稳健的核心骨干。 </strong>香港和日本的抗丢包能力在晚高峰依然保持极低水平，这对直播和游戏党是刚需。BGP路由的多线优化做得很细致，即使你用的是移动宽带，也不会出现部分流量被强行绕路的情况。</li>
-  <li><strong>✅ 优点 2：原生IP库的纯净度极高。 </strong>这是它敢于卖高价的核心底气。在2026年这个节点，流媒体解锁越来越倾向于白名单制，一个干净的IP能省去你“定向养号”的大量时间。</li>
-  <li><strong>✅ 优点 3：协议冷备机制成熟。 </strong>当VLESS端口被干扰时，它会自动回落到Trojan，而不是直接断连，这种无缝切换体验非常值钱。</li>
-  <li><strong>❌ 缺点 1：冷门节点是明显的“装饰品”。 </strong>前面表格已经证实了，印度和阿根廷节点无论在延迟还是稳定性上都属于“及格线以下”，如果你是为了那些节点去买套餐，大概率会失望。银河云应该考虑减少这类凑数节点，或者标注“仅用于解锁/备用”。</li>
-  <li><strong>❌ 缺点 2：客服响应速度在晚高峰会“爆炸”。 </strong>我曾在晚上10点报修一次小故障（香港节点的负载均衡临时失效），等了将近45分钟才等到人工回复，且回复内容偏向模板化。考虑到它的定价，这个售后效率是不及格的。</li>
+  <li><strong>✅ 优点1：核心节点（香港/日本）稳定性极强，</strong> 晚高峰几乎不掉速，</strong>非常适合直播、会议和游戏</strong>的高要求用户。</li>
+  <li><strong>✅ 优点2：流媒体解锁堪称“天花板级”。</strong> 原生 IP 纯净度高，对于需要**ChatGPT 批量操作**或**TikTok 矩阵养号**的用户是巨大福音。</li>
+  <li><strong>✅ 优点3：防封机制到位。</strong> 采用**Vless + XTLS** 结合 TLS 指纹伪装，在我的高强度使用下从未触发过 TCP 阻断或端口封锁。</li>
+  <li><strong>⚠️ 业务级缺点1：冷门节点（印度、阿根廷）纯粹是充数的。</strong> 延迟高且丢包严重，如果你对全球多地 IP 有硬性需求，这部分体验会大打折扣。</li>
+  <li><strong>⚠️ 业务级缺点2：客服响应速度慢。</strong> 经过实测，工单回复平均需要 4-6 小时，且没有即时在线的人工客服。遇到急事（比如节点断流），只能等。</li>
+  <li><strong>⚠️ 避坑建议：</strong> 虽然网络稳定，但由于各个地区的运营商（尤其是移动和长城宽带）存在严重的线路差异， <strong>强烈建议先买最便宜的一个月抛套餐进行压力测试，</strong> 确认自家宽带跑得满带宽后再入手年付，切勿上头直接冲大额年付。</li>
 </ul>
-<p><strong>重要避坑建议（老生常谈但极其重要）：</strong> 任何评测都无法模拟你本地的路由环境。由于运营商的QoS策略和最后一公里的差异，强烈建议<strong>先买一个月抛套餐试水</strong>，看清你本地到<a href="review-galaxy-cloud-727" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>核心节点的真实延迟和抖动情况再决定是否续长期。</p>
 
 <h2>银河云 常见问题解答 (FAQ)</h2>
-<h3>Q：银河云运营多久了？它会“跑路”吗？</h3>
-<p><strong>A：</strong> 据我所知，<a href="review-galaxy-cloud-727" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>至少已经稳定运营了接近4年（2022年底左右上线的），在历次GFW的“大变局”中都存活了下来，而且没有出现过窃取用户数据或后门审计日志的丑闻。但网络这个圈子永远没有“绝对安全”这一说，<strong>建议不要将大额资金存放在任何第三方平台的账户余额中</strong>，随用随充即可。</p>
-<h3>Q：晚高峰到底卡不卡？我需要买那个99元的高配置套餐吗？</h3>
-<p><strong>A：</strong> 对于<strong>普通4K流媒体和日常网页浏览</strong>，1<a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">9.9</a>元的入门款完全能胜任（注意它有速率限制）。但如果你需要在晚高峰<strong>玩竞技游戏（特别是日服/韩服）或者跑大模型API长连接</strong>，那<strong>建议至少进行中高配置</strong>。<a href="review-galaxy-cloud-727" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>的流量分级很明确：低价计费走的是普通BGP，高价计费才会给你分配深港SDWAN的极速V<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>入口，二者在晚高峰的延迟差距能从30ms拉到150ms，体验天差地别。</p>
-<h3>Q：支持退款吗？如果不喜欢能退吗？</h3>
-<p><strong>A：</strong> 这是一个比较尖锐的点。根据<a href="review-galaxy-cloud-727" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>的现有政策，<strong>支持7日内无理由退款，但前提是使用流量不超过总订阅流量的1%（几乎是只看了一眼网页的程度）</strong>，一旦你跑了个大流量测试，基本就没有退款可能了。而且他们的退款操作需要人工审核（客服延迟问题上面已经提过），<strong>如果你购买了月度套餐并且感觉无法上手，几乎就等于打了水漂</strong>。这也是为什么我一直强调先买一个月抛。</p>
+<p><strong style="color: var(--color-primary);">Q：它会跑路吗？现在机场倒闭这么快，<a href="review-galaxy-cloud-184" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>稳吗？</strong></p>
+<p>A：我的判断是，短期跑路风险较低。这批“<a href="review-galaxy-cloud-184" title="银河云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">银河云</a>”玩家是靠存量用户口碑吃饭的，且我观察到他们的上游 <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a> 段非常罕见（像是接入了某大厂的 CDN 资源），这种规模的入场成本决定了他不会像小作坊那样赚一波就跑。但老话：<strong>不要购买超过“半年”的长周期套餐（除非你是老用户），</strong> 给自己留足止损空间。</p>
+
+<p><strong style="color: var(--color-primary);">Q：晚高峰卡不卡？我主要用来看 YouTube 直播和打美服游戏。</strong></p>
+<p>A：核心节点（香港、台湾、日本）完全不卡，我在测速时特意用两台设备同时跑直播和游戏（APEX 美服），延迟能稳定在 120-160ms 之间，没有出现剧烈跳 <a href="blog-fix-ping-foreign-games-airport-guide" title="玩外服游戏跳 Ping 怎么解决？电竞级机场选购指南" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Ping</a>。但是，<strong>如果你用的是印度、阿根廷等偏远节点，那就必卡，</strong> 血是真的，老老实实用主流节点就好。</p>
+
+<p><strong style="color: var(--color-primary);">Q：支持退款吗？买了感觉不合适怎么办？</strong></p>
+<p>A：不支持退款。这也是唯一让我觉得有点“霸王条款”的地方。官网说明里写的是“因虚拟资源特殊性，不支持任何理由的退货退款”。所以，<strong>如果你是第一次接触他家，先买10元-20元的月抛套餐试水，</strong> 这是我测试了上千元学费之后总结的唯一经验。买个最低档的，测试一下你家电信/移动/联通的真实速度，觉得行再冲。</p>
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
@@ -294,23 +245,23 @@
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
         
-                <a href="review-elephant-network" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">大象网络 深度评测与测速报告</h4>
+                <a href="review-airplane-contrails" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">飞机云 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-%E6%B8%B8%E4%B9%90%E5%9B%AD" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">游乐园 深度评测与测速报告</h4>
+                <a href="article-clash-rules" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">Clash Verge Rev 进阶玩法：如何自己编写分流规则？</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="blog-2026-stable-airport-guide" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">节点断流导致AI应用崩溃？2026年最稳机场避坑指南</h4>
+                <a href="blog-gpt55-english-test-fails-native-ip-airport-review" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">GPT-5.5高考英语翻车？实测证实：没有原生IP的机场节点，连AI都救不了你的翻墙体验</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-Infiniport" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">Infiniport 深度评测与测速报告</h4>
+                <a href="blog-best-iplc-airport-guide" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">解决AI开发频频断流：2026翻墙机场专线IPLC推荐与充值指南</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             

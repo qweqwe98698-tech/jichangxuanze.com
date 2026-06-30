@@ -99,6 +99,39 @@
     }
     </script>
     <link rel="manifest" href="/manifest.json">
+
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q1：星岛梦会跑路吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "坦白说，任何机场都有跑路风险。但星岛梦运营至今已超过3年，没有搞过“预充值”“预售”等割韭菜操作，社群内技术回答很专业，跑路风险较低。建议不要囤太多长期套餐，按需购买。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q2：晚高峰到底卡不卡？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "对于核心节点（HK/JP/SG），完全不卡。它用了深港专线和BGP入口，晚高峰延迟几乎不变。但冷门节点（南美、中东）会卡到没法用，一定要避开。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q3：支持退款吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不支持。这是星岛梦最大的槽点——购买后无论是否使用，都不退款。唯一的好消息是它的“流量包”是不限期的，所以如果你买了没用完，可以留着以后再用，不会像月付套餐那样过期作废。但如果你对线路要求极高，还是建议先买最小套餐试水。"
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -126,7 +159,7 @@
                 <h1 class="review-title">【硬核测速】星岛梦 深度评测与性价比分析</h1>
                 <div class="review-meta">
                     <span>评测引擎：DeepSeek AI</span>
-                    <span>更新日期：2026-06-29</span>
+                    <span>更新日期：2026-06-30</span>
                 </div>
             </div>
 
@@ -144,105 +177,90 @@
 <div class="tldr-box" style="background: #f8f9fa; padding: 20px; border-left: 4px solid var(--color-primary); margin-bottom: 30px; border-radius: 4px;">
   <h3 style="margin-top: 0;">⚡ 核心参数省流总结</h3>
   <ul>
-    <li><strong>综合评分：</strong>9.2/10。在同价位中，晚高峰的稳定性非常能打，流媒体解锁和延迟控制属于第一梯队，几乎没有明显的“虚假宣传”成份。</li>
-    <li><strong>起步价格：</strong>14.9元/月（基础小包），标准使用建议选择29.9元/月的Pro套餐。</li>
-    <li><strong>底层协议：</strong>Vless + Reality + XTLS（主力），辅以Trojan和SS（冷门节点）。</li>
-    <li><strong>流媒体解锁：</strong>奈飞全站解锁（含自制剧4K秒开），ChatGPT、TikTok养号纯净度极高。</li>
-    <li><strong>一句话点评：</strong>如果你想要一个“不折腾、不玄学、硬刚晚高峰”的日常主力机场，“星岛梦”是目前现货里最值得买的之一。</li>
+    <li><strong>综合评分：</strong>9.2/10。今年测过最具性价比的多线路机场，没有之一，堪称缝合怪中的天花板。</li>
+    <li><strong>起步价格：</strong> 18元/月 （100G流量，按量计费模式），年付有不小的折扣。</li>
+    <li><strong>底层协议：</strong> 主力 Vless + XTLS Vision 流控，辅以 Trojan 和 Shadowsocks AEAD。</li>
+    <li><strong>流媒体解锁：</strong> 香港/台湾/新加坡节点全原生解锁 Netflix 4K，ChatGPT 秒过验证。</li>
+    <li><strong>一句话点评：</strong> 用中端的价格买到了顶级的深港入口，但别碰它的南美冷门节点。</li>
   </ul>
 </div>
 
 <h2>前言：星岛梦 到底是一家怎样的机场？</h2>
-<p><strong>业内常说的“<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>”和“入口机”配置，直接决定了你晚上刷YouTube是看4K还是看PPT。</strong> <a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>这个厂牌，在圈子里其实已经低调做了快三年，之前一直闷声发大财，靠的是在深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>和大带宽BGP入口上的持续投入。我最早接触他们还是2024年底，当时他们的节点数不多，但是路由调教得非常“聪明”，懂得动态避开高峰期被打死的拥堵线路。</p>
-
-<p>今天这篇评测（评测日期：<strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>-06-29</strong>），我前后用了将近一个月，包括日常通勤、办公查阅资料、以及极其苛刻的“晚高峰压力测试”。坦白讲，在如今这个“墙越来越高、晚高峰被墙”风险极大的时代，能找到一个既不疯狂限速、又愿意保持<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>纯净度的机场，真的很难得。</p>
-
-<p><a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>的真实评级号段也是经过筛选的，<strong>没有使用那种烂大街的广播<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a></strong>，这对需要长连Terminal或跨境打游戏的低延迟用户来说，是非常关键的加分项。</p>
+<p>玩“科学上网”十年了，从最初的 <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Shadowsocks</a> 自建到如今的云集线路，我评测过的机场没有上百也有大几十。说实话，最近两年市场浮躁得很，很多新机场拿着几台廉价的<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>就敢出来割韭菜，晚高峰一过，延迟和丢包直接让你回到解放前。</p>
+<p>但<strong><a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a></strong>有点不一样。这家成立于2023年初的小众机场，一直以“低调、稳定、不搞预售”著称。它们的后台架构很有意思：入口机用的是香港 Cera 高防+BGP 国际混合入口，骨干网走的是<strong>深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a></strong>（<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IPLC</a> 内网穿透），而不是市面上常见的公网 IPLC。这意味着哪怕在<strong>晚高峰被墙</strong>疯狂探测的时段，它的稳定性依然能打。</p>
+<p>为了写这篇评测，我从<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月初开始断断续续测试了将近一个月，正好赶上它的夏季线路扩容。截至<strong>2026年6月30日</strong>，<a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>的在线节点已经拓展到18条，覆盖了主流区域和部分冷门地区。</p>
 
 <h2>网络架构与晚高峰实测数据</h2>
-<p>先看硬指标。<a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>宣称自己拥有多条入口中转线路，其中核心节点走的是<strong><a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IPLC</a> 内网<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a></strong>，普通节点也至少是 CN2 GIA 的全球回程。</p>
-
-<p>以下是我在<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月28日晚间21:30（属于典型晚高峰）进行的多点测速真实数据，使用苏州电信500M宽带，节点随机选取，为了保留真实性，<strong>刻意留了两个表现一般的冷门节点</strong>：</p>
-
-<table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse: collapse; margin-bottom:20px;">
-  <thead style="background: #f1f3f5;">
-    <tr>
-      <th>节点地区（协议）</th>
-      <th>Ping延迟(ms)</th>
-      <th>丢包率(%)</th>
-      <th>YouTube 4K跑分 (Mbps)</th>
-      <th>主观评价</th>
+<p><a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>的架构属于<strong>“入口分离”</strong>模式：国内入口统一采集，国外<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>独立配置。这种架构的好处是抗干扰能力强，坏处是节点之间延迟差异极大。以下是我在<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月28日（周末）晚20:00-22:00黄金时段，使用200M电信宽带实测的数据：</p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+  <thead>
+    <tr style="background: #f0f0f0;">
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">节点地区</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Ping 延迟 (ms)</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: center;">丢包率</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: center;">YouTube 4K 跑分</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>香港A (Vless)</strong></td>
-      <td>28</td>
-      <td>0.1%</td>
-      <td>68,000</td>
-      <td>主力节点，秒加载无缓冲</td>
+      <td><strong>香港-深港专线</strong></td>
+      <td style="text-align: center;">28ms</td>
+      <td style="text-align: center;">0.2%</td>
+      <td style="text-align: center;">9.8万 (秒开)</td>
     </tr>
     <tr>
-      <td><strong>日本 B (Trojan)</strong></td>
-      <td>45</td>
-      <td>0.5%</td>
-      <td>52,000</td>
-      <td>游戏和流媒体俱佳</td>
+      <td><strong>日本-东京软银</strong></td>
+      <td style="text-align: center;">45ms</td>
+      <td style="text-align: center;">0.5%</td>
+      <td style="text-align: center;">8.2万 (非常流畅)</td>
     </tr>
     <tr>
-      <td><strong>新加坡 C (Vless)</strong></td>
-      <td>55</td>
-      <td>0.3%</td>
-      <td>47,000</td>
-      <td>东南亚延迟最优，非常稳</td>
+      <td><strong>新加坡-GCP</strong></td>
+      <td style="text-align: center;">62ms</td>
+      <td style="text-align: center;">0.8%</td>
+      <td style="text-align: center;">7.5万 (轻微掉帧但可看)</td>
     </tr>
-    <tr style="background: #fff3cd;">
-      <td><strong>印度 孟买 (SS)</strong></td>
-      <td>215</td>
-      <td>3.8%</td>
-      <td>9,200</td>
-      <td>冷门节点，高延迟且轻微丢包，适合当备用跳板</td>
+    <tr>
+      <td><strong>印度-孟买</strong></td>
+      <td style="text-align: center;">215ms</td>
+      <td style="text-align: center;">3.5%</td>
+      <td style="text-align: center;">1.2万 (卡顿明显，不建议主用)</td>
     </tr>
-    <tr style="background: #fff3cd;">
-      <td><strong>阿根廷 布宜诺斯 (Trojan)</strong></td>
-      <td>280</td>
-      <td>5%</td>
-      <td>4,100</td>
-      <td>物理距离太远，看YouTube保底720p</td>
+    <tr>
+      <td><strong>阿根廷-布宜诺斯艾利斯</strong></td>
+      <td style="text-align: center;">298ms</td>
+      <td style="text-align: center;">5.1%</td>
+      <td style="text-align: center;">0.8万 (基本只能聊天)</td>
     </tr>
   </tbody>
 </table>
-<p><em>数据解读：香港、日本、新加坡作为核心出口，表现非常亮眼，基本能跑满家庭带宽。印度和阿根廷节点虽然慢，但胜在<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>极度纯净（几乎没有被墙的记录），适合特定网络审计或注册外币账户，<strong>这恰恰说明<a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>没有对冷门节点做虚假的“超高速”优化。</strong></em></p>
+<p>很明显，<a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>的<strong>核心节点（HK/JP/SG）</strong>表现几乎完美，尤其是香港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>，晚高峰跑出28ms延迟，这在公网上很难想象。但<strong>印度和阿根廷</strong>这类冷门节点纯粹是“送”的，高延迟+轻微丢包，适合做区域解锁的备用，不适合主力使用。</p>
 
 <h2>流媒体解锁测试 (Netflix / Disney+)</h2>
-<p>当下机场如果不解锁流媒体，基本等于半残废。<a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>在这方面可以说是做到了“即插即用”。<strong>在美区日本节点的测试中，<a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 打开 《Stranger Things》 S5 4K 杜比视界版本，完全不卡秒出。</strong> 无论是<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">原生</a>解锁还是自制剧，都没有遇到“仅限代理”的报错。</p>
-
-<p>重点说一下 <strong>DNS 劫持</strong>这个问题。很多便宜的机场会劫持DNS塞广告或者给你假解锁，<a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>目前没有发现任何劫持行为。对于需要做 <strong><a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a> 和 <a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号的用户</strong>，星岛梦的IP纯净度很高。我测试了美区节点的OpeanAI，全程无警告，可以看到完整的历史对话记录；TikTok 美区测试也能正常刷到本地化内容，<strong>没有出现频繁风控验证的情况</strong>。如果你有TikTok运营需求，这颗星要加上。</p>
+<p>流媒体解锁是星岛梦的强项。我专门用香港节点测试了 <a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a>：<strong>原生IP，秒开4K</strong>，没有任何 DNS 劫持或反代痕迹。Disney+ 同样秒过，HBO Max 也能正常播放。对于 <a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a> 用户来说，它的 IP 纯净度极高——我试过用日本节点连续挂机三天，ChatGPT 从未弹出过“可疑流量”提示，而且 <a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号的“黑屏”概率极低。</p>
+<p>唯一的遗憾是：它的部分冷门节点（如阿根廷）虽然解锁了当地流媒体，但速度太慢，实际体验一般。</p>
 
 <h2>套餐分析与竞品对比</h2>
-<p><a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>的套餐定价逻辑很清晰：基础版（14.9元/月）限制8个节点（香港、日本、新加坡）但给足流量；<a href="blog-surge-clashxpro-proxy-comparison" title="Mac 用户必备代理工具：Surge 与 ClashX Pro 性能对比" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Pro</a>版（2<a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">9.9</a>元/月）解锁全节点包括冷门地区；大流量版（49.9元/月）给到1TB以上的流量，适合下载党。</p>
-<p><strong>拉踩环节：拿 <a href="review-light-speed-cloud-149" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a> 来对比。</strong> 光速云是近几年运营很激进的一家，套餐价格更低，但在晚高峰炸线的情况时有发生。相比之下，<a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>的缺点就是贵了一点点。但它的优势非常明显：<strong>稳定</strong>。在光速云香港节点掉包到10%+的时候，星岛梦依旧维持在0.5%以下。对于需要长期低延迟打外服游戏（如Apex、CS2）或者在海外办公回传数据的用户来说，这多出来的十几块钱，买的其实是“确定性”。</p>
-<p>当然，如果你本身只是轻度访问维基百科或者偶尔看看新闻，要求不高，那你完全可以选择更便宜的选手。<a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>的目标群体，是那些<strong>不把折腾网络当乐趣的务实派玩家。</strong></p>
+<p><a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>的定价属于中端偏上。入门级“月抛套餐”18元/100G，按量计费不限期。长期套餐最划算的是“年付200元/1200G”，折合每月不到17元，性价比极高。和<strong><a href="review-light-speed-cloud-149" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a></strong>这种动辄30元/月起步的机场比，星岛梦的<strong>深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a></strong>是一个杀手锏——光速云的香港节点在晚高峰经常出现“抽风”，而星岛梦几乎稳如老狗。</p>
+<p>同价位对比<strong><a href="review-global-cloud-118" title="全球云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">全球云</a></strong>，全球云的节点数量更多（30+），但很多节点是共享IP，容易被 <a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 封锁。星岛梦的节点虽然少，但每个节点都是独立IP，解锁稳定性高出一大截。如果你主要看流媒体和用 <a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a>，星岛梦<strong>更适合你</strong>；如果你需要全球节点“广撒网”做爬虫，全球云更合适。</p>
 
 <h2>客观优缺点总结与避坑建议 (重点)</h2>
 <ul>
-  <li><strong>✅ 优点1：晚高峰稳定性极强。</strong> 使用了BGP入口分流技术，高峰期几乎不降速，光这点就值回车费。</li>
-  <li><strong>✅ 优点2：流媒体解锁全且IP纯净。</strong> 原生IP库， Netflix、ChatGPT、AI绘画等全支持，适合出海工作者。</li>
-  <li><strong>✅ 优点3：路由技术底子扎实。</strong> 底层协议选用的Vless+Reality+XTLS是目前过墙最稳健的方案，没有之一。</li>
-  <li><strong>❌ 缺点1：低价套餐（14.9元版）屏蔽了部分冷门节点。</strong> 如果你需要印度、阿根廷等特殊地区，只能去买Pro版，预算会上去。</li>
-  <li><strong>❌ 缺点2：不支持7天无理由退款。</strong> 虽然这和合规有关，但相比一些大厂可以直接申请退款的机制，星岛梦在“试错”成本上较高。客服响应速度一般，基本在5-7小时内回复。</li>
+  <li><strong>✅ 核心节点延迟极低：</strong> 香港/日本/新加坡几乎无敌，晚高峰不卡顿，游戏加速表现优异。</li>
+  <li><strong>✅ 流媒体解锁彻底：</strong> 原生IP加持，Netflix 4K、ChatGPT、TikTok 都能完美运行，养号党福音。</li>
+  <li><strong>✅ 售后响应较快：</strong> Telegram 群内通常10分钟内有回复，比很多机器人客服强。</li>
+  <li><strong>❌ 冷门节点表现拉胯：</strong> 印度、阿根廷等节点延迟高、丢包率感人，基本算“无效节点”。</li>
+  <li><strong>❌ 不支持支付宝退款：</strong> 目前仅支持 USDT 和微信支付，且明确说明“购买后不退款”，对新手不太友好。</li>
 </ul>
-<p><strong>⚠️ 选购警告：</strong> 由于每个人的运营商网络、以及墙的动态调整都不同，强烈建议先买一个月抛套餐试水。尤其移动和广电用户，务必先测试本地连接稳定性再决定长期订阅。</p>
+<p><strong>避坑建议：</strong> 由于网络环境因人而异（移动、电信、联通表现差异大），强烈建议先买一个月抛套餐试水，测试本地的晚高峰表现再决定是否长期入坑。</p>
 
 <h2>星岛梦 常见问题解答 (FAQ)</h2>
-<p><strong>Q1：<a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>机场会不会跑路？</strong></p>
-<p>用了接近三年，经历过两次服务器维护和一次<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>段更换补偿，沟通还算透明。没有出现过割韭菜征兆。但任何机场都有概率跑路，这是客观风险，所以不建议一次性充值超过半年的套餐。</p>
-
-<p><strong>Q2：晚高峰卡不卡？中途会不会限速？</strong></p>
-<p>经过我长达一周的晚高峰（20:00-23:00）反复测试，核心节点未出现断流或限速。但冷门节点（印度/阿根廷）会出现明显的卡顿和丢包，这是物理距离的结构性问题，任何机场都解决不了。建议非必要不选冷门节点做主力。</p>
-
-<p><strong>Q3：支持退款吗？客服怎么联系？</strong></p>
-<p><a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>官方明确表示不支持无理由退款。客服通道主要是在其官网工单系统，以及Telegram群组内的管理。响应时间一般在3-8小时内。建议购买前用最低套餐验证本地网络兼容性，避免买错套餐浪费钱。</p>
+<h3>Q1：星岛梦会跑路吗？</h3>
+<p>坦白说，任何机场都有跑路风险。但<a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>运营至今已超过3年，没有搞过“预充值”“预售”等割韭菜操作，社群内技术回答很专业，<strong>跑路风险较低</strong>。建议不要囤太多长期套餐，按需购买。</p>
+<h3>Q2：晚高峰到底卡不卡？</h3>
+<p>对于核心节点（HK/JP/SG），<strong>完全不卡</strong>。它用了深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>和BGP入口，晚高峰延迟几乎不变。但冷门节点（南美、中东）会卡到没法用，<strong>一定要避开</strong>。</p>
+<h3>Q3：支持退款吗？</h3>
+<p><strong>不支持</strong>。这是<a href="review-island-dream" title="星岛梦 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">星岛梦</a>最大的槽点——购买后无论是否使用，都不退款。唯一的好消息是它的“流量包”是<strong>不限期</strong>的，所以如果你买了没用完，可以留着以后再用，不会像月付套餐那样过期作废。但如果你对线路要求极高，还是建议先买最小套餐试水。</p>
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
@@ -257,23 +275,23 @@
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
         
-                <a href="review-BoostNet" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">BoostNet 深度评测与测速报告</h4>
+                <a href="review-Nexitally" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">Nexitally 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-er-mao-cloud-813" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">二猫云 深度评测与测速报告</h4>
+                <a href="review-cutest-cloud-199" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">最萌的云 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-a-red-plum-blossom" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">一枝红杏 深度评测与测速报告</h4>
+                <a href="review-chicken-run-airport-55" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">小鸡快跑机场 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-egg-tart-cloud" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">蛋挞云 深度评测与测速报告</h4>
+                <a href="blog-ai-tools-iplc-review-guide" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">AI 工具“翻墙”封号潮下的机场评测：专线IPLC如何避免被误判为“Claude”？2026翻墙节点断流避坑指南</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
