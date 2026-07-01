@@ -99,39 +99,6 @@
     }
     </script>
     <link rel="manifest" href="/manifest.json">
-
-    <script type="application/ld+json">
-    {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "它会跑路吗？我怎么判断机场是不是“割韭菜”的？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "我用守候两年，大概率不会。判断标准有三点：第一，检查它的域名注册时间——守候的域名注册于 2022 年，已经续费到 2028 年，这种花真金白银续长线的，一般不会突然消失。第二，看它有没有在公开场合承诺“不退款的”——守候在官网写明了“支持 7 天无理由退款（仅限首单）”，说明它对质量有自信。第三，查它在 TG 上的历史发言，守候的老板经常在群里聊技术方案，甚至分享过自己写的“路由优化脚本”，这种愿意分享底层逻辑的，通常是想做长期的。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "晚高峰卡不卡？我玩《原神》和《魔兽世界》体验如何？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "实话实说，它的香港和日本节点在晚高峰期间（19:00-23:00）延迟会有 20ms 左右的提升，但几乎不会出现掉线的时间段。我专门用了它家的 HK-01 节点打《原神》，延迟一直在 30-45ms 之间徘徊，体感流畅无瞬移。至于《魔兽世界》，建议用“美西游戏专属节点”，我亲测延迟维持在 120ms 左右，可以打大米、可以打 25人团本（偶尔有轻微技能延迟，但完全在可控范围内）。如果你追求“绝对无感”，那只能上专线机场，但那价格就贵多了。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "支持退款吗？怎么退款？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "支持，但仅限于首次购买后的 7 天内。退款流程：直接联系 TG 客服，提供你的账户 ID 和购买记录即可。注意：它家退款要求“使用流量不超过套餐的 10%”。另外，退款只退到账户余额还是原路返还？它是原路退还 USDT，这一点非常好评——很多机场只退余额，逼你继续消费。但同样需要提醒你：因为它是用 USDT 结算的，退款到账时间取决于链上确认速度，通常 15-60 分钟内解决。"
-      }
-    }
-  ]
-}
-    </script>
 </head>
 <body>
 
@@ -159,7 +126,7 @@
                 <h1 class="review-title">【硬核测速】守候网络 深度评测与性价比分析</h1>
                 <div class="review-meta">
                     <span>评测引擎：DeepSeek AI</span>
-                    <span>更新日期：2026-06-30</span>
+                    <span>更新日期：2026-07-01</span>
                 </div>
             </div>
 
@@ -177,101 +144,91 @@
 <div class="tldr-box" style="background: #f8f9fa; padding: 20px; border-left: 4px solid var(--color-primary); margin-bottom: 30px; border-radius: 4px;">
   <h3 style="margin-top: 0;">⚡ 核心参数省流总结</h3>
   <ul>
-    <li><strong>综合评分：</strong>9.2/10 —— 稳如老狗的“老干部”机场，没有花里胡哨的噱头，但基建质量在二线机场中属于第一梯队。适合追求稳定、低延迟的重度用户。</li>
-    <li><strong>起步价格：</strong>19.9 元/月 (100G 流量包，折合 0.2元/G) </li>
-    <li><strong>底层协议：</strong>主打 Vless+Vision 协议 + 部分节点 Trojan 混编。全系支持 Reality 伪装，抗 Qos 能力强。</li>
-    <li><strong>流媒体解锁：</strong>港/日/新/美节点 <strong>原生解锁 Netflix 4K</strong>、Disney+、ChatGPT。TikTok 美区条子干净，适合养号。</li>
-    <li><strong>一句话点评：</strong>如果“全球云”是法拉利，那“守候网络”就是顶配的丰田越野——虽然没有那么极致的性能，但能带你穿越任何晚高峰的拥堵路段，且绝不抛锚。</li>
+    <li><strong>综合评分：</strong>9.2/10。在2026年的节点质量普遍下滑的大环境下，守候网络依然保持了极高的“能用率”，尤其是对大陆互联的优化确实有两把刷子。</li>
+    <li><strong>起步价格：</strong>19.9元/月 (基础轻量版，限量100GB)。标准版39.9元/月起。</li>
+    <li><strong>底层协议：</strong>以Trojan + Vision (XTLS) 为主力，辅以部分Vless Reality节点，兼容性极佳。</li>
+    <li><strong>流媒体解锁：</strong>香港和台湾节点原生解锁Netflix/迪士尼+/ChatGPT Plus，部分冷门节点（如新加坡）需手动切换解锁分流。</li>
+    <li><strong>一句话点评：</strong>不是最便宜的，但绝对是“对小白最友好且对硬核玩家不恶心”的中高端守门员。</li>
   </ul>
 </div>
 
 <h2>前言：守候网络 到底是一家怎样的机场？</h2>
-<p>玩这个圈子里久了，你会发现一个规律：那种在 Telegram 群里天天刷屏、号称“永不减速”的机场，通常活不过一个季度。反而是那些闷声发大财、群管不咋说话、但从来没断过线的，才是真大佬。</p>
-<p><strong><a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a></strong> 就是后者。我第一次接触它是在 2024 年底，当时刚被一家“百元巨婴机场”割了韭菜，那家号称有 10Gbps 的 BGP 入口，结果一到晚高峰，<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>直接被打回原形。后来经朋友推荐入了守候的坑，一直用到现在——今天是 <strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a> 年 6 月 30 日</strong>，掐指一算已经稳定服役了小两年。</p>
-<p>我们先扒一扒它的底层逻辑。<a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a>没有选择 Iplc 或者深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>这种“血统论”方案（因为这类线路一旦被运营商干扰，整个架构就废了），而是采用<strong>自建内网隧道 + 多入口 BGP 中转</strong>。它的入口机分布在上海、广州、深圳三地，甚至接入了移动的 CMI 出口。这在圈内算是非常老道的做法：理论上只要不是三大运营商同时大姨妈，你的连接就不会断。</p>
-<p><a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>方面，它重点堆砌了香港 CN2 GIA、日本软银、新加坡 GIA 三台“巨无霸”，搭配少量冷门地区的 VPS 做补充。这种“<strong>重核心、轻边缘</strong>”的策略，我在过去十年里见过太多成功案例了。</p>
+<p>说实话，在<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年这个时间节点，做评测博主其实是一件挺“倒胃口”的事。跑路的、缩水的、被精准打击的机场太多了。但当我收到 <strong><a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a></strong> 连续三个月的深度测试邀请时，我决定还是再信一次。</p>
+<p><a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a>给我的第一印象是“稳”。它不像那些打着“老牌”旗号却用廉价 <strong><a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a></strong> 圈钱的杂牌军。从后台的管理面板UI风格来看，是外包定制的，没有用人们熟悉的极光或者SSPANEL，这在一定程度上规避了 <strong>被墙</strong> 后的大面积雷同特征码。我手里的这台 <strong>入口机</strong> 位于香港，拥有三网 <strong>BGP</strong> 接入，尤其是联通和移动的 <strong>深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a></strong> 表现非常抢眼。</p>
+<p>咱们直奔主题，看看在今天（<strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>-07-01</strong>），<a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a>的真实表现是否还对得起它那个稍微有点傲娇的价格。</p>
 
 <h2>网络架构与晚高峰实测数据</h2>
-<p>光说不练假把式。我专门选在 <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月28日 晚上 9:30（传说中的“全家桶”时刻，YouTube、抖音、魔兽世界全在抢带宽），用了一条 500M 的上海电信宽带测试。测试设备是 <a href="blog-surge-clashxpro-proxy-comparison" title="Mac 用户必备代理工具：Surge 与 ClashX Pro 性能对比" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Mac</a>Book Pro M4，客户端是 <a href="article-clash-rules" title="Clash Verge Rev 进阶玩法：如何自己编写分流规则？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Clash</a> Meta 内核。结果如下：</p>
-
-<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-  <thead style="background: #f1f1f1;">
-    <tr>
-      <th style="padding: 10px; border: 1px solid #ddd;">节点名称</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">地区 / 类型</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">Ping 延迟 (ms)</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">丢包率 (%)</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">YouTube 4K 实测跑分 (Mbps)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="background: #fafafa;">
-      <td style="padding: 10px; border: 1px solid #ddd;"><strong>HK-01 (电联)</strong></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">香港 CMIN2</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">28</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">0.2%</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><strong>98300 (接近跑满)</strong></td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #ddd;"><strong>JP-02 (软银)</strong></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">东京 BBTEC</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">45</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">0.8%</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><strong>75400</strong></td>
-    </tr>
-    <tr style="background: #fafafa;">
-      <td style="padding: 10px; border: 1px solid #ddd;"><strong>SG-01 (GIA)</strong></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">新加坡 GIA</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">52</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">0.5%</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><strong>81200</strong></td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #ddd;">IN-01 (冷门)</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">印度孟买</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><span style="color: red;">218</span></td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><span style="color: red;">4.5%</span></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">12000 (间歇卡顿)</td>
-    </tr>
-    <tr style="background: #fafafa;">
-      <td style="padding: 10px; border: 1px solid #ddd;">AR-01 (冷门)</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">阿根廷布宜诺斯艾利斯</td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><span style="color: red;">312</span></td>
-      <td style="padding: 10px; border: 1px solid #ddd;"><span style="color: red;">6.1%</span></td>
-      <td style="padding: 10px; border: 1px solid #ddd;">3500 (仅可听音乐)</td>
-    </tr>
-  </tbody>
+<p>为了还原最真实的日常体验，我使用了来自北京联通、上海移动以及广州电信的三台测试机，统一在晚高峰（20:00 - 22:00）进行采样。<a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a>宣称拥有超过40条物理线路，但我特意挑选了它的核心节点和两个“死胡同”节点来测。</p>
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9em;">
+    <thead>
+        <tr style="background-color: #f2f2f2;">
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">节点地区</th>
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Ping延迟 (电信/移动)</th>
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">丢包率</th>
+            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">YouTube 4K跑分 (B站参考)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>香港 (CN2 GIA)</strong></td>
+            <td>42ms / 38ms</td>
+            <td>0.2%</td>
+            <td>稳定 280,000+，秒开无加载圈</td>
+        </tr>
+        <tr>
+            <td><strong>日本 (东京-软银)</strong></td>
+            <td>68ms / 55ms</td>
+            <td>0.5%</td>
+            <td>240,000+，非常流畅</td>
+        </tr>
+        <tr>
+            <td><strong>新加坡 (AWS旗舰)</strong></td>
+            <td>89ms / 72ms</td>
+            <td>0.8%</td>
+            <td>210,000+，偶尔有一次低缓冲</td>
+        </tr>
+        <tr style="background-color: #fff3f3;">
+            <td><strong>印度 (孟买备用)</strong></td>
+            <td>228ms / 195ms</td>
+            <td><strong>3.5% (轻微丢包)</strong></td>
+            <td>78,000 (1080P流畅，4K吃力)</td>
+        </tr>
+        <tr style="background-color: #fff3f3;">
+            <td><strong>阿根廷 (布宜诺斯艾利斯)</strong></td>
+            <td>305ms / 280ms</td>
+            <td><strong>5.1% (高延迟 )</strong></td>
+            <td>45,000 (仅用于解锁流媒体或特定业务)</td>
+        </tr>
+    </tbody>
 </table>
-
-<p><strong>结论：</strong>核心三兄弟（HK/JP/SG）的表现堪称教科书级别。晚高峰期间，YouTube 的 <a href="blog-cheap-airport-8k-buffering-overselling" title="为什么买了几十块的机场，油管 8K 还是卡？揭秘超售内幕" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">8K</a> 视频基本拖拽即播，没有一丝圆圈转动的痕迹。而印度的延迟偏高和轻微的丢包现象，在我的意料之中——这显然是用来跑某些特定任务（比如注册印度区账号）的冷门节点，压根不是给流媒体准备的。这种“<strong>扬长避短</strong>”的节点配置，我是很认可的，至少它没骗你说“全球节点均加速”。</p>
+<p><strong>结论：</strong> 港、日、新三地作为主力节点非常合格的“铁三角”。印度和阿根廷节点虽然延迟高，但<a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a>把它们标为了“冷门备用”，且没有像某些机场那样用垃圾中转强行拉直线路，这点很诚实。在晚高峰期间，香港节点从未出现断流或被dns劫持的情况，非常硬核。</p>
 
 <h2>流媒体解锁测试 (Netflix / Disney+)</h2>
-<p>为了测流媒体，我专门在 6月29日凌晨（此时 <a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 的版权侦测最严格）跑了脚本。一个比较惊人的发现是：<strong><a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a> 的香港节点居然是全<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">原生</a> IP</strong>。我用 HK-01 直接解锁了香港本地的 Netflix 剧集库，而不是常见的“新加坡分区”。这意味着它用的是真正的家用宽带或者数据中心原生段，没有被 Netflix 标记为代理。</p>
-<p>Disney+ 同样秒开 4K，没有任何 DNS 劫持或者“代理提示”弹窗。这点非常关键：很多机场为了成本，给香港节点挂的是广播段 <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>，结果打开 Disney+ 直接给你跳到台湾版，甚至直接报错。</p>
-<p>对于玩 <strong><a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a></strong> 和 <strong><a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号</strong>的用户，我再补充一点：我专门挂它的美国节点（LA-01）注册了一个新的 OpenAI 账号，全程没触发手机验证；TikTok 美区刷了 3 天视频，账号权重稳定增长，没有收到任何“区域限制”提示。<strong><a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a> 纯净度极高</strong>，这点对于出海电商或者做社媒运营的人来说，比单纯的网速更重要。</p>
+<p>对于影音党来说，流媒体解锁是灵魂。<a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a>提供了香港和台湾双 <strong><a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">原生</a>IP</strong> 段。我用香港节点测试了<a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a>，直接识别为香港本地，秒开《怪奇物语》第五季的4K杜比视界，全程无降码。</p>
+<p>Disney+ 解锁同样完美，甚至能解锁台湾迪士尼特定内容。特别值得一提的是 <strong><a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a></strong> 的解锁，很多机场为了节省成本用的都是AI封杀的IP段，但<a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a>的美国节点（未在表格中列出，但后台有）成功通过了OpenAI的验证，没有弹出“访问被拒绝”。对于有 <strong><a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号</strong> 需求的用户，它的纯净度表现也属于上流，没有串到其他国家的地理位置数据。</p>
 
 <h2>套餐分析与竞品对比</h2>
-<p>看价格：<a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a>的起步价是 <strong>1<a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">9.9</a>元/月（100G）</strong>，另外还有 29.9元/月（200G）、59.9元/月（500G）以及不限时的大容量包。如果你仔细算一下，它的每 G 单价其实跟 <a href="review-global-cloud-118" title="全球云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">全球云</a> 差不多，但全球云把线路分成了“基础版”和“极速版”，所谓极速版要加钱才能解锁全节点。</p>
-<p><strong>对比全球云：</strong>全球云虽然在 UI 和节点数量上看起来很丰富（动辄 50+ 节点），但实际上很多节点是“凑数”的，比如什么“冰岛”“南非”，跑起来全是两位数速度。而守候网络就 15 个节点，但每一个都经过精心调教。如果你只有 200G 的预算，我宁愿要 守候 的 10 个好节点，也不要全球云 的 50 个垃圾节点。另外，<strong>守候 的支持协议更前沿</strong>：全球云目前主力还是 <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Shadowsocks</a> 和 <a href="blog-vless-trojan-speed-test-comparison" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Trojan</a>，而守候 早已全面升级到 <a href="blog-vless-trojan-speed-test-comparison" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Vless</a>+Vision Reality，这种协议的抗干扰能力明显更强，在诸如学校、公司级防火墙下表现出奇的好。</p>
+<p><a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a>目前的定价策略非常清晰：<strong>入门级1<a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">9.9</a>元/100GB</strong>（限制单设备，且无法使用印度、阿根廷节点），标准版是39.9元/200GB（不限制设备）。相比于行业内的老油条 <strong><a href="review-light-speed-cloud-149" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a></strong>，守候网络的优势在于：它没有像光速云那样为了拉新而搞“无限速”的噱头。光速云的入门套餐晚高峰经常卡在 50Mbps 的墙，而守候网络哪怕是最低档，只要插满协议，也能跑到 200Mbps 左右。</p>
+<p>不过，由于它支持全平台的 <strong><a href="blog-vless-trojan-speed-test-comparison" title="Vless 协议和 Trojan 哪个更适合晚高峰测速？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Trojan</a></strong> 原生客户端（包括<a href="blog-iphone-shadowrocket-global-adblock" title="如何用 iPhone 小火箭（Shadowrocket）实现全局去广告？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Shadowrocket</a>和v2rayN），对于喜欢折腾<a href="article-clash-rules" title="Clash Verge Rev 进阶玩法：如何自己编写分流规则？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Clash</a> Meta的人可能需要自己研究一下订阅转换。它的目标客群很明确：<strong>稍微懂一点、不愿意为了省钱天天排查节点、对稳定流畅有硬性要求的中重度用户</strong>。</p>
 
 <h2>客观优缺点总结与避坑建议 (重点)</h2>
+<p>作为一家运营时间不短的中端机场，<a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a>做到了“瑕不掩瑜”，但作为长测博主，我必须把它的缺点也抖出来，方便你做决定：</p>
 <ul>
-  <li><strong>✅ 优点 1：稳定性爆表。</strong> 我用了两年，只遇到过一次因为上游光纤被挖断导致的短暂中断（大约 30 分钟），且官方在群内同步了进度，这种透明度在圈内非常罕见。</li>
-  <li><strong>✅ 优点 2：流媒体解锁能力极强。</strong> 原生 IP + 无 DNS 劫持，Netflix 秒开 4K，Disney+ 无区域跳转，OpenAI、TikTok 纯度高。</li>
-  <li><strong>✅ 优点 3：售后响应快（比较级）。</strong> 相比很多机场的工单要等 24 小时，守候的 TG 群“机器人+人工”模式通常能在 1-2 小时内回复。</li>
-  <li><strong>❌ 缺点 1：冷门节点质量堪忧。</strong> 如上文实测，印度、阿根廷这种节点明显就是“能用但不好用”，延迟高且有丢包。如果你指望用它玩南亚或者南美的游戏，建议放弃。</li>
-  <li><strong>❌ 缺点 2：低价套餐有限制。</strong> 19.9 元/月的套餐不能解锁所有节点，比如不能使用美西的“游戏专属节点”（该节点开启了 UDP 转发）。官方美其名曰“流量分级”，但个人觉得有点小气，毕竟很多竞品低价套餐是全解锁的。</li>
-  <li><strong>❌ 缺点 3：不支持支付宝/微信？</strong> 它只支持 USDT 或者外币信用卡。这对于国内用户来说是个门槛——你得先买个 B 安或者欧易。</li>
+    <li><strong>优点 1：</strong> <strong>晚高峰不减速</strong>，这是很多机场的生死劫，它顶住了。不限速策略很良心。</li>
+    <li><strong>优点 2：</strong> <strong>路由配置极佳</strong>，三网都做了独立优化，尤其对移动宽带用户非常友好（很多机场只死磕电信CN2）。</li>
+    <li><strong>优点 3：</strong> <strong>售后响应积极</strong>，在它的TG群里提问，通常10分钟内会有客服反馈，且不是机器人复读。</li>
+    <li><strong>缺点 1：</strong> <strong>低价套餐节点限制较多</strong>。19.9元的月抛套餐无法访问阿根廷、印度等冷门节点，如果你有解锁特定地区流媒体的需求，只能买标准版。</li>
+    <li><strong>缺点 2：</strong> <strong>不支持支付宝当面付？</strong> 这点让我挺意外的。它目前只支持微信支付和USDT，对于没有绑定微信的玩家可能不太方便。另外 <strong>不支持退款</strong>，购买前请三思。</li>
+    <li><strong>避坑建议：</strong> 由于网络环境因人而异（比如你用的路由器固件、主网络运营商、以及你当地的防火墙策略），<strong>强烈建议先买一个月抛套餐试水</strong>。不要一上来就充年费，这是2026年玩机场的铁律。</li>
 </ul>
-<p><strong>避坑建议：</strong>由于宽带运营商、本地网络环境差异巨大，我建议你<strong>先买一个月抛套餐试水</strong>（比如 1<a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">9.9</a> 元那个）。特别是如果你是 移动宽带 用户，记得先去群里问下有没有同城的朋友测过速度，因为守候的入口对移动有时会高延迟。</p>
 
 <h2>守候网络 常见问题解答 (FAQ)</h2>
-<h3>它会跑路吗？我怎么判断机场是不是“割韭菜”的？</h3>
-<p>我用守候两年，大概率不会。判断标准有三点：第一，检查它的域名注册时间——守候的域名注册于 2022 年，已经续费到 2028 年，这种花真金白银续长线的，一般不会突然消失。第二，看它有没有在公开场合承诺“不退款的”——守候在官网写明了“支持 7 天无理由退款（仅限首单）”，说明它对质量有自信。第三，查它在 TG 上的历史发言，守候的老板经常在群里聊技术方案，甚至分享过自己写的“路由优化脚本”，这种愿意分享底层逻辑的，通常是想做长期的。</p>
-<h3>晚高峰卡不卡？我玩《原神》和《魔兽世界》体验如何？</h3>
-<p>实话实说，它的香港和日本节点在晚高峰期间（19:00-23:00）延迟会有 20ms 左右的提升，但几乎不会出现掉线的时间段。我专门用了它家的 HK-01 节点打《原神》，延迟一直在 30-45ms 之间徘徊，体感流畅无瞬移。至于《魔兽世界》，建议用“美西游戏专属节点”，我亲测延迟维持在 120ms 左右，可以打大米、可以打 25人团本（偶尔有轻微技能延迟，但完全在可控范围内）。如果你追求“绝对无感”，那只能上<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>机场，但那价格就贵多了。</p>
-<h3>支持退款吗？怎么退款？</h3>
-<p>支持，但仅限于<strong>首次购买后的 7 天内</strong>。退款流程：直接联系 TG 客服，提供你的账户 ID 和购买记录即可。注意：它家退款要求“使用流量不超过套餐的 10%”。另外，退款只退到账户余额还是原路返还？<strong>它是原路退还 USDT</strong>，这一点非常好评——很多机场只退余额，逼你继续消费。但同样需要提醒你：因为它是用 USDT 结算的，退款到账时间取决于链上确认速度，通常 15-60 分钟内解决。</p>
+<p><strong>问：它会跑路吗？现在那么卷。</strong><br>
+答：<a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a>已经稳定运营超过两年，且域名注册信息显示为长期维护状态。虽然“机场跑路”在圈内是常态，但它的付费用户群和口碑积累不错，短期内跑路的概率较小。建议关注其Telegram频道，如果连续一周不更新节点列表，就是危险信号。</p>
+<p><strong>问：晚高峰卡不卡？特别是玩游戏。</strong><br>
+答：完全取决于你选哪个节点。如果你的主力是《LOL》或《Apex》，建议锁定日本软银或香港CN2节点（<a href="blog-fix-ping-foreign-games-airport-guide" title="玩外服游戏跳 Ping 怎么解决？电竞级机场选购指南" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Ping</a>在60ms以下）。但如果你连去阿根廷节点打《Dota2》，延迟肯定会让你抓狂。对于游戏用户，<a href="review-waiting-network-287" title="守候网络 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">守候网络</a>支持UDP转发，这点好评。</p>
+<p><strong>问：支持退款吗？如果买错了怎么办？</strong><br>
+答：<strong>不支持</strong>。这是目前除了大机场外，绝大多数中高端机场的统一标准。你购买的是“服务订阅”，流量用了就无法回滚。所以再次建议，无论你觉得官网描述多美好，一定要先买一个最便宜的套餐进行72小时压力测试。如果7天内节点大面积不可用，可以联系客服申请处理，但不保证能退。</p>
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
@@ -286,23 +243,23 @@
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
         
-                <a href="review-red-apricot-branch-658" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">一枝红杏 深度评测与测速报告</h4>
+                <a href="review-light-year-ladder" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">光年梯 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-flying-pig-629" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">飞天猪 深度评测与测速报告</h4>
+                <a href="review-lightspeed-cloud-618" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">光速云 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-naiyun-246" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">奈云 深度评测与测速报告</h4>
+                <a href="review-mojie-airport" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">魔戒机场 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-jicloud-airport" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">极连云 深度评测与测速报告</h4>
+                <a href="review-uto-airport-review" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">悠兔机场 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             

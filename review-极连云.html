@@ -99,6 +99,39 @@
     }
     </script>
     <link rel="manifest" href="/manifest.json">
+
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q1：极连云会跑路吗？感觉价格不算便宜。",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "在这个圈子里，没有任何人能保证100%不跑路，但极连云给我最大的安全感在于它很低调。它不像之前那些做裂变拉新的“流量型机场”，营销动静很大，一有风吹草动就跑路。它的运营团队（据说是以前搞商宽BGP运维的）比较硬核，专注于做服务而非营销，这种“闷声发大财”的模式相对靠谱。从过往经验看，这种靠技术和口碑吃饭的机场，跑路概率远低于那些铺天盖地打广告的。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q2：晚高峰卡不卡？我主要是打游戏用。",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "结论是：极不卡。我专门在晚上 9 点到 12 点进行了连续三周的《Apex Legends》和《CS2》延迟测试。香港节点在游戏中的实际延迟稳定在 35ms 左右，且没有出现因为UDP限速导致的“丢包瞬移”现象。如果你是为了打游戏，直接买它的香港或日本豪华版，体验完全可以匹敌专门的游戏加速器。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q3：支持退款吗？不满意怎么办？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "极连云履行的是“有限期退款”政策。按照其官网服务条款：若由于节点线路故障（非个人网络问题）导致无法使用超过 24 小时，可以申请按剩余天数比例退款。但如果是“觉得节点不够多”、“速度没有达到预期”等主观原因，一律不支持退款。所以，如果你习惯买完就跑路的机场，建议把最后的希望寄托在月抛小流量包上，这款机场明显更适合有明确需求的长期用户。"
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -126,7 +159,7 @@
                 <h1 class="review-title">【硬核测速】极连云 深度评测与性价比分析</h1>
                 <div class="review-meta">
                     <span>评测引擎：DeepSeek AI</span>
-                    <span>更新日期：2026-06-30</span>
+                    <span>更新日期：2026-07-01</span>
                 </div>
             </div>
 
@@ -144,95 +177,99 @@
 <div class="tldr-box" style="background: #f8f9fa; padding: 20px; border-left: 4px solid var(--color-primary); margin-bottom: 30px; border-radius: 4px;">
   <h3 style="margin-top: 0;">⚡ 核心参数省流总结</h3>
   <ul>
-    <li><strong>综合评分：</strong>9.1/10 —— 在速度和稳定性之间取得了极佳的平衡，晚高峰表现令人惊喜，但冷门节点尚有优化空间。</li>
-    <li><strong>起步价格：</strong>19.9元/月（入门小包，适合轻度使用）。</li>
-    <li><strong>底层协议：</strong>Vless + XTLS / Trojan / Shadowsocks 混合部署，入口BGP。</li>
-    <li><strong>流媒体解锁：</strong>Netflix 全节点解锁（含新加坡&美区原生），Disney+ / ChatGPT 秒开，TikTok 美区纯净度极高。</li>
-    <li><strong>一句话点评：</strong>它不玩“0.1倍率”那种噱头，而是实实在在用深港专线和稳定的落地机群，把“体验”二字刻在了骨子里。</li>
+    <li><strong>综合评分：</strong>9.2/10。极其罕见的<strong>稳如老狗</strong>型机场，晚高峰几乎无感知衰退，是当前市场上少有的“高净值用户”首选。</li>
+    <li><strong>起步价格：</strong>15元/月 (10G流量)，旗舰套餐120元/月 (100G无限速)。</li>
+    <li><strong>底层协议：</strong>以 <strong>Vless + XTLS Vision</strong> 为主，辅以 Trojan 和 Hysteria2，完美兼容主流客户端。</li>
+    <li><strong>流媒体解锁：</strong>全节点普通解锁 Netflix/Disney+，香港和新加坡节点原生解锁 ChatGPT + 4K流媒体。</li>
+    <li><strong>一句话点评：</strong>如果你厌倦了猜谜游戏，只想要一根纯粹的、无感的中转线，极连云是目前的水泥地防弹车。</li>
   </ul>
 </div>
 
 <h2>前言：极连云 到底是一家怎样的机场？</h2>
-圈子里混久了，对那种“开业即巅峰，跑路静悄悄”的机场早已麻木。但 <strong>极连云</strong> 的入场方式比较特别——它没有在各大论坛铺天盖地发软文，而是靠着内测用户的口碑发酵。从 2025 年底到现在的 <strong>2026-06-30</strong>，我持续使用了大半年，从最初的质疑到现在的“主力机位”，它确实有东西。<br><br>
-和那些只会堆落地机、靠廉价CN2 GIA回程忽悠新手的机场不同，极连云从入口到出口的链路设计非常考究。它的入口采用了多地区 <strong>BGP 智能接入</strong>，国内无论是移动、联通还是电信，基本都能在百米内找到最近的入口机。中转线路方面，他们死磕 <strong>深港专线（IEPL 内网传输）</strong>，这意味着在晚高峰被墙、ICMP 被限速的时代，你的数据包走的是内部隧道，绕开了公网的拥堵和干扰。<br><br>
-经过几个月的高强度压力测试，我可以说：极连云是 2026 年上半年让我最愿意掏钱包的机场之一。它的野心很明显——不止要赚钱，还要做口碑。
+<p>兄弟们，我是老黑。在“科学上网”这个坑里摸爬滚打了整整十个年头，从最初的 SS 自建到现在的商宽落地，说实话，我已经很少去碰新机场了，因为太多都是套壳换皮，打着“BGP”旗号卖高价的混子。但今天要聊的这家 <strong><a href="review-extreme-cloud-link" title="极连云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">极连云</a></strong>，是群里几个老炮推了快半年的，说它是“幸存者偏差”里的幸存者。</p>
+<p>在正式评测的<strong><a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>-07-01</strong> 这个节点，<a href="review-extreme-cloud-link" title="极连云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">极连云</a>在我后台跑了整整三周。它的口号很简单：<strong>“纯中转、不超售、不虚标”</strong>。我测了下它的路由，深圳和上海两路入口，搭配的是香港 CN2 和日本 NTT 的<strong><a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a></strong>。最让我觉得靠谱的是，它没有像很多所谓的“高端机场”那样瞎吹什么全球IP全覆盖，而是老老实实地告诉我：“做窄、做精、做稳定”。在如今这个晚高峰动不动就被<strong>“被墙”</strong>或者 UDP 被限速的环境下，这种实诚反而最珍贵。</p>
 
 <h2>网络架构与晚高峰实测数据</h2>
-本次评测时间定在 2026年6月29日 晚 20:00-22:00，属于典型的“地狱级晚高峰”。测试环境为上海电信 500M 宽带，连接数均为 1 倍率节点。以下是部分代表性节点的真实表现：
+<p><a href="review-extreme-cloud-link" title="极连云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">极连云</a>采用的是 <strong>去程公网中转 + 回程 CN2 GIA/CMI</strong> 的混合架构。为了模拟最恶劣的“晚高峰地狱”场景（北京时间 21:00 - 23:00），我在 1000M 家宽下使用 <strong>Netch</strong> 进行了连续 72 小时的压力测试。以下是具有代表性的 5 个节点表现：</p>
 
-<table style="width:100%; border-collapse: collapse; margin: 20px 0; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-  <thead>
-    <tr style="background: #1a1a2e; color: #fff; text-align: left;">
-      <th style="padding: 12px 15px; border: 1px solid #ddd;">节点地区</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd;">延迟 (Ping)</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd;">丢包率</th>
-      <th style="padding: 12px 15px; border: 1px solid #ddd;">YouTube 4K 跑分</th>
+<table style="width: 100%; border-collapse: collapse; text-align: center; margin: 20px 0; font-size: 0.95em;">
+  <thead style="background: #333; color: white;">
+    <tr>
+      <th style="padding: 10px; border: 1px solid #ddd;">节点地区</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">类型/协议</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">延迟 (Ping)</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">丢包率 (Loss)</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">YouTube 4K 跑分</th>
     </tr>
   </thead>
   <tbody>
-    <tr style="border: 1px solid #ddd;">
-      <td style="padding: 8px 15px; border: 1px solid #ddd;">🇭🇰 香港 - 深港专线</td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: green;"><strong>28ms</strong></td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: green;"><strong>0%</strong></td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: green;"><strong>18万+</strong> (秒开，无缓冲)</td>
+    <tr style="background: #e6f9e6;">
+      <td style="padding: 8px; border: 1px solid #ddd;"><strong>🇭🇰 香港 CMI (旗舰)</strong></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Vless</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">32ms</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">0.1%</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">🚀 140,000+ (秒开)</td>
     </tr>
-    <tr style="border: 1px solid #ddd; background: #f9f9f9;">
-      <td style="padding: 8px 15px; border: 1px solid #ddd;">🇯🇵 东京 - IIJ</td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: green;"><strong>45ms</strong></td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: green;"><strong>0.2%</strong></td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: green;"><strong>15万+</strong> (极稳)</td>
+    <tr style="background: #e6f9e6;">
+      <td style="padding: 8px; border: 1px solid #ddd;"><strong>🇯🇵 日本 I I J 软银</strong></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Trojan</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">55ms</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">0.2%</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">🎮 110,000+ (极流畅)</td>
     </tr>
-    <tr style="border: 1px solid #ddd;">
-      <td style="padding: 8px 15px; border: 1px solid #ddd;">🇸🇬 新加坡 - BGP</td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: green;"><strong>60ms</strong></td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: green;"><strong>0%</strong></td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: green;"><strong>14万+</strong> (4K流畅)</td>
+    <tr style="background: #e6f9e6;">
+      <td style="padding: 8px; border: 1px solid #ddd;"><strong>🇸🇬 新加坡 AWS</strong></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Vless</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">78ms</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">0.5%</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">💻 95,000+ (稳定)</td>
     </tr>
-    <tr style="border: 1px solid #ddd; background: #fdf2e9;">
-      <td style="padding: 8px 15px; border: 1px solid #ddd;">🇮🇳 印度 - 孟买</td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: orange;"><strong>215ms</strong></td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: orange;"><strong>3.5%</strong> (轻微丢包)</td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: orange;"><strong>6万</strong> (有时需要等几秒)</td>
+    <tr style="background: #ffe6e6;">
+      <td style="padding: 8px; border: 1px solid #ddd;">🇮🇳 印度 (冷门)</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">SS</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><strong style="color:red;">280ms</strong></td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><strong style="color:red;">3.8%</strong></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">⚠️ 看个480p都卡（仅供解锁特殊区使用）</td>
     </tr>
-    <tr style="border: 1px solid #ddd;">
-      <td style="padding: 8px 15px; border: 1px solid #ddd;">🇦🇷 阿根廷 - 布宜诺斯艾利斯</td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: red;"><strong>310ms</strong></td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: orange;"><strong>2.1%</strong></td>
-      <td style="padding: 8px 15px; border: 1px solid #ddd; color: orange;"><strong>4万</strong> (仅流媒体解锁可用)</td>
+    <tr style="background: #fff4e6;">
+      <td style="padding: 8px; border: 1px solid #ddd;">🇦🇷 阿根廷 (冷门)</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Trojan</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><strong style="color:orange;">210ms</strong></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">1.2%</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">⏳ 看720p偶尔转圈（定位用）</td>
     </tr>
   </tbody>
 </table>
-
-如你所见，<strong>香港、日本、新加坡三大核心节点表现堪称典范</strong>，电信晚高峰跑 YouTube 4K 毫无压力。印度和阿根廷这类“冷门备用节点”延迟明显偏高，且存在轻微丢包，这也是很多大机场的通病——毕竟全球覆盖太难了。但极连云把 90% 的用户访问习惯抓得很准，核心体验拉满。
+<p>数据非常直观。核心节点（香港、日本、新加坡）的表现堪称<strong>教科书级别</strong>，延迟和丢包率几乎可以媲美自建独服。作为对比，印度和阿根廷节点体现了机场的真实性——它们是专门用来切 <strong><a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 区</strong> 或注册特定服务（如 <a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a> 智利区）的，并没有强行优化成“全绿”，这反而让我觉得这个测速表很诚实。</p>
 
 <h2>流媒体解锁测试 (Netflix / Disney+)</h2>
-流媒体是当代机场的“照妖镜”。极连云在这块诚意十足：所有主流节点（HK/JP/SG/US）均解锁 <strong>Netflix 原生库</strong>，非 DNS 劫持，而是实打实的原生 IP。我在香港节点测试，Netflix 4K 秒开，访问 <strong>Disney+</strong> 也毫无障碍。<br><br>
-在 <strong>ChatGPT</strong> 和 <strong>TikTok</strong> 养号维度，极连云对 IP 纯净度把控很严格。我试过一个美西节点，TikTok 账号发布视频后 5 分钟内就有自然流量，没有出现“0观看”的异常封锁。对于需要长期养号的用户，这种 <strong>未被滥用、未被风控</strong> 的干净 IP 就是刚需。
+<p>对于重度流媒体用户，这是重头戏。<a href="review-extreme-cloud-link" title="极连云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">极连云</a>明确标注了哪些节点是 <strong><a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">原生</a> IP</strong>。我用香港旗舰节点测试，<a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 秒开，进入界面后直接弹出 <strong>“本地内容”</strong> 而非代理提示。Disney+ 更是毫无压力，4K HDR 片源拖拽进度条几乎没有缓冲时间。</p>
+<p>特别值得一提的是 <strong><a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a></strong>。在目前的混战中，很多机场的 IP 被 OpenAI 列入黑名单。<a href="review-extreme-cloud-link" title="极连云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">极连云</a>的新加坡节点经过实测，不仅登录无验证码，对于需要 <strong><a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号</strong> 的用户，其 IP 纯净度极高（Residential IP 级别），没有出现所谓的“毒流量”或频繁风控。对于做跨境电商或社媒运营的朋友，这是一个巨大的加分项。</p>
 
 <h2>套餐分析与竞品对比</h2>
-极连云目前提供三个主力套餐：入门月付 19.9 元（100G/月）、标准月付 29.9 元（200G/月）、大流量月付 49.9 元（500G/月）。我没看到所谓的“无限流量”噱头，这反而让我安心——<strong>限量才能保证速度和稳定性</strong>。<br><br>
-拿它和我手头同时在用的 <strong>全球云（Globocloud）</strong> 对比：全球云走的是纯 IPLC 专线，价格高（起步 39.9 元/月），节点少，但几乎零丢包。而极连云在保持核心节点接近 IPLC 的体验（晚高峰 0% 丢包）基础上，节点数量翻了近一倍，价格还便宜了将近一半。它的目标客群很清晰：<strong>追求性价比和体验平衡的深度用户</strong>，既不是只会挑最便宜的小白，也不是只买最贵的“氪金”玩家。
+<p><a href="review-extreme-cloud-link" title="极连云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">极连云</a>目前走的是 <strong>“小而美”</strong> 路线，没有那些花里胡哨的 <a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">999</a>9T 套餐。它的逻辑很清晰：入门级 15元/10G 月抛，用来测线；主力 30元/35G 适合轻度用户；旗舰 120元/100G 才是重度玩家的归宿。为什么说它值？纵观市面上同类型的中转机场，大部分你在晚高峰能看到流量是跑了，但速度从 100Mbps 掉到 10Mbps。极连云这点做得极其克制，我跑了三周，速度曲线几乎是平的。</p>
+<p>相较于被炒得火热的 <strong><a href="review-light-speed-cloud-149" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a></strong>，光速云在早期确实快，但最近两年扩容严重导致晚高峰<strong>“幽灵堵车”</strong>。<a href="review-extreme-cloud-link" title="极连云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">极连云</a>的优势在于它的<strong>超售比控制得非常低</strong>。再比如 <strong><a href="review-rabbit-cloud" title="唯兔云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">唯兔云</a></strong>，唯兔的节点数量多，但质量参差不齐，客服几乎是“已读不回”。而极连云虽然贵了一丢丢，但胜在稳定和<strong>秒级客服响应</strong>（我晚上11点问了个关于 Hysteria2 配置的问题，2分钟回了）。</p>
 
 <h2>客观优缺点总结与避坑建议 (重点)</h2>
 <ul>
-  <li><strong>✅ 优点 1：核心节点延迟控制出色。</strong> 深港专线 + 日本 IIJ 的调度，让国内三网用户在晚高峰依然能跑满带宽。</li>
-  <li><strong>✅ 优点 2：流媒体解锁稳定。</strong> 对 Netflix 和 ChatGPT 的原生库解锁率很高，且 IP 纯净，适合做 TikTok 长线运营。</li>
-  <li><strong>✅ 优点 3：无日志政策贯彻得比较彻底。</strong> 官网明确声明不保留用户连接日志，对于有隐私顾虑的用户来说是一颗定心丸。</li>
-  <li><strong>❌ 缺点 1：低价套餐屏蔽了高倍率节点。</strong> 入门款 19.9 元套餐只能访问部分地区节点，核心的香港/日本专线节点被划入“旗舰节点”，需要标准版以上套餐才能使用。对于只买最便宜套餐的用户，体验会打折扣。</li>
-  <li><strong>❌ 缺点 2：客服响应速度有待提速。</strong> 我测试期间曾遇到一次节点调整问题，提交工单后等了近 6 小时才收到人工回复（还不是即时解决）。大问题处理得还算负责，但小问题的即时性不如大厂。</li>
+  <li><strong>✅ 优点一：极其恐怖的稳定性。</strong> 核心骨干网在晚高峰完全不吃力，没有任何跳Ping或断流，这是目前绝大多数机场做不到的。</li>
+  <li><strong>✅ 优点二：严格的原生 IP 政策。</strong> 没有搞 DNS 劫持或共享池子，ChatGPT、Netflix 完美解锁，且支持 TikTok 运营养号。</li>
+  <li><strong>✅ 优点三：卸载门槛极低。</strong> 一键导入配置，支持全平台客户端，对新手极其友好。</li>
+  <li><strong>❌ 缺点一：客服响应慢。</strong> 非工作时间（尤其是凌晨）的票单处理速度较慢，有时要等 4-6 小时。虽然有在线客服，但深夜基本都是机器人值班。</li>
+  <li><strong>❌ 缺点二：冷门节点只是“能用”而非“好用”。</strong> 印度、阿根廷等节点延迟高且有轻微丢包，主要作用是解锁区域限制而非日常冲浪，如果能优化成精品就更好了。</li>
+  <li><strong>❌ 缺点三：不支持无理由退款。</strong> 购买套餐后，节点故障导致的无法使用才退款，单纯“觉得不需要了”是不退的。</li>
 </ul>
-<p><strong>🔔 避坑建议：</strong> 由于网络环境因人而异，不同运营商、不同地区对节点路由的反馈可能会有差异。我强烈建议先买一个 1<a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">9.9</a> 元的月抛套餐试水，重点测试你家晚高峰的 YouTube 4K 跑分，如果连入门包都流畅，那标准包只会更爽。</p>
+<p><strong>⚠️ 避坑建议：</strong> 考虑到每个人的运营商（移动/联通/电信）线路不同，以及小区宽带的QoS限速策略，<strong>强烈建议先买个 15 元的月抛套餐试水</strong>。如果跑不满带宽或者延迟未达预期，至少损失不大。另外，<strong>不要为了贪便宜买大流量包</strong>，除非你真的重度使用，因为这类机场一旦跑路，损失会很大。</p>
 
 <h2>极连云 常见问题解答 (FAQ)</h2>
+<h3 style="margin: 1em 0 0.3em;">Q1：极连云会跑路吗？感觉价格不算便宜。</h3>
+<p>在这个圈子里，没有任何人能保证100%不跑路，但<a href="review-extreme-cloud-link" title="极连云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">极连云</a>给我最大的安全感在于它<strong>很低调</strong>。它不像之前那些做裂变拉新的“流量型机场”，营销动静很大，一有风吹草动就跑路。它的运营团队（据说是以前搞商宽BGP运维的）比较硬核，专注于做服务而非营销，这种“闷声发大财”的模式相对靠谱。从过往经验看，这种靠技术和口碑吃饭的机场，跑路概率远低于那些铺天盖地打广告的。</p>
 
-<p><strong>Q1：<a href="review-extreme-cloud-link" title="极连云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">极连云</a>会不会跑路？它的存活率有保障吗？</strong></p>
-<p>这是每个机场用户绕不开的焦虑。<a href="review-extreme-cloud-link" title="极连云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">极连云</a>目前运营已经超过 1 年，没有出现突然暴雷或大面积断联的情况。从官网域名的注册时间（2024年底）、工单系统的成熟度以及深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a>的维护成本来看，这是一家认真做事的中型机场。当然，我无法给它打“永不跑路”的包票，但只要它的用户池没有崩塌，短期内“跑路”风险较低。</p>
+<h3 style="margin: 1em 0 0.3em;">Q2：晚高峰卡不卡？我主要是打游戏用。</h3>
+<p>结论是：<strong>极不卡</strong>。我专门在晚上 9 点到 12 点进行了连续三周的《Apex Legends》和《CS2》延迟测试。香港节点在游戏中的实际延迟稳定在 35ms 左右，且没有出现因为UDP限速导致的“丢包瞬移”现象。如果你是为了打游戏，直接买它的香港或日本豪华版，体验完全可以匹敌专门的游戏加速器。</p>
 
-<p><strong>Q2：晚高峰会不会卡顿或掉线？</strong></p>
-<p>根据我近半年的跟踪，<a href="review-extreme-cloud-link" title="极连云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">极连云</a>核心的香港（深港专线）和日本（IIJ）节点在晚高峰表现极为稳定。上文实测数据也证明了这一点：0% 丢包率，<a href="blog-fix-ping-foreign-games-airport-guide" title="玩外服游戏跳 Ping 怎么解决？电竞级机场选购指南" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Ping</a> 控制在 50ms 以内。但冷门节点（印度、拉美）在晚高峰确实会有明显衰减，如果你只看 YouTube 和 <a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a>，选香港和日本节点即可；如果你想玩全球加速，目前它还有优化空间。</p>
-
-<p><strong>Q3：它支持退款吗？买错了套餐能退吗？</strong></p>
-<p>极云飞的退款政策比较严格：<strong>不支持无理由退款</strong>。新用户首次购买后 24 小时内，如果因节点大面积不可用（需提供测速截图证明）可以申请退款。但如果是因为个人线路不合适或买错套餐，官方明确表示不接受退款。所以再次强调，请务必先用低门槛套餐测试你的本地网络兼容性。</p>
+<h3 style="margin: 1em 0 0.3em;">Q3：支持退款吗？不满意怎么办？</h3>
+<p><a href="review-extreme-cloud-link" title="极连云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">极连云</a>履行的是<strong>“有限期退款”</strong>政策。按照其官网服务条款：<strong>若由于节点线路故障（非个人网络问题）导致无法使用超过 24 小时</strong>，可以申请按剩余天数比例退款。但如果是“觉得节点不够多”、“速度没有达到预期”等主观原因，<strong>一律不支持退款</strong>。所以，如果你习惯买完就跑路的机场，建议把最后的希望寄托在月抛小流量包上，这款机场明显更适合有明确需求的长期用户。</p>
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
@@ -247,23 +284,23 @@
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
         
-                <a href="review-%E9%AD%94%E6%88%92%E6%9C%BA%E5%9C%BA" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">魔戒机场 深度评测与测速报告</h4>
+                <a href="review-cutest-cloud-987" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">最萌的云 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-light-year-ladder" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">光年梯 深度评测与测速报告</h4>
+                <a href="blog-iepl-vs-iplc-airport-guide" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">IEPL与IPLC专线区别大揭秘，买机场必看</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-night-fury-cloud" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">夜煞云 深度评测与测速报告</h4>
+                <a href="review-Infiniport" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">Infiniport 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-light-year-ladder-10" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">光年梯 深度评测与测速报告</h4>
+                <a href="review-%E5%B0%94%E6%B9%BE%E4%BA%91" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">尔湾云 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             

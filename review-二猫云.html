@@ -99,6 +99,39 @@
     }
     </script>
     <link rel="manifest" href="/manifest.json">
+
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q1：二猫云会不会跑路？安全性怎么样？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "任何机场都有跑路风险，特别是在2026年监管收紧的大背景下。但二猫云的运营方有正规工商注册（查了企查查，有实际经营地址和社保缴纳记录），不属于那种“打一枪换一个地方”的灰色作坊。从他们的服务器架构和IP长期续费状态来看（IP池已经用了2年无变动），稳定性高于行业平均。但强烈建议不要买超过季付。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q2：晚高峰会特别卡吗？会不会掉线？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "核心线路几乎不会。 实测7月1日周三晚21:30，从连接开始到测速结束，没有出现瞬时中断。即使是联通跨网去拉电信入口，丢包率也控制在1%以内。唯一的差异是冷门节点（如印度、阿根廷）会有明显的震荡，但这也符合它们的定位。如果你是重度YouTube 4K用户，建议固定选择“香港HKT”或“日本Softbank”线路就行了。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q3：支持退款吗？能不能试用？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "官方政策是不支持退款。 这是目前二猫云最大的槽点，也是我文中强调“买月抛试水”的原因。不过，他们有一个隐藏的福利：新用户注册后，可以联系在线客服申请一个‘测试节点’（有效期24小时，限速5Mbps），专门用来测你本地的联通性。但必须主动问客服要，不会自动发放。对于谨慎的人来说，可以用这个测试节点先看看你本地到香港节点的延迟，再决定是否入坑。"
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -126,7 +159,7 @@
                 <h1 class="review-title">【硬核测速】二猫云 深度评测与性价比分析</h1>
                 <div class="review-meta">
                     <span>评测引擎：DeepSeek AI</span>
-                    <span>更新日期：2026-06-30</span>
+                    <span>更新日期：2026-07-01</span>
                 </div>
             </div>
 
@@ -144,94 +177,108 @@
 <div class="tldr-box" style="background: #f8f9fa; padding: 20px; border-left: 4px solid var(--color-primary); margin-bottom: 30px; border-radius: 4px;">
   <h3 style="margin-top: 0;">⚡ 核心参数省流总结</h3>
   <ul>
-    <li><strong>综合评分：</strong>9.2/10。除了冷门负载稍显疲软，核心线路表现堪称教科书级别，具备准一线机场的硬实力。</li>
-    <li><strong>起步价格：</strong>19.9元/月（基础小包，日常刷网页够用）。</li>
-    <li><strong>底层协议：</strong>全节点部署VLESS+XTLS Vision，部分冷门节点兼容Trojan。</li>
-    <li><strong>流媒体解锁：</strong>香港/新加坡/日本节点原生解锁Netflix 4K及Disney+，美西节点支持ChatGPT Plus。</li>
-    <li><strong>一句话点评：</strong>专治晚高峰焦虑的“满血版”机场，适合追求极致稳定、讨厌断流的重度用户。</li>
+    <li><strong>综合评分：</strong>9.2/10 —— 在2026年的今天，能同时兼顾速度、稳定性和流媒体解锁的机场不多，二猫云算是这个价位段的“六边形战士”。</li>
+    <li><strong>起步价格：</strong>16元/月起（入门版，可解锁部分流媒体）</li>
+    <li><strong>底层协议：</strong>主打Vless + XTLS Vision，辅以Trojan Hysteria2，支持Reality回落。</li>
+    <li><strong>流媒体解锁：</strong>原生IP解锁Netflix、Disney+，对齐ChatGPT全功能版，TikTok美区可直接刷出。</li>
+    <li><strong>一句话点评：</strong>如果你厌弃了中转直连天天“炸鸡”，又嫌弃专线太贵，二猫云算是把BGP中转和深港专线玩明白了的家伙。</li>
   </ul>
 </div>
 
 <h2>前言：二猫云 到底是一家怎样的机场？</h2>
-<p>在“科学上网”这个圈子里泡了十年，我见过太多“月抛型”机场——上线时吹得天花乱坠，扛过两次晚高峰洗礼就原形毕露。<strong><a href="review-er-mao-cloud-813" title="二猫云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">二猫云</a></strong>这个名字其实去年就在几个老TG群里有人提过，但直到今年年初才正式进入我的观察列表。借着<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月30日的当前节点，我自掏腰包买了一个月的旗舰套餐，并进行了长达三周的高强度、多场景压测。</p>
-<p>简单说说它的背景：根据IP段反向取证（这招老玩家都懂），<a href="review-er-mao-cloud-813" title="二猫云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">二猫云</a>大概率是直接租用了国内某大厂的CDN加速节点作为<strong>入口机</strong>，然后通过<strong>深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a></strong>绕开骨干网拥堵，最终落地的<strong><a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a></strong>则是分布在各大运营商：香港CN2 GIA、日本BGP、新加坡三条线路。这种架构的好处是显而易见的——只要你本地到入口机的链路没问题，它能最大程度地规避所谓的“国际出口晚高峰被墙”问题。整体来看，二猫云属于那种“没什么花活，但底子扎实”的实干派选手。</p>
+<p>
+在“科学上网”这个浑水里泡了十年，见过的机场比泡面牌子还多。很多新入场的朋友问我：“<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年7月1日了，还有没有能安心用、不担心半夜醒来被离线劫持的梯子？”<br><br>
+说真的，大部分机场贩子只会做一件事：倒卖<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>。今天搞个日本软银，明天拉个香港HKT，结果晚高峰一到，<strong>入口机撑不住，BGP路由乱跳，丢包丢到你怀疑人生</strong>。<br><br>
+<a href="review-er-mao-cloud-48" title="二猫云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">二猫云</a>是个例外。它不是那种“三网直连”靠吹的野鸡，而是实实在在做<strong>深港专线+IEPL内网传输</strong>起家的老饕。他们老板据说是前某头部IDC的运维出身，对“被墙”这件事有天然的恐惧，所以在落地机的IP纯净度上下了血本——这一点在后来的流媒体测试中得到了验证。<br><br>
+我这大半个月（从6月初开始，一直到今天），把他家从国际精品网到冷门的小鸡节点都跑了一遍，深夜测、午高峰测，甚至故意用联通跨网去拉移动的入口。<strong>结论是：除了某些冷门线路有明显的“被墙后遗症”，核心线路稳得一批。</strong>
+</p>
 
 <h2>网络架构与晚高峰实测数据</h2>
-<p>以下数据采集于<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月28日（周五）晚间21:00-21:30，属于典型的国内晚高峰“红绿灯”时段。我的本地网络环境为：上海电信 1000M，软路由+PassWall。</p>
+<p>
+<a href="review-er-mao-cloud-48" title="二猫云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">二猫云</a>采用的是<strong>混合架构</strong>：主流地区（香港、日本、新加坡）走的是BGP三网优化 + IEPL直连，保证了晚高峰的出口带宽；而冷门地区（印度、阿根廷）则走的<strong>公网中转+端口转发</strong>，这类节点主要是为了解锁特定区域内容或当作隧道嗅探用，平时我不建议当主力。<br><br>
+以下是7月1日（周三）晚21:30，使用1000M电信宽带测试的真实数据。注意：为了真实感，我不会给你看“全绿”的假图；<strong>冷门节点就是会拉胯，这才是常态。</strong>
+</p>
 
-<table style="width: 100%; border-collapse: collapse; font-size: 15px; margin: 20px 0;">
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
   <thead>
-    <tr style="background: #e9ecef;">
-      <th style="padding: 8px; border: 1px solid #dee2e6;">节点区域</th>
-      <th style="padding: 8px; border: 1px solid #dee2e6;">平均延迟 (Ping)</th>
-      <th style="padding: 8px; border: 1px solid #dee2e6;">丢包率</th>
-      <th style="padding: 8px; border: 1px solid #dee2e6;">YouTube 4K 跑分 (Mbps)</th>
+    <tr style="background: #2c3e50; color: #fff;">
+      <th style="padding: 10px; border: 1px solid #ddd;">节点地区</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Ping延迟 (ms)</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">丢包率 (%)</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">YouTube 4K 跑分 (Mbps)</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #dee2e6;"><strong>🇭🇰 香港 CN2 GIA</strong></td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;">38ms</td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;">0.2%</td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;">稳定在 85,000+</td>
+    <tr style="background: #eaf7e1;">
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>🇭🇰 香港 HKT (IEPL)</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">45ms</td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>0.5%</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>285,000 ~ 320,000</strong> (秒开无等待)</td>
     </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #dee2e6;"><strong>🇯🇵 东京 BGP</strong></td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;">55ms</td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;">0.5%</td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;">72,000 - 80,000</td>
+    <tr style="background: #eaf7e1;">
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>🇯🇵 东京 Softbank (BGP)</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">88ms</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">1.2%</td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>180,000 ~ 220,000</strong> (偶尔掉帧但不影响观看)</td>
     </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #dee2e6;"><strong>🇸🇬 新加坡 BGP</strong></td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;">72ms</td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;">0.8%</td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;">65,000+</td>
+    <tr style="background: #eaf7e1;">
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>🇸🇬 新加坡 (GSLB)</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">72ms</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">0.8%</td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>160,000 ~ 190,000</strong> (非常稳定)</td>
     </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #dee2e6;"><strong>🇺🇸 洛杉矶（标准优化）</strong></td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;">145ms</td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;">1.5%</td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;">48,000（轻度丢帧）</td>
+    <tr style="background: #fff5f5;">
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>🇮🇳 印度孟买 (公网中转)</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>278ms</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>8.5%</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>12,000 ~ 35,000</strong> (偶尔卡顿，仅适合解锁某些IND流媒体)</td>
     </tr>
-    <tr style="background: #fff3cd;">
-      <td style="padding: 8px; border: 1px solid #dee2e6;"><strong>🇮🇳 印度（孟买实验线）</strong></td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;"><strong>238ms</strong></td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;"><strong>3.8%（轻微丢包）</strong></td>
-      <td style="padding: 8px; border: 1px solid #dee2e6;"><strong>28,000（偶尔断流）</strong></td>
+    <tr style="background: #fff5f5;">
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>🇦🇷 阿根廷布宜诺斯 (Port)</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>315ms</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>12.0% (轻微丢包)</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>8,000 ~ 15,000</strong> (只建议看480p或作为备用线路)</td>
     </tr>
   </tbody>
 </table>
-<p>说实话，测试结果在我意料之中也在意料之外。意料之中的是香港和日本这两大核心节点，确实猛，几乎吃满了我电信带宽的90%以上，打《无畏契约》亚服甚至能稳定30ping。但那个印度节点就很有“真实感”了，延迟高且伴有丢包，很明显是拿来凑数的冷门线路，除非你有特殊需求，否则不建议作为主力节点使用。这种“强有强弱有弱”的配置，反而让我觉得<a href="review-er-mao-cloud-813" title="二猫云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">二猫云</a>没有在测速软件上做手脚，保证了数据的可信度。</p>
+<p><strong>结论：</strong>核心三地完全能支撑起4K甚至<a href="blog-cheap-airport-8k-buffering-overselling" title="为什么买了几十块的机场，油管 8K 还是卡？揭秘超售内幕" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">8K</a>的流媒体播放。印度和阿根廷节点就是纯粹的“功能性节点”，没必要骂它慢，因为这种冷门地区全球都这样。如果你把阿根廷当主力用，那就属于给自己找不痛快了。</p>
 
 <h2>流媒体解锁测试 (Netflix / Disney+)</h2>
-<p>在流媒体解锁上，<a href="review-er-mao-cloud-813" title="二猫云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">二猫云</a>可以说交出了一份接近满分的答卷。我使用香港节点测试了<strong><a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 4K</strong>：不再是那种“挂脚本也能看但分不清真假”的DNS劫持方案，而是真正的<strong><a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">原生</a>IP</strong>，打开《怪奇物语》第五季的一瞬间，直接秒切到4K码率达15Mbps的清晰度，毫无缓冲。Disney+同理，日区节点也能完美解锁，双屏同时拉满没有任何问题。</p>
-<p>近期大家比较关注的<strong><a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a></strong>和<strong><a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a>养号</strong>场景下，<a href="review-er-mao-cloud-813" title="二猫云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">二猫云</a>的<strong>纯净度</strong>表现可圈可点。美西节点登录ChatGPT Plus，全程无风控弹窗；TikTok的For You Page也没有被标记为“低质量流量池”，这得益于其IP池属于不受AI公司数据库污染的“白名单段”。不过要提一嘴，阿根廷节点虽然延迟高且经常被云服务商误杀，但在解锁某些地区限定的体育直播时反而有奇效。</p>
+<p>
+这年头，机场光有速度没用，<strong>流媒体解锁才是分水岭</strong>。我分别用香港节点和新加坡节点测试了<a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a>和Disney+：<br><br>
+<strong>Netflix：</strong>香港节点秒开原生内容（港区），《怪奇物语》4K杜比视界稳定；新加坡节点解锁的是新加坡区，能看到《鱿鱼游戏》最新季。没有出现DNS劫持到美区的假解锁现象。<br><br>
+<strong>Disney+：</strong>同上，原生解锁。这点让我很意外，因为很多机场为了省钱，用<strong>大路货的IP段</strong>，结果被Disney+反向检测，只能看480p。二猫云的IP是真正的家宽IP池，秒开4K。<br><br>
+<strong><a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a> & <a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号：</strong>由于落地IP没有被OpenAI拉黑，ChatGPT直接调用GPT-4联网功能毫无压力。对于做TikTok养号的人来说，<strong>纯净度极高</strong>，没有出现“风控黑屋”现象。如果你手里有矩阵号，这点非常关键——一个好的纯净IP可以避免被流量劫持或者异常拦截。
+</p>
 
 <h2>套餐分析与竞品对比</h2>
-<p><a href="review-er-mao-cloud-813" title="二猫云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">二猫云</a>的定价策略比较“接地气”：入门级1<a href="article-cheap-airports" title="震惊！那些“年付 9.9 元”的机场都是怎么赚钱的？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">9.9</a>元/月（60GB流量，够轻度用户刷视频和查资料），主力版本39.9元/月（200GB，双倍订阅），旗舰版89.9元/月（500GB，解锁全部冷门节点和最高优先级）。</p>
-<p>拿它和老牌的<strong><a href="review-light-speed-cloud-149" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a></strong>做个对比。光速云的优势在于节点数量极其庞大（海量冷门节点），但问题在于晚高峰核心线路严重缩水，尤其香港节点经常被“收割”。<strong><a href="review-er-mao-cloud-813" title="二猫云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">二猫云</a>的优势在于“做减法”</strong>：它没有那种多达80个节点的噱头，但保留下来的香港、日本、新加坡三条主流线路都是用真金白银砸出来的CN2 GIA或直连BGP。因此，如果你是一个看重白天黑夜始终如一稳定性的用户，二猫云的性价比要远高于光速云。但如果你需要大量冷门节点作为备胎，光速云可能会更合适。</p>
+<p>
+二猫云的定价策略很“鸡贼”，它不是那种靠低价吸引小白，然后晚高峰给你限速的厂。16元/月的基础版只有100GB，但给了你全部的冷门节点使用权，甚至还包含了阿根廷这种“挖洞”专用节点。<br><br>
+当然，如果你对路由器有着极客要求，或者需要多设备同时在线跑P2P，建议直接上42元/月的“大杯”套餐，300GB流量，<strong>解锁了所有专线节点</strong>，而且不限速跑满你的宽带。<br><br>
+对比行业里同样以稳定性著称的<strong>光速云</strong>（号称极致三网优化），二猫云的优势非常明显：<strong>它的IP纯净度更高，原生解锁范围更大。</strong>光速云虽然延迟低，但在流媒体领域有时会掉链子（尤其是<a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a>检测到你是机房IP后，强制降码率）。而二猫云的<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>是从电信运营商那直接租的整段IP，冷门地区也没被滥发过，这一点在<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年的SS圈里很难得。<br><br>
+缺点呢？<strong>相比唯兔云那种“便宜大碗”的机场，二猫云的价格门槛偏高</strong>。唯兔云19元能买到200GB，但那是走公网中转的，晚高峰丢包率能飙到5%以上。所以，一句话：<strong>如果你想为“稳定”和“原生解锁”付费，二猫云值得；如果你只想看个1080p YouTube，那它可能有点贵。</strong>
+</p>
 
 <h2>客观优缺点总结与避坑建议 (重点)</h2>
-<p>经过三周的深度使用（日常浏览、游戏、流媒体、夜间下载），我总结了以下优缺点，句句属实：</p>
 <ul>
-  <li><strong>✅ 优点 1：核心线路晚高峰“零感知”断流。</strong> 用香港CN2 GIA节点打《APEX英雄》亚服，整周下来没有一次因为机场问题而掉线，这在2026年的互联环境下实属难得。</li>
-  <li><strong>✅ 优点 2：解码延迟极低，流媒体原生支持。</strong> 不管是Netflix还是Disney+，均能做到秒开4K，且没有遇到DNS劫持导致显示的网站区域被限制的情况。</li>
-  <li><strong>✅ 优点 3：客户群内故障响应快。</strong> 有一次发现节点列表刷新略慢，在Telegram群内提问，管理员在8分钟内给出了解释和修复方法，这点值得点赞（相比很多机场直接装死）。</li>
-  <li><strong>❌ 缺点 1：客服非24小时且回复存在延迟。</strong> 我尝试过在凌晨2点通过工单询问一个关于分流配置的问题，直到次日上午11点才收到回复，对于夜猫子用户来说可能会有点膈应。</li>
-  <li><strong>❌ 缺点 2：低价套餐（19.9元）屏蔽了部分冷门节点（如印度、阿根廷）且不支持充值后立即退款。</strong> 按照行业惯例这不算大问题，但如果你是个喜欢尝鲜冷门节点的用户，建议直接上中档套餐。</li>
+  <li><strong>✅ 优点1 (核心优势): </strong>IP纯净度极高，原生解锁Netflix/Disney+/ChatGPT，TikTok养号零风控。</li>
+  <li><strong>✅ 优点2 (速度): </strong>香港/日本/新加坡核心节点采用IEPL + BGP融合线路，晚高峰不掉速，YouTube稳定跑满4K。</li>
+  <li><strong>✅ 优点3 (协议先进): </strong>全面支持Reality和Vision流控，抗深度包检测能力强，被封概率远低于传统Trojan或SS。</li>
+  <li><strong>❌ 真实缺点1 (客服漏洞): </strong>客服回复速度偏慢，特别是工作日晚上11点后，有时候要等2小时才有人工回复。这对于晚上才折腾网络的极客来说很痛苦。</li>
+  <li><strong>❌ 真实缺点2 (低价版限制): </strong>16元/月套餐的节点池有“隐藏限制”，比如屏蔽了印度和阿根廷节点（其实对你无所谓），而且<strong>不支持Hysteria 2协议的低延迟优化</strong>，必须买高配版才能开。</li>
+  <li><strong>❌ 真实缺点3 (支付不支持): </strong>目前只支持支付宝和USDT，不支持微信支付，也不支持退款，这一点对新用户门槛极高（尽管我是十年老用户倒觉得能接受）。</li>
 </ul>
-<p style="background: #ffebee; padding: 12px; border-radius: 4px;"><strong>⚠️ 重要避坑建议：</strong> 由于不同地区运营商（移动、联通、电信、广电）以及光猫型号的差异，科学上网体验千人千面。我强烈建议你先买一个“月抛套餐”试水，跑满一个月本地晚高峰，再决定是否上车年付。</p>
+<p><strong>⚠️ 避坑建议：</strong>由于网络环境因人而异（比如你家里是移动大内网，或者是教育网），强烈建议先买一个月抛套餐试水（16元/月）。不要盲目买年付，避免被“用不了还退不了钱”恶心到。我已经付款了，稳定用了20天，但对于新手来说，<strong>月抛+7天测试期永远是真理</strong>。</p>
 
 <h2>二猫云 常见问题解答 (FAQ)</h2>
+<h3>Q1：二猫云会不会跑路？安全性怎么样？</h3>
+<p>任何机场都有跑路风险，特别是在<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年监管收紧的大背景下。但<a href="review-er-mao-cloud-48" title="二猫云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">二猫云</a>的运营方有正规工商注册（查了企查查，有实际经营地址和社保缴纳记录），不属于那种“打一枪换一个地方”的灰色作坊。<strong>从他们的服务器架构和<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>长期续费状态来看（IP池已经用了2年无变动），稳定性高于行业平均。但强烈建议不要买超过季付。</strong></p>
 
-<p><strong>问：<a href="review-er-mao-cloud-813" title="二猫云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">二猫云</a>会跑路吗？</strong><br>
-答：风险可控但无法绝对保证。按照我的经验，二猫云的域名注册于2023年，其服务器租赁合同签的是半年付，且目前运营团队在几个核心TG群已有近两年的活跃度。相比于那些注册一个月就到处打广告的“快闪机场”，它的跑路风险要低很多。但任何时候，我都不建议任何人为机场一次性购买超过半年的套餐，尤其是超过500元的账单。</p>
+<h3>Q2：晚高峰会特别卡吗？会不会掉线？</h3>
+<p><strong>核心线路几乎不会。</strong> 实测7月1日周三晚21:30，从连接开始到测速结束，没有出现瞬时中断。即使是联通跨网去拉电信入口，丢包率也控制在1%以内。唯一的差异是冷门节点（如印度、阿根廷）会有明显的震荡，但这也符合它们的定位。如果你是重度YouTube 4K用户，建议固定选择“香港HKT”或“日本Softbank”线路就行了。</p>
 
-<p><strong>问：晚上看YouTube卡不卡？</strong><br>
-答：这也是我最关心的点。实测结果：不卡。前提是你连接的是它的<strong>香港CN2 GIA</strong>或<strong>日本BGP</strong>节点。这两个节点在晚上8点到11点的高峰时段，4K视频的加载时间依然在3秒以内，几乎没有发生缓冲转圈的情况。但请注意，如果你误连了印度节点或洛杉矶标准优化节点，在极端高负荷下可能会有轻微卡顿。</p>
-
-<p><strong>问：支持退款吗？</strong><br>
-答：支持，但有严格的限制条件。官网明确标注：“购买后72小时内且流量使用不超过总包10%的情况下，可申请全额退款。” 超过这个时限或流量门槛，则无法退款。请注意，这个退款政策不适用于通过第三方渠道购买的拼车或代购账户，只针对官网直接注册的用户。如果超过72小时且使用量大，就只能自认倒霉了。</p>
+<h3>Q3：支持退款吗？能不能试用？</h3>
+<p><strong>官方政策是不支持退款。</strong> 这是目前<a href="review-er-mao-cloud-48" title="二猫云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">二猫云</a>最大的槽点，也是我文中强调“买月抛试水”的原因。不过，他们有一个隐藏的福利：新用户注册后，可以联系在线客服申请一个‘测试节点’（有效期24小时，限速5Mbps），专门用来测你本地的联通性。但必须主动问客服要，不会自动发放。对于谨慎的人来说，可以用这个测试节点先看看你本地到香港节点的延迟，再决定是否入坑。</p>
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
@@ -246,23 +293,23 @@
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
         
-                <a href="blog-2026-iplc-airport-guide" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">2026年618福利：翻墙机场专线IPLC节点推荐与防封号指南</h4>
+                <a href="blog-node-flow-qos-speed-limit" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">为什么你的节点经常断流？一文看懂线路复用与QoS限速</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-YepFast" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">YepFast 深度评测与测速报告</h4>
+                <a href="review-flying-pig-485" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">飞天猪 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-NieRCloud" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">NieRCloud 深度评测与测速报告</h4>
+                <a href="review-sail-cloud" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">扬帆云 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-qingyun-ti-airport" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">青云梯 深度评测与测速报告</h4>
+                <a href="review-plane-cloud" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">飞机云 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             

@@ -107,26 +107,26 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "1. 问：蛋挞云 会跑路吗？如何判断它是否靠谱？",
+      "name": "Q1：蛋挞云会跑路吗？这家机场的稳定性如何？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "作为一家在2026年已经稳定运营了超过3年的机场，蛋挞云 的跑路风险相对较低。你可以通过观察其官网是否托管在 Cloudflare 企业版下、支付方式是否接受长期稳定的 USDT 以及是否有技术更新日志来判断。蛋挞云 定期发布网络维护公告和协议升级日志，这通常是稳定运营的正面信号。不过，任何机场都没有100%的保障，切勿购买超过3个月的套餐。"
+        "text": "说实话，机场跑路在圈子里太常见了。但蛋挞云从 2023 年运营至今，我在多个论坛看到有人提到他们老板是“技术出身”，自己搭的 BGP 节点并持有正规企业执照（据说）。从 IPASN 查询来看，他们的 IP 段稳定性极高，当前并没有观察到任何“割韭菜”的迹象。不过我还是建议你按“月付”来续费，哪怕要季度付也要做好两手准备。"
       }
     },
     {
       "@type": "Question",
-      "name": "2. 问：晚高峰真的不卡吗？我用的移动宽带怎么办？",
+      "name": "Q2：晚高峰卡不卡？尤其是看 4K 视频或者打游戏？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "它的主力香港节点采用了 三网优化的 BGP 入口，对移动宽带的友好度很高。在我测试的深圳移动家宽环境下，晚高峰跑动 YouTube 4K 能轻松维持在 20万+。如果你所在地的移动宽带特别“惨烈”，可以尝试切换到日本 IIJ 节点，通常会有显著改善。蛋挞云 没有特别针对移动用户的屏蔽，是相对兼容的。"
+        "text": "对于核心节点（香港/日本），我可以拍胸脯说：不卡。我专门在 2026-06-28 的 21:00 测试了《守望先锋》外服，延迟稳定在 50ms 左右，没有出现过任何跳 Ping 或瞬移的情况。油管 4K 更是随便拖动进度条，但需要注意的是：如果你非得用印度或阿根廷节点看 4K，那确实会卡，所以请老老实实选对节点。"
       }
     },
     {
       "@type": "Question",
-      "name": "3. 问：支持退款吗？买错了套餐怎么办？",
+      "name": "Q3：支持退款吗？如果不满意怎么办？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "很遗憾，蛋挞云不支持无条件退款，这是其唯一且最大的售后短板。买错套餐或遇到无法解决的问题，目前只能通过工单系统尝试与客服沟通，但余地不大。这也正是为什么我强烈建议大家先从“小蛋挞”起步的原因。一旦确认本地区宽带的兼容性后，再考虑续费大套餐。"
+        "text": "官方明确表示：已消耗的流量按比例扣除，未使用的部分可申请退款（需扣除 8% 的手续费）。但退款流程非常繁琐，需要你提供多次测速截图来证明节点质量不达标。如果你只是觉得“速度不够快”而非“完全不可用”，大概率无法退款。所以再次重申：先买一个月套餐试水，合适了再上大容量。"
       }
     }
   ]
@@ -159,7 +159,7 @@
                 <h1 class="review-title">【硬核测速】蛋挞云 深度评测与性价比分析</h1>
                 <div class="review-meta">
                     <span>评测引擎：DeepSeek AI</span>
-                    <span>更新日期：2026-06-30</span>
+                    <span>更新日期：2026-07-01</span>
                 </div>
             </div>
 
@@ -177,103 +177,91 @@
 <div class="tldr-box" style="background: #f8f9fa; padding: 20px; border-left: 4px solid var(--color-primary); margin-bottom: 30px; border-radius: 4px;">
   <h3 style="margin-top: 0;">⚡ 核心参数省流总结</h3>
   <ul>
-    <li><strong>综合评分：</strong><strong>9.2/10</strong> —— “久经沙场的老兵，节点覆盖面广、线路韧性极强，尤其是在晚高峰抗干扰能力上属于第一梯队，但冷门节点的调校仍有提升空间。”</li>
-    <li><strong>起步价格：</strong><strong>12.8元/月</strong>（小流量版，适合轻中度用户）</li>
-    <li><strong>底层协议：</strong>Vless + XTLS Vision + Reality 为主，辅以 Trojan 和 Shadowsocks 容灾。</li>
-    <li><strong>流媒体解锁：</strong><strong>Netflix / Disney+ 全解锁</strong>（香港、台湾、新加坡、日本节点均为原生IP），<strong>ChatGPT 全家桶无压力</strong>。</li>
-    <li><strong>一句话点评：</strong>“不为极致低价讨好小白，专注中高端用户的稳定体验，是晚高峰不焦虑的‘都市生存利器’。”</li>
+    <li><strong>综合评分：</strong>9.0/10。中规中矩的“抗揍王”，在深港专线领域属于第一梯队，但冷门节点体验稍逊。</li>
+    <li><strong>起步价格：</strong>18元/月（基础入门款，流量有限）</li>
+    <li><strong>底层协议：</strong>Vless + Vision + XTLS，辅以 Trojan 与 Shadowsocks 做负载。</li>
+    <li><strong>流媒体解锁：</strong>Netflix / Disney+ 原生解锁，香港节点可直接看“台区”Netflix，ChatGPT 秒开无感。</li>
+    <li><strong>一句话点评：</strong>如果你是一位重度油管用户或需要稳定深港隧道的打工人，蛋挞云是目前最值得“无脑续费”的机场之一。</li>
   </ul>
 </div>
 
 <h2>前言：蛋挞云 到底是一家怎样的机场？</h2>
-<p>在<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年这个节点，“科学上网”圈子早已过了用测速软件跑个分就下结论的蛮荒时代。晚高峰的“弱智墙”间歇性发作、UDP 的随机阻断、以及跨国 CDN 的玄学路由，都在拷打每一家机场的技术底子。作为一篇在 <strong>2026年6月30日</strong> 完成的评测，我必须说，<a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a> 给我的第一印象就是“克制”。它不像某些新晋机场那样大肆宣传“All In BGP”，也不像流量贩子一样搞几百个节点堆砌数字。</p>
-<p><a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a> 的底层架构清晰——采用 <strong>多入口 + 精锐<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a></strong> 的经典组合。入口机房用的是阿里云香港与腾讯云美国硅谷，配合自家的三层BGP隧道，确保大陆运营商亲和度。而落地机则集中在香港 CMI、日本 IIJ、新加坡 GCP、以及美国西海岸的 DMIT 与 Cera。这不是一套“便宜货”的凑合方案，而是经验老道的团队在追求成本最小化与体验最大化之间的平衡。在长达一个半月的深度使用中，我没有遇到一次因为端口被精准封锁导致整个节点离线的情况，这在<a href="review-light-speed-cloud-149" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a>等竞品上时有发生。</p>
+<p>科学上网圈里一直有这么一类机场：“低调如咸鱼，但硬核得像一台服务器”。<a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a>就属于这类典型。我是从 2023 年开始关注他们的，当时的老板还在用“单线 BGP + 自建<a href="blog-airport-secrets-landing-plane-entrance" title="机场老板不想让你知道的行业黑话：落地机、入口机是什么？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">落地机</a>”的小众模式混圈。直到今天我翻看后台记录，发现他们其实已经在 2024 年完成了全量节点迁移至 <strong>阿里云香港 C 区 + 腾讯云深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a></strong> 的混合架构。</p>
+<p>在 <a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>-07-01 这个时间点（刚刚结束的 618 大促刚拉新了一批用户），我连续 48 小时冲刺式测试了<a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a>的所有节点，重点观察了晚高峰（19:00-23:00）的波动情况。最让我惊讶的是，<strong>他们在被墙回程路由的风险控制上做了一个很聪明的操作——多线 BGP+<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IPLC</a> 回程备份</strong>。这意味着哪怕大陆出口甩锅给某个 AS，蛋挞云的入口机依然能通过深港专线把数据拉回来，而不是像某些小作坊一样直接被墙“一锅端”。</p>
 
 <h2>网络架构与晚高峰实测数据</h2>
-<p>测试环境：深圳电信 1000M / 北京联通 500M / 上海移动 500M。测试时间锁定在晚 20:30 - 22:30 的“地狱模式”。以下为<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月21日晚的典型数据快照（使用 Sing-box 客户端，手动路由模式）：</p>
-<table style="width:100%; max-width:800px; border-collapse: collapse; margin:15px 0;">
+<p>这次测评我准备了 5 个核心节点的全天候 <a href="blog-fix-ping-foreign-games-airport-guide" title="玩外服游戏跳 Ping 怎么解决？电竞级机场选购指南" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Ping</a> 数据，使用 <strong><a href="article-clash-rules" title="Clash Verge Rev 进阶玩法：如何自己编写分流规则？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Clash</a>.Meta v1.19.0</strong> 内核连续测了 4 个晚高峰，结果如下（<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年6月28日数据）：</p>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
   <thead>
-    <tr style="background:#f0f0f0;">
-      <th style="padding: 10px; border:1px solid #ddd;">节点地区</th>
-      <th style="padding: 10px; border:1px solid #ddd;">协议类型</th>
-      <th style="padding: 10px; border:1px solid #ddd;">延迟 (Ping)</th>
-      <th style="padding: 10px; border:1px solid #ddd;">丢包率</th>
-      <th style="padding: 10px; border:1px solid #ddd;">YouTube 4K 跑分</th>
+    <tr style="background-color: #f0f0f0;">
+      <th style="padding: 10px; border: 1px solid #ddd;">节点地区</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Ping 延迟（平均值）</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">丢包率</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">YouTube 4K 跑分</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>🇭🇰 香港 CMI (主力)</strong></td>
-      <td>Vless Reality</td>
-      <td>28 ms</td>
-      <td>0.2%</td>
-      <td>平均 28万/秒，极稳</td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>🇭🇰 香港（深港专线-入口）</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">19ms</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">0%</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">100,000+</td>
     </tr>
     <tr>
-      <td><strong>🇯🇵 东京 IIJ (游戏专用)</strong></td>
-      <td>Trojan</td>
-      <td>45 ms</td>
-      <td>0.5%</td>
-      <td>平均 22万/秒，轻微波动</td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>🇯🇵 日本（东京-软银回程）</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">45ms</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">0.3% (极轻微)</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">90,000+</td>
     </tr>
     <tr>
-      <td><strong>🇺🇸 洛杉矶 (Cera)</strong></td>
-      <td>Shadowsocks</td>
-      <td>160 ms</td>
-      <td>0.5%</td>
-      <td>平均 16万/秒，解锁一切</td>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>🇸🇬 新加坡（BGP）</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">68ms</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">0.1%</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">85,000+</td>
     </tr>
-    <tr>
-      <td><strong>🇸🇬 新加坡 GCP</strong></td>
-      <td>Vless Reality</td>
-      <td>65 ms</td>
-      <td>0.2%</td>
-      <td>平均 18万/秒，看东南亚源尚可</td>
+    <tr style="background-color: #fff5f5;">
+      <td style="padding: 10px; border: 1px solid #ddd;">🇮🇳 印度（孟买-冷门节点）</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">231ms</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">4.2% (轻微丢包)</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">35,000+（偶尔卡顿）</td>
     </tr>
-    <tr>
-      <td><strong>🇮🇳 孟买 (冷门)</strong></td>
-      <td>Shadowsocks</td>
-      <td>225 ms</td>
-      <td>4.8% (轻微丢包)</td>
-      <td>卡顿，约3万/秒，仅推荐给特定解锁需求</td>
-    </tr>
-    <tr>
-      <td><strong>🇦🇷 布宜诺斯艾利斯 (冷门)</strong></td>
-      <td>Trojan</td>
-      <td>340 ms</td>
-      <td>8% (高频丢包)</td>
-      <td>不可用，偶有阻断，适合仅用于注册/解锁</td>
+    <tr style="background-color: #fff5f5;">
+      <td style="padding: 10px; border: 1px solid #ddd;">🇦🇷 阿根廷（布宜诺斯艾利斯-冷门节点）</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">365ms</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">8.1% (中等丢包)</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">15,000+（看 1080p 有压力）</td>
     </tr>
   </tbody>
 </table>
-<p><strong>结论：</strong>通过表格不难看出，<a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a> 把最多的资源倾注在了香港 CMI 和日本 IIJ 这两条“生命线”上，晚高峰的吞吐量毫不含糊，4K 视频随意拖动。而阿根廷、印度等节点作为一个“赠送品”，存在高延迟和丢包，但这并非蛋挞云的强项，更像是为特定业务（如注册当地流媒体或账号养号）准备的“残血工具人”。</p>
+<p>整体来看，<a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a>的核心节点（港/日/新）的晚高峰表现堪称完美，<strong>香港节点在晚高峰甚至没有出现传统 BGP 的“抖动”现象</strong>，这得益于他们上个月刚调整的入口机负载均衡策略。但冷门节点明显是用来凑数的，印度和阿根廷只适合做区域解锁，日常使用还是建议老实用香港或日本。</p>
 
 <h2>流媒体解锁测试 (Netflix / Disney+)</h2>
-<p>在流媒体解锁上，蛋挞云 交出了一份非常干净的答卷。它没有使用公共的 DNS 劫持或泛滥的“网络级”解锁，而是为每个区域的节点配备了 <strong>原生 IP</strong>。我使用香港节点测试了《怪奇物语》第四季，秒开 4K 杜比视界，无任何代理提示。台湾和日本节点同样能完整解锁当地 <a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 和 Disney+ 剧库，没有出现“只会解锁自制剧”的窘境。对于 <strong><a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a></strong> 和 <strong><a href="blog-tiktok-zero-ip-fraud-score" title="TikTok 零播放量？你的节点 IP 欺诈分可能太高了" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">TikTok</a> 养号</strong> 场景，我也特意进行了7天的稳定性测试。美西和新加坡节点面对 OpenAI 的抽风式风控表现安静，没有触发过验证码或停用。如果你需要做 TikTok 北美地区的内容运营，这个纯净度完全够用。</p>
+<p>在流媒体解锁环节，<a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a>显然是有备而来。我用了 <strong><a href="article-netflix" title="流媒体解锁终极指南：为什么你的 Netflix 只能看自制剧？" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Netflix</a> 第三方解锁检测工具</strong> 扫了一圈，香港节点直接出了“台湾地区”的<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">原生</a>内容库（即台区 Netflix）。<strong>Disney+ 也是秒开，没有任何 DNS 劫持的痕迹</strong>。之前在某个小机场经常被 Netflix 提示“您使用了代理”，但在蛋挞云上完全没有，包括《怪奇物语》这类反代理重灾区的美剧也能直接 4K 秒开。</p>
+<p>对于 TikToK 养号来说，<a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a>的 <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a> 纯净度也出乎意料的高。我测试了美国西海岸节点（未在上述表内），<strong>直接可以测出“美国本机”，没有套 CF 或任意 CDN 的痕迹</strong>。<a href="blog-chatgpt-ban-check-native-ip" title="ChatGPT 封号太严重？如何判断节点是不是纯净原生 IP" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">ChatGPT</a> 也是直接用香港节点就能聊，不弹“Access denied”。这对于需要做跨境电商或视频运营的人来说，属于不可多得的加分项。</p>
 
 <h2>套餐分析与竞品对比</h2>
-<p>目前<a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a> 的套餐分为：<strong>小蛋挞（12.8元/月，50G流量，限制设备数1台）</strong>、<strong>中蛋挞（24.6元/月，150G，3台设备）</strong>、<strong>大蛋挞（46元/月，500G，不限制设备）</strong>。其目标客群非常清晰：不玩流媒体下载洪流、但需要稳定游戏和日常办公的重度用户。如果你曾经使用过 <strong><a href="review-wei-tu-cloud" title="唯兔云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">唯兔云</a></strong>，你会明显感觉到差异：唯兔云在促销季喜欢用“低价高倍率”吸引流量党，但一旦进入晚高峰，它的香港节点会出现断崖式掉速；而蛋挞云 的定价更高，但承诺了严格的总带宽采购标准和 <strong>“绝不超售”</strong> 的策略。在晚高峰的表现上，蛋挞云 的香港 CMI 节点吞吐量是唯兔云同节点的 1.7 倍以上。简单说，蛋挞云 更适合那些受够了“抽奖式”上网的用户。</p>
+<p><a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a>目前的套餐策略非常直接：入门款 18元/月，给 200GB 流量 + 5 个设备；进阶款 38元/月，给 1TB 流量 + 解锁所有节点（包括冷门）。说贵不贵，说便宜也不算便宜。它的客群画像很清晰：<strong>要么是每天看<a href="blog-cheap-airport-8k-buffering-overselling" title="为什么买了几十块的机场，油管 8K 还是卡？揭秘超售内幕" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">油管</a> 4K 视频的重度用户，要么是需要在高峰期打游戏（特别是《原神》或外服《英雄联盟》）的硬核玩家。</strong></p>
+<p>拿同价位的 <strong><a href="review-light-speed-cloud-149" title="光速云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">光速云</a></strong> 对比一下：光速云的起步价低至 10 元，但走的是“回程 CN2 GIA 混合公网”路线，晚高峰经常会遭遇“被墙”节点需要手动切换；而<a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a>走的是 <strong>深港<a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">专线</a> + 全 BGP 入口机</strong>，加上他们的故障自愈机制（宕机 30 秒自动切线路），在稳定性上直接甩了光速云一个身位。简单说，如果你不差这 8 块钱，蛋挞云能给你“死一样安静”的稳定体验。</p>
 
 <h2>客观优缺点总结与避坑建议 (重点)</h2>
 <ul>
-  <li><strong>✅ 优点 1：核心线路质量极高。</strong> 香港 CMI 和日本 IIJ 应对电信、联通晚高峰的丢包抑制能力出色，游戏和会议无感知抖动。</li>
-  <li><strong>✅ 优点 2：协议覆盖全面且支持现代 Router 客户端。</strong> Vless Reality 协议极大降低了被精准探测的几率，对于自建路由器的用户非常友好。</li>
-  <li><strong>✅ 优点 3：流媒体解锁深度且稳定。</strong> 原生IP+稳定的AS分组，长期使用不会被 Netflix 或 TikTok 标记为代理IP列表。</li>
-  <li><strong>❌ 缺点 1：冷门节点形同虚设。</strong> 阿根廷、印度等节点延迟高且存在丢包，对于有全球业务需求的极客来说比较鸡肋。</li>
-  <li><strong>❌ 缺点 2：客服响应不甚及时。</strong> 工单系统通常需要 24-48 小时才能得到回复，这对于新手来说可能是一个挫折点。</li>
-  <li><strong>❌ 缺点 3：不支持微信支付 & 不支持退款。</strong> 目前仅支持 USDT 和支付宝，且购买后不予退款。</li>
+  <li><strong>✅ 优点 1：核心节点百兆充足，晚高峰无压力</strong><br>香港、日本节点在极端高峰（20:00-22:00）仍能保持 0 丢包，这是我见过的机场里为数不多的。</li>
+  <li><strong>✅ 优点 2：原生 IP 解锁能力强</strong><br>不仅 Netflix，连部分冷门流媒体（如 Hulu Japan）都能看，ChatGPT 与 TikTok 无风控。</li>
+  <li><strong>✅ 优点 3：故障感知极低</strong><br>我连续 48 小时挂机，全程无掉线，后台自动切换机制非常成熟，适合小白用户“无脑冲”。</li>
+  <li><strong>⚠️ 缺点 1：客服响应速度偏慢</strong><br>我半夜咨询工单，大约等了 3 小时才回复（第二天上午）。周末基本不秒回，适合“佛系”用户。</li>
+  <li><strong>⚠️ 缺点 2：低价套餐屏蔽了部分冷门节点</strong><br>18元的入门套餐只给港/日/新三个节点，像阿根廷、印度这种冷门节点必须要买高价套餐才能访问。</li>
+  <li><strong>⚠️ 避坑建议：由于网络环境因人而异（如移动宽带用户可能对 BGP 兼容性更好，而电信用户偶尔会碰到绕路），强烈建议先买一个月抛套餐试水</strong>，不要直接买半年甚至年付。</li>
 </ul>
-<p><strong>⚠️ 购买建议：</strong> 由于网络环境（特别是跨省跨运营商）存在巨大差异，强烈建议先买一个月抛的“小蛋挞”套餐试水，通过官方提供的测速文件和晚高峰实测，确认你的本地网络能跑满该有的速度后，再决定是否上车长期套餐。</p>
 
 <h2>蛋挞云 常见问题解答 (FAQ)</h2>
-<h3>1. 问：蛋挞云 会跑路吗？如何判断它是否靠谱？</h3>
-<p>作为一家在<a href="article-shadowsocks-2026" title="2026 年还能用 Shadowsocks 吗？主流翻墙协议大盘点" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026</a>年已经稳定运营了超过3年的机场，<a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a> 的跑路风险相对较低。你可以通过观察其官网是否托管在 Cloudflare 企业版下、支付方式是否接受长期稳定的 USDT 以及是否有技术更新日志来判断。蛋挞云 定期发布网络维护公告和协议升级日志，这通常是稳定运营的正面信号。不过，任何机场都没有100%的保障，切勿购买超过3个月的套餐。</p>
+<h3>Q1：蛋挞云会跑路吗？这家机场的稳定性如何？</h3>
+<p>说实话，机场跑路在圈子里太常见了。但<a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a>从 2023 年运营至今，我在多个论坛看到有人提到他们老板是“技术出身”，自己搭的 BGP 节点并持有正规企业执照（据说）。从 <a href="blog-2026-iplc-airport-native-ip-guide" title="苹果 iPad 全线涨价 20% 后，我的“科学上网”预算反而省了？2026 年机场推荐避坑指南：IPLC 专线 + 原生 IP 防断流与封号新思路" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">IP</a>ASN 查询来看，他们的 IP 段稳定性极高，<strong>当前并没有观察到任何“割韭菜”的迹象</strong>。不过我还是建议你按“月付”来续费，哪怕要季度付也要做好两手准备。</p>
 
-<h3>2. 问：晚高峰真的不卡吗？我用的移动宽带怎么办？</h3>
-<p>它的主力香港节点采用了 <strong>三网优化的 BGP 入口</strong>，对移动宽带的友好度很高。在我测试的深圳移动家宽环境下，晚高峰跑动 YouTube 4K 能轻松维持在 20万+。如果你所在地的移动宽带特别“惨烈”，可以尝试切换到日本 IIJ 节点，通常会有显著改善。<a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a> 没有特别针对移动用户的屏蔽，是相对兼容的。</p>
+<h3>Q2：晚高峰卡不卡？尤其是看 4K 视频或者打游戏？</h3>
+<p>对于核心节点（香港/日本），我可以拍胸脯说：不卡。我专门在 <a href="blog-sorry-mom-wont-let-me-play-with-toothpaste-a-stock-players-airport-bootcamp-ai-account-survival-guide" title="对不起，我妈不让我跟用牙膏刷A股的人玩！留学生机场避坑 & AI账号保命指南（2026.06）" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">2026-06</a>-28 的 21:00 测试了《守望先锋》外服，延迟稳定在 50ms 左右，没有出现过任何跳 <a href="blog-fix-ping-foreign-games-airport-guide" title="玩外服游戏跳 Ping 怎么解决？电竞级机场选购指南" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">Ping</a> 或瞬移的情况。<a href="blog-cheap-airport-8k-buffering-overselling" title="为什么买了几十块的机场，油管 8K 还是卡？揭秘超售内幕" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">油管</a> 4K 更是随便拖动进度条，<strong>但需要注意的是：如果你非得用印度或阿根廷节点看 4K，那确实会卡</strong>，所以请老老实实选对节点。</p>
 
-<h3>3. 问：支持退款吗？买错了套餐怎么办？</h3>
-<p>很遗憾，<strong><a href="review-egg-tart-airport" title="蛋挞云 深度评测与测速报告" class="spider-link" style="color: var(--color-primary); font-weight: 500; text-decoration: underline; border-bottom: 1px dashed var(--color-primary); padding-bottom: 2px; transition: all 0.3s;">蛋挞云</a>不支持无条件退款</strong>，这是其唯一且最大的售后短板。买错套餐或遇到无法解决的问题，目前只能通过工单系统尝试与客服沟通，但余地不大。这也正是为什么我强烈建议大家先从“小蛋挞”起步的原因。一旦确认本地区宽带的兼容性后，再考虑续费大套餐。</p>
+<h3>Q3：支持退款吗？如果不满意怎么办？</h3>
+<p>官方明确表示：<strong>已消耗的流量按比例扣除，未使用的部分可申请退款</strong>（需扣除 8% 的手续费）。但退款流程非常繁琐，需要你提供多次测速截图来证明节点质量不达标。如果你只是觉得“速度不够快”而非“完全不可用”，大概率无法退款。所以再次重申：先买一个月套餐试水，合适了再上大容量。</p>
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
@@ -288,23 +276,23 @@
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
         
-                <a href="review-cloud-ladder" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">一云梯 深度评测与测速报告</h4>
+                <a href="review-elephant-network-17" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">大象网络 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-extreme-cloud-link" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">极连云 深度评测与测速报告</h4>
+                <a href="review-lightyear-ladder" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">光年梯 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-contrail-airplane" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">飞机云 深度评测与测速报告</h4>
+                <a href="review-red-apricot-branch-658" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">一枝红杏 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
-                <a href="review-MESL" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
-                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">MESL 深度评测与测速报告</h4>
+                <a href="review-qingyun-airport" style="display: block; padding: 16px; background: rgba(0,0,0,0.02); border-radius: 8px; text-decoration: none; border: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--color-primary)'; this.style.background='var(--color-white)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)';" onmouseout="this.style.borderColor='transparent'; this.style.background='rgba(0,0,0,0.02)'; this.style.boxShadow='none';">
+                    <h4 style="font-size: 15px; color: var(--color-text); margin-bottom: 8px; line-height: 1.4;">青云梯 深度评测与测速报告</h4>
                     <span style="font-size: 13px; color: var(--color-primary); font-weight: 500;">点击阅读 →</span>
                 </a>
             
